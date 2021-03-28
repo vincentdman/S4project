@@ -24,7 +24,7 @@ extern "C"
  
   public:
 
-    HandleGPIO(); //default constructor
+    HandleGPIO(); 
 
     void SetHigh(gpio_num_t);
     void SetLow(gpio_num_t);
