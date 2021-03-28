@@ -21,7 +21,7 @@ var class_r_g_b___control =
     [ "SetRGB_Red", "d1/d26/class_r_g_b___control.html#a1ce7d04644402f215d038ef8427a81ba", null ],
     [ "SetWhite", "d1/d26/class_r_g_b___control.html#a2dc2b4fbaa2e3a0d66a4d8bd2bf76920", null ],
     [ "SetYellow", "d1/d26/class_r_g_b___control.html#aa24869ef62391016a523c45b75658053", null ],
-    [ "UpdateCannelConfig", "d1/d26/class_r_g_b___control.html#a60244fb739b3cfd4c5bc16e22f869d77", null ],
+    [ "UpdateChannelConfig", "d1/d26/class_r_g_b___control.html#a3de32e0d4bdaeac279ec58709da9380e", null ],
     [ "UpdateTimerConfig", "d1/d26/class_r_g_b___control.html#a7d2dab8bc62d0c1b6489460ec6679ce4", null ],
     [ "Blue", "d1/d26/class_r_g_b___control.html#a0132d629d15a9c35e65df625bab8fef6", null ],
     [ "BlueChannel", "d1/d26/class_r_g_b___control.html#ae92496647d1c593a0a79487e613fd376", null ],
