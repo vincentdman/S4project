@@ -27,7 +27,7 @@ extern "C"
         void SetDuty(int, gpio_num_t, ledc_channel_t);
         void SetFrequency(uint32_t, gpio_num_t);
         void UpdateTimerConfig();
-        void UpdateCannelConfig();
+        void UpdateChannelConfig();
 
     private:
         ledc_timer_config_t ledc_timer =

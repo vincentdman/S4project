@@ -47,7 +47,7 @@ extern "C"
      * @brief function to update the Channel configuration
      * 
      */
-    void PWM_GPIO::UpdateCannelConfig()
+    void PWM_GPIO::UpdateChannelConfig()
     {
         ledc_channel_config(&ledc_channel);
     }

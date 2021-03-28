@@ -11,6 +11,6 @@ side of the screen<br>
 <br>
 
 Code created by: Vincent de Man<br>
-student number: 635174<br>
+Student number: 635174<br>
 GitHub repository : <https://github.com/vincentdman/S4project><br>
-date: 28-3-2021<br>
+Date: 28-3-2021<br>
