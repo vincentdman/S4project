@@ -1,0 +1,4 @@
+@startuml S4_Diagram
+scale 2
+a --> b; 
+@enduml
