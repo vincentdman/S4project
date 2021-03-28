@@ -1,5 +1,5 @@
 @mainpage Documentation of created code for S4 Project
-<br>
+
 For class definitions and information about the<br>
 member functions please see the classes section<br>
 on the left side of the screen<br>
@@ -10,6 +10,7 @@ side of the screen<br>
 !note that there will be no information about functions/functionality<br>
 <br>
 
-Code created by Vincent de Man<br>
+Code created by: Vincent de Man<br>
 student number: 635174<br>
 GitHub repository : <https://github.com/vincentdman/S4project><br>
+date: 28-3-2021<br>
