@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "doxytest", "index.html", [
+  [ "PROJECT_S4_Code", "index.html", [
     [ "Documentation of created code for S4 Project", "index.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
