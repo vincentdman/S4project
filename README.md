@@ -5,4 +5,4 @@ created by Vincent de Man
 code makes use of: 
 eps-idf framework 
 doxygen documentation generation
-Free to use
+Free to use open source

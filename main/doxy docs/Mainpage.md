@@ -9,6 +9,9 @@ please go to the files section on the left hand<br>
 side of the screen<br>
 !note that there will be no information about functions/functionality<br>
 <br>
+This code has been inspired by the decorator design pattern.
+<br>
+
 
 Code created by: Vincent de Man<br>
 Student number: 635174<br>
