@@ -1,0 +1,106 @@
+\hypertarget{main_8cpp}{}\doxysection{C\+:/esp/\+Projects/\+RGB/template-\/app/main/main.cpp File Reference}
+\label{main_8cpp}\index{C:/esp/Projects/RGB/template-\/app/main/main.cpp@{C:/esp/Projects/RGB/template-\/app/main/main.cpp}}
+
+
+Main application for S4 Project (.cpp)  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include \char`\"{}freertos/\+Free\+RTOS.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}freertos/task.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}esp\+\_\+system.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}esp\+\_\+spi\+\_\+flash.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$driver/gpio.\+h$>$}\newline
+{\ttfamily \#include $<$driver/adc.\+h$>$}\newline
+{\ttfamily \#include $<$esp\+\_\+wifi.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Handle\+GPIO.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}RGB\+\_\+\+Control.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}PWM\+\_\+\+GPIO.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8cpp_a630544a7f0a2cc40d8a7fefab7e2fe70}{app\+\_\+main}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main application for S4 Project (.cpp) 
+
+\begin{DoxyAuthor}{Author}
+Vincent de Man 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2021-\/03-\/24
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2021 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_a630544a7f0a2cc40d8a7fefab7e2fe70}\label{main_8cpp_a630544a7f0a2cc40d8a7fefab7e2fe70}} 
+\index{main.cpp@{main.cpp}!app\_main@{app\_main}}
+\index{app\_main@{app\_main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{app\_main()}{app\_main()}}
+{\footnotesize\ttfamily void app\+\_\+main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 24 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{25 \{}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27    std::cout << \textcolor{stringliteral}{"{}Hello world!\(\backslash\)n"{}};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29    \textcolor{comment}{//PWM\_GPIO a;}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31    \textcolor{comment}{//a.SetDuty(40);}}
+\DoxyCodeLine{32    \textcolor{comment}{// a.PWM\_Initialize(GPIO\_NUM\_26);}}
+\DoxyCodeLine{33    \textcolor{comment}{// a.PWM\_Initialize(GPIO\_NUM\_25);}}
+\DoxyCodeLine{34    \textcolor{comment}{//a.PWM\_Initialize(GPIO\_NUM\_27);}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36    \textcolor{comment}{//while (1)}}
+\DoxyCodeLine{37    \textcolor{comment}{// \{}}
+\DoxyCodeLine{38    \textcolor{comment}{//a.SetDuty(0,GPIO\_NUM\_25);}}
+\DoxyCodeLine{39    \textcolor{comment}{//a.SetDuty(34,GPIO\_NUM\_27);}}
+\DoxyCodeLine{40    \textcolor{comment}{// for (int i=0; i < 100; i += 10)}}
+\DoxyCodeLine{41    \textcolor{comment}{// \{}}
+\DoxyCodeLine{42    \textcolor{comment}{// a.SetDuty(i,GPIO\_NUM\_26);}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44    \textcolor{comment}{//  a.UpdateTimerConfig();}}
+\DoxyCodeLine{45    \textcolor{comment}{//  vTaskDelay(1000 / portTICK\_PERIOD\_MS);}}
+\DoxyCodeLine{46    \textcolor{comment}{// \}}}
+\DoxyCodeLine{47    \textcolor{comment}{// \}}}
+\DoxyCodeLine{48    \textcolor{comment}{//HandleGPIO a;}}
+\DoxyCodeLine{49    \textcolor{comment}{//a.SetHigh(GPIO\_NUM\_4);}}
+\DoxyCodeLine{50    \mbox{\hyperlink{class_r_g_b___control}{RGB\_Control}} RGB\_LED(GPIO\_NUM\_25, GPIO\_NUM\_26, GPIO\_NUM\_27);}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52    RGB\_LED.SetRGB(100, 50, 0);}
+\DoxyCodeLine{53    \textcolor{comment}{/*}}
+\DoxyCodeLine{54 \textcolor{comment}{   while (1)}}
+\DoxyCodeLine{55 \textcolor{comment}{   \{}}
+\DoxyCodeLine{56 \textcolor{comment}{      RGB\_LED.SetRed();}}
+\DoxyCodeLine{57 \textcolor{comment}{      vTaskDelay(1000 / portTICK\_PERIOD\_MS);}}
+\DoxyCodeLine{58 \textcolor{comment}{      RGB\_LED.SetBlue();}}
+\DoxyCodeLine{59 \textcolor{comment}{      vTaskDelay(1000 / portTICK\_PERIOD\_MS);}}
+\DoxyCodeLine{60 \textcolor{comment}{      RGB\_LED.SetGreen();}}
+\DoxyCodeLine{61 \textcolor{comment}{      vTaskDelay(1000 / portTICK\_PERIOD\_MS);}}
+\DoxyCodeLine{62 \textcolor{comment}{      RGB\_LED.SetPurple();}}
+\DoxyCodeLine{63 \textcolor{comment}{      vTaskDelay(1000 / portTICK\_PERIOD\_MS);}}
+\DoxyCodeLine{64 \textcolor{comment}{      RGB\_LED.SetCyan();}}
+\DoxyCodeLine{65 \textcolor{comment}{      vTaskDelay(1000 / portTICK\_PERIOD\_MS);}}
+\DoxyCodeLine{66 \textcolor{comment}{      RGB\_LED.SetYellow();}}
+\DoxyCodeLine{67 \textcolor{comment}{      vTaskDelay(1000 / portTICK\_PERIOD\_MS);}}
+\DoxyCodeLine{68 \textcolor{comment}{      RGB\_LED.SetWhite();}}
+\DoxyCodeLine{69 \textcolor{comment}{      vTaskDelay(1000 / portTICK\_PERIOD\_MS);}}
+\DoxyCodeLine{70 \textcolor{comment}{   \}}}
+\DoxyCodeLine{71 \textcolor{comment}{   */}}
+\DoxyCodeLine{72 \}}
+
+\end{DoxyCode}

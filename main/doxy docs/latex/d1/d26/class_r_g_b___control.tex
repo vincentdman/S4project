@@ -1,0 +1,804 @@
+\hypertarget{class_r_g_b___control}{}\doxysection{RGB\+\_\+\+Control Class Reference}
+\label{class_r_g_b___control}\index{RGB\_Control@{RGB\_Control}}
+
+
+{\ttfamily \#include $<$RGB\+\_\+\+Control.\+h$>$}
+
+Inheritance diagram for RGB\+\_\+\+Control\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d1/d26/class_r_g_b___control}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_r_g_b___control_a55d821bc54d844da4d203c27cf4b4649}{RGB\+\_\+\+Control}} (gpio\+\_\+num\+\_\+t, gpio\+\_\+num\+\_\+t, gpio\+\_\+num\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Construct a new rgb control\+::rgb control object by taking the rgb pins and initializing them. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_r_g_b___control_aa887320e59a76ffecaf398ef32a1b58c}{Set\+Red}} (void)
+\begin{DoxyCompactList}\small\item\em Set\+Red function to make the rgb led shine red. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_r_g_b___control_aa716630a36931698a1852756778c5264}{Set\+Green}} (void)
+\begin{DoxyCompactList}\small\item\em Set\+Green function to make the rgb led shine green. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_r_g_b___control_afa5850f4141bb9b6c97b101982f7ecde}{Set\+Blue}} (void)
+\begin{DoxyCompactList}\small\item\em Setblue function to make the rgb led shine blue. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_r_g_b___control_a4b751e975516120149753f965d3bd74e}{Set\+Purple}} (void)
+\begin{DoxyCompactList}\small\item\em Set\+Purple function to make the rgb led shine purple ~\newline
+ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_r_g_b___control_aa24869ef62391016a523c45b75658053}{Set\+Yellow}} (void)
+\begin{DoxyCompactList}\small\item\em Set\+Yellow function to make the rgb led shine yellow. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_r_g_b___control_a7dd9340fd61642c75b6e5e83615927cb}{Set\+Cyan}} (void)
+\begin{DoxyCompactList}\small\item\em Set\+Cyan function to make the rgb led shine cyan. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_r_g_b___control_a2dc2b4fbaa2e3a0d66a4d8bd2bf76920}{Set\+White}} (void)
+\begin{DoxyCompactList}\small\item\em Set\+White function to make the rgb led shine white. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_r_g_b___control_a198dc24a9662c4a695369441f9185a92}{Set\+RGB}} (int, int, int)
+\begin{DoxyCompactList}\small\item\em Set\+RGB function to set the rgb values for the led. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_r_g_b___control_a1ce7d04644402f215d038ef8427a81ba}{Set\+RGB\+\_\+\+Red}} (int)
+\begin{DoxyCompactList}\small\item\em Set\+RGB\+\_\+\+Red to change the intensity of the red led. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_r_g_b___control_a70f9df54abc27f8e10b3ba4734ae1fd3}{Set\+RGB\+\_\+\+Green}} (int)
+\begin{DoxyCompactList}\small\item\em Set\+RGB\+\_\+\+Green to change the intensity of the green led. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_r_g_b___control_a8965cd27b26c05e15caf30ca25142a15}{Set\+RGB\+\_\+\+Blue}} (int)
+\begin{DoxyCompactList}\small\item\em Set\+RGB\+\_\+\+Blue to change the intensity of the blue led. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_r_g_b___control_a2183be5290656610d0f3cc09ade15a98}{Change\+Channel\+Red}} (ledc\+\_\+channel\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Function to change the pwm channel for the red led. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_r_g_b___control_a2ba30caba3f414593c4082b090eb8bca}{Change\+Channel\+Green}} (ledc\+\_\+channel\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Function to change the pwm channel for the green led. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_r_g_b___control_a386a99670d3955113586cf31cf1ae98a}{Change\+Channel\+Blue}} (ledc\+\_\+channel\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Function to change the pwm channel for the blue led. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_handle_g_p_i_o_a28b38b3469ae689baa78efc4d101ab5e}{Set\+High}} (gpio\+\_\+num\+\_\+t)
+\begin{DoxyCompactList}\small\item\em function to set the given pin high \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_handle_g_p_i_o_a39f559b3694c26853e57adad238cae8b}{Set\+Low}} (gpio\+\_\+num\+\_\+t)
+\begin{DoxyCompactList}\small\item\em function to set the given pin low \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_handle_g_p_i_o_a7d358e732064c832707a2e288e7746c7}{Initialize\+GPIO}} (gpio\+\_\+num\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Initialize a gpio pin for default settings. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_p_w_m___g_p_i_o_aebaa8483b9b158448c8e4f575b48f84f}{PWM\+\_\+\+Initialize}} (gpio\+\_\+num\+\_\+t)
+\begin{DoxyCompactList}\small\item\em function to initialize the given pin for pwm signal output \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_p_w_m___g_p_i_o_a3223d7589e95e4811d76781b8adca997}{Set\+Duty}} (int, gpio\+\_\+num\+\_\+t, ledc\+\_\+channel\+\_\+t)
+\begin{DoxyCompactList}\small\item\em function to set the duty cycle of the pwm signal \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_p_w_m___g_p_i_o_a5bccfef5b0ec497b95fa0c7587094b07}{Set\+Frequency}} (uint32\+\_\+t, gpio\+\_\+num\+\_\+t)
+\begin{DoxyCompactList}\small\item\em function to set the PWM frequency \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_p_w_m___g_p_i_o_a7d2dab8bc62d0c1b6489460ec6679ce4}{Update\+Timer\+Config}} ()
+\begin{DoxyCompactList}\small\item\em function to update the Timer Configuration \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_p_w_m___g_p_i_o_a60244fb739b3cfd4c5bc16e22f869d77}{Update\+Cannel\+Config}} ()
+\begin{DoxyCompactList}\small\item\em function to update the Channel configuration \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+gpio\+\_\+num\+\_\+t \mbox{\hyperlink{class_r_g_b___control_af3d73dc8dc27f926469db7d94bf91777}{Red}}
+\item 
+gpio\+\_\+num\+\_\+t \mbox{\hyperlink{class_r_g_b___control_af2a3f36ac8ffa4077afd95799a8e3a06}{Green}}
+\item 
+gpio\+\_\+num\+\_\+t \mbox{\hyperlink{class_r_g_b___control_a0132d629d15a9c35e65df625bab8fef6}{Blue}}
+\item 
+ledc\+\_\+channel\+\_\+t \mbox{\hyperlink{class_r_g_b___control_a59c530ffa8e17b22c606d7b65722f747}{Red\+Channel}} = LEDC\+\_\+\+CHANNEL\+\_\+0
+\item 
+ledc\+\_\+channel\+\_\+t \mbox{\hyperlink{class_r_g_b___control_a7d2b53bdae6a1b559154737526e14d49}{Green\+Channel}} = LEDC\+\_\+\+CHANNEL\+\_\+1
+\item 
+ledc\+\_\+channel\+\_\+t \mbox{\hyperlink{class_r_g_b___control_ae92496647d1c593a0a79487e613fd376}{Blue\+Channel}} = LEDC\+\_\+\+CHANNEL\+\_\+2
+\item 
+ledc\+\_\+timer\+\_\+config\+\_\+t \mbox{\hyperlink{class_p_w_m___g_p_i_o_a9d7c6f0aa42cda3c453f25c24b3ac782}{ledc\+\_\+timer}}
+\item 
+ledc\+\_\+channel\+\_\+config\+\_\+t \mbox{\hyperlink{class_p_w_m___g_p_i_o_a405117526c210f6927141f2e470b2f2f}{ledc\+\_\+channel}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+create a rgb led object 
+
+Definition at line 18 of file RGB\+\_\+\+Control.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_r_g_b___control_a55d821bc54d844da4d203c27cf4b4649}\label{class_r_g_b___control_a55d821bc54d844da4d203c27cf4b4649}} 
+\index{RGB\_Control@{RGB\_Control}!RGB\_Control@{RGB\_Control}}
+\index{RGB\_Control@{RGB\_Control}!RGB\_Control@{RGB\_Control}}
+\doxysubsubsection{\texorpdfstring{RGB\_Control()}{RGB\_Control()}}
+{\footnotesize\ttfamily RGB\+\_\+\+Control\+::\+RGB\+\_\+\+Control (\begin{DoxyParamCaption}\item[{gpio\+\_\+num\+\_\+t}]{\+\_\+\+Red,  }\item[{gpio\+\_\+num\+\_\+t}]{\+\_\+\+Green,  }\item[{gpio\+\_\+num\+\_\+t}]{\+\_\+\+Blue }\end{DoxyParamCaption})}
+
+
+
+Construct a new rgb control\+::rgb control object by taking the rgb pins and initializing them. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+Red} & Pin connected to the red anode of the led \\
+\hline
+{\em \+\_\+\+Green} & Pin connected to the green anode of the led \\
+\hline
+{\em \+\_\+\+Blue} & Pin connected to the blue anode of the led \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 23 of file RGB\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24     \{}
+\DoxyCodeLine{25         \mbox{\hyperlink{class_handle_g_p_i_o_a7d358e732064c832707a2e288e7746c7}{InitializeGPIO}}(\_Red);}
+\DoxyCodeLine{26         \mbox{\hyperlink{class_handle_g_p_i_o_a7d358e732064c832707a2e288e7746c7}{InitializeGPIO}}(\_Green);}
+\DoxyCodeLine{27         \mbox{\hyperlink{class_handle_g_p_i_o_a7d358e732064c832707a2e288e7746c7}{InitializeGPIO}}(\_Blue);}
+\DoxyCodeLine{28         \mbox{\hyperlink{class_r_g_b___control_af3d73dc8dc27f926469db7d94bf91777}{Red}} = \_Red;}
+\DoxyCodeLine{29         \mbox{\hyperlink{class_r_g_b___control_af2a3f36ac8ffa4077afd95799a8e3a06}{Green}} = \_Green;}
+\DoxyCodeLine{30         \mbox{\hyperlink{class_r_g_b___control_a0132d629d15a9c35e65df625bab8fef6}{Blue}} = \_Blue;}
+\DoxyCodeLine{31     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_r_g_b___control_aa887320e59a76ffecaf398ef32a1b58c}\label{class_r_g_b___control_aa887320e59a76ffecaf398ef32a1b58c}} 
+\index{RGB\_Control@{RGB\_Control}!SetRed@{SetRed}}
+\index{SetRed@{SetRed}!RGB\_Control@{RGB\_Control}}
+\doxysubsubsection{\texorpdfstring{SetRed()}{SetRed()}}
+{\footnotesize\ttfamily void RGB\+\_\+\+Control\+::\+Set\+Red (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Set\+Red function to make the rgb led shine red. 
+
+
+
+Definition at line 56 of file RGB\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{57     \{}
+\DoxyCodeLine{58         \mbox{\hyperlink{class_handle_g_p_i_o_a28b38b3469ae689baa78efc4d101ab5e}{SetHigh}}(\mbox{\hyperlink{class_r_g_b___control_af3d73dc8dc27f926469db7d94bf91777}{Red}});}
+\DoxyCodeLine{59         \mbox{\hyperlink{class_handle_g_p_i_o_a39f559b3694c26853e57adad238cae8b}{SetLow}}(\mbox{\hyperlink{class_r_g_b___control_af2a3f36ac8ffa4077afd95799a8e3a06}{Green}});}
+\DoxyCodeLine{60         \mbox{\hyperlink{class_handle_g_p_i_o_a39f559b3694c26853e57adad238cae8b}{SetLow}}(\mbox{\hyperlink{class_r_g_b___control_a0132d629d15a9c35e65df625bab8fef6}{Blue}});}
+\DoxyCodeLine{61     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_r_g_b___control_aa716630a36931698a1852756778c5264}\label{class_r_g_b___control_aa716630a36931698a1852756778c5264}} 
+\index{RGB\_Control@{RGB\_Control}!SetGreen@{SetGreen}}
+\index{SetGreen@{SetGreen}!RGB\_Control@{RGB\_Control}}
+\doxysubsubsection{\texorpdfstring{SetGreen()}{SetGreen()}}
+{\footnotesize\ttfamily void RGB\+\_\+\+Control\+::\+Set\+Green (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Set\+Green function to make the rgb led shine green. 
+
+
+
+Definition at line 46 of file RGB\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{47     \{}
+\DoxyCodeLine{48         \mbox{\hyperlink{class_handle_g_p_i_o_a28b38b3469ae689baa78efc4d101ab5e}{SetHigh}}(\mbox{\hyperlink{class_r_g_b___control_af2a3f36ac8ffa4077afd95799a8e3a06}{Green}});}
+\DoxyCodeLine{49         \mbox{\hyperlink{class_handle_g_p_i_o_a39f559b3694c26853e57adad238cae8b}{SetLow}}(\mbox{\hyperlink{class_r_g_b___control_af3d73dc8dc27f926469db7d94bf91777}{Red}});}
+\DoxyCodeLine{50         \mbox{\hyperlink{class_handle_g_p_i_o_a39f559b3694c26853e57adad238cae8b}{SetLow}}(\mbox{\hyperlink{class_r_g_b___control_a0132d629d15a9c35e65df625bab8fef6}{Blue}});}
+\DoxyCodeLine{51     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_r_g_b___control_afa5850f4141bb9b6c97b101982f7ecde}\label{class_r_g_b___control_afa5850f4141bb9b6c97b101982f7ecde}} 
+\index{RGB\_Control@{RGB\_Control}!SetBlue@{SetBlue}}
+\index{SetBlue@{SetBlue}!RGB\_Control@{RGB\_Control}}
+\doxysubsubsection{\texorpdfstring{SetBlue()}{SetBlue()}}
+{\footnotesize\ttfamily void RGB\+\_\+\+Control\+::\+Set\+Blue (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Setblue function to make the rgb led shine blue. 
+
+
+
+Definition at line 36 of file RGB\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{37     \{}
+\DoxyCodeLine{38         \mbox{\hyperlink{class_handle_g_p_i_o_a28b38b3469ae689baa78efc4d101ab5e}{SetHigh}}(\mbox{\hyperlink{class_r_g_b___control_a0132d629d15a9c35e65df625bab8fef6}{Blue}});}
+\DoxyCodeLine{39         \mbox{\hyperlink{class_handle_g_p_i_o_a39f559b3694c26853e57adad238cae8b}{SetLow}}(\mbox{\hyperlink{class_r_g_b___control_af3d73dc8dc27f926469db7d94bf91777}{Red}});}
+\DoxyCodeLine{40         \mbox{\hyperlink{class_handle_g_p_i_o_a39f559b3694c26853e57adad238cae8b}{SetLow}}(\mbox{\hyperlink{class_r_g_b___control_af2a3f36ac8ffa4077afd95799a8e3a06}{Green}});}
+\DoxyCodeLine{41     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_r_g_b___control_a4b751e975516120149753f965d3bd74e}\label{class_r_g_b___control_a4b751e975516120149753f965d3bd74e}} 
+\index{RGB\_Control@{RGB\_Control}!SetPurple@{SetPurple}}
+\index{SetPurple@{SetPurple}!RGB\_Control@{RGB\_Control}}
+\doxysubsubsection{\texorpdfstring{SetPurple()}{SetPurple()}}
+{\footnotesize\ttfamily void RGB\+\_\+\+Control\+::\+Set\+Purple (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Set\+Purple function to make the rgb led shine purple ~\newline
+ 
+
+
+
+Definition at line 66 of file RGB\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{67     \{}
+\DoxyCodeLine{68         \mbox{\hyperlink{class_handle_g_p_i_o_a28b38b3469ae689baa78efc4d101ab5e}{SetHigh}}(\mbox{\hyperlink{class_r_g_b___control_af3d73dc8dc27f926469db7d94bf91777}{Red}});}
+\DoxyCodeLine{69         \mbox{\hyperlink{class_handle_g_p_i_o_a39f559b3694c26853e57adad238cae8b}{SetLow}}(\mbox{\hyperlink{class_r_g_b___control_af2a3f36ac8ffa4077afd95799a8e3a06}{Green}});}
+\DoxyCodeLine{70         \mbox{\hyperlink{class_handle_g_p_i_o_a28b38b3469ae689baa78efc4d101ab5e}{SetHigh}}(\mbox{\hyperlink{class_r_g_b___control_a0132d629d15a9c35e65df625bab8fef6}{Blue}});}
+\DoxyCodeLine{71     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_r_g_b___control_aa24869ef62391016a523c45b75658053}\label{class_r_g_b___control_aa24869ef62391016a523c45b75658053}} 
+\index{RGB\_Control@{RGB\_Control}!SetYellow@{SetYellow}}
+\index{SetYellow@{SetYellow}!RGB\_Control@{RGB\_Control}}
+\doxysubsubsection{\texorpdfstring{SetYellow()}{SetYellow()}}
+{\footnotesize\ttfamily void RGB\+\_\+\+Control\+::\+Set\+Yellow (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Set\+Yellow function to make the rgb led shine yellow. 
+
+
+
+Definition at line 86 of file RGB\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{87     \{}
+\DoxyCodeLine{88         \mbox{\hyperlink{class_handle_g_p_i_o_a28b38b3469ae689baa78efc4d101ab5e}{SetHigh}}(\mbox{\hyperlink{class_r_g_b___control_af3d73dc8dc27f926469db7d94bf91777}{Red}});}
+\DoxyCodeLine{89         \mbox{\hyperlink{class_handle_g_p_i_o_a28b38b3469ae689baa78efc4d101ab5e}{SetHigh}}(\mbox{\hyperlink{class_r_g_b___control_af2a3f36ac8ffa4077afd95799a8e3a06}{Green}});}
+\DoxyCodeLine{90         \mbox{\hyperlink{class_handle_g_p_i_o_a39f559b3694c26853e57adad238cae8b}{SetLow}}(\mbox{\hyperlink{class_r_g_b___control_a0132d629d15a9c35e65df625bab8fef6}{Blue}});}
+\DoxyCodeLine{91     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_r_g_b___control_a7dd9340fd61642c75b6e5e83615927cb}\label{class_r_g_b___control_a7dd9340fd61642c75b6e5e83615927cb}} 
+\index{RGB\_Control@{RGB\_Control}!SetCyan@{SetCyan}}
+\index{SetCyan@{SetCyan}!RGB\_Control@{RGB\_Control}}
+\doxysubsubsection{\texorpdfstring{SetCyan()}{SetCyan()}}
+{\footnotesize\ttfamily void RGB\+\_\+\+Control\+::\+Set\+Cyan (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Set\+Cyan function to make the rgb led shine cyan. 
+
+
+
+Definition at line 96 of file RGB\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{97     \{}
+\DoxyCodeLine{98         \mbox{\hyperlink{class_handle_g_p_i_o_a39f559b3694c26853e57adad238cae8b}{SetLow}}(\mbox{\hyperlink{class_r_g_b___control_af3d73dc8dc27f926469db7d94bf91777}{Red}});}
+\DoxyCodeLine{99         \mbox{\hyperlink{class_handle_g_p_i_o_a28b38b3469ae689baa78efc4d101ab5e}{SetHigh}}(\mbox{\hyperlink{class_r_g_b___control_af2a3f36ac8ffa4077afd95799a8e3a06}{Green}});}
+\DoxyCodeLine{100         \mbox{\hyperlink{class_handle_g_p_i_o_a28b38b3469ae689baa78efc4d101ab5e}{SetHigh}}(\mbox{\hyperlink{class_r_g_b___control_a0132d629d15a9c35e65df625bab8fef6}{Blue}});}
+\DoxyCodeLine{101     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_r_g_b___control_a2dc2b4fbaa2e3a0d66a4d8bd2bf76920}\label{class_r_g_b___control_a2dc2b4fbaa2e3a0d66a4d8bd2bf76920}} 
+\index{RGB\_Control@{RGB\_Control}!SetWhite@{SetWhite}}
+\index{SetWhite@{SetWhite}!RGB\_Control@{RGB\_Control}}
+\doxysubsubsection{\texorpdfstring{SetWhite()}{SetWhite()}}
+{\footnotesize\ttfamily void RGB\+\_\+\+Control\+::\+Set\+White (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Set\+White function to make the rgb led shine white. 
+
+
+
+Definition at line 76 of file RGB\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{77     \{}
+\DoxyCodeLine{78         \mbox{\hyperlink{class_handle_g_p_i_o_a28b38b3469ae689baa78efc4d101ab5e}{SetHigh}}(\mbox{\hyperlink{class_r_g_b___control_af3d73dc8dc27f926469db7d94bf91777}{Red}});}
+\DoxyCodeLine{79         \mbox{\hyperlink{class_handle_g_p_i_o_a28b38b3469ae689baa78efc4d101ab5e}{SetHigh}}(\mbox{\hyperlink{class_r_g_b___control_af2a3f36ac8ffa4077afd95799a8e3a06}{Green}});}
+\DoxyCodeLine{80         \mbox{\hyperlink{class_handle_g_p_i_o_a28b38b3469ae689baa78efc4d101ab5e}{SetHigh}}(\mbox{\hyperlink{class_r_g_b___control_a0132d629d15a9c35e65df625bab8fef6}{Blue}});}
+\DoxyCodeLine{81     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_r_g_b___control_a198dc24a9662c4a695369441f9185a92}\label{class_r_g_b___control_a198dc24a9662c4a695369441f9185a92}} 
+\index{RGB\_Control@{RGB\_Control}!SetRGB@{SetRGB}}
+\index{SetRGB@{SetRGB}!RGB\_Control@{RGB\_Control}}
+\doxysubsubsection{\texorpdfstring{SetRGB()}{SetRGB()}}
+{\footnotesize\ttfamily void RGB\+\_\+\+Control\+::\+Set\+RGB (\begin{DoxyParamCaption}\item[{int}]{SetR,  }\item[{int}]{SetG,  }\item[{int}]{SetB }\end{DoxyParamCaption})}
+
+
+
+Set\+RGB function to set the rgb values for the led. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em SetR} & integer value 0-\/100 to set intensity of the red led \\
+\hline
+{\em SetG} & integer value 0-\/100 to set intensity of the green led \\
+\hline
+{\em SetB} & integer value 0-\/100 to set intensity of the blue led \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 109 of file RGB\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{110     \{}
+\DoxyCodeLine{111         \mbox{\hyperlink{class_p_w_m___g_p_i_o_a3223d7589e95e4811d76781b8adca997}{SetDuty}}(SetR, \mbox{\hyperlink{class_r_g_b___control_af3d73dc8dc27f926469db7d94bf91777}{Red}}, \mbox{\hyperlink{class_r_g_b___control_a59c530ffa8e17b22c606d7b65722f747}{RedChannel}});}
+\DoxyCodeLine{112         \mbox{\hyperlink{class_p_w_m___g_p_i_o_a3223d7589e95e4811d76781b8adca997}{SetDuty}}(SetG, \mbox{\hyperlink{class_r_g_b___control_af2a3f36ac8ffa4077afd95799a8e3a06}{Green}}, \mbox{\hyperlink{class_r_g_b___control_a7d2b53bdae6a1b559154737526e14d49}{GreenChannel}});}
+\DoxyCodeLine{113         \mbox{\hyperlink{class_p_w_m___g_p_i_o_a3223d7589e95e4811d76781b8adca997}{SetDuty}}(SetB, \mbox{\hyperlink{class_r_g_b___control_a0132d629d15a9c35e65df625bab8fef6}{Blue}}, \mbox{\hyperlink{class_r_g_b___control_ae92496647d1c593a0a79487e613fd376}{BlueChannel}});}
+\DoxyCodeLine{114     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_r_g_b___control_a1ce7d04644402f215d038ef8427a81ba}\label{class_r_g_b___control_a1ce7d04644402f215d038ef8427a81ba}} 
+\index{RGB\_Control@{RGB\_Control}!SetRGB\_Red@{SetRGB\_Red}}
+\index{SetRGB\_Red@{SetRGB\_Red}!RGB\_Control@{RGB\_Control}}
+\doxysubsubsection{\texorpdfstring{SetRGB\_Red()}{SetRGB\_Red()}}
+{\footnotesize\ttfamily void RGB\+\_\+\+Control\+::\+Set\+RGB\+\_\+\+Red (\begin{DoxyParamCaption}\item[{int}]{SetR }\end{DoxyParamCaption})}
+
+
+
+Set\+RGB\+\_\+\+Red to change the intensity of the red led. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em SetR} & integer value 0-\/100 to set intensity of the red led \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 120 of file RGB\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{121     \{}
+\DoxyCodeLine{122         \mbox{\hyperlink{class_p_w_m___g_p_i_o_a3223d7589e95e4811d76781b8adca997}{SetDuty}}(SetR, \mbox{\hyperlink{class_r_g_b___control_af3d73dc8dc27f926469db7d94bf91777}{Red}}, \mbox{\hyperlink{class_r_g_b___control_a59c530ffa8e17b22c606d7b65722f747}{RedChannel}});}
+\DoxyCodeLine{123     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_r_g_b___control_a70f9df54abc27f8e10b3ba4734ae1fd3}\label{class_r_g_b___control_a70f9df54abc27f8e10b3ba4734ae1fd3}} 
+\index{RGB\_Control@{RGB\_Control}!SetRGB\_Green@{SetRGB\_Green}}
+\index{SetRGB\_Green@{SetRGB\_Green}!RGB\_Control@{RGB\_Control}}
+\doxysubsubsection{\texorpdfstring{SetRGB\_Green()}{SetRGB\_Green()}}
+{\footnotesize\ttfamily void RGB\+\_\+\+Control\+::\+Set\+RGB\+\_\+\+Green (\begin{DoxyParamCaption}\item[{int}]{SetG }\end{DoxyParamCaption})}
+
+
+
+Set\+RGB\+\_\+\+Green to change the intensity of the green led. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em SetG} & integer value 0-\/100 to set intensity of the green led \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 129 of file RGB\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{130     \{}
+\DoxyCodeLine{131         \mbox{\hyperlink{class_p_w_m___g_p_i_o_a3223d7589e95e4811d76781b8adca997}{SetDuty}}(SetG, \mbox{\hyperlink{class_r_g_b___control_af2a3f36ac8ffa4077afd95799a8e3a06}{Green}}, \mbox{\hyperlink{class_r_g_b___control_a7d2b53bdae6a1b559154737526e14d49}{GreenChannel}});}
+\DoxyCodeLine{132     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_r_g_b___control_a8965cd27b26c05e15caf30ca25142a15}\label{class_r_g_b___control_a8965cd27b26c05e15caf30ca25142a15}} 
+\index{RGB\_Control@{RGB\_Control}!SetRGB\_Blue@{SetRGB\_Blue}}
+\index{SetRGB\_Blue@{SetRGB\_Blue}!RGB\_Control@{RGB\_Control}}
+\doxysubsubsection{\texorpdfstring{SetRGB\_Blue()}{SetRGB\_Blue()}}
+{\footnotesize\ttfamily void RGB\+\_\+\+Control\+::\+Set\+RGB\+\_\+\+Blue (\begin{DoxyParamCaption}\item[{int}]{SetB }\end{DoxyParamCaption})}
+
+
+
+Set\+RGB\+\_\+\+Blue to change the intensity of the blue led. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em SetB} & integer value 0-\/100 to set intensity of the blue led \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 138 of file RGB\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{139     \{}
+\DoxyCodeLine{140         \mbox{\hyperlink{class_p_w_m___g_p_i_o_a3223d7589e95e4811d76781b8adca997}{SetDuty}}(SetB, \mbox{\hyperlink{class_r_g_b___control_a0132d629d15a9c35e65df625bab8fef6}{Blue}}, \mbox{\hyperlink{class_r_g_b___control_ae92496647d1c593a0a79487e613fd376}{BlueChannel}});}
+\DoxyCodeLine{141     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_r_g_b___control_a2183be5290656610d0f3cc09ade15a98}\label{class_r_g_b___control_a2183be5290656610d0f3cc09ade15a98}} 
+\index{RGB\_Control@{RGB\_Control}!ChangeChannelRed@{ChangeChannelRed}}
+\index{ChangeChannelRed@{ChangeChannelRed}!RGB\_Control@{RGB\_Control}}
+\doxysubsubsection{\texorpdfstring{ChangeChannelRed()}{ChangeChannelRed()}}
+{\footnotesize\ttfamily void RGB\+\_\+\+Control\+::\+Change\+Channel\+Red (\begin{DoxyParamCaption}\item[{ledc\+\_\+channel\+\_\+t}]{Channel }\end{DoxyParamCaption})}
+
+
+
+Function to change the pwm channel for the red led. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Channel} & The new pwm channel for the red led \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 147 of file RGB\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{148     \{}
+\DoxyCodeLine{149         \mbox{\hyperlink{class_r_g_b___control_a59c530ffa8e17b22c606d7b65722f747}{RedChannel}} = Channel;}
+\DoxyCodeLine{150     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_r_g_b___control_a2ba30caba3f414593c4082b090eb8bca}\label{class_r_g_b___control_a2ba30caba3f414593c4082b090eb8bca}} 
+\index{RGB\_Control@{RGB\_Control}!ChangeChannelGreen@{ChangeChannelGreen}}
+\index{ChangeChannelGreen@{ChangeChannelGreen}!RGB\_Control@{RGB\_Control}}
+\doxysubsubsection{\texorpdfstring{ChangeChannelGreen()}{ChangeChannelGreen()}}
+{\footnotesize\ttfamily void RGB\+\_\+\+Control\+::\+Change\+Channel\+Green (\begin{DoxyParamCaption}\item[{ledc\+\_\+channel\+\_\+t}]{Channel }\end{DoxyParamCaption})}
+
+
+
+Function to change the pwm channel for the green led. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Channel} & The new pwm channel for the green led \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 165 of file RGB\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{166     \{}
+\DoxyCodeLine{167         \mbox{\hyperlink{class_r_g_b___control_a7d2b53bdae6a1b559154737526e14d49}{GreenChannel}} = Channel;}
+\DoxyCodeLine{168     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_r_g_b___control_a386a99670d3955113586cf31cf1ae98a}\label{class_r_g_b___control_a386a99670d3955113586cf31cf1ae98a}} 
+\index{RGB\_Control@{RGB\_Control}!ChangeChannelBlue@{ChangeChannelBlue}}
+\index{ChangeChannelBlue@{ChangeChannelBlue}!RGB\_Control@{RGB\_Control}}
+\doxysubsubsection{\texorpdfstring{ChangeChannelBlue()}{ChangeChannelBlue()}}
+{\footnotesize\ttfamily void RGB\+\_\+\+Control\+::\+Change\+Channel\+Blue (\begin{DoxyParamCaption}\item[{ledc\+\_\+channel\+\_\+t}]{Channel }\end{DoxyParamCaption})}
+
+
+
+Function to change the pwm channel for the blue led. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Channel} & The new pwm channel for the blue led \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 156 of file RGB\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{157     \{}
+\DoxyCodeLine{158         \mbox{\hyperlink{class_r_g_b___control_ae92496647d1c593a0a79487e613fd376}{BlueChannel}} = Channel;}
+\DoxyCodeLine{159     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_handle_g_p_i_o_a28b38b3469ae689baa78efc4d101ab5e}\label{class_handle_g_p_i_o_a28b38b3469ae689baa78efc4d101ab5e}} 
+\index{RGB\_Control@{RGB\_Control}!SetHigh@{SetHigh}}
+\index{SetHigh@{SetHigh}!RGB\_Control@{RGB\_Control}}
+\doxysubsubsection{\texorpdfstring{SetHigh()}{SetHigh()}}
+{\footnotesize\ttfamily void Handle\+GPIO\+::\+Set\+High (\begin{DoxyParamCaption}\item[{gpio\+\_\+num\+\_\+t}]{PIN }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+function to set the given pin high 
+
+
+\begin{DoxyParams}{Parameters}
+{\em PIN} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 42 of file Handle\+GPIO.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{43     \{}
+\DoxyCodeLine{44         gpio\_set\_level(PIN, 1);}
+\DoxyCodeLine{45     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_handle_g_p_i_o_a39f559b3694c26853e57adad238cae8b}\label{class_handle_g_p_i_o_a39f559b3694c26853e57adad238cae8b}} 
+\index{RGB\_Control@{RGB\_Control}!SetLow@{SetLow}}
+\index{SetLow@{SetLow}!RGB\_Control@{RGB\_Control}}
+\doxysubsubsection{\texorpdfstring{SetLow()}{SetLow()}}
+{\footnotesize\ttfamily void Handle\+GPIO\+::\+Set\+Low (\begin{DoxyParamCaption}\item[{gpio\+\_\+num\+\_\+t}]{PIN }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+function to set the given pin low 
+
+
+\begin{DoxyParams}{Parameters}
+{\em PIN} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 51 of file Handle\+GPIO.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{52     \{}
+\DoxyCodeLine{53         gpio\_set\_level(PIN, 0);}
+\DoxyCodeLine{54     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_handle_g_p_i_o_a7d358e732064c832707a2e288e7746c7}\label{class_handle_g_p_i_o_a7d358e732064c832707a2e288e7746c7}} 
+\index{RGB\_Control@{RGB\_Control}!InitializeGPIO@{InitializeGPIO}}
+\index{InitializeGPIO@{InitializeGPIO}!RGB\_Control@{RGB\_Control}}
+\doxysubsubsection{\texorpdfstring{InitializeGPIO()}{InitializeGPIO()}}
+{\footnotesize\ttfamily void Handle\+GPIO\+::\+Initialize\+GPIO (\begin{DoxyParamCaption}\item[{gpio\+\_\+num\+\_\+t}]{PIN }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Initialize a gpio pin for default settings. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em PIN} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 32 of file Handle\+GPIO.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{33     \{}
+\DoxyCodeLine{34         gpio\_set\_pull\_mode(PIN, GPIO\_PULLDOWN\_ONLY);}
+\DoxyCodeLine{35         gpio\_set\_direction(PIN, GPIO\_MODE\_OUTPUT);}
+\DoxyCodeLine{36     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_p_w_m___g_p_i_o_aebaa8483b9b158448c8e4f575b48f84f}\label{class_p_w_m___g_p_i_o_aebaa8483b9b158448c8e4f575b48f84f}} 
+\index{RGB\_Control@{RGB\_Control}!PWM\_Initialize@{PWM\_Initialize}}
+\index{PWM\_Initialize@{PWM\_Initialize}!RGB\_Control@{RGB\_Control}}
+\doxysubsubsection{\texorpdfstring{PWM\_Initialize()}{PWM\_Initialize()}}
+{\footnotesize\ttfamily void PWM\+\_\+\+GPIO\+::\+PWM\+\_\+\+Initialize (\begin{DoxyParamCaption}\item[{gpio\+\_\+num\+\_\+t}]{PIN }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+function to initialize the given pin for pwm signal output 
+
+
+\begin{DoxyParams}{Parameters}
+{\em PIN} & The pin that gets initialized \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 82 of file PWM\+\_\+\+GPIO.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{83     \{}
+\DoxyCodeLine{84         \mbox{\hyperlink{class_p_w_m___g_p_i_o_a405117526c210f6927141f2e470b2f2f}{ledc\_channel}}.gpio\_num = PIN;}
+\DoxyCodeLine{85         ledc\_timer\_config(\&\mbox{\hyperlink{class_p_w_m___g_p_i_o_a9d7c6f0aa42cda3c453f25c24b3ac782}{ledc\_timer}});}
+\DoxyCodeLine{86         ledc\_channel\_config(\&\mbox{\hyperlink{class_p_w_m___g_p_i_o_a405117526c210f6927141f2e470b2f2f}{ledc\_channel}});}
+\DoxyCodeLine{87     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_p_w_m___g_p_i_o_a3223d7589e95e4811d76781b8adca997}\label{class_p_w_m___g_p_i_o_a3223d7589e95e4811d76781b8adca997}} 
+\index{RGB\_Control@{RGB\_Control}!SetDuty@{SetDuty}}
+\index{SetDuty@{SetDuty}!RGB\_Control@{RGB\_Control}}
+\doxysubsubsection{\texorpdfstring{SetDuty()}{SetDuty()}}
+{\footnotesize\ttfamily void PWM\+\_\+\+GPIO\+::\+Set\+Duty (\begin{DoxyParamCaption}\item[{int}]{duty,  }\item[{gpio\+\_\+num\+\_\+t}]{PIN,  }\item[{ledc\+\_\+channel\+\_\+t}]{Channel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+function to set the duty cycle of the pwm signal 
+
+
+\begin{DoxyParams}{Parameters}
+{\em duty} & The desired duty cycle \\
+\hline
+{\em PIN} & The designated pin \\
+\hline
+{\em Channel} & The affected pwm channel \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 69 of file PWM\+\_\+\+GPIO.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{70     \{}
+\DoxyCodeLine{71         \textcolor{comment}{//duty in range 0 to 8191}}
+\DoxyCodeLine{72         duty = duty * 8191 / 100;}
+\DoxyCodeLine{73         \mbox{\hyperlink{class_p_w_m___g_p_i_o_a405117526c210f6927141f2e470b2f2f}{ledc\_channel}}.channel = Channel;}
+\DoxyCodeLine{74         \mbox{\hyperlink{class_p_w_m___g_p_i_o_a405117526c210f6927141f2e470b2f2f}{ledc\_channel}}.duty = duty;}
+\DoxyCodeLine{75         \mbox{\hyperlink{class_p_w_m___g_p_i_o_aebaa8483b9b158448c8e4f575b48f84f}{PWM\_Initialize}}(PIN);}
+\DoxyCodeLine{76     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_p_w_m___g_p_i_o_a5bccfef5b0ec497b95fa0c7587094b07}\label{class_p_w_m___g_p_i_o_a5bccfef5b0ec497b95fa0c7587094b07}} 
+\index{RGB\_Control@{RGB\_Control}!SetFrequency@{SetFrequency}}
+\index{SetFrequency@{SetFrequency}!RGB\_Control@{RGB\_Control}}
+\doxysubsubsection{\texorpdfstring{SetFrequency()}{SetFrequency()}}
+{\footnotesize\ttfamily void PWM\+\_\+\+GPIO\+::\+Set\+Frequency (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{Frequency,  }\item[{gpio\+\_\+num\+\_\+t}]{PIN }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+function to set the PWM frequency 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Frequency} & The desired PWM Frequency \\
+\hline
+{\em PIN} & The designated pin \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 41 of file PWM\+\_\+\+GPIO.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{42     \{}
+\DoxyCodeLine{43         \mbox{\hyperlink{class_p_w_m___g_p_i_o_a9d7c6f0aa42cda3c453f25c24b3ac782}{ledc\_timer}}.freq\_hz = Frequency;}
+\DoxyCodeLine{44         \mbox{\hyperlink{class_p_w_m___g_p_i_o_aebaa8483b9b158448c8e4f575b48f84f}{PWM\_Initialize}}(PIN);}
+\DoxyCodeLine{45     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_p_w_m___g_p_i_o_a7d2dab8bc62d0c1b6489460ec6679ce4}\label{class_p_w_m___g_p_i_o_a7d2dab8bc62d0c1b6489460ec6679ce4}} 
+\index{RGB\_Control@{RGB\_Control}!UpdateTimerConfig@{UpdateTimerConfig}}
+\index{UpdateTimerConfig@{UpdateTimerConfig}!RGB\_Control@{RGB\_Control}}
+\doxysubsubsection{\texorpdfstring{UpdateTimerConfig()}{UpdateTimerConfig()}}
+{\footnotesize\ttfamily void PWM\+\_\+\+GPIO\+::\+Update\+Timer\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+function to update the Timer Configuration 
+
+
+
+Definition at line 58 of file PWM\+\_\+\+GPIO.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{59     \{}
+\DoxyCodeLine{60         ledc\_timer\_config(\&\mbox{\hyperlink{class_p_w_m___g_p_i_o_a9d7c6f0aa42cda3c453f25c24b3ac782}{ledc\_timer}});}
+\DoxyCodeLine{61     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_p_w_m___g_p_i_o_a60244fb739b3cfd4c5bc16e22f869d77}\label{class_p_w_m___g_p_i_o_a60244fb739b3cfd4c5bc16e22f869d77}} 
+\index{RGB\_Control@{RGB\_Control}!UpdateCannelConfig@{UpdateCannelConfig}}
+\index{UpdateCannelConfig@{UpdateCannelConfig}!RGB\_Control@{RGB\_Control}}
+\doxysubsubsection{\texorpdfstring{UpdateCannelConfig()}{UpdateCannelConfig()}}
+{\footnotesize\ttfamily void PWM\+\_\+\+GPIO\+::\+Update\+Cannel\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+function to update the Channel configuration 
+
+
+
+Definition at line 50 of file PWM\+\_\+\+GPIO.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{51     \{}
+\DoxyCodeLine{52         ledc\_channel\_config(\&\mbox{\hyperlink{class_p_w_m___g_p_i_o_a405117526c210f6927141f2e470b2f2f}{ledc\_channel}});}
+\DoxyCodeLine{53     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_r_g_b___control_af3d73dc8dc27f926469db7d94bf91777}\label{class_r_g_b___control_af3d73dc8dc27f926469db7d94bf91777}} 
+\index{RGB\_Control@{RGB\_Control}!Red@{Red}}
+\index{Red@{Red}!RGB\_Control@{RGB\_Control}}
+\doxysubsubsection{\texorpdfstring{Red}{Red}}
+{\footnotesize\ttfamily gpio\+\_\+num\+\_\+t RGB\+\_\+\+Control\+::\+Red\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 38 of file RGB\+\_\+\+Control.\+h.
+
+\mbox{\Hypertarget{class_r_g_b___control_af2a3f36ac8ffa4077afd95799a8e3a06}\label{class_r_g_b___control_af2a3f36ac8ffa4077afd95799a8e3a06}} 
+\index{RGB\_Control@{RGB\_Control}!Green@{Green}}
+\index{Green@{Green}!RGB\_Control@{RGB\_Control}}
+\doxysubsubsection{\texorpdfstring{Green}{Green}}
+{\footnotesize\ttfamily gpio\+\_\+num\+\_\+t RGB\+\_\+\+Control\+::\+Green\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 39 of file RGB\+\_\+\+Control.\+h.
+
+\mbox{\Hypertarget{class_r_g_b___control_a0132d629d15a9c35e65df625bab8fef6}\label{class_r_g_b___control_a0132d629d15a9c35e65df625bab8fef6}} 
+\index{RGB\_Control@{RGB\_Control}!Blue@{Blue}}
+\index{Blue@{Blue}!RGB\_Control@{RGB\_Control}}
+\doxysubsubsection{\texorpdfstring{Blue}{Blue}}
+{\footnotesize\ttfamily gpio\+\_\+num\+\_\+t RGB\+\_\+\+Control\+::\+Blue\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 40 of file RGB\+\_\+\+Control.\+h.
+
+\mbox{\Hypertarget{class_r_g_b___control_a59c530ffa8e17b22c606d7b65722f747}\label{class_r_g_b___control_a59c530ffa8e17b22c606d7b65722f747}} 
+\index{RGB\_Control@{RGB\_Control}!RedChannel@{RedChannel}}
+\index{RedChannel@{RedChannel}!RGB\_Control@{RGB\_Control}}
+\doxysubsubsection{\texorpdfstring{RedChannel}{RedChannel}}
+{\footnotesize\ttfamily ledc\+\_\+channel\+\_\+t RGB\+\_\+\+Control\+::\+Red\+Channel = LEDC\+\_\+\+CHANNEL\+\_\+0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 42 of file RGB\+\_\+\+Control.\+h.
+
+\mbox{\Hypertarget{class_r_g_b___control_a7d2b53bdae6a1b559154737526e14d49}\label{class_r_g_b___control_a7d2b53bdae6a1b559154737526e14d49}} 
+\index{RGB\_Control@{RGB\_Control}!GreenChannel@{GreenChannel}}
+\index{GreenChannel@{GreenChannel}!RGB\_Control@{RGB\_Control}}
+\doxysubsubsection{\texorpdfstring{GreenChannel}{GreenChannel}}
+{\footnotesize\ttfamily ledc\+\_\+channel\+\_\+t RGB\+\_\+\+Control\+::\+Green\+Channel = LEDC\+\_\+\+CHANNEL\+\_\+1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 43 of file RGB\+\_\+\+Control.\+h.
+
+\mbox{\Hypertarget{class_r_g_b___control_ae92496647d1c593a0a79487e613fd376}\label{class_r_g_b___control_ae92496647d1c593a0a79487e613fd376}} 
+\index{RGB\_Control@{RGB\_Control}!BlueChannel@{BlueChannel}}
+\index{BlueChannel@{BlueChannel}!RGB\_Control@{RGB\_Control}}
+\doxysubsubsection{\texorpdfstring{BlueChannel}{BlueChannel}}
+{\footnotesize\ttfamily ledc\+\_\+channel\+\_\+t RGB\+\_\+\+Control\+::\+Blue\+Channel = LEDC\+\_\+\+CHANNEL\+\_\+2\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 44 of file RGB\+\_\+\+Control.\+h.
+
+\mbox{\Hypertarget{class_p_w_m___g_p_i_o_a9d7c6f0aa42cda3c453f25c24b3ac782}\label{class_p_w_m___g_p_i_o_a9d7c6f0aa42cda3c453f25c24b3ac782}} 
+\index{RGB\_Control@{RGB\_Control}!ledc\_timer@{ledc\_timer}}
+\index{ledc\_timer@{ledc\_timer}!RGB\_Control@{RGB\_Control}}
+\doxysubsubsection{\texorpdfstring{ledc\_timer}{ledc\_timer}}
+{\footnotesize\ttfamily ledc\+\_\+timer\+\_\+config\+\_\+t PWM\+\_\+\+GPIO\+::ledc\+\_\+timer\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{            \{}
+\DoxyCodeLine{                .speed\_mode = LEDC\_LOW\_SPEED\_MODE,    }
+\DoxyCodeLine{                .duty\_resolution = LEDC\_TIMER\_13\_BIT, }
+\DoxyCodeLine{                .timer\_num = LEDC\_TIMER\_1,            }
+\DoxyCodeLine{                .freq\_hz = 5000,                      }
+\DoxyCodeLine{                .clk\_cfg = LEDC\_AUTO\_CLK              }
+\DoxyCodeLine{        \}}
+
+\end{DoxyCode}
+
+
+Definition at line 33 of file PWM\+\_\+\+GPIO.\+h.
+
+\mbox{\Hypertarget{class_p_w_m___g_p_i_o_a405117526c210f6927141f2e470b2f2f}\label{class_p_w_m___g_p_i_o_a405117526c210f6927141f2e470b2f2f}} 
+\index{RGB\_Control@{RGB\_Control}!ledc\_channel@{ledc\_channel}}
+\index{ledc\_channel@{ledc\_channel}!RGB\_Control@{RGB\_Control}}
+\doxysubsubsection{\texorpdfstring{ledc\_channel}{ledc\_channel}}
+{\footnotesize\ttfamily ledc\+\_\+channel\+\_\+config\+\_\+t PWM\+\_\+\+GPIO\+::ledc\+\_\+channel\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [inherited]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{            \{}
+\DoxyCodeLine{                .gpio\_num = GPIO\_NUM\_26,}
+\DoxyCodeLine{                .speed\_mode = LEDC\_LOW\_SPEED\_MODE,}
+\DoxyCodeLine{                .channel = LEDC\_CHANNEL\_0,}
+\DoxyCodeLine{                .intr\_type = LEDC\_INTR\_DISABLE,}
+\DoxyCodeLine{                .timer\_sel = LEDC\_TIMER\_1,}
+\DoxyCodeLine{                .duty = 8191,}
+\DoxyCodeLine{                .hpoint = 0}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \}}
+
+\end{DoxyCode}
+
+
+Definition at line 42 of file PWM\+\_\+\+GPIO.\+h.
+

@@ -1,0 +1,278 @@
+\hypertarget{class_p_w_m___g_p_i_o}{}\doxysection{PWM\+\_\+\+GPIO Class Reference}
+\label{class_p_w_m___g_p_i_o}\index{PWM\_GPIO@{PWM\_GPIO}}
+
+
+{\ttfamily \#include $<$PWM\+\_\+\+GPIO.\+h$>$}
+
+Inheritance diagram for PWM\+\_\+\+GPIO\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{da/d21/class_p_w_m___g_p_i_o}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_p_w_m___g_p_i_o_a34ee09a094f39b8808fc1554e4fd778d}{PWM\+\_\+\+GPIO}} (gpio\+\_\+num\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Construct a new pwm gpio\+::pwm gpio object and initializes the given parameter. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_p_w_m___g_p_i_o_ad8e8296d0e5831a64f64e75dc0b7e3aa}{PWM\+\_\+\+GPIO}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new pwm gpio\+::pwm gpio object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_p_w_m___g_p_i_o_aebaa8483b9b158448c8e4f575b48f84f}{PWM\+\_\+\+Initialize}} (gpio\+\_\+num\+\_\+t)
+\begin{DoxyCompactList}\small\item\em function to initialize the given pin for pwm signal output \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_p_w_m___g_p_i_o_a3223d7589e95e4811d76781b8adca997}{Set\+Duty}} (int, gpio\+\_\+num\+\_\+t, ledc\+\_\+channel\+\_\+t)
+\begin{DoxyCompactList}\small\item\em function to set the duty cycle of the pwm signal \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_p_w_m___g_p_i_o_a5bccfef5b0ec497b95fa0c7587094b07}{Set\+Frequency}} (uint32\+\_\+t, gpio\+\_\+num\+\_\+t)
+\begin{DoxyCompactList}\small\item\em function to set the PWM frequency \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_p_w_m___g_p_i_o_a7d2dab8bc62d0c1b6489460ec6679ce4}{Update\+Timer\+Config}} ()
+\begin{DoxyCompactList}\small\item\em function to update the Timer Configuration \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_p_w_m___g_p_i_o_a60244fb739b3cfd4c5bc16e22f869d77}{Update\+Cannel\+Config}} ()
+\begin{DoxyCompactList}\small\item\em function to update the Channel configuration \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+ledc\+\_\+timer\+\_\+config\+\_\+t \mbox{\hyperlink{class_p_w_m___g_p_i_o_a9d7c6f0aa42cda3c453f25c24b3ac782}{ledc\+\_\+timer}}
+\item 
+ledc\+\_\+channel\+\_\+config\+\_\+t \mbox{\hyperlink{class_p_w_m___g_p_i_o_a405117526c210f6927141f2e470b2f2f}{ledc\+\_\+channel}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+to give PWM functionality to a object 
+
+Definition at line 21 of file PWM\+\_\+\+GPIO.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_p_w_m___g_p_i_o_a34ee09a094f39b8808fc1554e4fd778d}\label{class_p_w_m___g_p_i_o_a34ee09a094f39b8808fc1554e4fd778d}} 
+\index{PWM\_GPIO@{PWM\_GPIO}!PWM\_GPIO@{PWM\_GPIO}}
+\index{PWM\_GPIO@{PWM\_GPIO}!PWM\_GPIO@{PWM\_GPIO}}
+\doxysubsubsection{\texorpdfstring{PWM\_GPIO()}{PWM\_GPIO()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily PWM\+\_\+\+GPIO\+::\+PWM\+\_\+\+GPIO (\begin{DoxyParamCaption}\item[{gpio\+\_\+num\+\_\+t}]{PIN }\end{DoxyParamCaption})}
+
+
+
+Construct a new pwm gpio\+::pwm gpio object and initializes the given parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em PIN} & The designated pin \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 31 of file PWM\+\_\+\+GPIO.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{32     \{}
+\DoxyCodeLine{33         \mbox{\hyperlink{class_p_w_m___g_p_i_o_aebaa8483b9b158448c8e4f575b48f84f}{PWM\_Initialize}}(PIN);}
+\DoxyCodeLine{34     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_p_w_m___g_p_i_o_ad8e8296d0e5831a64f64e75dc0b7e3aa}\label{class_p_w_m___g_p_i_o_ad8e8296d0e5831a64f64e75dc0b7e3aa}} 
+\index{PWM\_GPIO@{PWM\_GPIO}!PWM\_GPIO@{PWM\_GPIO}}
+\index{PWM\_GPIO@{PWM\_GPIO}!PWM\_GPIO@{PWM\_GPIO}}
+\doxysubsubsection{\texorpdfstring{PWM\_GPIO()}{PWM\_GPIO()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily PWM\+\_\+\+GPIO\+::\+PWM\+\_\+\+GPIO (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new pwm gpio\+::pwm gpio object. 
+
+
+
+Definition at line 23 of file PWM\+\_\+\+GPIO.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24     \{}
+\DoxyCodeLine{25     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_p_w_m___g_p_i_o_aebaa8483b9b158448c8e4f575b48f84f}\label{class_p_w_m___g_p_i_o_aebaa8483b9b158448c8e4f575b48f84f}} 
+\index{PWM\_GPIO@{PWM\_GPIO}!PWM\_Initialize@{PWM\_Initialize}}
+\index{PWM\_Initialize@{PWM\_Initialize}!PWM\_GPIO@{PWM\_GPIO}}
+\doxysubsubsection{\texorpdfstring{PWM\_Initialize()}{PWM\_Initialize()}}
+{\footnotesize\ttfamily void PWM\+\_\+\+GPIO\+::\+PWM\+\_\+\+Initialize (\begin{DoxyParamCaption}\item[{gpio\+\_\+num\+\_\+t}]{PIN }\end{DoxyParamCaption})}
+
+
+
+function to initialize the given pin for pwm signal output 
+
+
+\begin{DoxyParams}{Parameters}
+{\em PIN} & The pin that gets initialized \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 82 of file PWM\+\_\+\+GPIO.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{83     \{}
+\DoxyCodeLine{84         \mbox{\hyperlink{class_p_w_m___g_p_i_o_a405117526c210f6927141f2e470b2f2f}{ledc\_channel}}.gpio\_num = PIN;}
+\DoxyCodeLine{85         ledc\_timer\_config(\&\mbox{\hyperlink{class_p_w_m___g_p_i_o_a9d7c6f0aa42cda3c453f25c24b3ac782}{ledc\_timer}});}
+\DoxyCodeLine{86         ledc\_channel\_config(\&\mbox{\hyperlink{class_p_w_m___g_p_i_o_a405117526c210f6927141f2e470b2f2f}{ledc\_channel}});}
+\DoxyCodeLine{87     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_p_w_m___g_p_i_o_a3223d7589e95e4811d76781b8adca997}\label{class_p_w_m___g_p_i_o_a3223d7589e95e4811d76781b8adca997}} 
+\index{PWM\_GPIO@{PWM\_GPIO}!SetDuty@{SetDuty}}
+\index{SetDuty@{SetDuty}!PWM\_GPIO@{PWM\_GPIO}}
+\doxysubsubsection{\texorpdfstring{SetDuty()}{SetDuty()}}
+{\footnotesize\ttfamily void PWM\+\_\+\+GPIO\+::\+Set\+Duty (\begin{DoxyParamCaption}\item[{int}]{duty,  }\item[{gpio\+\_\+num\+\_\+t}]{PIN,  }\item[{ledc\+\_\+channel\+\_\+t}]{Channel }\end{DoxyParamCaption})}
+
+
+
+function to set the duty cycle of the pwm signal 
+
+
+\begin{DoxyParams}{Parameters}
+{\em duty} & The desired duty cycle \\
+\hline
+{\em PIN} & The designated pin \\
+\hline
+{\em Channel} & The affected pwm channel \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 69 of file PWM\+\_\+\+GPIO.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{70     \{}
+\DoxyCodeLine{71         \textcolor{comment}{//duty in range 0 to 8191}}
+\DoxyCodeLine{72         duty = duty * 8191 / 100;}
+\DoxyCodeLine{73         \mbox{\hyperlink{class_p_w_m___g_p_i_o_a405117526c210f6927141f2e470b2f2f}{ledc\_channel}}.channel = Channel;}
+\DoxyCodeLine{74         \mbox{\hyperlink{class_p_w_m___g_p_i_o_a405117526c210f6927141f2e470b2f2f}{ledc\_channel}}.duty = duty;}
+\DoxyCodeLine{75         \mbox{\hyperlink{class_p_w_m___g_p_i_o_aebaa8483b9b158448c8e4f575b48f84f}{PWM\_Initialize}}(PIN);}
+\DoxyCodeLine{76     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_p_w_m___g_p_i_o_a5bccfef5b0ec497b95fa0c7587094b07}\label{class_p_w_m___g_p_i_o_a5bccfef5b0ec497b95fa0c7587094b07}} 
+\index{PWM\_GPIO@{PWM\_GPIO}!SetFrequency@{SetFrequency}}
+\index{SetFrequency@{SetFrequency}!PWM\_GPIO@{PWM\_GPIO}}
+\doxysubsubsection{\texorpdfstring{SetFrequency()}{SetFrequency()}}
+{\footnotesize\ttfamily void PWM\+\_\+\+GPIO\+::\+Set\+Frequency (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{Frequency,  }\item[{gpio\+\_\+num\+\_\+t}]{PIN }\end{DoxyParamCaption})}
+
+
+
+function to set the PWM frequency 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Frequency} & The desired PWM Frequency \\
+\hline
+{\em PIN} & The designated pin \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 41 of file PWM\+\_\+\+GPIO.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{42     \{}
+\DoxyCodeLine{43         \mbox{\hyperlink{class_p_w_m___g_p_i_o_a9d7c6f0aa42cda3c453f25c24b3ac782}{ledc\_timer}}.freq\_hz = Frequency;}
+\DoxyCodeLine{44         \mbox{\hyperlink{class_p_w_m___g_p_i_o_aebaa8483b9b158448c8e4f575b48f84f}{PWM\_Initialize}}(PIN);}
+\DoxyCodeLine{45     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_p_w_m___g_p_i_o_a7d2dab8bc62d0c1b6489460ec6679ce4}\label{class_p_w_m___g_p_i_o_a7d2dab8bc62d0c1b6489460ec6679ce4}} 
+\index{PWM\_GPIO@{PWM\_GPIO}!UpdateTimerConfig@{UpdateTimerConfig}}
+\index{UpdateTimerConfig@{UpdateTimerConfig}!PWM\_GPIO@{PWM\_GPIO}}
+\doxysubsubsection{\texorpdfstring{UpdateTimerConfig()}{UpdateTimerConfig()}}
+{\footnotesize\ttfamily void PWM\+\_\+\+GPIO\+::\+Update\+Timer\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+function to update the Timer Configuration 
+
+
+
+Definition at line 58 of file PWM\+\_\+\+GPIO.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{59     \{}
+\DoxyCodeLine{60         ledc\_timer\_config(\&\mbox{\hyperlink{class_p_w_m___g_p_i_o_a9d7c6f0aa42cda3c453f25c24b3ac782}{ledc\_timer}});}
+\DoxyCodeLine{61     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_p_w_m___g_p_i_o_a60244fb739b3cfd4c5bc16e22f869d77}\label{class_p_w_m___g_p_i_o_a60244fb739b3cfd4c5bc16e22f869d77}} 
+\index{PWM\_GPIO@{PWM\_GPIO}!UpdateCannelConfig@{UpdateCannelConfig}}
+\index{UpdateCannelConfig@{UpdateCannelConfig}!PWM\_GPIO@{PWM\_GPIO}}
+\doxysubsubsection{\texorpdfstring{UpdateCannelConfig()}{UpdateCannelConfig()}}
+{\footnotesize\ttfamily void PWM\+\_\+\+GPIO\+::\+Update\+Cannel\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+function to update the Channel configuration 
+
+
+
+Definition at line 50 of file PWM\+\_\+\+GPIO.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{51     \{}
+\DoxyCodeLine{52         ledc\_channel\_config(\&\mbox{\hyperlink{class_p_w_m___g_p_i_o_a405117526c210f6927141f2e470b2f2f}{ledc\_channel}});}
+\DoxyCodeLine{53     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_p_w_m___g_p_i_o_a9d7c6f0aa42cda3c453f25c24b3ac782}\label{class_p_w_m___g_p_i_o_a9d7c6f0aa42cda3c453f25c24b3ac782}} 
+\index{PWM\_GPIO@{PWM\_GPIO}!ledc\_timer@{ledc\_timer}}
+\index{ledc\_timer@{ledc\_timer}!PWM\_GPIO@{PWM\_GPIO}}
+\doxysubsubsection{\texorpdfstring{ledc\_timer}{ledc\_timer}}
+{\footnotesize\ttfamily ledc\+\_\+timer\+\_\+config\+\_\+t PWM\+\_\+\+GPIO\+::ledc\+\_\+timer\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{            \{}
+\DoxyCodeLine{                .speed\_mode = LEDC\_LOW\_SPEED\_MODE,    }
+\DoxyCodeLine{                .duty\_resolution = LEDC\_TIMER\_13\_BIT, }
+\DoxyCodeLine{                .timer\_num = LEDC\_TIMER\_1,            }
+\DoxyCodeLine{                .freq\_hz = 5000,                      }
+\DoxyCodeLine{                .clk\_cfg = LEDC\_AUTO\_CLK              }
+\DoxyCodeLine{        \}}
+
+\end{DoxyCode}
+
+
+Definition at line 33 of file PWM\+\_\+\+GPIO.\+h.
+
+\mbox{\Hypertarget{class_p_w_m___g_p_i_o_a405117526c210f6927141f2e470b2f2f}\label{class_p_w_m___g_p_i_o_a405117526c210f6927141f2e470b2f2f}} 
+\index{PWM\_GPIO@{PWM\_GPIO}!ledc\_channel@{ledc\_channel}}
+\index{ledc\_channel@{ledc\_channel}!PWM\_GPIO@{PWM\_GPIO}}
+\doxysubsubsection{\texorpdfstring{ledc\_channel}{ledc\_channel}}
+{\footnotesize\ttfamily ledc\+\_\+channel\+\_\+config\+\_\+t PWM\+\_\+\+GPIO\+::ledc\+\_\+channel\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{            \{}
+\DoxyCodeLine{                .gpio\_num = GPIO\_NUM\_26,}
+\DoxyCodeLine{                .speed\_mode = LEDC\_LOW\_SPEED\_MODE,}
+\DoxyCodeLine{                .channel = LEDC\_CHANNEL\_0,}
+\DoxyCodeLine{                .intr\_type = LEDC\_INTR\_DISABLE,}
+\DoxyCodeLine{                .timer\_sel = LEDC\_TIMER\_1,}
+\DoxyCodeLine{                .duty = 8191,}
+\DoxyCodeLine{                .hpoint = 0}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \}}
+
+\end{DoxyCode}
+
+
+Definition at line 42 of file PWM\+\_\+\+GPIO.\+h.
+
