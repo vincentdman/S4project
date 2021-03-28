@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Code documentation S4 project Vincent de Man: PWM_GPIO Class Reference</title>
+<title>doxytest: PWM_GPIO Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -31,7 +31,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="../../testlogo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Code documentation S4 project Vincent de Man
+   <div id="projectname">doxytest
    &#160;<span id="projectnumber">v0.01</span>
    </div>
    <div id="projectbrief">ESP32 code</div>
@@ -337,30 +337,6 @@ Private Attributes</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a7d2dab8bc62d0c1b6489460ec6679ce4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d2dab8bc62d0c1b6489460ec6679ce4">&#9670;&nbsp;</a></span>UpdateTimerConfig()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PWM_GPIO::UpdateTimerConfig </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>function to update the Timer Configuration </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d8/d1b/_p_w_m___g_p_i_o_8cpp_source.html#l00058">58</a> of file <a class="el" href="../../d8/d1b/_p_w_m___g_p_i_o_8cpp_source.html">PWM_GPIO.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        ledc_timer_config(&amp;<a class="code" href="../../da/d21/class_p_w_m___g_p_i_o.html#a9d7c6f0aa42cda3c453f25c24b3ac782">ledc_timer</a>);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    }</div>
-</div><!-- fragment -->
-</div>
-</div>
 <a id="a60244fb739b3cfd4c5bc16e22f869d77"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a60244fb739b3cfd4c5bc16e22f869d77">&#9670;&nbsp;</a></span>UpdateCannelConfig()</h2>
 
@@ -385,39 +361,31 @@ Private Attributes</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a9d7c6f0aa42cda3c453f25c24b3ac782"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d7c6f0aa42cda3c453f25c24b3ac782">&#9670;&nbsp;</a></span>ledc_timer</h2>
+<a id="a7d2dab8bc62d0c1b6489460ec6679ce4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d2dab8bc62d0c1b6489460ec6679ce4">&#9670;&nbsp;</a></span>UpdateTimerConfig()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">ledc_timer_config_t PWM_GPIO::ledc_timer</td>
+          <td class="memname">void PWM_GPIO::UpdateTimerConfig </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">            {</div>
-<div class="line">                .speed_mode = LEDC_LOW_SPEED_MODE,    </div>
-<div class="line">                .duty_resolution = LEDC_TIMER_13_BIT, </div>
-<div class="line">                .timer_num = LEDC_TIMER_1,            </div>
-<div class="line">                .freq_hz = 5000,                      </div>
-<div class="line">                .clk_cfg = LEDC_AUTO_CLK              </div>
-<div class="line">        }</div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="../../de/d54/_p_w_m___g_p_i_o_8h_source.html#l00033">33</a> of file <a class="el" href="../../de/d54/_p_w_m___g_p_i_o_8h_source.html">PWM_GPIO.h</a>.</p>
 
+<p>function to update the Timer Configuration </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/d1b/_p_w_m___g_p_i_o_8cpp_source.html#l00058">58</a> of file <a class="el" href="../../d8/d1b/_p_w_m___g_p_i_o_8cpp_source.html">PWM_GPIO.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        ledc_timer_config(&amp;<a class="code" href="../../da/d21/class_p_w_m___g_p_i_o.html#a9d7c6f0aa42cda3c453f25c24b3ac782">ledc_timer</a>);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    }</div>
+</div><!-- fragment -->
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
 <a id="a405117526c210f6927141f2e470b2f2f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a405117526c210f6927141f2e470b2f2f">&#9670;&nbsp;</a></span>ledc_channel</h2>
 
@@ -450,6 +418,38 @@ Private Attributes</h2></td></tr>
 <div class="line">        }</div>
 </div><!-- fragment -->
 <p class="definition">Definition at line <a class="el" href="../../de/d54/_p_w_m___g_p_i_o_8h_source.html#l00042">42</a> of file <a class="el" href="../../de/d54/_p_w_m___g_p_i_o_8h_source.html">PWM_GPIO.h</a>.</p>
+
+</div>
+</div>
+<a id="a9d7c6f0aa42cda3c453f25c24b3ac782"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d7c6f0aa42cda3c453f25c24b3ac782">&#9670;&nbsp;</a></span>ledc_timer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ledc_timer_config_t PWM_GPIO::ledc_timer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">            {</div>
+<div class="line">                .speed_mode = LEDC_LOW_SPEED_MODE,    </div>
+<div class="line">                .duty_resolution = LEDC_TIMER_13_BIT, </div>
+<div class="line">                .timer_num = LEDC_TIMER_1,            </div>
+<div class="line">                .freq_hz = 5000,                      </div>
+<div class="line">                .clk_cfg = LEDC_AUTO_CLK              </div>
+<div class="line">        }</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="../../de/d54/_p_w_m___g_p_i_o_8h_source.html#l00033">33</a> of file <a class="el" href="../../de/d54/_p_w_m___g_p_i_o_8h_source.html">PWM_GPIO.h</a>.</p>
 
 </div>
 </div>

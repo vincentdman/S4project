@@ -24,10 +24,11 @@
 */
 var NAVTREE =
 [
-  [ "Code documentation S4 project Vincent de Man", "index.html", [
+  [ "doxytest", "index.html", [
     [ "Documentation of created code for S4 Project", "index.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
+      [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", null ],
