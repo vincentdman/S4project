@@ -6,7 +6,7 @@
  * @date 2021-03-24
  * 
  * @copyright Copyright (c) 2021
- * 
+ * @details main.cpp main code for project S4  
  */
 #include <stdio.h>
 #include <iostream>
