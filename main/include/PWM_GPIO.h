@@ -46,7 +46,7 @@ extern "C"
                 .channel = LEDC_CHANNEL_0,
                 .intr_type = LEDC_INTR_DISABLE,
                 .timer_sel = LEDC_TIMER_1,
-                .duty = 8191,
+                .duty = 0, //max 8191
                 .hpoint = 0
 
         };
