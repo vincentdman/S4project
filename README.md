@@ -6,4 +6,4 @@ My code is free to use and open source <br>
 code makes use of: <br>
 eps-idf framework <br>
 doxygen documentation generation <br>
-Inspired by decorator design pattern
+Inspired by decorator design pattern<br>
