@@ -24,11 +24,11 @@ class LCD_Control : private HandleGPIO {
         LCD_Control(gpio_num_t _RS, gpio_num_t _E, gpio_num_t _D4, gpio_num_t _D5 ,gpio_num_t _D6, gpio_num_t _D7);
         void LCD_Write_Char(char Data);
         void LCD_Write_Command(int Command);
-        void LCD_Write_String(std::string Data_String);
+        void LCD_Write_String(std::string Data_String_);
         void LCD_Write(std::string BinaryString);
 
     private:
-    bool FourBitMode;
+    int FourBitMode = 0;
     
     gpio_num_t LCD_RS;
     gpio_num_t LCD_E;

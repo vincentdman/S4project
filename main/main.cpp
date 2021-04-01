@@ -20,6 +20,9 @@
 #include "HandleGPIO.h"
 #include "RGB_Control.h"
 #include "PWM_GPIO.h"
+#include "LCD_Commands.h"
+#include "LCD_Control.h"
+#include <string>
 
 extern "C" void app_main(void)
 {
@@ -27,12 +30,18 @@ extern "C" void app_main(void)
    std::cout << "Hello world!\n";
 
    //PWM_GPIO a;
+   LCD_Control a(GPIO_NUM_2,GPIO_NUM_4,GPIO_NUM_19,GPIO_NUM_21,GPIO_NUM_13,GPIO_NUM_27);
 
+   a.LCD_Write_Command(LCD_4_BIT_MODE);
+   a.LCD_Write_Command(LCD_DISPLAY_ON_CURSOR_ON);
+   std::string hello = "hello world";
+   a.LCD_Write_String(hello);
+   
    //a.SetDuty(40);
    // a.PWM_Initialize(GPIO_NUM_26);
    // a.PWM_Initialize(GPIO_NUM_25);
    //a.PWM_Initialize(GPIO_NUM_27);
-
+   
    //while (1)
    // {
    //a.SetDuty(0,GPIO_NUM_25);
@@ -47,9 +56,9 @@ extern "C" void app_main(void)
    // }
    //HandleGPIO a;
    //a.SetHigh(GPIO_NUM_4);
-   RGB_Control RGB_LED(GPIO_NUM_25, GPIO_NUM_26, GPIO_NUM_27);
+  // RGB_Control RGB_LED(GPIO_NUM_25, GPIO_NUM_26, GPIO_NUM_27);
 
-   RGB_LED.SetRGB(100, 50, 0);
+   //RGB_LED.SetRGB(100, 50, 0);
    /*
    while (1)
    {
