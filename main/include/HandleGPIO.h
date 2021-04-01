@@ -28,6 +28,7 @@ extern "C"
 
     void SetHigh(gpio_num_t);
     void SetLow(gpio_num_t);
+    void SetGPIO(gpio_num_t,int);
     void InitializeGPIO(gpio_num_t);
   };
 }

@@ -13,6 +13,8 @@
 
 #include "HandleGPIO.h"
 #include <driver/gpio.h>
+#include <string> 
+#include "LCD_Commands.h"
 
 extern "C"
 {
@@ -20,9 +22,12 @@ class LCD_Control : private HandleGPIO {
     public:
         LCD_Control(gpio_num_t _RS, gpio_num_t _E, gpio_num_t _D0, gpio_num_t _D1, gpio_num_t _D2, gpio_num_t _D3, gpio_num_t _D4, gpio_num_t _D5, gpio_num_t _D6, gpio_num_t _D7);
         LCD_Control(gpio_num_t _RS, gpio_num_t _E, gpio_num_t _D4, gpio_num_t _D5 ,gpio_num_t _D6, gpio_num_t _D7);
-    void LCD_Write_Char(char data);
-    
+        void LCD_Write_Char(char Data);
+        void LCD_Write_Command(int Command);
+
     private:
+    bool FourBitMode;
+    
     gpio_num_t LCD_RS;
     gpio_num_t LCD_E;
 
@@ -37,7 +42,7 @@ class LCD_Control : private HandleGPIO {
 
 
 
-}
+};
 
 
 
