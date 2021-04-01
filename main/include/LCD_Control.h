@@ -25,11 +25,15 @@ class LCD_Control : private HandleGPIO {
         void LCD_Write_Char(char Data);
         void LCD_Write_Command(int Command);
         void LCD_Write_String(std::string Data_String_);
-        void LCD_Write(std::string BinaryString);
+        void LCD_Write(std::string BinaryString,int RS);
 
     private:
-    int FourBitMode = 0;
-    
+    int BitMode = 0;
+    enum{
+        RegisterSet =0,
+        WriteAction =1
+        
+    };
     gpio_num_t LCD_RS;
     gpio_num_t LCD_E;
 
