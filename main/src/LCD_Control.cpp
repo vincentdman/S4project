@@ -47,23 +47,33 @@ LCD_Control::LCD_Control(gpio_num_t _RS, gpio_num_t _E, gpio_num_t _D4, gpio_num
 void LCD_Control::LCD_Write_Char(char data)
 {
     std::string binary = std::bitset<8>(data).to_string();
-    
+    LCD_Write(binary);
+}
+
+void LCD_Control::LCD_Write_Command(int Command)
+{
+    std::string ToBin = std::bitset<8>(Command).to_string();
+    LCD_Write(ToBin);
+}
+
+void LCD_Control::LCD_Write(std::string BinaryString)
+{
     switch (FourBitMode)
     {
     case true:
-
+        //todo 4bit mode
         break;
     case false:
        SetHigh(LCD_RS);
        SetHigh(LCD_E);
-        gpio_set_level(LCD_D0, binary[0]);
-         gpio_set_level(LCD_D1, binary[1]);
-          gpio_set_level(LCD_D2, binary[1]);
-           gpio_set_level(LCD_D3, binary[3]);
-            gpio_set_level(LCD_D4, binary[4]);
-             gpio_set_level(LCD_D5, binary[5]);
-              gpio_set_level(LCD_D6, binary[6]);
-               gpio_set_level(LCD_D7, binary[7]);
+        gpio_set_level(LCD_D0, BinaryString[0]);
+         gpio_set_level(LCD_D1, BinaryString[1]);
+          gpio_set_level(LCD_D2, BinaryString[1]);
+           gpio_set_level(LCD_D3, BinaryString[3]);
+            gpio_set_level(LCD_D4, BinaryString[4]);
+             gpio_set_level(LCD_D5, BinaryString[5]);
+              gpio_set_level(LCD_D6, BinaryString[6]);
+               gpio_set_level(LCD_D7, BinaryString[7]);
        vTaskDelay(100/portTICK_PERIOD_MS);
        SetLow(LCD_E);
        SetLow(LCD_RS);
@@ -71,6 +81,6 @@ void LCD_Control::LCD_Write_Char(char data)
     default:
         break;
     }
-
 }
+
 }
