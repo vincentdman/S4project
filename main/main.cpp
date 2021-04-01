@@ -27,16 +27,20 @@
 extern "C" void app_main(void)
 {
 
-   std::cout << "Hello world!\n";
+   std::cout<<"Hello world!"<<std::endl;
 
    //PWM_GPIO a;
    LCD_Control a(GPIO_NUM_2,GPIO_NUM_4,GPIO_NUM_19,GPIO_NUM_21,GPIO_NUM_13,GPIO_NUM_27);
-
+   std::cout<<"constructor"<<std::endl;
    a.LCD_Write_Command(LCD_4_BIT_MODE);
+   std::cout<<"lcd4bit"<<std::endl;
    a.LCD_Write_Command(LCD_DISPLAY_ON_CURSOR_ON);
+   std::cout<<"display cursor on"<<std::endl;
    std::string hello = "hello world";
    a.LCD_Write_String(hello);
-   
+   std::cout<<"put string"<<std::endl;
+   a.LCD_Write_Char('a');
+   std::cout<<"put a"<<std::endl;
    //a.SetDuty(40);
    // a.PWM_Initialize(GPIO_NUM_26);
    // a.PWM_Initialize(GPIO_NUM_25);

@@ -16,6 +16,7 @@
 #include "esp_system.h"
 #include "LCD_Commands.h"
 #include <bitset>
+#include <iostream>
 
 extern "C"{
 LCD_Control::LCD_Control(gpio_num_t _RS, gpio_num_t _E, gpio_num_t _D0, gpio_num_t _D1, gpio_num_t _D2, gpio_num_t _D3, gpio_num_t _D4, gpio_num_t _D5, gpio_num_t _D6, gpio_num_t _D7)
@@ -73,7 +74,7 @@ void LCD_Control::LCD_Write(std::string BinaryString)
              gpio_set_level(LCD_D5, BinaryString[1]);
               gpio_set_level(LCD_D6, BinaryString[2]);
                gpio_set_level(LCD_D7, BinaryString[3]);
-       vTaskDelay(10/portTICK_PERIOD_MS);
+       vTaskDelay(1/portTICK_PERIOD_MS);
        SetLow(LCD_E);
        vTaskDelay(100/portTICK_PERIOD_MS);
        SetHigh(LCD_E);
@@ -82,7 +83,7 @@ void LCD_Control::LCD_Write(std::string BinaryString)
              gpio_set_level(LCD_D5, BinaryString[5]);
               gpio_set_level(LCD_D6, BinaryString[6]);
                gpio_set_level(LCD_D7, BinaryString[7]);
-    vTaskDelay(10/portTICK_PERIOD_MS);
+    vTaskDelay(1/portTICK_PERIOD_MS);
        SetLow(LCD_E);
        SetLow(LCD_RS);
        vTaskDelay(100/portTICK_PERIOD_MS);
@@ -99,7 +100,7 @@ void LCD_Control::LCD_Write(std::string BinaryString)
              gpio_set_level(LCD_D5, BinaryString[5]);
               gpio_set_level(LCD_D6, BinaryString[6]);
                gpio_set_level(LCD_D7, BinaryString[7]);
-       vTaskDelay(10/portTICK_PERIOD_MS);
+       vTaskDelay(1/portTICK_PERIOD_MS);
        SetLow(LCD_E);
        SetLow(LCD_RS);
        vTaskDelay(100/portTICK_PERIOD_MS);
