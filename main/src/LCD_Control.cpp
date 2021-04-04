@@ -102,14 +102,14 @@ void LCD_Control::LCD_Write(std::string BinaryString, int RS)
 
     case 1:
        std::cout<<"8 bit mode"<<std::endl;
-        gpio_set_level(LCD_D0, BinaryString[0]);
-         gpio_set_level(LCD_D1, BinaryString[1]);
-          gpio_set_level(LCD_D2, BinaryString[2]);
-           gpio_set_level(LCD_D3, BinaryString[3]);
-            gpio_set_level(LCD_D4, BinaryString[4]);
-             gpio_set_level(LCD_D5, BinaryString[5]);
-              gpio_set_level(LCD_D6, BinaryString[6]);
-               gpio_set_level(LCD_D7, BinaryString[7]);
+        gpio_set_level(LCD_D0, 1);//BinaryString[0]-'0');
+         gpio_set_level(LCD_D1, 1);//BinaryString[1]-'0');
+          gpio_set_level(LCD_D2, 1);//BinaryString[2]-'0');
+           gpio_set_level(LCD_D3, 1);//BinaryString[3]-'0');
+            gpio_set_level(LCD_D4, 1);//BinaryString[4]-'0');
+             gpio_set_level(LCD_D5, 1);//BinaryString[5]-'0');
+              gpio_set_level(LCD_D6, 1);//BinaryString[6]-'0');
+               gpio_set_level(LCD_D7, 1);//BinaryString[7]-'0');
        //SetHigh(LCD_RS);
        gpio_set_level(LCD_RS,RS);
        SetHigh(LCD_E);  
