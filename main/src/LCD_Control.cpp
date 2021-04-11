@@ -22,13 +22,13 @@ extern "C"{
 LCD_Control::LCD_Control(gpio_num_t _RS, gpio_num_t _E, gpio_num_t _D0, gpio_num_t _D1, gpio_num_t _D2, gpio_num_t _D3, gpio_num_t _D4, gpio_num_t _D5, gpio_num_t _D6, gpio_num_t _D7)
  :LCD_RS(_RS),LCD_E(_E),LCD_D0(_D0),LCD_D1(_D1),LCD_D2(_D2),LCD_D3(_D3),LCD_D4(_D4),LCD_D5(_D5),LCD_D6(_D6),LCD_D7(_D7)
 {
-    BitMode = 1; 
+    BitMode = EightBitMode; 
     LCD_Initialize(); 
 }
 LCD_Control::LCD_Control(gpio_num_t _RS, gpio_num_t _E, gpio_num_t _D4, gpio_num_t _D5 ,gpio_num_t _D6, gpio_num_t _D7)
      :LCD_RS(_RS),LCD_E(_E),LCD_D4(_D4),LCD_D5(_D5),LCD_D6(_D6),LCD_D7(_D7)
 {
-    BitMode = 0;
+    BitMode = FourBitMode;
     LCD_Initialize();
 }
 
@@ -69,7 +69,7 @@ void LCD_Control::LCD_Write(std::string BinaryString, int RS)
 {
     switch (BitMode)
     {
-    case 0:
+    case FourBitMode:
     std::cout<<"4 bit mode"<<std::endl;
        SetHigh(LCD_RS);
        SetHigh(LCD_E);
@@ -92,7 +92,7 @@ void LCD_Control::LCD_Write(std::string BinaryString, int RS)
        vTaskDelay(10/portTICK_PERIOD_MS);
         break;
 
-    case 1:
+    case EightBitMode:
        std::cout<<"8 bit mode"<<std::endl;
         gpio_set_level(LCD_D0, 1);//BinaryString[0]-'0');
          gpio_set_level(LCD_D1, 1);//BinaryString[1]-'0');

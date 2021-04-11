@@ -29,10 +29,12 @@ class LCD_Control : private HandleGPIO {
         void LCD_Write(std::string BinaryString,int RS);
 
     private:
-    int BitMode = 0;
+    int BitMode = EightBitMode;
     enum{
         RegisterSet =0,
-        WriteAction =1  
+        WriteAction =1, 
+        FourBitMode,
+        EightBitMode
     };
     gpio_num_t LCD_RS = GPIO_NUM_NC;
     gpio_num_t LCD_E = GPIO_NUM_NC;
