@@ -30,17 +30,19 @@ extern "C" void app_main(void)
    std::cout<<"Hello world!"<<std::endl;
 
    //PWM_GPIO a;
+   // working gpio
    LCD_Control a(GPIO_NUM_2,GPIO_NUM_15,GPIO_NUM_33,GPIO_NUM_25,GPIO_NUM_26,GPIO_NUM_4,GPIO_NUM_19,GPIO_NUM_21,GPIO_NUM_5,GPIO_NUM_27);
                            
     std::string commands = "11111111";
-   // a.LCD_Write(commands,0);
-   
-     commands = "00000001";
-     a.LCD_Write(commands,0);
-     commands = "00001110";
-     a.LCD_Write(commands,0);
-     commands = "10000000";  
-     a.LCD_Write("01000001",1);
+    a.LCD_Write(commands,0);
+  
+
+   //  commands = "00000000";
+   //  a.LCD_Write(commands,0);
+    // commands = "00001110";
+    // a.LCD_Write(commands,0);
+    // commands = "10000000";  
+    // a.LCD_Write("01000001",1);
 
   // std::cout<<"constructor"<<std::endl;
    //a.LCD_Write_Command(LCD_8_BIT_MODE);

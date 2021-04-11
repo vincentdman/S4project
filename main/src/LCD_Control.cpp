@@ -20,39 +20,16 @@
 
 extern "C"{
 LCD_Control::LCD_Control(gpio_num_t _RS, gpio_num_t _E, gpio_num_t _D0, gpio_num_t _D1, gpio_num_t _D2, gpio_num_t _D3, gpio_num_t _D4, gpio_num_t _D5, gpio_num_t _D6, gpio_num_t _D7)
+ :LCD_RS(_RS),LCD_E(_E),LCD_D0(_D0),LCD_D1(_D1),LCD_D2(_D2),LCD_D3(_D3),LCD_D4(_D4),LCD_D5(_D5),LCD_D6(_D6),LCD_D7(_D7)
 {
     BitMode = 1; 
-    LCD_RS = _RS;
-    LCD_E  = _E;
-    LCD_D0 = _D0;
-    LCD_D1 = _D1;
-    LCD_D2 = _D2;
-    LCD_D3 = _D3;
-    LCD_D4 = _D4;
-    LCD_D5 = _D5;
-    LCD_D6 = _D6;
-    LCD_D7 = _D7;
-    InitializeGPIO(LCD_RS);
-    InitializeGPIO(LCD_E);
-    InitializeGPIO(LCD_D0);
-    InitializeGPIO(LCD_D1);
-    InitializeGPIO(LCD_D2);
-    InitializeGPIO(LCD_D3);
-    InitializeGPIO(LCD_D4);
-    InitializeGPIO(LCD_D5);
-    InitializeGPIO(LCD_D6);
-    InitializeGPIO(LCD_D7);
-
+    LCD_Initialize(); 
 }
 LCD_Control::LCD_Control(gpio_num_t _RS, gpio_num_t _E, gpio_num_t _D4, gpio_num_t _D5 ,gpio_num_t _D6, gpio_num_t _D7)
+     :LCD_RS(_RS),LCD_E(_E),LCD_D4(_D4),LCD_D5(_D5),LCD_D6(_D6),LCD_D7(_D7)
 {
     BitMode = 0;
-    LCD_RS = _RS;
-    LCD_E  = _E;
-    LCD_D4 = _D4;
-    LCD_D5 = _D5;
-    LCD_D6 = _D6;
-    LCD_D7 = _D7;
+    LCD_Initialize();
 }
 
 void LCD_Control::LCD_Write_Char(char data)
@@ -71,6 +48,21 @@ void LCD_Control::LCD_Write_String(std::string Data_String_){
     {
         LCD_Write_Char(Data_String_[k]);
     }
+}
+
+void LCD_Control::LCD_Initialize(){
+
+    InitializeGPIO(LCD_RS);
+    InitializeGPIO(LCD_E);
+    InitializeGPIO(LCD_D0);
+    InitializeGPIO(LCD_D1);
+    InitializeGPIO(LCD_D2);
+    InitializeGPIO(LCD_D3);
+    InitializeGPIO(LCD_D4);
+    InitializeGPIO(LCD_D5);
+    InitializeGPIO(LCD_D6);
+    InitializeGPIO(LCD_D7);
+
 }
 
 void LCD_Control::LCD_Write(std::string BinaryString, int RS)

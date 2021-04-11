@@ -23,6 +23,7 @@ class LCD_Control : private HandleGPIO {
         LCD_Control(gpio_num_t _RS, gpio_num_t _E, gpio_num_t _D0, gpio_num_t _D1, gpio_num_t _D2, gpio_num_t _D3, gpio_num_t _D4, gpio_num_t _D5, gpio_num_t _D6, gpio_num_t _D7);
         LCD_Control(gpio_num_t _RS, gpio_num_t _E, gpio_num_t _D4, gpio_num_t _D5 ,gpio_num_t _D6, gpio_num_t _D7);
         void LCD_Write_Char(char Data);
+        void LCD_Initialize(); 
         void LCD_Write_Command(int Command);
         void LCD_Write_String(std::string Data_String_);
         void LCD_Write(std::string BinaryString,int RS);
@@ -31,20 +32,19 @@ class LCD_Control : private HandleGPIO {
     int BitMode = 0;
     enum{
         RegisterSet =0,
-        WriteAction =1
-        
+        WriteAction =1  
     };
-    gpio_num_t LCD_RS;
-    gpio_num_t LCD_E;
+    gpio_num_t LCD_RS = GPIO_NUM_NC;
+    gpio_num_t LCD_E = GPIO_NUM_NC;
 
-    gpio_num_t LCD_D0;
-    gpio_num_t LCD_D1;
-    gpio_num_t LCD_D2;
-    gpio_num_t LCD_D3;
-    gpio_num_t LCD_D4;
-    gpio_num_t LCD_D5;
-    gpio_num_t LCD_D6;
-    gpio_num_t LCD_D7;
+    gpio_num_t LCD_D0 = GPIO_NUM_NC;
+    gpio_num_t LCD_D1 = GPIO_NUM_NC;
+    gpio_num_t LCD_D2 = GPIO_NUM_NC;
+    gpio_num_t LCD_D3 = GPIO_NUM_NC;
+    gpio_num_t LCD_D4 = GPIO_NUM_NC;
+    gpio_num_t LCD_D5 = GPIO_NUM_NC;
+    gpio_num_t LCD_D6 = GPIO_NUM_NC;
+    gpio_num_t LCD_D7 = GPIO_NUM_NC;
 
 
 
