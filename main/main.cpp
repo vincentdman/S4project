@@ -31,11 +31,13 @@ extern "C" void app_main(void)
 
    //PWM_GPIO a;
    // working gpio
-   LCD_Control a(GPIO_NUM_2,GPIO_NUM_15,GPIO_NUM_33,GPIO_NUM_25,GPIO_NUM_26,GPIO_NUM_4,GPIO_NUM_19,GPIO_NUM_21,GPIO_NUM_5,GPIO_NUM_27);
-                           
-    std::string commands = "11111111";
+   //LCD_Control a(GPIO_NUM_2,GPIO_NUM_15,GPIO_NUM_33,GPIO_NUM_25,GPIO_NUM_26,GPIO_NUM_4,GPIO_NUM_19,GPIO_NUM_21,GPIO_NUM_5,GPIO_NUM_27);
+     LCD_Control a(GPIO_NUM_2,GPIO_NUM_15,GPIO_NUM_25,GPIO_NUM_26,GPIO_NUM_4,GPIO_NUM_27);                      
+    std::string commands = "00000000";
     a.LCD_Write(commands,0);
-  
+    //a.LCD_Write_Command(LCD_4_BIT_MODE);
+    //a.LCD_Write_Char('a');
+
 
    //  commands = "00000000";
    //  a.LCD_Write(commands,0);
