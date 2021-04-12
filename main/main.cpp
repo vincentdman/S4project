@@ -27,17 +27,35 @@
 extern "C" void app_main(void)
 {
 
-   std::cout<<"Hello world!"<<std::endl;
+  // std::cout<<"Hello world!"<<std::endl;
 
    //PWM_GPIO a;
    // working gpio
    //LCD_Control a(GPIO_NUM_2,GPIO_NUM_15,GPIO_NUM_33,GPIO_NUM_25,GPIO_NUM_26,GPIO_NUM_4,GPIO_NUM_19,GPIO_NUM_21,GPIO_NUM_5,GPIO_NUM_27);
-     LCD_Control a(GPIO_NUM_2,GPIO_NUM_15,GPIO_NUM_25,GPIO_NUM_26,GPIO_NUM_4,GPIO_NUM_27);                      
-    std::string commands = "00000000";
+    LCD_Control a(GPIO_NUM_2,GPIO_NUM_21,GPIO_NUM_25,GPIO_NUM_26,GPIO_NUM_19,GPIO_NUM_27);                      
+    std::string commands = "00000010";
     a.LCD_Write(commands,0);
-    //a.LCD_Write_Command(LCD_4_BIT_MODE);
-    //a.LCD_Write_Char('a');
+   
+    commands = "00101000";
+    a.LCD_Write(commands,0);
 
+    commands = "00001100";
+    a.LCD_Write(commands,0);
+
+    commands = "00000110";
+    a.LCD_Write(commands,0);
+
+    commands = "00000001";
+    a.LCD_Write(commands,0);
+
+    commands = "10000000";
+    a.LCD_Write(commands,0);
+
+    //a.LCD_Write_Command(LCD_4_BIT_MODE);
+    a.LCD_Write_Char('a');
+    a.LCD_Write_Char('b');
+    a.LCD_Write_Char('c');
+    a.LCD_Write_Char('d');
 
    //  commands = "00000000";
    //  a.LCD_Write(commands,0);
