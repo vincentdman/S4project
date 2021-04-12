@@ -42,6 +42,9 @@ extern "C" void app_main(void)
     commands = "00001100";
     a.LCD_Write(commands,0);
 
+    commands = "00000010";
+    a.LCD_Write(commands,0);
+
     commands = "00000110";
     a.LCD_Write(commands,0);
 

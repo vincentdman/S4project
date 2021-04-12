@@ -93,10 +93,10 @@ extern "C"
             ets_delay_us(270);
             SetHigh(LCD_E);
             ets_delay_us(240);
-            gpio_set_level(LCD_D4, BinaryString[0]-'0');
-            gpio_set_level(LCD_D5, BinaryString[1]-'0');
-            gpio_set_level(LCD_D6, BinaryString[2]-'0');
-            gpio_set_level(LCD_D7, BinaryString[3]-'0');
+            gpio_set_level(LCD_D4, BinaryString[3]-'0');
+            gpio_set_level(LCD_D5, BinaryString[2]-'0');
+            gpio_set_level(LCD_D6, BinaryString[1]-'0');
+            gpio_set_level(LCD_D7, BinaryString[0]-'0');
             ets_delay_us(300);
             SetLow(LCD_E);
             ets_delay_us(1000);
@@ -104,10 +104,10 @@ extern "C"
 
             SetHigh(LCD_E);
             ets_delay_us(240);
-            gpio_set_level(LCD_D4, BinaryString[4]-'0');
-            gpio_set_level(LCD_D5, BinaryString[5]-'0');
-            gpio_set_level(LCD_D6, BinaryString[6]-'0');
-            gpio_set_level(LCD_D7, BinaryString[7]-'0');
+            gpio_set_level(LCD_D4, BinaryString[7]-'0');
+            gpio_set_level(LCD_D5, BinaryString[6]-'0');
+            gpio_set_level(LCD_D6, BinaryString[5]-'0');
+            gpio_set_level(LCD_D7, BinaryString[4]-'0');
             ets_delay_us(300);
             SetLow(LCD_E);
             ets_delay_us(1000);
