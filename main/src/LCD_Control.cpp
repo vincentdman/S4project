@@ -86,7 +86,6 @@ extern "C"
             SetLow(LCD_E);
             ets_delay_us(1000);
 
-
             SetHigh(LCD_E);
             ets_delay_us(240);
             gpio_set_level(LCD_D4, BinaryString[7]-'0');
@@ -96,8 +95,8 @@ extern "C"
             ets_delay_us(300);
             SetLow(LCD_E);
             ets_delay_us(1000);
-
             break;
+
         case EightBitMode:
             ets_delay_us(1000);
             gpio_set_level(LCD_RS,RS);
@@ -118,6 +117,7 @@ extern "C"
         break;
 
         default:
+            std::cout<<"Bitmode error, No bitmode selected."<<std::endl;
             break;
         }
     }
