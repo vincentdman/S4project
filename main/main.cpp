@@ -33,49 +33,53 @@ extern "C" void app_main(void)
    // working gpio
    //LCD_Control a(GPIO_NUM_2,GPIO_NUM_15,GPIO_NUM_33,GPIO_NUM_25,GPIO_NUM_26,GPIO_NUM_4,GPIO_NUM_19,GPIO_NUM_21,GPIO_NUM_5,GPIO_NUM_27);
     LCD_Control a(GPIO_NUM_2,GPIO_NUM_21,GPIO_NUM_25,GPIO_NUM_26,GPIO_NUM_19,GPIO_NUM_27);                      
-    std::string commands = "00000010";
-    a.LCD_Write(commands,0);
+   //  std::string commands = "00000010";
+   //  a.LCD_Write(commands,0);
    
-    commands = "00101000";
-    a.LCD_Write(commands,0);
+   //  commands = "00101000";
+   //  a.LCD_Write(commands,0);
 
-    commands = "00001100";
-    a.LCD_Write(commands,0);
+   //  commands = "00001100";
+   //  a.LCD_Write(commands,0);
 
-    commands = "00000010";
-    a.LCD_Write(commands,0);
+   //  commands = "00000010";
+   //  a.LCD_Write(commands,0);
 
-    commands = "00000110";
-    a.LCD_Write(commands,0);
+   //  commands = "00000110";
+   //  a.LCD_Write(commands,0);
 
-    commands = "00000001";
-    a.LCD_Write(commands,0);
+   //  commands = "00000001";
+   //  a.LCD_Write(commands,0);
 
-    commands = "10000000";
-    a.LCD_Write(commands,0);
+   //  commands = "10000000";
+   //  a.LCD_Write(commands,0);
 
     //a.LCD_Write_Command(LCD_4_BIT_MODE);
-    a.LCD_Write_Char('a');
-    a.LCD_Write_Char('b');
-    a.LCD_Write_Char('c');
-    a.LCD_Write_Char('d');
+    //a.LCD_Write_Char('a');
+    //a.LCD_Write_Char('b');
+    //a.LCD_Write_Char('c');
+    //a.LCD_Write_Char('d');
 
-   //  commands = "00000000";
-   //  a.LCD_Write(commands,0);
+    // commands = "00000000";
+    // a.LCD_Write(commands,0);
     // commands = "00001110";
     // a.LCD_Write(commands,0);
     // commands = "10000000";  
     // a.LCD_Write("01000001",1);
 
-  // std::cout<<"constructor"<<std::endl;
-   //a.LCD_Write_Command(LCD_8_BIT_MODE);
+   //std::cout<<"constructor"<<std::endl;
+   a.LCD_Write_Command(LCD_4_BIT_MODE);
    //std::cout<<"lcd4bit"<<std::endl;
-  // a.LCD_Write_Command(LCD_DISPLAY_ON_CURSOR_ON);
-  // std::cout<<"display cursor on"<<std::endl;
-  // std::string hello = "hello world";
-  // a.LCD_Write_String(hello);
-  // std::cout<<"put string"<<std::endl;
-  // a.LCD_Write_Char('a');
+   a.LCD_Write_Command(LCD_DISPLAY_ON_CURSOR_OFF);
+   a.LCD_Write_Command(LCD_CLEAR);
+   a.LCD_Write_Command(LCD_HOME);
+   //std::cout<<"display cursor on"<<std::endl;
+   std::string hello = "hello world!";
+   a.LCD_Write_String(hello);
+   //std::cout<<"put string"<<std::endl;
+   //a.LCD_Write_Char('a');
+   //a.LCD_Write_Char('B');
+   //a.LCD_Write_Char('c');
    //std::cout<<"put a"<<std::endl;
 
 
