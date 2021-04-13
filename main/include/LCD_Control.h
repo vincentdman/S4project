@@ -1,7 +1,7 @@
 /**
  * @file LCD_Control.h
  * @author Vincent de Man
- * @brief 
+ * @brief Header file for the LCD_Control Class
  * @version 0.1
  * @date 2021-03-29
  * 

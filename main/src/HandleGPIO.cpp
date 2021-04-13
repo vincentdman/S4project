@@ -27,7 +27,7 @@ extern "C"
     /**
      * @brief Initialize a gpio pin for default settings
      * 
-     * @param PIN 
+     * @param PIN The pin that gets initialized type is gpio_num_t
      */
     void HandleGPIO::InitializeGPIO(gpio_num_t PIN)
     {
@@ -37,7 +37,7 @@ extern "C"
     /**
      * @brief function to set the given pin high
      * 
-     * @param PIN 
+     * @param PIN The pin that gets set to high type is gpio_num_t
      */
     void HandleGPIO::SetHigh(gpio_num_t PIN)
     {
@@ -46,7 +46,7 @@ extern "C"
     /**
      * @brief function to set the given pin low
      * 
-     * @param PIN 
+     * @param PIN The pin that gets set to low type is gpio_num_t
      */
     void HandleGPIO::SetLow(gpio_num_t PIN)
     {

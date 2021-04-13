@@ -4,7 +4,7 @@
  * @brief 
  * @version 0.1
  * @date 2021-03-29
- * 
+ * @class LCD_Control class to use a lcd display easily 
  * @copyright Copyright (c) 2021
  * 
  */
@@ -21,7 +21,7 @@
 extern "C"
 {
     /**
-     * @brief Construct a new lcd control::lcd control object for 4 bit mode
+     * @brief Construct a new lcd control::lcd control object for 8 bit mode
      * 
      * @param _RS The register select pin of the lcd
      * @param _E  The enable pin of the lcd
