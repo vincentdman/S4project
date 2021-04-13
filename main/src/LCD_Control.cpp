@@ -67,10 +67,11 @@ extern "C"
      * @details Destructor to set the output of the pins back to zero after destruction of the object. 
      * Mainly to remove any glitches when shutting down and restarting
      */
-    LCD_Control::~LCD_Control(){
+    LCD_Control::~LCD_Control()
+    {
         std::string lcd_off = "00000000";
-        LCD_Write(lcd_off,0);
-        SetLow(LCD_E);
+        LCD_Write(lcd_off, 0);
+        SetHigh(LCD_E);
     }
 
     /**
@@ -108,7 +109,7 @@ extern "C"
      */
     void LCD_Control::LCD_Write_String(std::string Data_String_)
     {
-        for (int i =0; i < Data_String_.size(); i++)
+        for (int i = 0; i < Data_String_.size(); i++)
         {
             LCD_Write_Char(Data_String_[i]);
         }
@@ -121,20 +122,21 @@ extern "C"
      */
     void LCD_Control::LCD_Initialize()
     {
-        vTaskDelay(50/portTICK_PERIOD_MS);
+        vTaskDelay(50 / portTICK_PERIOD_MS);
 
         InitializeGPIO(LCD_E);
         SetLow(LCD_E);
 
         InitializeGPIO(LCD_RS);
-        InitializeGPIO(LCD_D0);
-        InitializeGPIO(LCD_D1);
-        InitializeGPIO(LCD_D2);
-        InitializeGPIO(LCD_D3);
-        InitializeGPIO(LCD_D4);
-        InitializeGPIO(LCD_D5);
-        InitializeGPIO(LCD_D6);
         InitializeGPIO(LCD_D7);
+        InitializeGPIO(LCD_D6);
+        InitializeGPIO(LCD_D5);
+        InitializeGPIO(LCD_D4);
+        InitializeGPIO(LCD_D3);
+        InitializeGPIO(LCD_D2);
+        InitializeGPIO(LCD_D1);
+        InitializeGPIO(LCD_D0);
+        
     }
 
     /**
@@ -152,26 +154,26 @@ extern "C"
         switch (BitMode)
         {
         case FourBitMode:
-    
+
             ets_delay_us(1000);
-            gpio_set_level(LCD_RS,RS);
+            gpio_set_level(LCD_RS, RS);
             ets_delay_us(270);
             SetHigh(LCD_E);
             ets_delay_us(240);
-            gpio_set_level(LCD_D4, BinaryString[3]-'0');
-            gpio_set_level(LCD_D5, BinaryString[2]-'0');
-            gpio_set_level(LCD_D6, BinaryString[1]-'0');
-            gpio_set_level(LCD_D7, BinaryString[0]-'0');
+            gpio_set_level(LCD_D4, BinaryString[3] - '0');
+            gpio_set_level(LCD_D5, BinaryString[2] - '0');
+            gpio_set_level(LCD_D6, BinaryString[1] - '0');
+            gpio_set_level(LCD_D7, BinaryString[0] - '0');
             ets_delay_us(300);
             SetLow(LCD_E);
             ets_delay_us(1000);
 
             SetHigh(LCD_E);
             ets_delay_us(240);
-            gpio_set_level(LCD_D4, BinaryString[7]-'0');
-            gpio_set_level(LCD_D5, BinaryString[6]-'0');
-            gpio_set_level(LCD_D6, BinaryString[5]-'0');
-            gpio_set_level(LCD_D7, BinaryString[4]-'0');
+            gpio_set_level(LCD_D4, BinaryString[7] - '0');
+            gpio_set_level(LCD_D5, BinaryString[6] - '0');
+            gpio_set_level(LCD_D6, BinaryString[5] - '0');
+            gpio_set_level(LCD_D7, BinaryString[4] - '0');
             ets_delay_us(300);
             SetLow(LCD_E);
             ets_delay_us(1000);
@@ -179,25 +181,25 @@ extern "C"
 
         case EightBitMode:
             ets_delay_us(1000);
-            gpio_set_level(LCD_RS,RS);
+            gpio_set_level(LCD_RS, RS);
             ets_delay_us(270);
             SetHigh(LCD_E);
             ets_delay_us(240);
-            gpio_set_level(LCD_D0, BinaryString[7]-'0');
-            gpio_set_level(LCD_D1, BinaryString[6]-'0');
-            gpio_set_level(LCD_D2, BinaryString[5]-'0');
-            gpio_set_level(LCD_D3, BinaryString[4]-'0');
-            gpio_set_level(LCD_D4, BinaryString[3]-'0');
-            gpio_set_level(LCD_D5, BinaryString[2]-'0');
-            gpio_set_level(LCD_D6, BinaryString[1]-'0');
-            gpio_set_level(LCD_D7, BinaryString[0]-'0');
+            gpio_set_level(LCD_D0, BinaryString[7] - '0');
+            gpio_set_level(LCD_D1, BinaryString[6] - '0');
+            gpio_set_level(LCD_D2, BinaryString[5] - '0');
+            gpio_set_level(LCD_D3, BinaryString[4] - '0');
+            gpio_set_level(LCD_D4, BinaryString[3] - '0');
+            gpio_set_level(LCD_D5, BinaryString[2] - '0');
+            gpio_set_level(LCD_D6, BinaryString[1] - '0');
+            gpio_set_level(LCD_D7, BinaryString[0] - '0');
             ets_delay_us(300);
             SetLow(LCD_E);
             ets_delay_us(1000);
-        break;
+            break;
 
         default:
-            std::cout<<"Bitmode error, No bitmode selected."<<std::endl;
+            std::cout << "Bitmode error, No bitmode selected." << std::endl;
             break;
         }
     }
