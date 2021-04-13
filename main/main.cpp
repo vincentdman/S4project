@@ -27,12 +27,13 @@
 extern "C" void app_main(void)
 {
 
+
   // std::cout<<"Hello world!"<<std::endl;
 
    //PWM_GPIO a;
    // working gpio
    //LCD_Control a(GPIO_NUM_2,GPIO_NUM_15,GPIO_NUM_33,GPIO_NUM_25,GPIO_NUM_26,GPIO_NUM_4,GPIO_NUM_19,GPIO_NUM_21,GPIO_NUM_5,GPIO_NUM_27);
-    LCD_Control a(GPIO_NUM_2,GPIO_NUM_21,GPIO_NUM_25,GPIO_NUM_26,GPIO_NUM_19,GPIO_NUM_27);                      
+    LCD_Control UnitTestLCD(GPIO_NUM_2,GPIO_NUM_21,GPIO_NUM_25,GPIO_NUM_26,GPIO_NUM_19,GPIO_NUM_27);                      
    //  std::string commands = "00000010";
    //  a.LCD_Write(commands,0);
    
@@ -68,14 +69,25 @@ extern "C" void app_main(void)
     // a.LCD_Write("01000001",1);
 
    //std::cout<<"constructor"<<std::endl;
-   a.LCD_Write_Command(LCD_4_BIT_MODE);
-   //std::cout<<"lcd4bit"<<std::endl;
-   a.LCD_Write_Command(LCD_DISPLAY_ON_CURSOR_OFF);
-   a.LCD_Write_Command(LCD_CLEAR);
-   a.LCD_Write_Command(LCD_HOME);
-   //std::cout<<"display cursor on"<<std::endl;
-   std::string hello = "hello world!";
-   a.LCD_Write_String(hello);
+
+
+
+    UnitTestLCD.LCD_Write_Command(LCD_4_BIT_MODE);
+    UnitTestLCD.LCD_Write_Command(LCD_DISPLAY_ON_CURSOR_OFF);
+    UnitTestLCD.LCD_Write_Command(LCD_CLEAR);
+    UnitTestLCD.LCD_Write_Command(LCD_HOME);
+    
+    UnitTestLCD.LCD_Write_Char('a');
+    UnitTestLCD.LCD_Write_Char('B');
+    UnitTestLCD.LCD_Write_Char('c');
+
+    UnitTestLCD.LCD_Write_Command(LCD_NEXT_LINE);
+
+    std::string hello = "hello world!";
+    UnitTestLCD.LCD_Write_String(hello);
+   
+   
+
    //std::cout<<"put string"<<std::endl;
    //a.LCD_Write_Char('a');
    //a.LCD_Write_Char('B');
