@@ -22,6 +22,7 @@ class LCD_Control : private HandleGPIO {
     public:
         LCD_Control(gpio_num_t _RS, gpio_num_t _E, gpio_num_t _D0, gpio_num_t _D1, gpio_num_t _D2, gpio_num_t _D3, gpio_num_t _D4, gpio_num_t _D5, gpio_num_t _D6, gpio_num_t _D7);
         LCD_Control(gpio_num_t _RS, gpio_num_t _E, gpio_num_t _D4, gpio_num_t _D5 ,gpio_num_t _D6, gpio_num_t _D7);
+        ~LCD_Control();
         void LCD_Write_Char(char Data);
         void LCD_Initialize(); 
         void LCD_Write_Command(int Command);

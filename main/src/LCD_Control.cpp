@@ -61,6 +61,17 @@ extern "C"
         BitMode = FourBitMode;
         LCD_Initialize();
     }
+    /**
+     * @brief Destroy the lcd control::lcd control object
+     * 
+     * @details Destructor to set the output of the pins back to zero after destruction of the object. 
+     * Mainly to remove any glitches when shutting down and restarting
+     */
+    LCD_Control::~LCD_Control(){
+        std::string lcd_off = "00000000";
+        LCD_Write(lcd_off,0);
+        SetLow(LCD_E);
+    }
 
     /**
      * @brief function to write a char to the lcd.
