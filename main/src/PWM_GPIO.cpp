@@ -18,6 +18,7 @@ extern "C"
 {
     /**
      * @brief Construct a new pwm gpio::pwm gpio object
+     * 
      * @details default constructor for PWM_GPIO object
      */
     PWM_GPIO::PWM_GPIO()

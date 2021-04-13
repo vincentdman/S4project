@@ -114,26 +114,29 @@ extern "C" void app_main(void)
    // }
    //HandleGPIO a;
    //a.SetHigh(GPIO_NUM_4);
-  // RGB_Control RGB_LED(GPIO_NUM_25, GPIO_NUM_26, GPIO_NUM_27);
 
-   //RGB_LED.SetRGB(100, 50, 0);
-   /*
-   while (1)
-   {
-      RGB_LED.SetRed();
-      vTaskDelay(1000 / portTICK_PERIOD_MS);
-      RGB_LED.SetBlue();
-      vTaskDelay(1000 / portTICK_PERIOD_MS);
-      RGB_LED.SetGreen();
-      vTaskDelay(1000 / portTICK_PERIOD_MS);
-      RGB_LED.SetPurple();
-      vTaskDelay(1000 / portTICK_PERIOD_MS);
-      RGB_LED.SetCyan();
-      vTaskDelay(1000 / portTICK_PERIOD_MS);
-      RGB_LED.SetYellow();
-      vTaskDelay(1000 / portTICK_PERIOD_MS);
-      RGB_LED.SetWhite();
-      vTaskDelay(1000 / portTICK_PERIOD_MS);
-   }
-   */
+
+   //RGB LED
+   // RGB_Control RGB_LED(GPIO_NUM_25, GPIO_NUM_26, GPIO_NUM_27);
+
+   // RGB_LED.SetRGB(100, 50, 0);
+   
+   // while (1)
+   // {
+   //    RGB_LED.SetRed();
+   //    vTaskDelay(1000 / portTICK_PERIOD_MS);
+   //    RGB_LED.SetBlue();
+   //    vTaskDelay(1000 / portTICK_PERIOD_MS);
+   //    RGB_LED.SetGreen();
+   //    vTaskDelay(1000 / portTICK_PERIOD_MS);
+   //    RGB_LED.SetPurple();
+   //    vTaskDelay(1000 / portTICK_PERIOD_MS);
+   //    RGB_LED.SetCyan();
+   //    vTaskDelay(1000 / portTICK_PERIOD_MS);
+   //    RGB_LED.SetYellow();
+   //    vTaskDelay(1000 / portTICK_PERIOD_MS);
+   //    RGB_LED.SetWhite();
+   //    vTaskDelay(1000 / portTICK_PERIOD_MS);
+   // }
+   
 }

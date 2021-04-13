@@ -42,6 +42,7 @@ extern "C"
         BitMode = EightBitMode;
         LCD_Initialize();
     }
+
     /**
      * @brief Construct a new lcd control::lcd control object for 4 bit mode
      * 
@@ -131,7 +132,9 @@ extern "C"
      * @param BinaryString The binary string that will be set on the lcd pins.
      * @param RS If the command needs to be written as data or register
      * 
-     * @details Based on four or eight bit mode the function sets the binary string correct on the lcd pins and pulses the enable pin. It also set the rs pin based on the input parameter RS
+     * @details Based on four or eight bit mode the function sets the binary string correct on the lcd pins and pulses the enable pin. 
+     * It also set the rs pin based on the input parameter RS. This will make sure that the correct mode is used. 
+     * The modes are register write and write to lcd. 
      */
     void LCD_Control::LCD_Write(std::string BinaryString, int RS)
     {
