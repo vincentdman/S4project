@@ -32,11 +32,11 @@ extern "C"
     private:
         ledc_timer_config_t ledc_timer =
             {
-                .speed_mode = LEDC_LOW_SPEED_MODE,    // timer mode
-                .duty_resolution = LEDC_TIMER_13_BIT, // resolution of PWM duty
-                .timer_num = LEDC_TIMER_1,            // timer index
-                .freq_hz = 5000,                      // frequency of PWM signal
-                .clk_cfg = LEDC_AUTO_CLK              // Auto select the source clock
+                .speed_mode = LEDC_LOW_SPEED_MODE,    
+                .duty_resolution = LEDC_TIMER_13_BIT, 
+                .timer_num = LEDC_TIMER_1,            
+                .freq_hz = 5000,                      
+                .clk_cfg = LEDC_AUTO_CLK              
         };
 
         ledc_channel_config_t ledc_channel =

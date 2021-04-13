@@ -135,8 +135,7 @@ extern "C"
         InitializeGPIO(LCD_D3);
         InitializeGPIO(LCD_D2);
         InitializeGPIO(LCD_D1);
-        InitializeGPIO(LCD_D0);
-        
+        InitializeGPIO(LCD_D0);   
     }
 
     /**
