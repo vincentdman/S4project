@@ -2,11 +2,11 @@
  * @file HandleGPIO.cpp
  * @author Vincent de Man
  * @brief Basic GPIO class (.cpp)
- * @version 0.1
+ * @version 1.1
  * @date 2021-03-24
- * @copyright Copyright (c) 2021
+ * @copyright Copyright (cpp) 2021
  * @class HandleGPIO class to add basic gpio functionality to objects
- * 
+ * @details implementation of the handle gpio functions. It makes use of the esp-idf framework. 
  */
 #include "HandleGPIO.h"
 #include <iostream>

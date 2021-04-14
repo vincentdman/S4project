@@ -1,12 +1,12 @@
 /**
  * @file LCD_Control.cpp
  * @author Vincent de Man
- * @brief 
- * @version 0.1
+ * @brief Source file for LCD_Control class.
+ * @version 1.1
  * @date 2021-03-29
  * @class LCD_Control class to use a lcd display easily 
- * @copyright Copyright (c) 2021
- * 
+ * @copyright Copyright (cpp) 2021
+ * @details Implementation of the LCD_Control class. It uses the intherited handle gpio functions.
  */
 #include "LCD_Control.h"
 #include <driver/gpio.h>
@@ -135,7 +135,7 @@ extern "C"
         InitializeGPIO(LCD_D3);
         InitializeGPIO(LCD_D2);
         InitializeGPIO(LCD_D1);
-        InitializeGPIO(LCD_D0);   
+        InitializeGPIO(LCD_D0);
     }
 
     /**

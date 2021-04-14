@@ -2,11 +2,11 @@
  * @file PWM_GPIO.cpp
  * @author Vincent de Man
  * @brief Basic gpio PWM dirver class (.cpp)
- * @version 0.1
+ * @version 1.1
  * @date 2021-03-24
- * @copyright Copyright (c) 2021
+ * @copyright Copyright (cpp) 2021
  * @class PWM_GPIO Advanced class to give PWM functionality to a object
- * 
+ * @details Implementation of the pwm gpio class. It uses the inherited handle gpio functions. 
  */
 #include "driver/ledc.h"
 #include "esp_err.h"

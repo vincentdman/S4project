@@ -2,10 +2,9 @@
  * @file main.cpp
  * @author Vincent de Man
  * @brief Main application for S4 Project (.cpp)
- * @version 0.1
+ * @version 1.1
  * @date 2021-03-24
- * 
- * @copyright Copyright (c) 2021
+ * @copyright Copyright (cpp) 2021
  * @details main.cpp main code for project S4  
  */
 #include <stdio.h>
@@ -42,6 +41,18 @@ extern "C" void app_main(void)
   std::string hello = "hello world!";
   UnitTestLCD.LCD_Write_String(hello);
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

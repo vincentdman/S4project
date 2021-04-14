@@ -2,10 +2,10 @@
  * @file PWM_GPIO.h
  * @author Vincent de Man
  * @brief Header file for PWM GPIO dirver (.h)
- * @version 0.1
+ * @version 1.1
  * @date 2021-03-24
- * 
- * @copyright Copyright (c) 2021
+ * @details header file for the pwm gpio functions. Includes all functions used to use the gpio
+ * @copyright Copyright (cpp) 2021
  * 
  */
 #ifndef PWM_GPIO_h
@@ -32,12 +32,11 @@ extern "C"
     private:
         ledc_timer_config_t ledc_timer =
             {
-                .speed_mode = LEDC_LOW_SPEED_MODE,    
-                .duty_resolution = LEDC_TIMER_13_BIT, 
-                .timer_num = LEDC_TIMER_1,            
-                .freq_hz = 5000,                      
-                .clk_cfg = LEDC_AUTO_CLK              
-        };
+                .speed_mode = LEDC_LOW_SPEED_MODE,
+                .duty_resolution = LEDC_TIMER_13_BIT,
+                .timer_num = LEDC_TIMER_1,
+                .freq_hz = 5000,
+                .clk_cfg = LEDC_AUTO_CLK};
 
         ledc_channel_config_t ledc_channel =
             {
