@@ -4,3 +4,4 @@ sdkconfig
 sdkconfig.old
 testlogo.png
 html/
+workspace.code-workspace
