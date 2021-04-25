@@ -21,6 +21,19 @@ extern "C"
     class LCD_Control : private HandleGPIO
     {
     public:
+
+        typedef struct{
+            gpio_num_t _RS = GPIO_NUM_NC;
+            gpio_num_t _E = GPIO_NUM_NC; 
+            gpio_num_t _D4 = GPIO_NUM_NC;
+            gpio_num_t _D5 = GPIO_NUM_NC; 
+            gpio_num_t _D6 = GPIO_NUM_NC; 
+            gpio_num_t _D7 = GPIO_NUM_NC;
+        }LCD_Pinout_t;
+
+        LCD_Control(LCD_Pinout_t &LCD_Pinout_Configuration);
+
+
         LCD_Control(gpio_num_t _RS, gpio_num_t _E, gpio_num_t _D0, gpio_num_t _D1, gpio_num_t _D2, gpio_num_t _D3, gpio_num_t _D4, gpio_num_t _D5, gpio_num_t _D6, gpio_num_t _D7);
         LCD_Control(gpio_num_t _RS, gpio_num_t _E, gpio_num_t _D4, gpio_num_t _D5, gpio_num_t _D6, gpio_num_t _D7);
         ~LCD_Control();

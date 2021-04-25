@@ -21,11 +21,16 @@
 #include "PWM_GPIO.h"
 #include "LCD_Commands.h"
 #include "LCD_Control.h"
+#include "driver/i2c.h"
 #include <string>
 
 extern "C" void app_main(void)
 {
+
+
   LCD_Control UnitTestLCD(GPIO_NUM_2, GPIO_NUM_21, GPIO_NUM_25, GPIO_NUM_26, GPIO_NUM_19, GPIO_NUM_27);
+
+
   UnitTestLCD.LCD_Write_Command(LCD_CLEAR);
   UnitTestLCD.LCD_Write_Command(LCD_4_BIT_MODE);
   UnitTestLCD.LCD_Write_Command(LCD_DISPLAY_ON_CURSOR_OFF);
@@ -40,6 +45,8 @@ extern "C" void app_main(void)
 
   std::string hello = "hello world!";
   UnitTestLCD.LCD_Write_String(hello);
+
+
 }
 
 
