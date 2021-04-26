@@ -10,6 +10,11 @@
  */
 
 #include "driver/i2c.h"
+#include "HandleI2C.h"
+
+HandleI2C::I2C_Initialize(i2c_config_t &Configuration){
 
 
+
+}
 

@@ -20,12 +20,12 @@
 
 
 class HandleI2C{
-    
+
     HandleI2C();
     void I2C_WriteString(std::string);
     void I2C_ReadString(std::string);
     esp_err_t I2C_TestConncetion();
-    void I2C_Initialize(); 
+    void I2C_Initialize(i2c_config_t); 
 
 
 };
