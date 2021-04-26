@@ -22,31 +22,28 @@
 #include "LCD_Commands.h"
 #include "LCD_Control.h"
 #include "driver/i2c.h"
-#include "HandleI2c.h"
+#include "HandleI2C.h"
 #include <string>
 
 extern "C" void app_main(void)
-{
+{ 
+  HandleI2C test;
+  i2c_config_t MyConfig;
+    MyConfig.mode = I2C_MODE_MASTER;
+    MyConfig.sda_io_num = GPIO_NUM_21;
+    MyConfig.scl_io_num = GPIO_NUM_22;
+    MyConfig.sda_pullup_en = GPIO_PULLUP_ENABLE;
+    MyConfig.scl_pullup_en = GPIO_PULLUP_ENABLE;
+    MyConfig.master.clk_speed = 40000000;
+  
+  test.I2C_Initialize(MyConfig);
+  
+  uint8_t sending = 12;
+  uint8_t slave = 39;
 
-
-  LCD_Control UnitTestLCD(GPIO_NUM_2, GPIO_NUM_21, GPIO_NUM_25, GPIO_NUM_26, GPIO_NUM_19, GPIO_NUM_27);
-
-
-  UnitTestLCD.LCD_Write_Command(LCD_CLEAR);
-  UnitTestLCD.LCD_Write_Command(LCD_4_BIT_MODE);
-  UnitTestLCD.LCD_Write_Command(LCD_DISPLAY_ON_CURSOR_OFF);
-  UnitTestLCD.LCD_Write_Command(LCD_CLEAR);
-  UnitTestLCD.LCD_Write_Command(LCD_HOME);
-
-  UnitTestLCD.LCD_Write_Char('a');
-  UnitTestLCD.LCD_Write_Char('B');
-  UnitTestLCD.LCD_Write_Char('c');
-
-  UnitTestLCD.LCD_Write_Command(LCD_NEXT_LINE);
-
-  std::string hello = "hello world!";
-  UnitTestLCD.LCD_Write_String(hello);
-
+  while(1){
+  test.I2C_WriteData(sending,slave);
+  }
 
 }
 
@@ -64,7 +61,23 @@ extern "C" void app_main(void)
 
 
 
+  // LCD_Control UnitTestLCD(GPIO_NUM_2, GPIO_NUM_21, GPIO_NUM_25, GPIO_NUM_26, GPIO_NUM_19, GPIO_NUM_27);
 
+
+  // UnitTestLCD.LCD_Write_Command(LCD_CLEAR);
+  // UnitTestLCD.LCD_Write_Command(LCD_4_BIT_MODE);
+  // UnitTestLCD.LCD_Write_Command(LCD_DISPLAY_ON_CURSOR_OFF);
+  // UnitTestLCD.LCD_Write_Command(LCD_CLEAR);
+  // UnitTestLCD.LCD_Write_Command(LCD_HOME);
+
+  // UnitTestLCD.LCD_Write_Char('a');
+  // UnitTestLCD.LCD_Write_Char('B');
+  // UnitTestLCD.LCD_Write_Char('c');
+
+  // UnitTestLCD.LCD_Write_Command(LCD_NEXT_LINE);
+
+  // std::string hello = "hello world!";
+  // UnitTestLCD.LCD_Write_String(hello);
 
 
 
