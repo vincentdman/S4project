@@ -26,6 +26,7 @@ extern "C"
           LCD_D2(LCD_Pinout_Configuration._D2), LCD_D3(LCD_Pinout_Configuration._D3), LCD_D4(LCD_Pinout_Configuration._D4), LCD_D5(LCD_Pinout_Configuration._D5),
           LCD_D6(LCD_Pinout_Configuration._D6), LCD_D7(LCD_Pinout_Configuration._D7), BitMode(LCD_Pinout_Configuration._BitMode)
     {
+        SetBitMode();
         LCD_Initialize();
     }
 
@@ -77,6 +78,26 @@ extern "C"
      */
     void LCD_Control::LCD_Initialize()
     {
+        SwapInitialize(this);
+    }
+
+    void LCD_Control::LCD_InitializeFourBitMode()
+    {
+
+        vTaskDelay(50 / portTICK_PERIOD_MS);
+
+        InitializeGPIO(LCD_E);
+        SetLow(LCD_E);
+        InitializeGPIO(LCD_RS);
+        InitializeGPIO(LCD_D7);
+        InitializeGPIO(LCD_D6);
+        InitializeGPIO(LCD_D5);
+        InitializeGPIO(LCD_D4);
+    }
+
+    void LCD_Control::LCD_InitializeEightBitMode()
+    {
+
         vTaskDelay(50 / portTICK_PERIOD_MS);
 
         InitializeGPIO(LCD_E);
@@ -95,13 +116,20 @@ extern "C"
 
     void LCD_Control::LCD_Write(std::string BinaryString, int RS)
     {
+        SwapWRITE(this, BinaryString, RS);
+    }
+
+    void LCD_Control::SetBitMode()
+    {
         if (BitMode == FourBitMode)
         {
-            LCD_WriteFourBitMode(BinaryString, RS);
+            SwapInitialize = &LCD_Control::LCD_InitializeFourBitMode;
+            SwapWRITE = &LCD_Control::LCD_WriteFourBitMode;
         }
         else
         {
-            LCD_WriteEightBitMode(BinaryString, RS);
+            SwapInitialize = &LCD_Control::LCD_InitializeEightBitMode;
+            SwapWRITE = &LCD_Control::LCD_WriteEightBitMode;
         }
     }
 

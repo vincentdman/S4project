@@ -15,6 +15,7 @@
 #include <driver/gpio.h>
 #include <string>
 #include "LCD_Commands.h"
+#include <functional>
 
 extern "C"
 {
@@ -48,6 +49,8 @@ extern "C"
 
         void LCD_Write_Char(char Data);
         void LCD_Initialize();
+        void LCD_InitializeEightBitMode();
+        void LCD_InitializeFourBitMode();
         void LCD_Write_Command(int Command);
         void LCD_Write_String(std::string Data_String_);
         void LCD_Write(std::string BinaryString, int RS);
@@ -64,7 +67,9 @@ extern "C"
         void LCD_SetDataFourBitModeFirstHalf(std::string BinaryString);
         void LCD_SetDataFourBitModeSecondHalf(std::string BinaryString);
 
-
+        std::function<void(LCD_Control*,std::string BinaryString, int RS)> SwapWRITE = &LCD_Control::LCD_WriteEightBitMode;
+        std::function<void(LCD_Control*)> SwapInitialize = &LCD_Control::LCD_InitializeEightBitMode;
+        void SetBitMode();
 
         enum
         {
