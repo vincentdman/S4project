@@ -93,15 +93,15 @@ extern "C"
         InitializeGPIO(LCD_D0);
     }
 
-
     void LCD_Control::LCD_Write(std::string BinaryString, int RS)
     {
         if (BitMode == FourBitMode)
         {
-            LCD_WriteFourBitMode(BinaryString,RS);
+            LCD_WriteFourBitMode(BinaryString, RS);
         }
-        else{
-            LCD_WriteEightBitMode(BinaryString,RS);
+        else
+        {
+            LCD_WriteEightBitMode(BinaryString, RS);
         }
     }
 
@@ -120,8 +120,6 @@ extern "C"
         LCD_SetDataEightBitMode(BinaryString);
         LCD_CycleDataTrough();
     }
-
-
 
     void LCD_Control::LCD_InitializeForSendingData(int RS)
     {
