@@ -14,6 +14,13 @@
 #include <string>
 #include <iostream>
 
+/**
+ * @brief Function to initialize the lcd.
+ * 
+ * @param Configuration the configuration struct
+ * 
+ * @details Function to initialize the lcd by taking in the i2c_config_t struct.
+ */
 void HandleI2C::I2C_Initialize(i2c_config_t &Configuration)
 {
     i2c_param_config(I2C_Port, &Configuration);
