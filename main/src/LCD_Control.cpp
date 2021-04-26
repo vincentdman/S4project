@@ -2,7 +2,7 @@
  * @file LCD_Control.cpp
  * @author Vincent de Man
  * @brief Source file for LCD_Control class.
- * @version 1.1
+ * @version 2.1
  * @date 2021-03-29
  * @class LCD_Control class to use a lcd display easily 
  * @copyright Copyright (cpp) 2021
