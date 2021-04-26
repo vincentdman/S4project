@@ -20,7 +20,13 @@
 
 extern "C"
 {
-
+    /**
+     * @brief Construct a new lcd control::lcd control object
+     * 
+     * @details Constructor takes in a LCD_Pinout_t constructor the user needs to initialize the used pins for the lcd in the structure
+     * 
+     * @param LCD_Pinout_Configuration Structure that has all the used pins for the lcd in it. 
+     */
     LCD_Control::LCD_Control(LCD_Pinout_t &LCD_Pinout_Configuration)
         : LCD_RS(LCD_Pinout_Configuration._RS), LCD_E(LCD_Pinout_Configuration._E), LCD_D0(LCD_Pinout_Configuration._D0), LCD_D1(LCD_Pinout_Configuration._D1),
           LCD_D2(LCD_Pinout_Configuration._D2), LCD_D3(LCD_Pinout_Configuration._D3), LCD_D4(LCD_Pinout_Configuration._D4), LCD_D5(LCD_Pinout_Configuration._D5),
@@ -72,15 +78,20 @@ extern "C"
     }
 
     /**
-     * @brief Function to initialize the lcd for use
+     * @brief Function that swaps the initialize four bit and eight bit mode 
      * 
-     * @details Initializes the lcd pins to pulldown and output. The LCD_E pin gets set to low output. First there is a 50ms delay as it is needed to warm up the lcd after boot.  
+     * @details Function that uses the std::function to switch between eight and four bit mode. 
      */
     void LCD_Control::LCD_Initialize()
     {
         SwapInitialize(this);
     }
 
+    /**
+     * @brief Initialize function for four bit mode
+     * 
+     * @details function that gets called when the lcd is in four bit mode
+     */
     void LCD_Control::LCD_InitializeFourBitMode()
     {
 
@@ -95,6 +106,11 @@ extern "C"
         InitializeGPIO(LCD_D4);
     }
 
+    /**
+     * @brief Initialize function for eight bit mode
+     * 
+     * @details function that gets called when the lcd is in eight bit mode
+     */
     void LCD_Control::LCD_InitializeEightBitMode()
     {
 
@@ -114,11 +130,24 @@ extern "C"
         InitializeGPIO(LCD_D0);
     }
 
+    /**
+     * @brief Function to write to the lcd.
+     * 
+     * @param BinaryString The data in a binary string that gets put on the lcd.
+     * @param RS Choice between writing to the lcd and writing to the registers.
+     * 
+     * @details Function that swaps between write eight bits and write four bits.
+     */
     void LCD_Control::LCD_Write(std::string BinaryString, int RS)
     {
         SwapWRITE(this, BinaryString, RS);
     }
 
+    /**
+     * @brief Function to switch between the functions for four and eight bit.
+     * 
+     * @details Function that switches between the functions for four and eight bit mode. This gets called once when the constructor is called. 
+     */
     void LCD_Control::SetBitMode()
     {
         if (BitMode == FourBitMode)
@@ -133,6 +162,14 @@ extern "C"
         }
     }
 
+    /**
+     * @brief Function to write in four bit mode to the lcd
+     * 
+     * @param BinaryString The bitstring that gets written to the lcd.
+     * @param RS The mode the write action will be in (write to register or write to the lcd)
+     * 
+     * @details Function to write to the lcd in four bit mode. 
+     */
     void LCD_Control::LCD_WriteFourBitMode(std::string BinaryString, int RS)
     {
         LCD_InitializeForSendingData(RS);
@@ -142,6 +179,14 @@ extern "C"
         LCD_CycleDataTrough();
     }
 
+    /**
+     * @brief Function to write in eight bit mode to the lcd
+     * 
+     * @param BinaryString The bitstring that gets written to the lcd.
+     * @param RS The mode the write action will be in (write to register or write to the lcd)
+     * 
+     * @details Function to write to the lcd in eight bit mode. 
+     */
     void LCD_Control::LCD_WriteEightBitMode(std::string BinaryString, int RS)
     {
         LCD_InitializeForSendingData(RS);
@@ -149,6 +194,13 @@ extern "C"
         LCD_CycleDataTrough();
     }
 
+    /**
+     * @brief Function to initialize the lcd for sending sending data.
+     * 
+     * @param RS The mode the write action will be in (write to register or write to the lcd)
+     * 
+     * @details Function that makes the lcd ready for sending data. By setting enable high and setting the RS pin according to input parameter.
+     */
     void LCD_Control::LCD_InitializeForSendingData(int RS)
     {
         ets_delay_us(1000);
@@ -158,6 +210,11 @@ extern "C"
         ets_delay_us(240);
     }
 
+    /**
+     * @brief Function to cycle the data trough to the lcd.
+     * 
+     * @details Function to cycle the data trought to the lcd by making a falling edge on the enable pin.
+     */
     void LCD_Control::LCD_CycleDataTrough(void)
     {
         ets_delay_us(300);
@@ -165,6 +222,13 @@ extern "C"
         ets_delay_us(1000);
     }
 
+    /**
+     * @brief Function to set the lcd data ready on the lcd pins for eight bit mode.
+     * 
+     * @param BinaryString Data that gets put on the lcd pins.
+     * 
+     * @details Function that sets the lcd data ready on the pins by using gpio_set_level().  
+     */
     void LCD_Control::LCD_SetDataEightBitMode(std::string BinaryString)
     {
         gpio_set_level(LCD_D0, BinaryString[7] - '0');
@@ -177,6 +241,13 @@ extern "C"
         gpio_set_level(LCD_D7, BinaryString[0] - '0');
     }
 
+    /**
+     * @brief Function to set the first half of the binary string on the lcd pins in four bit mode.
+     * 
+     * @param BinaryString The data in a bit string that gets set on the lcd. 
+     * 
+     * @details Function to set the first half of the binary string on the lcd pins in four bit mode.
+     */
     void LCD_Control::LCD_SetDataFourBitModeFirstHalf(std::string BinaryString)
     {
         gpio_set_level(LCD_D4, BinaryString[3] - '0');
@@ -185,6 +256,13 @@ extern "C"
         gpio_set_level(LCD_D7, BinaryString[0] - '0');
     }
 
+    /**
+     * @brief Function to set the second half to the lcd pins in four bit mode.
+     * 
+     * @param BinaryString The data in a bit string that gets set on the lcd. 
+     * 
+     * @details Function to set the second half to the lcd pins in four bit mode.
+     */
     void LCD_Control::LCD_SetDataFourBitModeSecondHalf(std::string BinaryString)
     {
         SetHigh(LCD_E);
