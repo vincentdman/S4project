@@ -13,6 +13,23 @@
 #define HandleI2c_H
 
 
+#include "driver/i2c.h"
+#include "driver/gpio.h"
+#include <string>
+#include "esp_err.h"
+
+
+class HandleI2C{
+    
+    HandleI2C();
+    void I2C_WriteString(std::string);
+    void I2C_ReadString(std::string);
+    esp_err_t I2C_TestConncetion();
+    void I2C_Initialize(); 
+
+
+};
+
 
 
 

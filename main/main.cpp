@@ -22,6 +22,7 @@
 #include "LCD_Commands.h"
 #include "LCD_Control.h"
 #include "driver/i2c.h"
+#include "HandleI2c.h"
 #include <string>
 
 extern "C" void app_main(void)
