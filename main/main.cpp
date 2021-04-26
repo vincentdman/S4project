@@ -25,31 +25,31 @@
 #include "HandleI2C.h"
 #include <string>
 
+
+
 extern "C" void app_main(void)
 { 
+
   HandleI2C test;
   i2c_config_t MyConfig;
     MyConfig.mode = I2C_MODE_MASTER;
-    MyConfig.sda_io_num = GPIO_NUM_21;
-    MyConfig.scl_io_num = GPIO_NUM_22;
+    MyConfig.sda_io_num = 21;
+    MyConfig.scl_io_num = 22;
     MyConfig.sda_pullup_en = GPIO_PULLUP_ENABLE;
     MyConfig.scl_pullup_en = GPIO_PULLUP_ENABLE;
-    MyConfig.master.clk_speed = 40000000;
+    MyConfig.master.clk_speed = 100000;
   
   test.I2C_Initialize(MyConfig);
   
   uint8_t sending = 12;
-  uint8_t slave = 39;
+  uint8_t slave = 1;
 
   while(1){
   test.I2C_WriteData(sending,slave);
+  vTaskDelay(100/portTICK_PERIOD_MS);
   }
 
 }
-
-
-
-
 
 
 

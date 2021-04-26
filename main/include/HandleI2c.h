@@ -32,8 +32,8 @@ class HandleI2C{
     
 
     private:
-    i2c_port_t I2C_Pin = GPIO_NUM_NC; 
-    i2c_cmd_handle_t link_cmd;
+    i2c_port_t I2C_Port = I2C_NUM_1; 
+    
 };
 
 
