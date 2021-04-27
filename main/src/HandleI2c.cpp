@@ -27,6 +27,14 @@ void HandleI2C::I2C_Initialize(i2c_config_t &Configuration)
     i2c_driver_install(I2C_Port, Configuration.mode, 0, 0, 0);
 }
 
+/**
+ * @brief Function to write data as a master to slave
+ * 
+ * @param Data_ToSend The data that gets send to the slave.
+ * @param slave_adress The adress of the slave device.
+ * 
+ * @details Function to send data to the slave. input is the data to send as uint8_t and the slave adress.
+ */
 void HandleI2C::I2C_WriteData(uint8_t Data_ToSend, uint8_t slave_adress)
 {
     i2c_cmd_handle_t link_cmd = i2c_cmd_link_create();
@@ -38,6 +46,14 @@ void HandleI2C::I2C_WriteData(uint8_t Data_ToSend, uint8_t slave_adress)
     i2c_cmd_link_delete(link_cmd);
 }
 
+/**
+ * @brief Function to read data from the slave device.
+ * 
+ * @param slave_adress The adress of the slave
+ * @return uint8_t DataRead that gets returned to caller of the function.
+ * 
+ * @details Function to read data from the slave device. 
+ */
 uint8_t HandleI2C::I2C_ReadByte(uint8_t slave_adress){
     uint8_t DataRead;
     i2c_cmd_handle_t link_cmd = i2c_cmd_link_create();
@@ -50,8 +66,18 @@ uint8_t HandleI2C::I2C_ReadByte(uint8_t slave_adress){
     return DataRead;
 }
 
+/**
+ * @brief Construct a new Handle I2C object.
+ * 
+ * @details Default constructor does nothing 
+ */
 HandleI2C::HandleI2C() {}
 
+/**
+ * @brief Destroy the Handle I2C object.
+ * 
+ * @details Deletes the driver so it sets system resources free. 
+ */
 HandleI2C::~HandleI2C()
 {
     i2c_driver_delete(I2C_Port);
