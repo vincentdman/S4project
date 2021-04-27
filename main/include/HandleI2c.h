@@ -25,7 +25,7 @@ public:
 
     ~HandleI2C();
     void I2C_WriteData(uint8_t Data_ToSend, uint8_t slave_adress);
-    void I2C_ReadString(std::string);
+    uint8_t I2C_ReadByte(uint8_t slave_adress);
     esp_err_t I2C_TestConncetion();
     void I2C_Initialize(i2c_config_t &Configuration);
 
