@@ -7,3 +7,4 @@ Code makes use of: <br>
 Eps-idf framework <br>
 Doxygen documentation generation <br>
 Object oriented cpp <br>
+Uncle bob clean code guidelines<br>
