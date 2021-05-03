@@ -28,7 +28,7 @@ void HandleI2C::I2C_Initialize(i2c_config_t &Configuration)
 }
 
 /**
- * @brief Function to write data as a master to slave
+ * @brief Function to write data as a master to slave.
  * 
  * @param Data_ToSend The data that gets send to the slave.
  * @param slave_adress The adress of the slave device.
