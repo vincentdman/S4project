@@ -1,7 +1,7 @@
 /**
  * @file RGB_Control.h
  * @author Vincent de Man
- * @brief Header file for RGB control (.h)
+ * @brief Header file for RGB control (.h).
  * @version 1.1
  * @date 2021-03-24
  * @details Header file for rgb control class. includes all functions tp use a rgb led object.

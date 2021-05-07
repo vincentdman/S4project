@@ -1,7 +1,7 @@
 /**
  * @file LCD_Commands.h
  * @author Vincent de Man
- * @brief Display commands for 16x2 display
+ * @brief Display commands for 16x2 display.
  * @version 1.1
  * @date 2021-04-01
  * @details Includes most of the lcd function commands to send to the lcd. Data type is binary. 

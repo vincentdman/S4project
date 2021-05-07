@@ -1,20 +1,20 @@
 /**
  * @file LCD_Control.h
  * @author Vincent de Man
- * @brief Header file for the LCD_Control Class
+ * @brief Header file for the LCD_Control Class (.h).
  * @version 1.1
  * @date 2021-03-29
- * @details LCD_Control header for the use of the lcd class. Includes all the most important functions
+ * @details LCD_Control header for the use of the lcd class. Includes all of the most important functions
  * @copyright Copyright (cpp) 2021
  * 
  */
 #ifndef LCD_Control_h
 #define LCD_Control_h
 
+#include "LCD_Commands.h"
 #include "HandleGPIO.h"
 #include <driver/gpio.h>
 #include <string>
-#include "LCD_Commands.h"
 #include <functional>
 
 extern "C"

@@ -1,10 +1,10 @@
 /**
  * @file PWM_GPIO.h
  * @author Vincent de Man
- * @brief Header file for PWM GPIO dirver (.h)
+ * @brief Header file for PWM GPIO dirver (.h).
  * @version 1.1
  * @date 2021-03-24
- * @details header file for the pwm gpio functions. Includes all functions used to use the gpio
+ * @details header file for the pwm gpio functions. Includes all functions used to use the gpio.
  * @copyright Copyright (cpp) 2021
  * 
  */

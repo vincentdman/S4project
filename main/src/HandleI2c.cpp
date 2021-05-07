@@ -5,6 +5,7 @@
  * @version 0.2
  * @date 2021-04-25
  * @details Implementation of the HandleI2C class.
+ * @class HandleI2c class to make it easier to use the i2c peripheral of the esp32.
  * @copyright Copyright (c) 2021
  * 
  */

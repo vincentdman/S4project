@@ -2,9 +2,9 @@
  * @file HandleGPIO.h
  * @author Vincent de Man
  * @brief Header file for GPIO handler (.h)
- * @version 1.1
+ * @version 1.2
  * @date 2021-03-24
- * @details Header file for gpio handler class. Include functions SetHigh SetLow SetGPIO InitializeGPIO
+ * @details Header file for gpio handler class. Includes functions SetHigh SetLow SetGPIO InitializeGPIO.
  * @copyright Copyright (cpp) 2021
  * 
  */

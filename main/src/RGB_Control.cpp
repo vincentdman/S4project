@@ -5,7 +5,7 @@
  * @version 1.1
  * @date 2021-03-24
  * @copyright Copyright (cpp) 2021
- * @class RGB_Control class to create a rgb led object
+ * @class RGB_Control class to create a rgb led object.
  * @details Implementation of the handle rgb class. It uses the inherited handle gpio and pwm gpio functions. 
  */
 #include <iostream>

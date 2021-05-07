@@ -5,8 +5,9 @@
  * @version 1.1
  * @date 2021-03-24
  * @copyright Copyright (cpp) 2021
- * @class PWM_GPIO Advanced class to give PWM functionality to a object
+ * @class PWM_GPIO Advanced class to give PWM functionality to a object.
  * @details Implementation of the pwm gpio class. It uses the inherited handle gpio functions. 
+ *
  */
 #include "driver/ledc.h"
 #include "esp_err.h"

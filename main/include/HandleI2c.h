@@ -1,10 +1,10 @@
 /**
  * @file HandleI2c.h
  * @author Vincent de Man
- * @brief Header file for HandleI2c
- * @version 0.1
+ * @brief Header file for HandleI2c (.h)
+ * @version 1.1
  * @date 2021-04-25
- * @details 
+ * @details Header for the HandleI2c class. This class makes it easy to use the i2c peripheral of the esp32.
  * @copyright Copyright (c) 2021
  * 
  */

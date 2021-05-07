@@ -5,8 +5,8 @@
  * @version 1.1
  * @date 2021-03-24
  * @copyright Copyright (cpp) 2021
- * @class HandleGPIO class to add basic gpio functionality to objects
- * @details implementation of the handle gpio functions. It makes use of the esp-idf framework. 
+ * @class HandleGPIO class to add basic gpio functionality to objects.
+ * @details Implementation of the handle gpio functions. It makes use of the esp-idf framework. 
  */
 #include "HandleGPIO.h"
 #include <iostream>
