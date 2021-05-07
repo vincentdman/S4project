@@ -39,7 +39,7 @@ void HandleI2C::I2C_WriteData(uint8_t Data_ToSend, uint8_t slave_adress)
 {
     i2c_cmd_handle_t link_cmd = i2c_cmd_link_create();
     i2c_master_start(link_cmd);
-    i2c_master_write_byte(link_cmd, (slave_adress<<1) | I2C_MASTER_WRITE, true);
+    i2c_master_write_byte(link_cmd, (slave_adress << 1) | I2C_MASTER_WRITE, true);
     i2c_master_write(link_cmd, &Data_ToSend, sizeof(Data_ToSend) / sizeof(uint8_t), true);
     i2c_master_stop(link_cmd);
     i2c_master_cmd_begin(I2C_Port, link_cmd, 1000 / portTICK_RATE_MS);
@@ -54,11 +54,12 @@ void HandleI2C::I2C_WriteData(uint8_t Data_ToSend, uint8_t slave_adress)
  * 
  * @details Function to read data from the slave device. 
  */
-uint8_t HandleI2C::I2C_ReadByte(uint8_t slave_adress){
+uint8_t HandleI2C::I2C_ReadByte(uint8_t slave_adress)
+{
     uint8_t DataRead;
     i2c_cmd_handle_t link_cmd = i2c_cmd_link_create();
     i2c_master_start(link_cmd);
-    i2c_master_write_byte(link_cmd, (slave_adress<<1) | I2C_MASTER_READ, true);
+    i2c_master_write_byte(link_cmd, (slave_adress << 1) | I2C_MASTER_READ, true);
     i2c_master_read_byte(link_cmd, &DataRead, I2C_MASTER_ACK);
     i2c_master_stop(link_cmd);
     i2c_master_cmd_begin(I2C_Port, link_cmd, 1000 / portTICK_RATE_MS);
