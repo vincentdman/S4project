@@ -13,18 +13,33 @@
 #define HandleBMP180_h
 
 #include "HandleI2C.h"
-
-class HandleBMP180 : public HandleI2C //dont forget to put to private after testing
+extern "C"{
+class HandleBMP180  
 {
     public:
     HandleBMP180();
+    ~HandleBMP180();
+
+    long GetPressure();
+    long GetTemperature();
+
     void BMP180_SetCalibrationData();
+    uint16_t BMP180_GetRawTemperature();
+    long BMP180_GetTrueTemperature(uint16_t RawTemperature);
+    
+    uint16_t BMP180_GetRawPressure();
+    long BMP180_GetTruePressure(uint16_t RawPressure);
+
+    void BMP180_Write_Byte(uint8_t WriteAdress, uint8_t Data);
     uint16_t BMP180_Read_16Bit(uint8_t DataAdress);
-    uint8_t test();
+    
 
     private:
+    
     const uint8_t BMP180_I2C_ADRESS_Write = 0b11101110;
     const uint8_t BMP180_I2C_ADRESS_Read  = 0b11101111;
+
+    i2c_port_t I2C_Port = I2C_NUM_1;
 
     short AC1;
     short AC2;
@@ -38,8 +53,10 @@ class HandleBMP180 : public HandleI2C //dont forget to put to private after test
     short MC;
     short MD;
 
+    long B5;
+
 };
 
-
+}
 
 #endif

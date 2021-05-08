@@ -17,6 +17,8 @@
 #include <string>
 #include "esp_err.h"
 
+extern "C"{
+
 class HandleI2C
 {
 
@@ -32,5 +34,5 @@ public:
 private:
     i2c_port_t I2C_Port = I2C_NUM_1;
 };
-
+}
 #endif

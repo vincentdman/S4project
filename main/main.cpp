@@ -31,25 +31,24 @@
 extern "C" void app_main(void)
 {
 
-  HandleBMP180 test;
-  i2c_config_t MyConfig;
-  MyConfig.mode = I2C_MODE_MASTER;
-  MyConfig.sda_io_num = 21;
-  MyConfig.scl_io_num = 22;
-  MyConfig.sda_pullup_en = GPIO_PULLUP_ENABLE;
-  MyConfig.scl_pullup_en = GPIO_PULLUP_ENABLE;
-  MyConfig.master.clk_speed = 100000;
+   HandleBMP180 test;
+  // i2c_config_t MyConfig;
+  // MyConfig.mode = I2C_MODE_MASTER;
+  // MyConfig.sda_io_num = 21;
+  // MyConfig.scl_io_num = 22;
+  // MyConfig.sda_pullup_en = GPIO_PULLUP_ENABLE;
+  // MyConfig.scl_pullup_en = GPIO_PULLUP_ENABLE;
+  // MyConfig.master.clk_speed = 100000;
 
-  test.I2C_Initialize(MyConfig);
-
-  test.BMP180_SetCalibrationData();
+  // test.I2C_Initialize(MyConfig);
+  
 
   while (1)
   {
-    uint8_t Ret;
-    Ret = test.test();
-    std::bitset<16> bin(Ret);
-    std::cout<<"I2c read value is: " << bin << std::endl;
+    //test.BMP180_Write_Byte(0xff,0xff);
+    std::cout<<"temperature: "<<test.GetTemperature()<<std::endl;
+    std::cout<<"pressure: "<<test.GetPressure()<<std::endl; 
+    std::cout<<"succes?"<<std::endl;
     vTaskDelay(1000 / portTICK_PERIOD_MS);
   }
 }
