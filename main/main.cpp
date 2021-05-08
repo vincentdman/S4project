@@ -24,11 +24,14 @@
 #include "driver/i2c.h"
 #include "HandleI2C.h"
 #include <string>
+#include "HandleBMP180.h"
+#include <bitset>
+
 
 extern "C" void app_main(void)
 {
 
-  HandleI2C test;
+  HandleBMP180 test;
   i2c_config_t MyConfig;
   MyConfig.mode = I2C_MODE_MASTER;
   MyConfig.sda_io_num = 21;
@@ -39,13 +42,15 @@ extern "C" void app_main(void)
 
   test.I2C_Initialize(MyConfig);
 
-  uint8_t sending = 12;
-  uint8_t slave = 1;
+
 
   while (1)
   {
-    test.I2C_WriteData(sending, slave);
-    vTaskDelay(100 / portTICK_PERIOD_MS);
+    uint8_t Ret;
+    Ret = test.test();
+    std::bitset<16> bin(Ret);
+    std::cout<<"I2c read value is: " << bin << std::endl;
+    vTaskDelay(1000 / portTICK_PERIOD_MS);
   }
 }
 
