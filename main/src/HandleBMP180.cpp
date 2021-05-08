@@ -47,7 +47,9 @@ extern "C"
 
     float HandleBMP180::GetAltitude()
     {
-        
+        float pressure = GetPressure();
+        float altitude = 44330 * ( 1- pow ( (pressure / 1013.25)  , (1.0/5.255)));
+        return altitude;
     }
 
     float HandleBMP180::GetTemperature()
@@ -106,8 +108,8 @@ extern "C"
         long X2 = AC2 * B6 / pow(2, 11);
         long X3 = X1 + X2;
         long B3 = (((long)AC1 * 4 + X3) + 2) / 4;
-        X1 = AC3 * B6 / pow(2, 15);
-        X2 = (B1 * (B6 * B6 / pow(2, 12))) / pow(2, 15);
+        X1 = AC3 * B6 / pow(2, 13);
+        X2 = (B1 * (B6 * B6 / pow(2, 12))) / pow(2, 16);
         X3 = ((X1 + X2) + 2) / pow(2, 2);
         unsigned long B4 = AC4 * (unsigned long)(X3 + 32768) / pow(2, 15);
         unsigned long B7 = ((unsigned long)RawPressure - B3) * (5000);
@@ -120,8 +122,8 @@ extern "C"
             pressure = (B7 / B4) * 2;
         }
         X1 = (pressure / pow(2, 8)) * (pressure / pow(2, 8));
-        X1 = (X1 * 3038) / pow(2, 15);
-        X2 = (-7357 * pressure) / pow(2, 15);
+        X1 = (X1 * 3038) / pow(2, 16);
+        X2 = (-7357 * pressure) / pow(2, 16);
         return (pressure + (X1 + X2 + 3791) / pow(2, 4));
     }
 

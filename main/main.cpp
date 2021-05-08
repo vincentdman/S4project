@@ -47,6 +47,7 @@ extern "C" void app_main(void)
   {
     std::cout<<"temperature: "<<test.GetTemperature()<<std::endl; 
     std::cout<<"pressure: "<<test.GetPressure()<<std::endl; 
+    std::cout<<"altitude: "<<test.GetAltitude()<<std::endl; 
     std::cout<<"succes?"<<std::endl;
     vTaskDelay(1000 / portTICK_PERIOD_MS);
   }
