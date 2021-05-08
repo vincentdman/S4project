@@ -20,8 +20,9 @@ class HandleBMP180
     HandleBMP180();
     ~HandleBMP180();
 
-    long GetPressure();
-    long GetTemperature();
+    float GetPressure();
+    float GetTemperature();
+    float GetAltitude();
 
     void BMP180_SetCalibrationData();
     uint16_t BMP180_GetRawTemperature();

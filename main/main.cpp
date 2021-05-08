@@ -45,8 +45,7 @@ extern "C" void app_main(void)
 
   while (1)
   {
-    //test.BMP180_Write_Byte(0xff,0xff);
-    std::cout<<"temperature: "<<test.GetTemperature()<<std::endl;
+    std::cout<<"temperature: "<<test.GetTemperature()<<std::endl; 
     std::cout<<"pressure: "<<test.GetPressure()<<std::endl; 
     std::cout<<"succes?"<<std::endl;
     vTaskDelay(1000 / portTICK_PERIOD_MS);
