@@ -42,7 +42,7 @@ extern "C" void app_main(void)
 
   test.I2C_Initialize(MyConfig);
 
-
+  test.BMP180_SetCalibrationData();
 
   while (1)
   {

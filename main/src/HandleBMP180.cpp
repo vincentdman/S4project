@@ -11,6 +11,9 @@
 
 #include "HandleBMP180.h"
 #include "driver/i2c.h"
+#include <bitset>
+#include <iostream>
+
 extern "C"{
 HandleBMP180::HandleBMP180(){
 
@@ -40,10 +43,14 @@ void HandleBMP180::BMP180_SetCalibrationData()
     MC = BMP180_Read_16Bit(0xBC);
     MD = BMP180_Read_16Bit(0xBE);
 
+    std::cout<<"Calibration Data: "<<AC1 << ','<<AC2 << ','<<AC3 << ','<<AC4 << ','<<AC5 << ','<<AC6 << ','<<B1 << ','<<B2 << ','<<MB << ','<<MC << ','<<MD <<std::endl;
+    
+    
+    
 
 }
 
-uint8_t HandleBMP180::BMP180_Read_16Bit(uint8_t DataAdress){
+uint16_t HandleBMP180::BMP180_Read_16Bit(uint8_t DataAdress){
 
 
     i2c_port_t I2C_Portt = I2C_NUM_1;
@@ -55,16 +62,22 @@ uint8_t HandleBMP180::BMP180_Read_16Bit(uint8_t DataAdress){
     i2c_master_cmd_begin(I2C_Portt, link_cmd, 1000 / portTICK_RATE_MS);
     i2c_cmd_link_delete(link_cmd);
 
-    uint8_t DataRead;
+    uint8_t most_significant_bit;
+    uint8_t least_significant_bit;
+    uint16_t Result;
     link_cmd = i2c_cmd_link_create();
     i2c_master_start(link_cmd);
     i2c_master_write_byte(link_cmd, BMP180_I2C_ADRESS_Read, true);
-    i2c_master_read(link_cmd,&DataRead,sizeof(short),I2C_MASTER_LAST_NACK);
+    i2c_master_read_byte(link_cmd,&most_significant_bit,I2C_MASTER_ACK);
+    i2c_master_read_byte(link_cmd,&least_significant_bit,I2C_MASTER_LAST_NACK);
     i2c_master_stop(link_cmd);
     i2c_master_cmd_begin(I2C_Portt, link_cmd, 1000 / portTICK_RATE_MS);
     i2c_cmd_link_delete(link_cmd);
 
-    return DataRead;
+   
+    Result = ((uint16_t)most_significant_bit << 8) | least_significant_bit;
+
+    return Result;
 }
 
 }
