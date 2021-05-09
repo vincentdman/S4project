@@ -32,15 +32,25 @@
 extern "C" void app_main(void)
 {
   
-   HandleBMP180 testt;
+    HandleBMP180 testt;
 
-   LCD_Pinout_t Configs;
-   Configs._BitMode = I2CMode;
-   Configs._SDA = GPIO_NUM_21;
-   Configs._SCL = GPIO_NUM_22;
-   LCD_Control LCD(Configs);
+    LCD_Pinout_t Configs;
+    Configs._BitMode = I2CMode;
+    Configs._SDA = GPIO_NUM_21;
+    Configs._SCL = GPIO_NUM_22;
+    LCD_Control LCD(Configs);
 
- 
+    std::string datas = "11000011";
+    
+    LCD_Write_Command(LCD_4_BIT_MODE);
+    LCD_Write_Command(LCD_4_BIT_MODE);
+     LCD_Write_Command(LCD_DISPLAY_ON_CURSOR_OFF);
+    LCD_Write_Command(LCD_CLEAR);
+    LCD_Write_Command(LCD_HOME);
+    LCD_Write_String("test ");
+
+
+
 
   while(1){
     std::cout<<"temperature: "<<testt.GetTemperature()<<std::endl; 
@@ -86,8 +96,8 @@ extern "C" void app_main(void)
 
 // LCD_Control UnitTestLCD(GPIO_NUM_2, GPIO_NUM_21, GPIO_NUM_25, GPIO_NUM_26, GPIO_NUM_19, GPIO_NUM_27);
 
-// UnitTestLCD.LCD_Write_Command(LCD_CLEAR);
-// UnitTestLCD.LCD_Write_Command(LCD_4_BIT_MODE);
+// UnitTestLCD.LCD_Write_Command(LCD_CLELCD_4_BIT_MODEAR);
+// UnitTestLCD.LCD_Write_Command();
 // UnitTestLCD.LCD_Write_Command(LCD_DISPLAY_ON_CURSOR_OFF);
 // UnitTestLCD.LCD_Write_Command(LCD_CLEAR);
 // UnitTestLCD.LCD_Write_Command(LCD_HOME);

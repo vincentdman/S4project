@@ -51,6 +51,8 @@ extern "C"
     {
     public:
 
+        const uint8_t LCD_Adress = 0x27;
+
         LCD_Control(LCD_Pinout_t &LCD_Pinout_Configuration);
 
         void LCD_Write_Char(char Data);
