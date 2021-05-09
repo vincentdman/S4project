@@ -13,16 +13,15 @@
 
 #include "LCD_Commands.h"
 #include "HandleGPIO.h"
+#include "HandleI2C.h"
+#include "driver/i2c.h"
 #include <driver/gpio.h>
 #include <string>
 #include <functional>
 
 extern "C"
 {
-    class LCD_Control : private HandleGPIO
-    {
-    public:
-        typedef enum
+    typedef enum
         {
             NotSelected = -1,
             FourBitMode = 0,
@@ -30,8 +29,8 @@ extern "C"
             I2CMode = 2,
 
         } BitMode_t;
-
-        typedef struct
+        
+       typedef struct
         {
             gpio_num_t _RS = GPIO_NUM_NC;
             gpio_num_t _E = GPIO_NUM_NC;
@@ -43,8 +42,18 @@ extern "C"
             gpio_num_t _D5 = GPIO_NUM_NC;
             gpio_num_t _D6 = GPIO_NUM_NC;
             gpio_num_t _D7 = GPIO_NUM_NC;
+            gpio_num_t _SCL = GPIO_NUM_NC;
+            gpio_num_t _SDA = GPIO_NUM_NC;
             BitMode_t _BitMode = NotSelected;
         } LCD_Pinout_t;
+
+    class LCD_Control : private HandleGPIO , private HandleI2C
+    {
+    public:
+    
+       
+
+     
 
         LCD_Control(LCD_Pinout_t &LCD_Pinout_Configuration);
 
@@ -86,6 +95,8 @@ extern "C"
         gpio_num_t LCD_D5 = GPIO_NUM_NC;
         gpio_num_t LCD_D6 = GPIO_NUM_NC;
         gpio_num_t LCD_D7 = GPIO_NUM_NC;
+        gpio_num_t LCD_SCL = GPIO_NUM_NC;
+        gpio_num_t LCD_SDA = GPIO_NUM_NC;
 
         BitMode_t BitMode;
     };

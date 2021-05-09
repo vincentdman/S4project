@@ -28,29 +28,24 @@
 #include <bitset>
 
 
+
 extern "C" void app_main(void)
 {
-
-   HandleBMP180 test;
-  // i2c_config_t MyConfig;
-  // MyConfig.mode = I2C_MODE_MASTER;
-  // MyConfig.sda_io_num = 21;
-  // MyConfig.scl_io_num = 22;
-  // MyConfig.sda_pullup_en = GPIO_PULLUP_ENABLE;
-  // MyConfig.scl_pullup_en = GPIO_PULLUP_ENABLE;
-  // MyConfig.master.clk_speed = 100000;
-
-  // test.I2C_Initialize(MyConfig);
   
+  LCD_Pinout_t Config;
+  Config._BitMode = I2CMode;
+  Config._SDA = GPIO_NUM_21;
+  Config._SCL = GPIO_NUM_22;
+  LCD_Control LCD(Config);
 
-  while (1)
-  {
-    std::cout<<"temperature: "<<test.GetTemperature()<<std::endl; 
-    std::cout<<"pressure: "<<test.GetPressure()<<std::endl; 
-    std::cout<<"altitude: "<<test.GetAltitude()<<std::endl; 
-    std::cout<<"succes?"<<std::endl;
-    vTaskDelay(1000 / portTICK_PERIOD_MS);
+  while(1){
+
   }
+
+   
+
+
+
 }
 
 
@@ -58,7 +53,16 @@ extern "C" void app_main(void)
 
 
 
-
+// HandleBMP180 test;
+  
+  // while (1)
+  // {
+  //   std::cout<<"temperature: "<<test.GetTemperature()<<std::endl; 
+  //   std::cout<<"pressure: "<<test.GetPressure()<<std::endl; 
+  //   std::cout<<"altitude: "<<test.GetAltitude()<<std::endl; 
+  //   std::cout<<"succes?"<<std::endl;
+  //   vTaskDelay(1000 / portTICK_PERIOD_MS);
+  // }
 
 
 

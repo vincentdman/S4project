@@ -28,9 +28,10 @@ extern "C"
      * @param LCD_Pinout_Configuration Structure that has all the used pins for the lcd in it. 
      */
     LCD_Control::LCD_Control(LCD_Pinout_t &LCD_Pinout_Configuration)
-        : LCD_RS(LCD_Pinout_Configuration._RS), LCD_E(LCD_Pinout_Configuration._E), LCD_D0(LCD_Pinout_Configuration._D0), LCD_D1(LCD_Pinout_Configuration._D1),
-          LCD_D2(LCD_Pinout_Configuration._D2), LCD_D3(LCD_Pinout_Configuration._D3), LCD_D4(LCD_Pinout_Configuration._D4), LCD_D5(LCD_Pinout_Configuration._D5),
-          LCD_D6(LCD_Pinout_Configuration._D6), LCD_D7(LCD_Pinout_Configuration._D7), BitMode(LCD_Pinout_Configuration._BitMode)
+        : LCD_RS(LCD_Pinout_Configuration._RS), LCD_E(LCD_Pinout_Configuration._E), 
+            LCD_D0(LCD_Pinout_Configuration._D0), LCD_D1(LCD_Pinout_Configuration._D1), LCD_D2(LCD_Pinout_Configuration._D2), LCD_D3(LCD_Pinout_Configuration._D3),
+                LCD_D4(LCD_Pinout_Configuration._D4), LCD_D5(LCD_Pinout_Configuration._D5), LCD_D6(LCD_Pinout_Configuration._D6), LCD_D7(LCD_Pinout_Configuration._D7),
+                    LCD_SCL(LCD_Pinout_Configuration._SCL),LCD_SDA(LCD_Pinout_Configuration._SDA), BitMode(LCD_Pinout_Configuration._BitMode)
     {
         SetBitMode();
         LCD_Initialize();
