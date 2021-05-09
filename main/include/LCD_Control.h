@@ -27,6 +27,7 @@ extern "C"
             NotSelected = -1,
             FourBitMode = 0,
             EightBitMode = 1,
+            I2CMode = 2,
 
         } BitMode_t;
 
