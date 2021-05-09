@@ -133,13 +133,7 @@ extern "C"
         i2c_master_start(link_cmd);
         i2c_master_write_byte(link_cmd, BMP180_I2C_ADRESS_Write, true);
         i2c_master_write(link_cmd, &WriteAdress, sizeof(WriteAdress) / sizeof(uint8_t), true);
-        // i2c_master_stop(link_cmd);
-        // i2c_master_cmd_begin(I2C_Port, link_cmd, 1000 / portTICK_RATE_MS);
-        // i2c_cmd_link_delete(link_cmd);
-
-        // link_cmd = i2c_cmd_link_create();
-        // i2c_master_start(link_cmd);
-        //i2c_master_write_byte(link_cmd, BMP180_I2C_ADRESS_Write, true);
+    
         i2c_master_write(link_cmd, &WriteData, sizeof(WriteData) / sizeof(uint8_t), true);
         i2c_master_stop(link_cmd);
         i2c_master_cmd_begin(I2C_Port, link_cmd, 1000 / portTICK_RATE_MS);

@@ -17,6 +17,7 @@
 #include "LCD_Commands.h"
 #include <bitset>
 #include <iostream>
+#include <driver/i2c.h>
 
 extern "C"
 {
@@ -28,10 +29,10 @@ extern "C"
      * @param LCD_Pinout_Configuration Structure that has all the used pins for the lcd in it. 
      */
     LCD_Control::LCD_Control(LCD_Pinout_t &LCD_Pinout_Configuration)
-        : LCD_RS(LCD_Pinout_Configuration._RS), LCD_E(LCD_Pinout_Configuration._E), 
-            LCD_D0(LCD_Pinout_Configuration._D0), LCD_D1(LCD_Pinout_Configuration._D1), LCD_D2(LCD_Pinout_Configuration._D2), LCD_D3(LCD_Pinout_Configuration._D3),
-                LCD_D4(LCD_Pinout_Configuration._D4), LCD_D5(LCD_Pinout_Configuration._D5), LCD_D6(LCD_Pinout_Configuration._D6), LCD_D7(LCD_Pinout_Configuration._D7),
-                    LCD_SCL(LCD_Pinout_Configuration._SCL),LCD_SDA(LCD_Pinout_Configuration._SDA), BitMode(LCD_Pinout_Configuration._BitMode)
+        : LCD_RS(LCD_Pinout_Configuration._RS), LCD_E(LCD_Pinout_Configuration._E),
+          LCD_D0(LCD_Pinout_Configuration._D0), LCD_D1(LCD_Pinout_Configuration._D1), LCD_D2(LCD_Pinout_Configuration._D2), LCD_D3(LCD_Pinout_Configuration._D3),
+          LCD_D4(LCD_Pinout_Configuration._D4), LCD_D5(LCD_Pinout_Configuration._D5), LCD_D6(LCD_Pinout_Configuration._D6), LCD_D7(LCD_Pinout_Configuration._D7),
+          LCD_SCL(LCD_Pinout_Configuration._SCL), LCD_SDA(LCD_Pinout_Configuration._SDA), BitMode(LCD_Pinout_Configuration._BitMode)
     {
         SetBitMode();
         LCD_Initialize();
@@ -156,11 +157,73 @@ extern "C"
             SwapInitialize = &LCD_Control::LCD_InitializeFourBitMode;
             SwapWRITE = &LCD_Control::LCD_WriteFourBitMode;
         }
-        else
+        else if (BitMode == EightBitMode)
         {
             SwapInitialize = &LCD_Control::LCD_InitializeEightBitMode;
             SwapWRITE = &LCD_Control::LCD_WriteEightBitMode;
         }
+        else if (BitMode == I2CMode)
+        {
+            SwapInitialize = &LCD_Control::LCD_InitializeI2CMode;
+            SwapWRITE = &LCD_Control::LCD_WriteI2CMode;
+        }
+        else
+        {
+            ///make error
+            //todo
+            //esp error maybe :)
+        }
+    }
+
+    void LCD_Control::LCD_InitializeI2CMode()
+    {
+        // i2c_config_t Configuration;
+        // Configuration.mode = I2C_MODE_MASTER;
+        // Configuration.sda_io_num = 21;
+        // Configuration.scl_io_num = 22;
+        // Configuration.sda_pullup_en = GPIO_PULLUP_ENABLE;
+        // Configuration.scl_pullup_en = GPIO_PULLUP_ENABLE;
+        // Configuration.master.clk_speed = 100000;
+
+        //i2c_param_config(I2C_Port, &Configuration);
+        //i2c_driver_install(I2C_Port, Configuration.mode, 0, 0, 0);
+
+
+    //test code
+    uint8_t adrr = 0x27;
+    //uint8_t DataADRR = 0x40; 
+    uint8_t WriteData = 0b11111111;
+        i2c_cmd_handle_t link_cmd = i2c_cmd_link_create();
+        i2c_master_start(link_cmd);
+        i2c_master_write_byte(link_cmd, (adrr<<1) | I2C_MASTER_WRITE , true);
+
+     //i2c_master_write(link_cmd, &DataADRR, sizeof(DataADRR) / sizeof(uint8_t), true);
+
+     i2c_master_write(link_cmd, &WriteData, sizeof(WriteData) / sizeof(uint8_t), true);
+    //  WriteData = 0b11011111;
+     // i2c_master_write(link_cmd, &WriteData, sizeof(WriteData) / sizeof(uint8_t), true);
+    //  i2c_master_write(link_cmd, &WriteData, sizeof(WriteData) / sizeof(uint8_t), true);
+    //  i2c_master_write(link_cmd, &WriteData, sizeof(WriteData) / sizeof(uint8_t), true);
+
+    //  i2c_master_write(link_cmd, &WriteData, sizeof(WriteData) / sizeof(uint8_t), true);
+    //  i2c_master_write(link_cmd, &WriteData, sizeof(WriteData) / sizeof(uint8_t), true);
+    //  i2c_master_write(link_cmd, &WriteData, sizeof(WriteData) / sizeof(uint8_t), true);
+    //  i2c_master_write(link_cmd, &WriteData, sizeof(WriteData) / sizeof(uint8_t), true);
+
+        i2c_master_stop(link_cmd);
+       i2c_master_cmd_begin(I2C_Port, link_cmd, 1000 / portTICK_RATE_MS);
+       i2c_cmd_link_delete(link_cmd);
+    std::cout << "succes"<<std::endl;
+
+
+//end of test code
+
+
+    }
+
+    void LCD_Control::LCD_WriteI2CMode(std::string BinaryString, int RS)
+    {
+
     }
 
     /**

@@ -29,7 +29,7 @@ extern "C"
             I2CMode = 2,
 
         } BitMode_t;
-        
+
        typedef struct
         {
             gpio_num_t _RS = GPIO_NUM_NC;
@@ -47,26 +47,26 @@ extern "C"
             BitMode_t _BitMode = NotSelected;
         } LCD_Pinout_t;
 
-    class LCD_Control : private HandleGPIO , private HandleI2C
+    class LCD_Control : private HandleGPIO 
     {
     public:
-    
-       
-
-     
 
         LCD_Control(LCD_Pinout_t &LCD_Pinout_Configuration);
 
         void LCD_Write_Char(char Data);
         void LCD_Initialize();
+
         void LCD_InitializeEightBitMode();
         void LCD_InitializeFourBitMode();
+        void LCD_InitializeI2CMode();
+
         void LCD_Write_Command(int Command);
         void LCD_Write_String(std::string Data_String_);
         void LCD_Write(std::string BinaryString, int RS);
 
         void LCD_WriteFourBitMode(std::string BinaryString, int RS);
         void LCD_WriteEightBitMode(std::string BinaryString, int RS);
+        void LCD_WriteI2CMode(std::string BinaryString, int RS);
 
     private:
         void LCD_InitializeForSendingData(int RS);
@@ -99,6 +99,8 @@ extern "C"
         gpio_num_t LCD_SDA = GPIO_NUM_NC;
 
         BitMode_t BitMode;
+
+        i2c_port_t I2C_Port = I2C_NUM_1;
     };
 }
 #endif

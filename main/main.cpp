@@ -32,14 +32,22 @@
 extern "C" void app_main(void)
 {
   
-  LCD_Pinout_t Config;
-  Config._BitMode = I2CMode;
-  Config._SDA = GPIO_NUM_21;
-  Config._SCL = GPIO_NUM_22;
-  LCD_Control LCD(Config);
+   HandleBMP180 testt;
+
+   LCD_Pinout_t Configs;
+   Configs._BitMode = I2CMode;
+   Configs._SDA = GPIO_NUM_21;
+   Configs._SCL = GPIO_NUM_22;
+   LCD_Control LCD(Configs);
+
+ 
 
   while(1){
-
+    std::cout<<"temperature: "<<testt.GetTemperature()<<std::endl; 
+    std::cout<<"pressure: "<<testt.GetPressure()<<std::endl; 
+    std::cout<<"altitude: "<<testt.GetAltitude()<<std::endl; 
+    std::cout<<"succes?"<<std::endl;
+    vTaskDelay(1000 / portTICK_PERIOD_MS);
   }
 
    
