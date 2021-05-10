@@ -66,11 +66,11 @@ extern "C"
         AC4 = BMP180_Read_16Bit(0xB0);
         AC5 = BMP180_Read_16Bit(0xB2);
         AC6 = BMP180_Read_16Bit(0xB4);
-        B1 = BMP180_Read_16Bit(0xB6);
-        B2 = BMP180_Read_16Bit(0xB8);
-        MB = BMP180_Read_16Bit(0xBA);
-        MC = BMP180_Read_16Bit(0xBC);
-        MD = BMP180_Read_16Bit(0xBE);
+        B1  = BMP180_Read_16Bit(0xB6);
+        B2  = BMP180_Read_16Bit(0xB8);
+        MB  = BMP180_Read_16Bit(0xBA);
+        MC  = BMP180_Read_16Bit(0xBC);
+        MD  = BMP180_Read_16Bit(0xBE);
 
         std::cout << "Calibration Data: " << AC1 << ',' << AC2 << ',' << AC3 << ',' << AC4 << ',' << AC5 << ',' << AC6 << ',' << B1 << ',' << B2 << ',' << MB << ',' << MC << ',' << MD << std::endl;
     }
@@ -132,9 +132,9 @@ extern "C"
         i2c_cmd_handle_t link_cmd = i2c_cmd_link_create();
         i2c_master_start(link_cmd);
         i2c_master_write_byte(link_cmd, BMP180_I2C_ADRESS_Write, true);
-        i2c_master_write(link_cmd, &WriteAdress, sizeof(WriteAdress) / sizeof(uint8_t), true);
+        i2c_master_write(link_cmd, &WriteAdress, sizeof(WriteAdress) , true);
     
-        i2c_master_write(link_cmd, &WriteData, sizeof(WriteData) / sizeof(uint8_t), true);
+        i2c_master_write(link_cmd, &WriteData, sizeof(WriteData) , true);
         i2c_master_stop(link_cmd);
         i2c_master_cmd_begin(I2C_Port, link_cmd, 1000 / portTICK_RATE_MS);
         i2c_cmd_link_delete(link_cmd);
@@ -145,7 +145,7 @@ extern "C"
         i2c_cmd_handle_t link_cmd = i2c_cmd_link_create();
         i2c_master_start(link_cmd);
         i2c_master_write_byte(link_cmd, BMP180_I2C_ADRESS_Write, true);
-        i2c_master_write(link_cmd, &DataAdress, sizeof(DataAdress) / sizeof(uint8_t), true);
+        i2c_master_write(link_cmd, &DataAdress, sizeof(DataAdress) , true);
         i2c_master_stop(link_cmd);
         i2c_master_cmd_begin(I2C_Port, link_cmd, 1000 / portTICK_RATE_MS);
         i2c_cmd_link_delete(link_cmd);

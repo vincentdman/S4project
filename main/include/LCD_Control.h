@@ -83,7 +83,7 @@ extern "C"
 
         enum
         {
-            RegisterSet = 0,
+            RegisterSet = 0, 
             WriteAction
         };
         gpio_num_t LCD_RS = GPIO_NUM_NC;

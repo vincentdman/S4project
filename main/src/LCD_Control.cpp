@@ -59,7 +59,7 @@ extern "C"
      * @details The input is a int that gets casted to a std binary string. It then gets written to the lcd by the lcd_Write function
      */
     void LCD_Control::LCD_Write_Command(int Command)
-    {
+    { 
         std::string ToBin = std::bitset<8>(Command).to_string();
         LCD_Write(ToBin, RegisterSet);
     }
@@ -178,7 +178,25 @@ extern "C"
     void LCD_Control::LCD_InitializeI2CMode()
     {
 
+        
+            //                  0b7654xEWS
+         // uint8_t WriteData = 0b00000000; //default settings
+            uint8_t WriteData = 0b00000000;
+            uint8_t WriteDataZero = 0b00000000;
 
+        i2c_cmd_handle_t link_cmd = i2c_cmd_link_create();
+        i2c_master_start(link_cmd);
+        i2c_master_write_byte(link_cmd, (LCD_Adress<<1) | I2C_MASTER_WRITE , true);
+        
+        //Set pins as output mode
+        i2c_master_write(link_cmd, &WriteDataZero, sizeof(WriteDataZero), true);
+
+        //set RS level according to input RS
+        i2c_master_write(link_cmd, &WriteData, sizeof(WriteData) , true);
+        
+        i2c_master_stop(link_cmd);
+        i2c_master_cmd_begin(I2C_Port, link_cmd, 1000 / portTICK_RATE_MS);
+        i2c_cmd_link_delete(link_cmd);
 
 
 
@@ -201,72 +219,63 @@ extern "C"
         //uint8_t WriteData = 0b00000000;
         uint8_t WriteRS   = RS;
 
-        std::cout<<"test: "<< unsigned(WriteRS) <<"..."<< std::endl;
-        uint8_t WriteDataZero = 0b00000000;
-
-
-
         ets_delay_us(1000);
 
         i2c_cmd_handle_t link_cmd = i2c_cmd_link_create();
         i2c_master_start(link_cmd);
         i2c_master_write_byte(link_cmd, (LCD_Adress<<1) | I2C_MASTER_WRITE , true);
         
-        //Set pins as output mode
-        i2c_master_write(link_cmd, &WriteDataZero, sizeof(WriteDataZero) / sizeof(uint8_t), true);
+       
 
-        //set RS level according to input RS
-        i2c_master_write(link_cmd, &WriteRS, sizeof(WriteRS) / sizeof(uint8_t), true);
+        i2c_master_write(link_cmd, &WriteRS, sizeof(WriteRS), true);
         
         i2c_master_stop(link_cmd);
         i2c_master_cmd_begin(I2C_Port, link_cmd, 1000 / portTICK_RATE_MS);
         i2c_cmd_link_delete(link_cmd);
 
-        ets_delay_us(300);
+        ets_delay_us(270);
+
+
 
 
 
 
 
         uint8_t EnableHigh = WriteRS;
-        EnableHigh |= 0b00000100;
+        EnableHigh |= 0b00001100;
 
         link_cmd = i2c_cmd_link_create();
         i2c_master_start(link_cmd);
         i2c_master_write_byte(link_cmd, (LCD_Adress<<1) | I2C_MASTER_WRITE , true);
         
-        //Set pins as output mode
-        i2c_master_write(link_cmd, &WriteDataZero, sizeof(WriteDataZero) / sizeof(uint8_t), true);
 
-        //set RS level according to input RS
-        i2c_master_write(link_cmd, &EnableHigh, sizeof(EnableHigh) / sizeof(uint8_t), true);
+        i2c_master_write(link_cmd, &EnableHigh, sizeof(EnableHigh) , true);
         
         i2c_master_stop(link_cmd);
         i2c_master_cmd_begin(I2C_Port, link_cmd, 1000 / portTICK_RATE_MS);
         i2c_cmd_link_delete(link_cmd);
 
-        ets_delay_us(240);
+        ets_delay_us(270);
+
+
 
 
 
 
         uint8_t FirstHalf = EnableHigh;
-        uint8_t Data  = (BinaryString[0] - '0')<<3;
-                Data |= (BinaryString[1] - '0')<<2;
-                Data |= (BinaryString[2] - '0')<<1;
-                Data |= (BinaryString[3] - '0')<<0;
-                Data = Data<<3;
+        uint8_t Data  = ((BinaryString[0] - '0')<<3);
+                Data |= ((BinaryString[1] - '0')<<2);
+                Data |= ((BinaryString[2] - '0')<<1);
+                Data |= ((BinaryString[3] - '0')<<0);
+                Data = Data<<4;
         FirstHalf |= Data;       
 
         link_cmd = i2c_cmd_link_create();
         i2c_master_start(link_cmd);
         i2c_master_write_byte(link_cmd, (LCD_Adress<<1) | I2C_MASTER_WRITE , true);
         
-        //Set pins as output mode
-        i2c_master_write(link_cmd, &WriteDataZero, sizeof(WriteDataZero) / sizeof(uint8_t), true);
 
-        //set RS level according to input RS
-        i2c_master_write(link_cmd, &FirstHalf, sizeof(FirstHalf) / sizeof(uint8_t), true);
+        i2c_master_write(link_cmd, &FirstHalf, sizeof(FirstHalf), true);
         
         i2c_master_stop(link_cmd);
         i2c_master_cmd_begin(I2C_Port, link_cmd, 1000 / portTICK_RATE_MS);
@@ -278,16 +287,13 @@ extern "C"
 
         ets_delay_us(300);
         uint8_t enablelowpulse = FirstHalf;
-        enablelowpulse &= ~(0b00000001) ;
+        enablelowpulse &= ~(0b00000100) ;
         link_cmd = i2c_cmd_link_create();
         i2c_master_start(link_cmd);
         i2c_master_write_byte(link_cmd, (LCD_Adress<<1) | I2C_MASTER_WRITE , true);
         
-        //Set pins as output mode
-        i2c_master_write(link_cmd, &WriteDataZero, sizeof(WriteDataZero) / sizeof(uint8_t), true);
 
-        //set RS level according to input RS
-        i2c_master_write(link_cmd, &enablelowpulse, sizeof(enablelowpulse) / sizeof(uint8_t), true);
+        i2c_master_write(link_cmd, &enablelowpulse, sizeof(enablelowpulse) , true);
         
         i2c_master_stop(link_cmd);
         i2c_master_cmd_begin(I2C_Port, link_cmd, 1000 / portTICK_RATE_MS);
@@ -296,47 +302,47 @@ extern "C"
         ets_delay_us(1000);
 
 
+       
 
 
-        ets_delay_us(300);
-        uint8_t enablehighpulse = enablelowpulse;
-        enablehighpulse |= (0b00000001) ;
+
+
+
+
+        uint8_t enablehighpulse = EnableHigh;
+        enablehighpulse |= Data;
         link_cmd = i2c_cmd_link_create();
         i2c_master_start(link_cmd);
         i2c_master_write_byte(link_cmd, (LCD_Adress<<1) | I2C_MASTER_WRITE , true);
         
-        //Set pins as output mode
-        i2c_master_write(link_cmd, &WriteDataZero, sizeof(WriteDataZero) / sizeof(uint8_t), true);
 
-        //set RS level according to input RS
-        i2c_master_write(link_cmd, &enablehighpulse, sizeof(enablehighpulse) / sizeof(uint8_t), true);
+
+        i2c_master_write(link_cmd, &enablehighpulse, sizeof(enablehighpulse) , true);
         
         i2c_master_stop(link_cmd);
         i2c_master_cmd_begin(I2C_Port, link_cmd, 1000 / portTICK_RATE_MS);
         i2c_cmd_link_delete(link_cmd);
 
-        ets_delay_us(240);
+        ets_delay_us(270);
 
 
 
 
-        uint8_t SecondHalf = enablehighpulse;
-        uint8_t Data2  = (BinaryString[4] - '0')<<3;
-                Data2 |= (BinaryString[5] - '0')<<2;
-                Data2 |= (BinaryString[6] - '0')<<1;
-                Data2 |= (BinaryString[7] - '0')<<0;
-                Data2 = Data2<<3;
-        FirstHalf |= Data2;       
+        uint8_t SecondHalf = EnableHigh;
+        uint8_t Data2  = ((BinaryString[4] - '0')<<3);
+                Data2 |= ((BinaryString[5] - '0')<<2);
+                Data2 |= ((BinaryString[6] - '0')<<1);
+                Data2 |= ((BinaryString[7] - '0')<<0);
+                Data2 = Data2<<4;
+        SecondHalf |= Data2;       
 
         link_cmd = i2c_cmd_link_create();
         i2c_master_start(link_cmd);
         i2c_master_write_byte(link_cmd, (LCD_Adress<<1) | I2C_MASTER_WRITE , true);
         
-        //Set pins as output mode
-        i2c_master_write(link_cmd, &WriteDataZero, sizeof(WriteDataZero) / sizeof(uint8_t), true);
+      
 
-        //set RS level according to input RS
-        i2c_master_write(link_cmd, &SecondHalf, sizeof(SecondHalf) / sizeof(uint8_t), true);
+        i2c_master_write(link_cmd, &SecondHalf, sizeof(SecondHalf) , true);
         
         i2c_master_stop(link_cmd);
         i2c_master_cmd_begin(I2C_Port, link_cmd, 1000 / portTICK_RATE_MS);
@@ -350,16 +356,12 @@ extern "C"
 
 
         uint8_t enablelowpulse2 = SecondHalf;
-        enablelowpulse2 &= ~(0b00000001) ;
+        enablelowpulse2 &= ~(0b00000100) ;
         link_cmd = i2c_cmd_link_create();
         i2c_master_start(link_cmd);
         i2c_master_write_byte(link_cmd, (LCD_Adress<<1) | I2C_MASTER_WRITE , true);
         
-        //Set pins as output mode
-        i2c_master_write(link_cmd, &WriteDataZero, sizeof(WriteDataZero) / sizeof(uint8_t), true);
-
-        //set RS level according to input RS
-        i2c_master_write(link_cmd, &enablelowpulse2, sizeof(enablelowpulse2) / sizeof(uint8_t), true);
+        i2c_master_write(link_cmd, &enablelowpulse2, sizeof(enablelowpulse2) , true);
         
         i2c_master_stop(link_cmd);
         i2c_master_cmd_begin(I2C_Port, link_cmd, 1000 / portTICK_RATE_MS);
@@ -370,7 +372,7 @@ extern "C"
           ets_delay_us(1000);
         
 
-
+       
 
     }
 
