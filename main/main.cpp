@@ -40,10 +40,10 @@ extern "C" void app_main(void)
     Configs._SCL = GPIO_NUM_22;
     LCD_Control LCD(Configs);
 
-   // std::string datas = "11000011";
+    std::string datas = "11000011";
     
    //  LCD.LCD_Write_Command(LCD_4_BIT_MODE);
-      
+    //  LCD.LCD_Write_Command(LCD_4_BIT_MODE);
     // // vTaskDelay(10 / portTICK_PERIOD_MS);
     //  LCD.LCD_Write_Command(LCD_DISPLAY_ON_CURSOR_ON);
     // // vTaskDelay(10 / portTICK_PERIOD_MS);
@@ -54,32 +54,21 @@ extern "C" void app_main(void)
     //  LCD.LCD_Write_Char('a');
     // // vTaskDelay(10 / portTICK_PERIOD_MS);
     // LCD.LCD_Write_String(" test");
+    vTaskDelay(5000/portTICK_PERIOD_MS);
 
     LCD.LCD_Write_Command(LCD_4_BIT_MODE);
-   // LCD.LCD_Write_Command(LCD_4_BIT_MODE);
-   // LCD.LCD_Write_Command(LCD_4_BIT_MODE);
-   vTaskDelay(1/portTICK_PERIOD_MS);
-    LCD.LCD_Write_Command(LCD_DISPLAY_ON_CURSOR_ON);
-    vTaskDelay(1/portTICK_PERIOD_MS);
+
+    LCD.LCD_Write_Command(LCD_DISPLAY_ON_CURSOR_OFF);
+    
     LCD.LCD_Write_Command(LCD_CLEAR);
-    vTaskDelay(1/portTICK_PERIOD_MS);
+    
     LCD.LCD_Write_Command(LCD_HOME);
-    vTaskDelay(1/portTICK_PERIOD_MS);
 
      LCD.LCD_Write_Char('a');
-     vTaskDelay(1/portTICK_PERIOD_MS);
+     
      LCD.LCD_Write_Char('B');
-     vTaskDelay(1/portTICK_PERIOD_MS);
+    
      LCD.LCD_Write_Char('c');
-     vTaskDelay(1/portTICK_PERIOD_MS);
-     LCD.LCD_Write_Char('e');
-
-  vTaskDelay(1000/portTICK_PERIOD_MS);
-
-    // LCD.LCD_Write_Command(LCD_NEXT_LINE);
-
-    //  std::string hello = "hello world!";
-    // LCD.LCD_Write_String(hello);
 
     // LCD.LCD_Write("00101000",0);
     //  LCD.LCD_Write("00001110",0);

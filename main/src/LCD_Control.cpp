@@ -33,7 +33,11 @@ extern "C"
           LCD_D0(LCD_Pinout_Configuration._D0), LCD_D1(LCD_Pinout_Configuration._D1), LCD_D2(LCD_Pinout_Configuration._D2), LCD_D3(LCD_Pinout_Configuration._D3),
           LCD_D4(LCD_Pinout_Configuration._D4), LCD_D5(LCD_Pinout_Configuration._D5), LCD_D6(LCD_Pinout_Configuration._D6), LCD_D7(LCD_Pinout_Configuration._D7),
           LCD_SCL(LCD_Pinout_Configuration._SCL), LCD_SDA(LCD_Pinout_Configuration._SDA), BitMode(LCD_Pinout_Configuration._BitMode)
-    {
+    {   
+        std::cout<<"LCD Needs time to start up...."<<std::endl;
+        
+        
+
         SetBitMode();
         LCD_Initialize();
     }
@@ -179,31 +183,200 @@ extern "C"
     {
 
         
-            //                  0b7654xEWS
-         // uint8_t WriteData = 0b00000000; //default settings
-            uint8_t WriteData = 0b00000000;
-            uint8_t WriteDataZero = 0b00000000;
+    //         //                  0b7654xEWS
+    //      // uint8_t WriteData = 0b00000000; //default settings
+    //         uint8_t WriteData = 0b00000000;
+    //         uint8_t WriteDataZero = 0b00000000;
 
-        i2c_cmd_handle_t link_cmd = i2c_cmd_link_create();
+    //     i2c_cmd_handle_t link_cmd = i2c_cmd_link_create();
+    //     i2c_master_start(link_cmd);
+    //     i2c_master_write_byte(link_cmd, (LCD_Adress<<1) | I2C_MASTER_WRITE , true);
+        
+    //     //Set pins as output mode
+    //     i2c_master_write(link_cmd, &WriteDataZero, sizeof(WriteDataZero), true);
+
+    //     //set RS level according to input RS
+    //     i2c_master_write(link_cmd, &WriteData, sizeof(WriteData) , true);
+        
+    //     i2c_master_stop(link_cmd);
+    //     i2c_master_cmd_begin(I2C_Port, link_cmd, 1000 / portTICK_RATE_MS);
+    //     i2c_cmd_link_delete(link_cmd);
+
+
+
+    // std::cout << "succes"<<std::endl;
+
+
+//end of test code
+
+
+        
+
+          //                  0b7654xEWS
+        //uint8_t WriteData = 0b00000000;
+        
+
+        ets_delay_us(100000); // init delay 100ms
+
+
+
+
+        uint8_t EnableHigh = 0b00111100;
+        
+       i2c_cmd_handle_t link_cmd = i2c_cmd_link_create();
         i2c_master_start(link_cmd);
         i2c_master_write_byte(link_cmd, (LCD_Adress<<1) | I2C_MASTER_WRITE , true);
         
-        //Set pins as output mode
-        i2c_master_write(link_cmd, &WriteDataZero, sizeof(WriteDataZero), true);
 
-        //set RS level according to input RS
-        i2c_master_write(link_cmd, &WriteData, sizeof(WriteData) , true);
+        i2c_master_write(link_cmd, &EnableHigh, sizeof(EnableHigh) , true);
         
         i2c_master_stop(link_cmd);
         i2c_master_cmd_begin(I2C_Port, link_cmd, 1000 / portTICK_RATE_MS);
         i2c_cmd_link_delete(link_cmd);
 
+        ets_delay_us(270);
 
 
-    std::cout << "succes"<<std::endl;
 
 
-//end of test code
+        ets_delay_us(300);
+        uint8_t enablelowpulse = 0b00111000;
+        
+        link_cmd = i2c_cmd_link_create();
+        i2c_master_start(link_cmd);
+        i2c_master_write_byte(link_cmd, (LCD_Adress<<1) | I2C_MASTER_WRITE , true);
+        
+
+        i2c_master_write(link_cmd, &enablelowpulse, sizeof(enablelowpulse) , true);
+        
+        i2c_master_stop(link_cmd);
+        i2c_master_cmd_begin(I2C_Port, link_cmd, 1000 / portTICK_RATE_MS);
+        i2c_cmd_link_delete(link_cmd);
+
+      
+
+        ets_delay_us(4500);
+
+
+
+
+/////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+        EnableHigh |= 0b00111100;
+        
+        link_cmd = i2c_cmd_link_create();
+        i2c_master_start(link_cmd);
+        i2c_master_write_byte(link_cmd, (LCD_Adress<<1) | I2C_MASTER_WRITE , true);
+        
+
+        i2c_master_write(link_cmd, &EnableHigh, sizeof(EnableHigh) , true);
+        
+        i2c_master_stop(link_cmd);
+        i2c_master_cmd_begin(I2C_Port, link_cmd, 1000 / portTICK_RATE_MS);
+        i2c_cmd_link_delete(link_cmd);
+
+        ets_delay_us(270);
+
+      ets_delay_us(300);
+       enablelowpulse = 0b00111000;
+        
+        link_cmd = i2c_cmd_link_create();
+        i2c_master_start(link_cmd);
+        i2c_master_write_byte(link_cmd, (LCD_Adress<<1) | I2C_MASTER_WRITE , true);
+        
+
+        i2c_master_write(link_cmd, &enablelowpulse, sizeof(enablelowpulse) , true);
+        
+        i2c_master_stop(link_cmd);
+        i2c_master_cmd_begin(I2C_Port, link_cmd, 1000 / portTICK_RATE_MS);
+        i2c_cmd_link_delete(link_cmd);
+
+      
+
+        ets_delay_us(200);
+
+
+        /////////////////////////////////////////////////////////////
+
+          EnableHigh |= 0b00111100;
+        
+        link_cmd = i2c_cmd_link_create();
+        i2c_master_start(link_cmd);
+        i2c_master_write_byte(link_cmd, (LCD_Adress<<1) | I2C_MASTER_WRITE , true);
+        
+
+        i2c_master_write(link_cmd, &EnableHigh, sizeof(EnableHigh) , true);
+        
+        i2c_master_stop(link_cmd);
+        i2c_master_cmd_begin(I2C_Port, link_cmd, 1000 / portTICK_RATE_MS);
+        i2c_cmd_link_delete(link_cmd);
+
+        ets_delay_us(270);
+
+      ets_delay_us(300);
+       enablelowpulse = 0b00111000;
+        
+        link_cmd = i2c_cmd_link_create();
+        i2c_master_start(link_cmd);
+        i2c_master_write_byte(link_cmd, (LCD_Adress<<1) | I2C_MASTER_WRITE , true);
+        
+
+        i2c_master_write(link_cmd, &enablelowpulse, sizeof(enablelowpulse) , true);
+        
+        i2c_master_stop(link_cmd);
+        i2c_master_cmd_begin(I2C_Port, link_cmd, 1000 / portTICK_RATE_MS);
+        i2c_cmd_link_delete(link_cmd);
+
+      
+
+        ets_delay_us(200);
+
+
+        /////////////////////////////////////////////////////////////////
+
+             EnableHigh = 0b00101100;
+        
+        link_cmd = i2c_cmd_link_create();
+        i2c_master_start(link_cmd);
+        i2c_master_write_byte(link_cmd, (LCD_Adress<<1) | I2C_MASTER_WRITE , true);
+        
+
+        i2c_master_write(link_cmd, &EnableHigh, sizeof(EnableHigh) , true);
+        
+        i2c_master_stop(link_cmd);
+        i2c_master_cmd_begin(I2C_Port, link_cmd, 1000 / portTICK_RATE_MS);
+        i2c_cmd_link_delete(link_cmd);
+
+        ets_delay_us(270);
+
+      ets_delay_us(300);
+       enablelowpulse = 0b00101000;
+        
+        link_cmd = i2c_cmd_link_create();
+        i2c_master_start(link_cmd);
+        i2c_master_write_byte(link_cmd, (LCD_Adress<<1) | I2C_MASTER_WRITE , true);
+        
+
+        i2c_master_write(link_cmd, &enablelowpulse, sizeof(enablelowpulse) , true);
+        
+        i2c_master_stop(link_cmd);
+        i2c_master_cmd_begin(I2C_Port, link_cmd, 1000 / portTICK_RATE_MS);
+        i2c_cmd_link_delete(link_cmd);
+
+      
+
+        ets_delay_us(200);
+
+
+        //////////////////////////////////////////////////////////////////////////
+
+
+
 
 
     }
@@ -299,8 +472,9 @@ extern "C"
         i2c_master_cmd_begin(I2C_Port, link_cmd, 1000 / portTICK_RATE_MS);
         i2c_cmd_link_delete(link_cmd);
 
-        ets_delay_us(1000);
+       // ets_delay_us(1000);
 
+        ets_delay_us(300);
 
        
 
