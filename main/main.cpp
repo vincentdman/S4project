@@ -54,7 +54,7 @@ extern "C" void app_main(void)
     //  LCD.LCD_Write_Char('a');
     // // vTaskDelay(10 / portTICK_PERIOD_MS);
     // LCD.LCD_Write_String(" test");
-    vTaskDelay(5000/portTICK_PERIOD_MS);
+    //vTaskDelay(5000/portTICK_PERIOD_MS);
 
     LCD.LCD_Write_Command(LCD_4_BIT_MODE);
 
@@ -70,11 +70,7 @@ extern "C" void app_main(void)
     
      LCD.LCD_Write_Char('c');
 
-    // LCD.LCD_Write("00101000",0);
-    //  LCD.LCD_Write("00001110",0);
-    //   LCD.LCD_Write("00000001",0);
-    //    LCD.LCD_Write("00000010",0);
-       // LCD.LCD_Write("00110010",1);
+
 
 
 
