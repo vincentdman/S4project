@@ -24,8 +24,8 @@ class HandleI2C
 
 public:
     HandleI2C();
-
     ~HandleI2C();
+    
     void I2C_WriteData(uint8_t Data_ToSend, uint8_t slave_adress);
     uint8_t I2C_ReadByte(uint8_t slave_adress);
     esp_err_t I2C_TestConncetion();

@@ -56,7 +56,7 @@ extern "C" void app_main(void)
     // LCD.LCD_Write_String(" test");
     //vTaskDelay(5000/portTICK_PERIOD_MS);
 
-    LCD.LCD_Write_Command(LCD_4_BIT_MODE);
+    
 
     LCD.LCD_Write_Command(LCD_DISPLAY_ON_CURSOR_OFF);
     
@@ -69,6 +69,11 @@ extern "C" void app_main(void)
      LCD.LCD_Write_Char('B');
     
      LCD.LCD_Write_Char('c');
+
+     LCD.LCD_Write_Command(LCD_NEXT_LINE);
+
+     std::string test = "Hello World!";
+     LCD.LCD_Write_String(test);
 
 
 
