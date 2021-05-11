@@ -175,17 +175,17 @@ extern "C"
             //esp error maybe :)
         }
     }
-
-    void LCD_Control::LCD_Private_I2C_Send(uint8_t DataToSend)
+    esp_err_t LCD_Control::LCD_Private_I2C_Send(uint8_t DataToSend)
     {
-
+        esp_err_t Error = ESP_OK; 
         i2c_cmd_handle_t link_cmd = i2c_cmd_link_create();
-        i2c_master_start(link_cmd);
-        i2c_master_write_byte(link_cmd, (LCD_Adress << 1) | I2C_MASTER_WRITE, true);
-        i2c_master_write(link_cmd, &DataToSend, sizeof(DataToSend), true);
-        i2c_master_stop(link_cmd);
-        i2c_master_cmd_begin(I2C_Port, link_cmd, 1000 / portTICK_RATE_MS);
-        i2c_cmd_link_delete(link_cmd);
+        Error |= i2c_master_start(link_cmd);
+        Error |= i2c_master_write_byte(link_cmd, (LCD_Adress << 1) | I2C_MASTER_WRITE, true);
+        Error |= i2c_master_write(link_cmd, &DataToSend, sizeof(DataToSend), true);
+        Error |= i2c_master_stop(link_cmd);
+        Error |= i2c_master_cmd_begin(I2C_Port, link_cmd, 1000 / portTICK_RATE_MS);
+                 i2c_cmd_link_delete(link_cmd);
+        return Error;
     }
 
     /**
@@ -302,13 +302,15 @@ extern "C"
      * 
      * @details Function to write to the lcd in four bit mode. 
      */
-    void LCD_Control::LCD_WriteFourBitMode(std::string BinaryString, int RS)
+    esp_err_t LCD_Control::LCD_WriteFourBitMode(std::string BinaryString, int RS)
     {
-        LCD_InitializeForSendingData(RS);
-        LCD_SetDataFourBitModeFirstHalf(BinaryString);
-        LCD_CycleDataTrough();
-        LCD_SetDataFourBitModeSecondHalf(BinaryString);
-        LCD_CycleDataTrough();
+        esp_err_t Error = ESP_OK;
+        Error |= LCD_InitializeForSendingData(RS);
+        Error |= LCD_SetDataFourBitModeFirstHalf(BinaryString);
+        Error |= LCD_CycleDataTrough();
+        Error |= LCD_SetDataFourBitModeSecondHalf(BinaryString);
+        Error |= LCD_CycleDataTrough();
+        return Error; 
     }
 
     /**
@@ -319,11 +321,13 @@ extern "C"
      * 
      * @details Function to write to the lcd in eight bit mode. 
      */
-    void LCD_Control::LCD_WriteEightBitMode(std::string BinaryString, int RS)
+    esp_err_t LCD_Control::LCD_WriteEightBitMode(std::string BinaryString, int RS)
     {
-        LCD_InitializeForSendingData(RS);
-        LCD_SetDataEightBitMode(BinaryString);
-        LCD_CycleDataTrough();
+        esp_err_t Error = ESP_OK;
+        Error |= LCD_InitializeForSendingData(RS);
+        Error |= LCD_SetDataEightBitMode(BinaryString);
+        Error |= LCD_CycleDataTrough();
+        return Error; 
     }
 
     /**
@@ -333,13 +337,15 @@ extern "C"
      * 
      * @details Function that makes the lcd ready for sending data. By setting enable high and setting the RS pin according to input parameter.
      */
-    void LCD_Control::LCD_InitializeForSendingData(int RS)
+    esp_err_t LCD_Control::LCD_InitializeForSendingData(int RS)
     {
+        esp_err_t Error = ESP_OK;
         ets_delay_us(1000);
-        gpio_set_level(LCD_RS, RS);
+        Error |= gpio_set_level(LCD_RS, RS);
         ets_delay_us(270);
-        SetHigh(LCD_E);
+        Error |= SetHigh(LCD_E);
         ets_delay_us(240);
+        return Error; 
     }
 
     /**
@@ -347,11 +353,13 @@ extern "C"
      * 
      * @details Function to cycle the data trought to the lcd by making a falling edge on the enable pin.
      */
-    void LCD_Control::LCD_CycleDataTrough(void)
+    esp_err_t LCD_Control::LCD_CycleDataTrough(void)
     {
+        esp_err_t Error = ESP_OK;
         ets_delay_us(300);
-        SetLow(LCD_E);
+        Error |= SetLow(LCD_E);
         ets_delay_us(1000);
+        return Error; 
     }
 
     /**
@@ -361,16 +369,18 @@ extern "C"
      * 
      * @details Function that sets the lcd data ready on the pins by using gpio_set_level().  
      */
-    void LCD_Control::LCD_SetDataEightBitMode(std::string BinaryString)
+    esp_err_t LCD_Control::LCD_SetDataEightBitMode(std::string BinaryString)
     {
-        gpio_set_level(LCD_D0, BinaryString[7] - '0');
-        gpio_set_level(LCD_D1, BinaryString[6] - '0');
-        gpio_set_level(LCD_D2, BinaryString[5] - '0');
-        gpio_set_level(LCD_D3, BinaryString[4] - '0');
-        gpio_set_level(LCD_D4, BinaryString[3] - '0');
-        gpio_set_level(LCD_D5, BinaryString[2] - '0');
-        gpio_set_level(LCD_D6, BinaryString[1] - '0');
-        gpio_set_level(LCD_D7, BinaryString[0] - '0');
+        esp_err_t Error = ESP_OK; 
+        Error |= gpio_set_level(LCD_D0, BinaryString[7] - '0');
+        Error |= gpio_set_level(LCD_D1, BinaryString[6] - '0');
+        Error |= gpio_set_level(LCD_D2, BinaryString[5] - '0');
+        Error |= gpio_set_level(LCD_D3, BinaryString[4] - '0');
+        Error |= gpio_set_level(LCD_D4, BinaryString[3] - '0');
+        Error |= gpio_set_level(LCD_D5, BinaryString[2] - '0');
+        Error |= gpio_set_level(LCD_D6, BinaryString[1] - '0');
+        Error |= gpio_set_level(LCD_D7, BinaryString[0] - '0');
+        return Error; 
     }
 
     /**
@@ -380,12 +390,14 @@ extern "C"
      * 
      * @details Function to set the first half of the binary string on the lcd pins in four bit mode.
      */
-    void LCD_Control::LCD_SetDataFourBitModeFirstHalf(std::string BinaryString)
+    esp_err_t LCD_Control::LCD_SetDataFourBitModeFirstHalf(std::string BinaryString)
     {
-        gpio_set_level(LCD_D4, BinaryString[3] - '0');
-        gpio_set_level(LCD_D5, BinaryString[2] - '0');
-        gpio_set_level(LCD_D6, BinaryString[1] - '0');
-        gpio_set_level(LCD_D7, BinaryString[0] - '0');
+        esp_err_t Error = ESP_OK; 
+        Error |= gpio_set_level(LCD_D4, BinaryString[3] - '0');
+        Error |= gpio_set_level(LCD_D5, BinaryString[2] - '0');
+        Error |= gpio_set_level(LCD_D6, BinaryString[1] - '0');
+        Error |= gpio_set_level(LCD_D7, BinaryString[0] - '0');
+        return Error; 
     }
 
     /**
@@ -395,13 +407,15 @@ extern "C"
      * 
      * @details Function to set the second half to the lcd pins in four bit mode.
      */
-    void LCD_Control::LCD_SetDataFourBitModeSecondHalf(std::string BinaryString)
+    esp_err_t LCD_Control::LCD_SetDataFourBitModeSecondHalf(std::string BinaryString)
     {
-        SetHigh(LCD_E);
+        esp_err_t Error = ESP_OK;
+        Error |= SetHigh(LCD_E);
         ets_delay_us(240);
-        gpio_set_level(LCD_D4, BinaryString[7] - '0');
-        gpio_set_level(LCD_D5, BinaryString[6] - '0');
-        gpio_set_level(LCD_D6, BinaryString[5] - '0');
-        gpio_set_level(LCD_D7, BinaryString[4] - '0');
+        Error |= gpio_set_level(LCD_D4, BinaryString[7] - '0');
+        Error |= gpio_set_level(LCD_D5, BinaryString[6] - '0');
+        Error |= gpio_set_level(LCD_D6, BinaryString[5] - '0');
+        Error |= gpio_set_level(LCD_D7, BinaryString[4] - '0');
+        return Error; 
     }
 }

@@ -66,17 +66,17 @@ extern "C"
         void LCD_Write(std::string BinaryString, int RS);
 
     private:
-        void LCD_WriteFourBitMode(std::string BinaryString, int RS);
-        void LCD_WriteEightBitMode(std::string BinaryString, int RS);
+        esp_err_t LCD_WriteFourBitMode(std::string BinaryString, int RS);
+        esp_err_t LCD_WriteEightBitMode(std::string BinaryString, int RS);
         void LCD_WriteI2CMode(std::string BinaryString, int RS);
 
-        void LCD_Private_I2C_Send(uint8_t DataToSend);
-        void LCD_InitializeForSendingData(int RS);
-        void LCD_CycleDataTrough(void);
+        esp_err_t LCD_Private_I2C_Send(uint8_t DataToSend);
+        esp_err_t LCD_InitializeForSendingData(int RS);
+        esp_err_t LCD_CycleDataTrough(void);
 
-        void LCD_SetDataEightBitMode(std::string BinaryString);
-        void LCD_SetDataFourBitModeFirstHalf(std::string BinaryString);
-        void LCD_SetDataFourBitModeSecondHalf(std::string BinaryString);
+        esp_err_t LCD_SetDataEightBitMode(std::string BinaryString);
+        esp_err_t LCD_SetDataFourBitModeFirstHalf(std::string BinaryString);
+        esp_err_t LCD_SetDataFourBitModeSecondHalf(std::string BinaryString);
 
         void SetBitMode();
 
