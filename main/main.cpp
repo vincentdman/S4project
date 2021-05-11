@@ -33,8 +33,10 @@
 
 extern "C" void app_main(void)
 {
-  
+    HandleI2C I2c(true);
     HandleBMP180 testt;
+   
+
 
     LCD_Pinout_t Configs;
     Configs._BitMode = I2CMode;
@@ -43,27 +45,12 @@ extern "C" void app_main(void)
     LCD_Control LCD(Configs);
 
     std::string datas = "11000011";
-    
+
 
     
 
     LCD.LCD_Write_Command(LCD_DISPLAY_ON_CURSOR_OFF);
     
-    LCD.LCD_Write_Command(LCD_CLEAR);
-    
-    LCD.LCD_Write_Command(LCD_HOME);
-
-     LCD.LCD_Write_Char('a');
-     
-     LCD.LCD_Write_Char('B');
-    
-     LCD.LCD_Write_Char('c');
-
-     LCD.LCD_Write_Command(LCD_NEXT_LINE);
-
-     std::string test = "Hello World!";
-     LCD.LCD_Write_String(test);
-
 
  
 
@@ -71,7 +58,7 @@ extern "C" void app_main(void)
 
   while(1){
     LCD.LCD_Write_Command(LCD_HOME);
-    test = "Temperature:";
+    std::string test = "Temperature:";
     LCD.LCD_Write_String(test);
     float temperature = testt.GetTemperature();
     std::ostringstream ss;

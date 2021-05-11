@@ -26,28 +26,17 @@ extern "C"
      */
     HandleBMP180::HandleBMP180()
     {
-        i2c_config_t Configuration;
-        Configuration.mode = I2C_MODE_MASTER;
-        Configuration.sda_io_num = 21;
-        Configuration.scl_io_num = 22;
-        Configuration.sda_pullup_en = GPIO_PULLUP_ENABLE;
-        Configuration.scl_pullup_en = GPIO_PULLUP_ENABLE;
-        Configuration.master.clk_speed = 100000;
-
-        i2c_param_config(I2C_Port, &Configuration);
-        i2c_driver_install(I2C_Port, Configuration.mode, 0, 0, 0);
-
         BMP180_SetCalibrationData();
     }
 
     /**
      * @brief Destroy the HandleBMP180::HandleBMP180 object.
      * 
-     * @details Destroys the HandleBMP180 object and deletes the i2c driver.
+     * @details Destroys the HandleBMP180 object.
      */
     HandleBMP180::~HandleBMP180()
     {
-        i2c_driver_delete(I2C_Port);
+        
     }
 
     /**

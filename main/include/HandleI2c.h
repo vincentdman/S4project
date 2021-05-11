@@ -24,6 +24,8 @@ class HandleI2C
 
 public:
     HandleI2C();
+    HandleI2C(bool);
+    HandleI2C(i2c_config_t &config);
     ~HandleI2C();
     
     void I2C_WriteData(uint8_t Data_ToSend, uint8_t slave_adress);
