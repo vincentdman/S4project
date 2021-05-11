@@ -21,9 +21,9 @@ class HandleBMP180
     HandleBMP180();
     ~HandleBMP180();
 
-    float GetPressure();
-    float GetTemperature();
-    float GetAltitude();
+    [[nodiscard]]float GetPressure();
+    [[nodiscard]]float GetTemperature();
+    [[nodiscard]]float GetAltitude();
 
 
     private:

@@ -48,7 +48,7 @@ extern "C"
      */
     float HandleBMP180::GetPressure()
     {
-        GetTemperature(); //update values
+        BMP180_GetTrueTemperature(BMP180_GetRawTemperature()); //update values
         return (((float)BMP180_GetTruePressure(BMP180_GetRawPressure())) / 10);
     }
 
@@ -92,11 +92,11 @@ extern "C"
         AC4 = BMP180_Read_16Bit(0xB0);
         AC5 = BMP180_Read_16Bit(0xB2);
         AC6 = BMP180_Read_16Bit(0xB4);
-        B1 = BMP180_Read_16Bit(0xB6);
-        B2 = BMP180_Read_16Bit(0xB8);
-        MB = BMP180_Read_16Bit(0xBA);
-        MC = BMP180_Read_16Bit(0xBC);
-        MD = BMP180_Read_16Bit(0xBE);
+        B1  = BMP180_Read_16Bit(0xB6);
+        B2  = BMP180_Read_16Bit(0xB8);
+        MB  = BMP180_Read_16Bit(0xBA);
+        MC  = BMP180_Read_16Bit(0xBC);
+        MD  = BMP180_Read_16Bit(0xBE);
 
         std::cout << "Calibration Data: " << AC1 << ',' << AC2 << ',' << AC3 << ',' << AC4 << ',' << AC5 << ',' << AC6 << ',' << B1 << ',' << B2 << ',' << MB << ',' << MC << ',' << MD << std::endl;
     }
