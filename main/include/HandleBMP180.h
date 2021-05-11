@@ -1,11 +1,12 @@
 /**
  * @file HandleBMP180.h
- * @author your name (you@domain.com)
- * @brief 
- * @version 0.1
+ * @author Vincent de Man
+ * @brief Handler of BMP180 sensor (.h)
+ * @version 1.1
  * @date 2021-05-08
  * @details Header that includes the BMP180 specific functions. 
  * @copyright Copyright (c) 2021
+ * @details Header file of Handle BMP180 class. It makes it a lot easier to work with the BMP180. 
  * 
  */
 
@@ -24,19 +25,20 @@ class HandleBMP180
     float GetTemperature();
     float GetAltitude();
 
+
+    private:
+
     void BMP180_SetCalibrationData();
+
     uint16_t BMP180_GetRawTemperature();
-    long BMP180_GetTrueTemperature(uint16_t RawTemperature);
-    
     uint16_t BMP180_GetRawPressure();
+
+    long BMP180_GetTrueTemperature(uint16_t RawTemperature);
     long BMP180_GetTruePressure(uint16_t RawPressure);
 
     void BMP180_Write_Byte(uint8_t WriteAdress, uint8_t Data);
     uint16_t BMP180_Read_16Bit(uint8_t DataAdress);
-    
 
-    private:
-    
     const uint8_t BMP180_I2C_ADRESS_Write = 0b11101110;
     const uint8_t BMP180_I2C_ADRESS_Read  = 0b11101111;
 

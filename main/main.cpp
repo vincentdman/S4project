@@ -26,6 +26,8 @@
 #include <string>
 #include "HandleBMP180.h"
 #include <bitset>
+#include <sstream>
+
 
 
 
@@ -63,13 +65,31 @@ extern "C" void app_main(void)
      LCD.LCD_Write_String(test);
 
 
-
+ 
 
 
 
   while(1){
-    std::cout<<"relative temperature: "<<testt.GetTemperature()<<std::endl; 
-    std::cout<<"relative pressure: "<<testt.GetPressure()<<std::endl; 
+    LCD.LCD_Write_Command(LCD_HOME);
+    test = "Temperature:";
+    LCD.LCD_Write_String(test);
+    float temperature = testt.GetTemperature();
+    std::ostringstream ss;
+    ss << temperature;
+    std::string s(ss.str());
+    LCD.LCD_Write_String(s);
+    float pressure = testt.GetPressure();
+    std::ostringstream st;
+    st << pressure;
+    std::string pres(st.str());
+    LCD.LCD_Write_Command(LCD_NEXT_LINE);
+    test = "Pressure:";
+    LCD.LCD_Write_String(test);
+    LCD.LCD_Write_String(pres);
+
+
+    std::cout<<"relative temperature: "<<temperature<<std::endl; 
+    std::cout<<"relative pressure: "<<pressure<<std::endl; 
     std::cout<<"relative altitude: "<<testt.GetAltitude()<<std::endl; 
     std::cout<<"succes?"<<std::endl;
     vTaskDelay(1000 / portTICK_PERIOD_MS);

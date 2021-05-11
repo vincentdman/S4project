@@ -1,11 +1,12 @@
 /**
  * @file HandleBMP180.cpp
  * @author your name (you@domain.com)
- * @brief 
+ * @brief Handler of BMP180 sensor (.cpp)
  * @version 0.1
  * @date 2021-05-08
- * 
+ * @class HandleBMP180 Advanced class to get data from the sensor.
  * @copyright Copyright (c) 2021
+ * @details Implementation of the handle BMP180 class. It uses calculations to convert data from the sensor to true data.
  * 
  */
 
@@ -18,9 +19,13 @@
 
 extern "C"
 {
+    /**
+     * @brief Construct a new HandleBMP180::HandleBMP180object,
+     *
+     * @details Sets up a default I2C connection. And asks the BMP180 for the calibration coeficients.  
+     */
     HandleBMP180::HandleBMP180()
     {
-
         i2c_config_t Configuration;
         Configuration.mode = I2C_MODE_MASTER;
         Configuration.sda_io_num = 21;
@@ -34,30 +39,62 @@ extern "C"
 
         BMP180_SetCalibrationData();
     }
+
+    /**
+     * @brief Destroy the HandleBMP180::HandleBMP180 object.
+     * 
+     * @details Destroys the HandleBMP180 object and deletes the i2c driver.
+     */
     HandleBMP180::~HandleBMP180()
     {
         i2c_driver_delete(I2C_Port);
     }
 
+    /**
+     * @brief Function to get the measured pressure.
+     * 
+     * @return float pressure value (Hpa).
+     * 
+     * @details User function to get the True pressure measured.
+     */
     float HandleBMP180::GetPressure()
     {
         GetTemperature(); //update values
-        return (((float)BMP180_GetTruePressure(BMP180_GetRawPressure()))/10);
+        return (((float)BMP180_GetTruePressure(BMP180_GetRawPressure())) / 10);
     }
 
+    /**
+     * @brief Function to get the relative altitude.
+     * 
+     * @return float altitude value (Meter).
+     * 
+     * @details User function to easily get the relative altitude based on the measured pressure and the pressure at sea level.
+     */
     float HandleBMP180::GetAltitude()
     {
         float pressure = GetPressure();
-        float altitude = 44330 * ( 1- pow ( (pressure / 1013.25)  , (1.0/5.255)));
+        float altitude = 44330 * (1 - pow((pressure / 1013.25), (1.0 / 5.255)));
         return altitude;
     }
 
+    /**
+     * @brief Function to get the Temperature.
+     * 
+     * @return float Temperature in (celcius).
+     * 
+     * @details User function to get the true temperature. 
+     */
     float HandleBMP180::GetTemperature()
     {
 
-        return (((float)BMP180_GetTrueTemperature(BMP180_GetRawTemperature()))/10);
+        return (((float)BMP180_GetTrueTemperature(BMP180_GetRawTemperature())) / 10);
     }
 
+    /**
+     * @brief Function to set the calibration data.
+     * 
+     * @details Private function to get the device specific calibration data. This data will later be used in calculations. 
+     */
     void HandleBMP180::BMP180_SetCalibrationData()
     {
         AC1 = BMP180_Read_16Bit(0xAA);
@@ -66,22 +103,37 @@ extern "C"
         AC4 = BMP180_Read_16Bit(0xB0);
         AC5 = BMP180_Read_16Bit(0xB2);
         AC6 = BMP180_Read_16Bit(0xB4);
-        B1  = BMP180_Read_16Bit(0xB6);
-        B2  = BMP180_Read_16Bit(0xB8);
-        MB  = BMP180_Read_16Bit(0xBA);
-        MC  = BMP180_Read_16Bit(0xBC);
-        MD  = BMP180_Read_16Bit(0xBE);
+        B1 = BMP180_Read_16Bit(0xB6);
+        B2 = BMP180_Read_16Bit(0xB8);
+        MB = BMP180_Read_16Bit(0xBA);
+        MC = BMP180_Read_16Bit(0xBC);
+        MD = BMP180_Read_16Bit(0xBE);
 
         std::cout << "Calibration Data: " << AC1 << ',' << AC2 << ',' << AC3 << ',' << AC4 << ',' << AC5 << ',' << AC6 << ',' << B1 << ',' << B2 << ',' << MB << ',' << MC << ',' << MD << std::endl;
     }
 
+    /**
+     * @brief Function to get the Raw temperature data from the BMP180.
+     * 
+     * @return uint16_t The returned two bytes.
+     * 
+     * @details Function to get the Raw adc temperature measurments from register 0xF6.
+     */
     uint16_t HandleBMP180::BMP180_GetRawTemperature()
     {
         BMP180_Write_Byte(0xF4, 0x2E);
         ets_delay_us(4500);
-        return BMP180_Read_16Bit(0xF6);;
+        return BMP180_Read_16Bit(0xF6);
     }
 
+    /**
+     * @brief Function to get the true temperature from the raw temperature.
+     * 
+     * @param _RawTemperature The Raw adc temperature value from register 0xF6.
+     * @return long the True temperature value in 0.1 degrees celcius.
+     * 
+     * @details Private function to get the true temperature value from the Raw temperature. 
+     */
     long HandleBMP180::BMP180_GetTrueTemperature(uint16_t _RawTemperature)
     {
         long RawTemperature = (long)_RawTemperature;
@@ -91,6 +143,13 @@ extern "C"
         return ((B5 + 8) / pow(2, 4));
     }
 
+    /**
+     * @brief Function to get the raw pressure from the BMP180.
+     * 
+     * @return uint16_t The Raw adc pressure value.
+     * 
+     * @details Private function to get the Raw pressure value from the BMP180. 
+     */
     uint16_t HandleBMP180::BMP180_GetRawPressure()
     {
         BMP180_Write_Byte(0xF4, 0x34);
@@ -98,6 +157,14 @@ extern "C"
         return BMP180_Read_16Bit(0xF6);
     }
 
+    /**
+     * @brief Function to go from raw pressure to true pressure.
+     * 
+     * @param _RawPressure The Raw Pressure from register 0xF6 of the BMP180
+     * @return long The Pressure value in pa
+     * 
+     * @details Function to calculate the raw pressure to true pressure. Returns the pressure value in pa. 
+     */
     long HandleBMP180::BMP180_GetTruePressure(uint16_t _RawPressure)
     {
         long RawPressure = (long)_RawPressure;
@@ -127,25 +194,41 @@ extern "C"
         return (pressure + (X1 + X2 + 3791) / pow(2, 4));
     }
 
+    /**
+     * @brief Function to write a byte to the BMP180.
+     * 
+     * @param WriteAdress The adress where the data will be written to.
+     * @param WriteData The data that will be written to the BMP180.
+     * 
+     * @details Function to write a byte of data to the BMP180 using I2c. 
+     */
     void HandleBMP180::BMP180_Write_Byte(uint8_t WriteAdress, uint8_t WriteData)
     {
         i2c_cmd_handle_t link_cmd = i2c_cmd_link_create();
         i2c_master_start(link_cmd);
         i2c_master_write_byte(link_cmd, BMP180_I2C_ADRESS_Write, true);
-        i2c_master_write(link_cmd, &WriteAdress, sizeof(WriteAdress) , true);
-    
-        i2c_master_write(link_cmd, &WriteData, sizeof(WriteData) , true);
+        i2c_master_write(link_cmd, &WriteAdress, sizeof(WriteAdress), true);
+
+        i2c_master_write(link_cmd, &WriteData, sizeof(WriteData), true);
         i2c_master_stop(link_cmd);
         i2c_master_cmd_begin(I2C_Port, link_cmd, 1000 / portTICK_RATE_MS);
         i2c_cmd_link_delete(link_cmd);
     }
 
+    /**
+     * @brief Function to read two bytes from the BMP180.
+     * 
+     * @param DataAdress The adress where the reading will start.
+     * @return uint16_t The data that has been read from the BMP180.
+     * 
+     * @details Function to read 16 bits from the BMP180 using I2C. 
+     */
     uint16_t HandleBMP180::BMP180_Read_16Bit(uint8_t DataAdress)
     {
         i2c_cmd_handle_t link_cmd = i2c_cmd_link_create();
         i2c_master_start(link_cmd);
         i2c_master_write_byte(link_cmd, BMP180_I2C_ADRESS_Write, true);
-        i2c_master_write(link_cmd, &DataAdress, sizeof(DataAdress) , true);
+        i2c_master_write(link_cmd, &DataAdress, sizeof(DataAdress), true);
         i2c_master_stop(link_cmd);
         i2c_master_cmd_begin(I2C_Port, link_cmd, 1000 / portTICK_RATE_MS);
         i2c_cmd_link_delete(link_cmd);
