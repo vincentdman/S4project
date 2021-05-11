@@ -85,6 +85,8 @@ extern "C"
     * @param Configuration the configuration struct
     * 
     * @details Function to initialize the lcd by taking in the i2c_config_t struct.
+    * 
+    * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
     */
     esp_err_t HandleI2C::I2C_Initialize(i2c_config_t &Configuration)
     {
@@ -101,6 +103,8 @@ extern "C"
     * @param slave_adress The adress of the slave device.
     * 
     * @details Function to send data to the slave. input is the data to send as uint8_t and the slave adress.
+    * 
+    * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
     */
     esp_err_t HandleI2C::I2C_WriteData(uint8_t Data_ToSend, uint8_t slave_adress)
     {

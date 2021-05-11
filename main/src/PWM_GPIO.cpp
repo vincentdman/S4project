@@ -47,6 +47,8 @@ extern "C"
      * @param PIN The designated pin 
      * 
      * @details function to set the pwm frequency on a given pin. The user can put in a pin that gets affected. 
+     * 
+     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
     esp_err_t PWM_GPIO::SetFrequency(uint32_t Frequency, gpio_num_t PIN)
     {
@@ -58,6 +60,8 @@ extern "C"
      * @brief function to update the Channel configuration
      * 
      * @details Function to update the configuration that is stored in ledc_channel variable inside the class. 
+     * 
+     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
     esp_err_t PWM_GPIO::UpdateChannelConfig()
     {
@@ -68,6 +72,8 @@ extern "C"
      * @brief function to update the Timer Configuration
      * 
      * @details Function to update the configuration that is stored in ledc_timer variable inside the class. 
+     * 
+     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
     esp_err_t PWM_GPIO::UpdateTimerConfig()
     {
@@ -82,6 +88,8 @@ extern "C"
      * @param Channel The affected pwm channel
      * 
      * @details Function to set the duty cycle on a pwm output signal. This function takes a int from 0-100 and sets the duty cycle accordingly.
+     * 
+     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
     esp_err_t PWM_GPIO::SetDuty(int duty, gpio_num_t PIN, ledc_channel_t Channel)
     {
@@ -98,6 +106,8 @@ extern "C"
      * @param PIN The pin that gets initialized
      * 
      * @details This function takes a pin in as input and configures it to output a pwm signal. The duty cycle will be at default 0 
+     * 
+     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
     esp_err_t PWM_GPIO::PWM_Initialize(gpio_num_t PIN)
     {

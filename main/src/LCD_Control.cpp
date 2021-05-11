@@ -96,6 +96,8 @@ extern "C"
      * @brief Initialize function for four bit mode
      * 
      * @details function that gets called when the lcd is in four bit mode
+     * 
+     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
     esp_err_t LCD_Control::LCD_InitializeFourBitMode()
     {
@@ -115,9 +117,11 @@ extern "C"
     }
 
     /**
-     * @brief Initialize function for eight bit mode
+     * @brief Initialize function for eight bit mode.
      * 
-     * @details function that gets called when the lcd is in eight bit mode
+     * @details function that gets called when the lcd is in eight bit mode.
+     * 
+     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
     esp_err_t LCD_Control::LCD_InitializeEightBitMode()
     {
@@ -141,7 +145,13 @@ extern "C"
         return Error; 
     }
 
-
+    /**
+     * @brief Starts the initialization sequence for 4 bit.
+     * 
+     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
+     * 
+     * @details Starts the special 4 bit initialization sequence. 
+     */
     esp_err_t LCD_Control::LCD_Init_Sequence_4_Bit()
     {   
         esp_err_t Error = ESP_OK;
@@ -173,6 +183,13 @@ extern "C"
 
     }
 
+    /**
+     * @brief Function to start the initialization sequence for 8 bit.
+     * 
+     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
+     * 
+     * @details Function to start the special initialization sequence for 8 bit.
+     */
     esp_err_t LCD_Control::LCD_Init_Sequence_8_Bit()
     {   
         esp_err_t Error = ESP_OK;
@@ -246,6 +263,16 @@ extern "C"
             //esp error maybe :)
         }
     }
+
+    /**
+     * @brief Function to send lcd i2c commands to the LCD.
+     * 
+     * @param DataToSend The data that will be send to the LCD.
+     *  
+     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
+     * 
+     * @details Private function to send lcd commands to the lcd. 
+     */
     esp_err_t LCD_Control::LCD_Private_I2C_Send(uint8_t DataToSend)
     {
         esp_err_t Error = ESP_OK; 
@@ -375,6 +402,8 @@ extern "C"
      * @param RS The mode the write action will be in (write to register or write to the lcd)
      * 
      * @details Function to write to the lcd in four bit mode. 
+     * 
+     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
     esp_err_t LCD_Control::LCD_WriteFourBitMode(std::string BinaryString, int RS)
     {
@@ -394,6 +423,8 @@ extern "C"
      * @param RS The mode the write action will be in (write to register or write to the lcd)
      * 
      * @details Function to write to the lcd in eight bit mode. 
+     * 
+     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
     esp_err_t LCD_Control::LCD_WriteEightBitMode(std::string BinaryString, int RS)
     {
@@ -410,6 +441,8 @@ extern "C"
      * @param RS The mode the write action will be in (write to register or write to the lcd)
      * 
      * @details Function that makes the lcd ready for sending data. By setting enable high and setting the RS pin according to input parameter.
+     * 
+     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
     esp_err_t LCD_Control::LCD_InitializeForSendingData(int RS)
     {
@@ -426,6 +459,8 @@ extern "C"
      * @brief Function to cycle the data trough to the lcd.
      * 
      * @details Function to cycle the data trought to the lcd by making a falling edge on the enable pin.
+     * 
+     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
     esp_err_t LCD_Control::LCD_CycleDataTrough(void)
     {
@@ -442,6 +477,8 @@ extern "C"
      * @param BinaryString Data that gets put on the lcd pins.
      * 
      * @details Function that sets the lcd data ready on the pins by using gpio_set_level().  
+     * 
+     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
     esp_err_t LCD_Control::LCD_SetDataEightBitMode(std::string BinaryString)
     {
@@ -463,6 +500,8 @@ extern "C"
      * @param BinaryString The data in a bit string that gets set on the lcd. 
      * 
      * @details Function to set the first half of the binary string on the lcd pins in four bit mode.
+     * 
+     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
     esp_err_t LCD_Control::LCD_SetDataFourBitModeFirstHalf(std::string BinaryString)
     {
@@ -480,6 +519,8 @@ extern "C"
      * @param BinaryString The data in a bit string that gets set on the lcd. 
      * 
      * @details Function to set the second half to the lcd pins in four bit mode.
+     * 
+     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
     esp_err_t LCD_Control::LCD_SetDataFourBitModeSecondHalf(std::string BinaryString)
     {

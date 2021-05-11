@@ -38,6 +38,8 @@ extern "C"
      * @brief Setblue function to make the rgb led shine blue
      * 
      * @details Set the rgb led to display only the colour blue. (red off, green of, blue on)
+     * 
+     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
     esp_err_t RGB_Control::SetBlue()
     {
@@ -52,6 +54,8 @@ extern "C"
      * @brief SetGreen function to make the rgb led shine green
      * 
      * @details Set the rgb led to display the colour green. (red off, blue off, green on)
+     * 
+     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
     esp_err_t RGB_Control::SetGreen()
     {
@@ -66,6 +70,8 @@ extern "C"
      * @brief SetRed function to make the rgb led shine red
      * 
      * @details Set the rgb led to display the colour red. (red on, blue off, green off)
+     * 
+     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
     esp_err_t RGB_Control::SetRed()
     {
@@ -80,6 +86,8 @@ extern "C"
      * @brief SetPurple function to make the rgb led shine purple   
      * 
      * @details Set the rgb led to display the colour purple. (red on, green off, blue on)
+     * 
+     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
     esp_err_t RGB_Control::SetPurple()
     {
@@ -94,6 +102,8 @@ extern "C"
      * @brief SetWhite function to make the rgb led shine white
      * 
      * @details Set the rgb led to display the colour white. (green on, red on, blue on)
+     * 
+     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
     esp_err_t RGB_Control::SetWhite()
     {
@@ -108,6 +118,8 @@ extern "C"
      * @brief SetYellow function to make the rgb led shine yellow
      * 
      * @details Set the rgb led to display the colour yellow. (red on, green on, blue off)
+     * 
+     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
     esp_err_t RGB_Control::SetYellow()
     {
@@ -122,6 +134,8 @@ extern "C"
      * @brief SetCyan function to make the rgb led shine cyan
      * 
      * @details Set the rgb led to display the colour cyan. (red off, green on, blue on)
+     * 
+     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
     esp_err_t RGB_Control::SetCyan()
     {
@@ -142,6 +156,8 @@ extern "C"
      * @details Function to set the rgb value of the red. The inputs are SetR SetG & SetB
      * with these inputs the rgb value can be controlled. the input reaches from 0-100 with 100 100% duty cycle and 0 0% duty cycle. 
      * This will be done by changing the duty cycle of the channels connected to the led. 
+     * 
+     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
     esp_err_t RGB_Control::SetRGB(int SetR, int SetG, int SetB)
     {
@@ -161,6 +177,8 @@ extern "C"
      * @details Function to only set the brightness of the red led in the rgb led. 
      * input is a integer ranging from 0-100 with the name SetR (set red). 
      * the function makes use of the SetDuty function.
+     * 
+     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
     esp_err_t RGB_Control::SetRGB_Red(int SetR)
     {
@@ -175,6 +193,8 @@ extern "C"
      * @details Function to only set the brightness of the green led in the rgb led. 
      * input is a integer ranging from 0-100 with the name SetG (set green). 
      * the function makes use of the SetDuty function.
+     * 
+     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
     esp_err_t RGB_Control::SetRGB_Green(int SetG)
     {
@@ -189,6 +209,8 @@ extern "C"
      * @details Function to only set the brightness of the blue led in the rgb led. 
      * input is a integer ranging from 0-100 with the name SetB (set blue). 
      * the function makes use of the SetDuty function
+     * 
+     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
     esp_err_t RGB_Control::SetRGB_Blue(int SetB)
     {
@@ -202,6 +224,7 @@ extern "C"
      * 
      * @details Function to change the pwm channel of the red led. the input type is ledc_channel_t.
      * There are 7 available channels to choose from. Default value channel 0
+     * 
      */
     void RGB_Control::ChangeChannelRed(ledc_channel_t Channel)
     {
@@ -215,6 +238,7 @@ extern "C"
      * 
      * @details Function to change the pwm channel of the blue led. the input type is ledc_channel_t.
      * There are 7 available channels to choose from. Default value channel 1
+     * 
      */
     void RGB_Control::ChangeChannelBlue(ledc_channel_t Channel)
     {

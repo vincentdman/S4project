@@ -34,6 +34,8 @@ extern "C"
      * @param PIN The pin that gets initialized type is gpio_num_t
      * 
      * @details function to initialize a gpio pin. Input is the gpio pint as type gpio_num_t. it sets the pulldown resistor as active and sets the GPIO mode as output.
+     * 
+     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
     esp_err_t HandleGPIO::InitializeGPIO(gpio_num_t PIN)
     {
@@ -50,6 +52,8 @@ extern "C"
      * @param PIN The pin that gets set to high type is gpio_num_t
      * 
      * @details Function to set the ouput of a pin to high. It utalizes the gpio_set_level function and takes in the pin parameter.
+     * 
+     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
     esp_err_t HandleGPIO::SetHigh(gpio_num_t PIN)
     {
@@ -65,6 +69,8 @@ extern "C"
      * @param PIN The pin that gets set to low type is gpio_num_t
      * 
      * @details Function to set the ouput of a pin to low. It utalizes the gpio_set_level function and takes in the pin parameter. 
+     * 
+     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
     esp_err_t HandleGPIO::SetLow(gpio_num_t PIN)
     {
