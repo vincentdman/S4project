@@ -58,6 +58,8 @@ class HandleBMP180
 
     long B5;
 
+    constexpr static const char* TAG = "BMP180";
+
 };
 
 }

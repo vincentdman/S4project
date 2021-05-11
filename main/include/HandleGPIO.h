@@ -29,7 +29,7 @@ extern "C"
     esp_err_t InitializeGPIO(gpio_num_t);
 
   private:
-    constexpr static const char* TAG = "HandleGPIO";
+    constexpr static const char* TAG = "GPIO";
   };
 }
 

@@ -36,7 +36,8 @@ extern "C"
                 .duty_resolution = LEDC_TIMER_13_BIT,
                 .timer_num = LEDC_TIMER_1,
                 .freq_hz = 5000,
-                .clk_cfg = LEDC_AUTO_CLK};
+                .clk_cfg = LEDC_AUTO_CLK
+            };
 
         ledc_channel_config_t ledc_channel =
             {
@@ -47,8 +48,8 @@ extern "C"
                 .timer_sel = LEDC_TIMER_1,
                 .duty = 0, //max 8191
                 .hpoint = 0
-
-        };
+            };
+        constexpr static const char* TAG = "PWM";    
     };
 }
 

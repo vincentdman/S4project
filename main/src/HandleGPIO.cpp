@@ -14,6 +14,8 @@
 #include "esp_err.h"
 #include "esp_system.h"
 #include "assert.h"
+#include "esp_log.h"
+
 
 extern "C"
 {
@@ -37,7 +39,8 @@ extern "C"
     {
         esp_err_t Error = ESP_OK; 
         Error |= gpio_set_pull_mode(PIN, GPIO_PULLDOWN_ONLY);
-        Error |= gpio_set_direction(PIN, GPIO_MODE_OUTPUT);
+        Error |= gpio_set_direction(PIN, GPIO_MODE_OUTPUT);  
+        ESP_LOGD(TAG,"Initialize PIN%d as output and pulldown enabled.\n",PIN);   
         return Error;
     }
 
@@ -52,6 +55,7 @@ extern "C"
     {
         esp_err_t Error = ESP_OK; 
         Error |= gpio_set_level(PIN, 1);
+        ESP_LOGD(TAG,"Set PIN%d high.\n",PIN);
         return Error;     
     }
 
@@ -66,6 +70,7 @@ extern "C"
     {
         esp_err_t Error = ESP_OK; 
         Error |= gpio_set_level(PIN, 0);
+        ESP_LOGD(TAG,"Set PIN%d low.\n",PIN);
         return Error;     
     }
 }

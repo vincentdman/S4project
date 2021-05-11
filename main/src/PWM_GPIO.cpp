@@ -14,6 +14,8 @@
 #include "esp_system.h"
 #include <driver/gpio.h>
 #include "PWM_GPIO.h"
+#include "esp_log.h"
+
 
 extern "C"
 {
@@ -35,7 +37,7 @@ extern "C"
      */
     PWM_GPIO::PWM_GPIO(gpio_num_t PIN)
     {
-        PWM_Initialize(PIN);
+        PWM_Initialize(PIN);  
     }
 
     /**
@@ -86,6 +88,7 @@ extern "C"
         duty = duty * 8191 / 100;
         ledc_channel.channel = Channel;
         ledc_channel.duty = duty;
+        ESP_LOGD(TAG,"Set the duty for PIN%d to %d%% pwm output.\n",PIN,duty);   
         return PWM_Initialize(PIN);
     }
 
@@ -102,6 +105,7 @@ extern "C"
         ledc_channel.gpio_num = PIN;
         Error |= ledc_timer_config(&ledc_timer);
         Error |= ledc_channel_config(&ledc_channel);
+        ESP_LOGD(TAG,"Initialize PIN%d for pwm output.\n",PIN);   
         return Error; 
     }
 }

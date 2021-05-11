@@ -11,6 +11,8 @@
 #include <iostream>
 #include "RGB_Control.h"
 #include "HandleGPIO.h"
+#include "esp_log.h"
+
 
 extern "C"
 {
@@ -147,6 +149,7 @@ extern "C"
         Error |= SetDuty(SetR, Red, RedChannel);
         Error |= SetDuty(SetG, Green, GreenChannel);
         Error |= SetDuty(SetB, Blue, BlueChannel);
+        ESP_LOGD(TAG,"RGB values: red: %d green: %d blue: %d.\n",SetR,SetG,SetB);   
         return Error;
     }
 

@@ -14,6 +14,7 @@
 #include "HandleI2C.h"
 #include <string>
 #include <iostream>
+#include "esp_log.h"
 
 extern "C"
 {
@@ -36,6 +37,7 @@ extern "C"
     HandleI2C::~HandleI2C()
     {
         i2c_driver_delete(I2C_Port);
+        ESP_LOGI(TAG,"Driver for I2C has been deleted.\n");     
     }
 
     /**
@@ -57,6 +59,9 @@ extern "C"
 
         i2c_param_config(I2C_Port, &Configuration);
         i2c_driver_install(I2C_Port, Configuration.mode, 0, 0, 0);
+
+        ESP_LOGI(TAG,"Started I2C with default settings.\n");     
+
     }
 
 
@@ -71,6 +76,7 @@ extern "C"
     {
         i2c_param_config(I2C_Port, &config);
         i2c_driver_install(I2C_Port, config.mode, 0, 0, 0);
+        ESP_LOGI(TAG,"Started I2C with user configuration settings.\n");     
     }
 
     /**
@@ -91,7 +97,7 @@ extern "C"
     /**
     * @brief Function to write data as a master to slave.
     * 
-    *  @param Data_ToSend The data that gets send to the slave.
+    * @param Data_ToSend The data that gets send to the slave.
     * @param slave_adress The adress of the slave device.
     * 
     * @details Function to send data to the slave. input is the data to send as uint8_t and the slave adress.

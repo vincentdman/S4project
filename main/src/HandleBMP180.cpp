@@ -16,6 +16,9 @@
 #include <bitset>
 #include <iostream>
 #include <cmath>
+#include "esp_log.h"
+
+
 
 extern "C"
 {
@@ -26,6 +29,7 @@ extern "C"
      */
     HandleBMP180::HandleBMP180()
     {
+        ESP_LOGI(TAG,"Constructor BMP180 called.\n");
         BMP180_SetCalibrationData();
     }
 
@@ -36,7 +40,7 @@ extern "C"
      */
     HandleBMP180::~HandleBMP180()
     {
-        
+       ESP_LOGI(TAG,"Destructor BMP180 called.\n"); 
     }
 
     /**
@@ -98,7 +102,7 @@ extern "C"
         MC  = BMP180_Read_16Bit(0xBC);
         MD  = BMP180_Read_16Bit(0xBE);
 
-        std::cout << "Calibration Data: " << AC1 << ',' << AC2 << ',' << AC3 << ',' << AC4 << ',' << AC5 << ',' << AC6 << ',' << B1 << ',' << B2 << ',' << MB << ',' << MC << ',' << MD << std::endl;
+        ESP_LOGD(TAG,"Calibration Data: %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d\n",AC1,AC2,AC3,AC4,AC5,AC6,B1,B2,MB,MC,MD);
     }
 
     /**

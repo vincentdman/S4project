@@ -42,6 +42,9 @@ extern "C"
         ledc_channel_t RedChannel = LEDC_CHANNEL_0;
         ledc_channel_t GreenChannel = LEDC_CHANNEL_1;
         ledc_channel_t BlueChannel = LEDC_CHANNEL_2;
+
+        constexpr static const char* TAG = "RGB";    
+
     };
 }
 

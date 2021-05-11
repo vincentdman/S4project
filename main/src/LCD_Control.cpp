@@ -18,6 +18,8 @@
 #include <bitset>
 #include <iostream>
 #include <driver/i2c.h>
+#include "esp_log.h"
+
 
 extern "C"
 {
@@ -34,9 +36,9 @@ extern "C"
           LCD_D4(LCD_Pinout_Configuration._D4), LCD_D5(LCD_Pinout_Configuration._D5), LCD_D6(LCD_Pinout_Configuration._D6), LCD_D7(LCD_Pinout_Configuration._D7),
           LCD_SCL(LCD_Pinout_Configuration._SCL), LCD_SDA(LCD_Pinout_Configuration._SDA), BitMode(LCD_Pinout_Configuration._BitMode)
     {
-
         SetBitMode();
         LCD_Initialize();
+        ESP_LOGI(TAG,"LCD has been initialized and ready for use!.\n");
     }
 
     /**

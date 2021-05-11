@@ -110,6 +110,8 @@ extern "C"
         BitMode_t BitMode;
 
         i2c_port_t I2C_Port = I2C_NUM_1;
+
+        constexpr static const char* TAG = "LCD";
     };
 }
 #endif

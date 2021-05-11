@@ -27,17 +27,24 @@
 #include "HandleBMP180.h"
 #include <bitset>
 #include <sstream>
+#include "esp_log.h"
+
+#define Build_Version 3.0
 
 
+static const char* TAG = "main";
 
 
 extern "C" void app_main(void)
 {
+
+    ESP_LOGI(TAG,"\n\nBuild version: %.2f\n",Build_Version);
+    ESP_LOGI(TAG,"Created by Vincent de Man\n");
+
     HandleI2C I2c(true);
     HandleBMP180 testt;
    
- 
-
+    
     LCD_Pinout_t Configs;
     Configs._BitMode = I2CMode;
     Configs._SDA = GPIO_NUM_21;
@@ -71,10 +78,10 @@ extern "C" void app_main(void)
     LCD.LCD_Write_String(pres);
 
 
-    std::cout<<"relative temperature: "<<temperature<<std::endl; 
-    std::cout<<"relative pressure: "<<pressure<<std::endl; 
-    std::cout<<"relative altitude: "<<testt.GetAltitude()<<std::endl; 
-    std::cout<<"succes?"<<std::endl;
+    // std::cout<<"relative temperature: "<<temperature<<std::endl; 
+    // std::cout<<"relative pressure: "<<pressure<<std::endl; 
+    // std::cout<<"relative altitude: "<<testt.GetAltitude()<<std::endl; 
+  
     vTaskDelay(1000 / portTICK_PERIOD_MS);
   }
 
