@@ -36,7 +36,7 @@ extern "C" void app_main(void)
     HandleI2C I2c(true);
     HandleBMP180 testt;
    
-
+ 
 
     LCD_Pinout_t Configs;
     Configs._BitMode = I2CMode;
@@ -44,10 +44,7 @@ extern "C" void app_main(void)
     Configs._SCL = GPIO_NUM_22;
     LCD_Control LCD(Configs);
 
-    std::string datas = "11000011";
 
-
-    
 
     LCD.LCD_Write_Command(LCD_DISPLAY_ON_CURSOR_OFF);
     

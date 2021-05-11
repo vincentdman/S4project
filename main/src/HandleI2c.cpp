@@ -25,7 +25,7 @@ extern "C"
      */
     HandleI2C::HandleI2C() 
     {   
-
+      i2c_driver_delete(I2C_Port);    
     }
 
     /**
