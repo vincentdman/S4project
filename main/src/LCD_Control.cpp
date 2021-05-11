@@ -33,8 +33,8 @@ extern "C"
           LCD_D0(LCD_Pinout_Configuration._D0), LCD_D1(LCD_Pinout_Configuration._D1), LCD_D2(LCD_Pinout_Configuration._D2), LCD_D3(LCD_Pinout_Configuration._D3),
           LCD_D4(LCD_Pinout_Configuration._D4), LCD_D5(LCD_Pinout_Configuration._D5), LCD_D6(LCD_Pinout_Configuration._D6), LCD_D7(LCD_Pinout_Configuration._D7),
           LCD_SCL(LCD_Pinout_Configuration._SCL), LCD_SDA(LCD_Pinout_Configuration._SDA), BitMode(LCD_Pinout_Configuration._BitMode)
-    {   
-        
+    {
+
         SetBitMode();
         LCD_Initialize();
     }
@@ -60,7 +60,7 @@ extern "C"
      * @details The input is a int that gets casted to a std binary string. It then gets written to the lcd by the lcd_Write function
      */
     void LCD_Control::LCD_Write_Command(int Command)
-    { 
+    {
         std::string ToBin = std::bitset<8>(Command).to_string();
         LCD_Write(ToBin, RegisterSet);
     }
@@ -176,215 +176,122 @@ extern "C"
         }
     }
 
-    void LCD_Control::LCD_Private_I2C_Send(uint8_t DataToSend){
+    void LCD_Control::LCD_Private_I2C_Send(uint8_t DataToSend)
+    {
 
-
-         i2c_cmd_handle_t link_cmd = i2c_cmd_link_create();
+        i2c_cmd_handle_t link_cmd = i2c_cmd_link_create();
         i2c_master_start(link_cmd);
-        i2c_master_write_byte(link_cmd, (LCD_Adress<<1) | I2C_MASTER_WRITE , true);
-        
-
-        i2c_master_write(link_cmd, &DataToSend, sizeof(DataToSend) , true);
-        
+        i2c_master_write_byte(link_cmd, (LCD_Adress << 1) | I2C_MASTER_WRITE, true);
+        i2c_master_write(link_cmd, &DataToSend, sizeof(DataToSend), true);
         i2c_master_stop(link_cmd);
         i2c_master_cmd_begin(I2C_Port, link_cmd, 1000 / portTICK_RATE_MS);
         i2c_cmd_link_delete(link_cmd);
+    }
 
-
-
-}
-
-
+    /**
+     * @brief Function to initialize the LCD for use in I2C mode.
+     * 
+     * @details Function that runs the special initialize sequence of the lcd so it can be used in 4 bit mode with I2C module. 
+     */
     void LCD_Control::LCD_InitializeI2CMode()
-    {   
-
-          //                  0b7654xEWS
+    {
+        //                    0b7654xEWS
         //uint8_t WriteData = 0b00000000;
-        
 
-        ets_delay_us(100000); // init delay 100ms
-
-
-
-
+        ets_delay_us(100000);
         uint8_t EnableHigh = 0b00111100;
-
         LCD_Private_I2C_Send(EnableHigh);
-        
-
-
-        ets_delay_us(270);
-
-
-
 
         ets_delay_us(300);
         uint8_t enablelowpulse = 0b00111000;
-
         LCD_Private_I2C_Send(enablelowpulse);
-
-      
 
         ets_delay_us(4500);
-
-
-
         EnableHigh |= 0b00111100;
-
         LCD_Private_I2C_Send(EnableHigh);
-        
 
-
-        ets_delay_us(270);
-
-      ets_delay_us(300);
-       enablelowpulse = 0b00111000;
-       LCD_Private_I2C_Send(enablelowpulse);
-        
-
-      
-
-        ets_delay_us(200);
-
-
-   
-
-          EnableHigh |= 0b00111100;
-
-          LCD_Private_I2C_Send(EnableHigh);
-
-
-        ets_delay_us(270);
-
-      ets_delay_us(300);
-       enablelowpulse = 0b00111000;
+        ets_delay_us(300);
+        enablelowpulse = 0b00111000;
         LCD_Private_I2C_Send(enablelowpulse);
-  
-
-      
 
         ets_delay_us(200);
-
-
-
-             EnableHigh = 0b00101100;
+        EnableHigh |= 0b00111100;
         LCD_Private_I2C_Send(EnableHigh);
 
-
-        ets_delay_us(270);
-
-      ets_delay_us(300);
-       enablelowpulse = 0b00101000;
-       LCD_Private_I2C_Send(enablelowpulse);
-        
-     
-      
+        ets_delay_us(300);
+        enablelowpulse = 0b00111000;
+        LCD_Private_I2C_Send(enablelowpulse);
 
         ets_delay_us(200);
+        EnableHigh = 0b00101100;
+        LCD_Private_I2C_Send(EnableHigh);
 
+        ets_delay_us(300);
+        enablelowpulse = 0b00101000;
+        LCD_Private_I2C_Send(enablelowpulse);
+
+        ets_delay_us(200);
         LCD_Write_Command(LCD_4_BIT_MODE);
-        
-
-
-
-
-
     }
 
+    /**
+     * @brief Function to write a data string to the lcd.
+     * 
+     * @param BinaryString The string of data that will be written to the LCD.
+     * @param RS The stat of the register select pin.    
+     * 
+     * @details Internal function to write data to the lcd in I2C mode. NOTE the I2C driver must be installed first. 
+     */
     void LCD_Control::LCD_WriteI2CMode(std::string BinaryString, int RS)
     {
 
-        ets_delay_us(240);
-
         //                    0b7654xEWS
         //uint8_t WriteData = 0b00000000;
-        uint8_t WriteRS   = RS;
+        uint8_t WriteRS = RS;
 
         ets_delay_us(1000);
-
         LCD_Private_I2C_Send(WriteRS);
-
-
         ets_delay_us(270);
-
-
-
 
         uint8_t EnableHigh = WriteRS;
         EnableHigh |= 0b00001100;
-
         LCD_Private_I2C_Send(EnableHigh);
-
-     
-
         ets_delay_us(270);
 
-
-
-
         uint8_t FirstHalf = EnableHigh;
-        uint8_t Data  = ((BinaryString[0] - '0')<<3);
-                Data |= ((BinaryString[1] - '0')<<2);
-                Data |= ((BinaryString[2] - '0')<<1);
-                Data |= ((BinaryString[3] - '0')<<0);
-                Data = Data<<4;
-        FirstHalf |= Data;      
-
+        uint8_t Data = ((BinaryString[0] - '0') << 3);
+        Data |= ((BinaryString[1] - '0') << 2);
+        Data |= ((BinaryString[2] - '0') << 1);
+        Data |= ((BinaryString[3] - '0') << 0);
+        Data = Data << 4;
+        FirstHalf |= Data;
         LCD_Private_I2C_Send(FirstHalf);
-
-   
-
-
-
-
-
         ets_delay_us(300);
+
         uint8_t enablelowpulse = FirstHalf;
-        enablelowpulse &= ~(0b00000100) ;
-
+        enablelowpulse &= ~(0b00000100);
         LCD_Private_I2C_Send(enablelowpulse);
-
-
         ets_delay_us(300);
-
-       
-
-
 
         uint8_t enablehighpulse = EnableHigh;
         enablehighpulse |= Data;
-
         LCD_Private_I2C_Send(enablehighpulse);
-    
-
         ets_delay_us(270);
 
-
         uint8_t SecondHalf = EnableHigh;
-        uint8_t Data2  = ((BinaryString[4] - '0')<<3);
-                Data2 |= ((BinaryString[5] - '0')<<2);
-                Data2 |= ((BinaryString[6] - '0')<<1);
-                Data2 |= ((BinaryString[7] - '0')<<0);
-                Data2 = Data2<<4;
-        SecondHalf |= Data2;      
-
-        LCD_Private_I2C_Send(SecondHalf); 
-
-            ets_delay_us(300);
-
-
-
+        uint8_t Data2 = ((BinaryString[4] - '0') << 3);
+        Data2 |= ((BinaryString[5] - '0') << 2);
+        Data2 |= ((BinaryString[6] - '0') << 1);
+        Data2 |= ((BinaryString[7] - '0') << 0);
+        Data2 = Data2 << 4;
+        SecondHalf |= Data2;
+        LCD_Private_I2C_Send(SecondHalf);
+        ets_delay_us(300);
 
         uint8_t enablelowpulse2 = SecondHalf;
-        enablelowpulse2 &= ~(0b00000100) ;
-
+        enablelowpulse2 &= ~(0b00000100);
         LCD_Private_I2C_Send(enablelowpulse2);
-
-          ets_delay_us(1000);
-        
-
-       
-
+        ets_delay_us(1000);
     }
 
     /**
