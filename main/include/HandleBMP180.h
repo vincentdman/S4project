@@ -4,7 +4,7 @@
  * @brief 
  * @version 0.1
  * @date 2021-05-08
- * 
+ * @details Header that includes the BMP180 specific functions. 
  * @copyright Copyright (c) 2021
  * 
  */
