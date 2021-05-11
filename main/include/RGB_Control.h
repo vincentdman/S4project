@@ -19,17 +19,17 @@ extern "C"
     {
     public:
         RGB_Control(gpio_num_t, gpio_num_t, gpio_num_t);
-        void SetRed(void);
-        void SetGreen(void);
-        void SetBlue(void);
-        void SetPurple(void);
-        void SetYellow(void);
-        void SetCyan(void);
-        void SetWhite(void);
-        void SetRGB(int, int, int);
-        void SetRGB_Red(int);
-        void SetRGB_Green(int);
-        void SetRGB_Blue(int);
+        esp_err_t SetRed(void);
+        esp_err_t SetGreen(void);
+        esp_err_t SetBlue(void);
+        esp_err_t SetPurple(void);
+        esp_err_t SetYellow(void);
+        esp_err_t SetCyan(void);
+        esp_err_t SetWhite(void);
+        esp_err_t SetRGB(int, int, int);
+        esp_err_t SetRGB_Red(int);
+        esp_err_t SetRGB_Green(int);
+        esp_err_t SetRGB_Blue(int);
         void ChangeChannelRed(ledc_channel_t);
         void ChangeChannelGreen(ledc_channel_t);
         void ChangeChannelBlue(ledc_channel_t);

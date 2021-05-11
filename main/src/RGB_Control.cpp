@@ -37,11 +37,13 @@ extern "C"
      * 
      * @details Set the rgb led to display only the colour blue. (red off, green of, blue on)
      */
-    void RGB_Control::SetBlue()
+    esp_err_t RGB_Control::SetBlue()
     {
-        SetHigh(Blue);
-        SetLow(Red);
-        SetLow(Green);
+        esp_err_t Error = ESP_OK; 
+        Error |= SetHigh(Blue);
+        Error |= SetLow(Red);
+        Error |= SetLow(Green);
+        return Error; 
     }
 
     /**
@@ -49,11 +51,13 @@ extern "C"
      * 
      * @details Set the rgb led to display the colour green. (red off, blue off, green on)
      */
-    void RGB_Control::SetGreen()
+    esp_err_t RGB_Control::SetGreen()
     {
-        SetHigh(Green);
-        SetLow(Red);
-        SetLow(Blue);
+        esp_err_t Error = ESP_OK;
+        Error |= SetHigh(Green);
+        Error |= SetLow(Red);
+        Error |= SetLow(Blue);
+        return Error; 
     }
 
     /**
@@ -61,11 +65,13 @@ extern "C"
      * 
      * @details Set the rgb led to display the colour red. (red on, blue off, green off)
      */
-    void RGB_Control::SetRed()
+    esp_err_t RGB_Control::SetRed()
     {
-        SetHigh(Red);
-        SetLow(Green);
-        SetLow(Blue);
+        esp_err_t Error = ESP_OK; 
+        Error |= SetHigh(Red);
+        Error |= SetLow(Green);
+        Error |= SetLow(Blue);
+        return Error;
     }
 
     /**
@@ -73,22 +79,27 @@ extern "C"
      * 
      * @details Set the rgb led to display the colour purple. (red on, green off, blue on)
      */
-    void RGB_Control::SetPurple()
+    esp_err_t RGB_Control::SetPurple()
     {
-        SetHigh(Red);
-        SetLow(Green);
-        SetHigh(Blue);
+        esp_err_t Error = ESP_OK;
+        Error |= SetHigh(Red);
+        Error |= SetLow(Green);
+        Error |= SetHigh(Blue);
+        return Error; 
     }
+
     /**
      * @brief SetWhite function to make the rgb led shine white
      * 
      * @details Set the rgb led to display the colour white. (green on, red on, blue on)
      */
-    void RGB_Control::SetWhite()
+    esp_err_t RGB_Control::SetWhite()
     {
-        SetHigh(Red);
-        SetHigh(Green);
-        SetHigh(Blue);
+        esp_err_t Error = ESP_OK;
+        Error |= SetHigh(Red);
+        Error |= SetHigh(Green);
+        Error |= SetHigh(Blue);
+        return Error;
     }
 
     /**
@@ -96,11 +107,13 @@ extern "C"
      * 
      * @details Set the rgb led to display the colour yellow. (red on, green on, blue off)
      */
-    void RGB_Control::SetYellow()
+    esp_err_t RGB_Control::SetYellow()
     {
-        SetHigh(Red);
-        SetHigh(Green);
-        SetLow(Blue);
+        esp_err_t Error = ESP_OK;
+        Error |= SetHigh(Red);
+        Error |= SetHigh(Green);
+        Error |= SetLow(Blue);
+        return Error;
     }
 
     /**
@@ -108,11 +121,13 @@ extern "C"
      * 
      * @details Set the rgb led to display the colour cyan. (red off, green on, blue on)
      */
-    void RGB_Control::SetCyan()
+    esp_err_t RGB_Control::SetCyan()
     {
-        SetLow(Red);
-        SetHigh(Green);
-        SetHigh(Blue);
+        esp_err_t Error = ESP_OK;
+        Error |= SetLow(Red);
+        Error |= SetHigh(Green);
+        Error |= SetHigh(Blue);
+        return Error;
     }
 
     /**
@@ -126,11 +141,13 @@ extern "C"
      * with these inputs the rgb value can be controlled. the input reaches from 0-100 with 100 100% duty cycle and 0 0% duty cycle. 
      * This will be done by changing the duty cycle of the channels connected to the led. 
      */
-    void RGB_Control::SetRGB(int SetR, int SetG, int SetB)
+    esp_err_t RGB_Control::SetRGB(int SetR, int SetG, int SetB)
     {
-        SetDuty(SetR, Red, RedChannel);
-        SetDuty(SetG, Green, GreenChannel);
-        SetDuty(SetB, Blue, BlueChannel);
+        esp_err_t Error = ESP_OK;
+        Error |= SetDuty(SetR, Red, RedChannel);
+        Error |= SetDuty(SetG, Green, GreenChannel);
+        Error |= SetDuty(SetB, Blue, BlueChannel);
+        return Error;
     }
 
     /**
@@ -142,9 +159,9 @@ extern "C"
      * input is a integer ranging from 0-100 with the name SetR (set red). 
      * the function makes use of the SetDuty function.
      */
-    void RGB_Control::SetRGB_Red(int SetR)
+    esp_err_t RGB_Control::SetRGB_Red(int SetR)
     {
-        SetDuty(SetR, Red, RedChannel);
+       return SetDuty(SetR, Red, RedChannel);
     }
 
     /**
@@ -156,9 +173,9 @@ extern "C"
      * input is a integer ranging from 0-100 with the name SetG (set green). 
      * the function makes use of the SetDuty function.
      */
-    void RGB_Control::SetRGB_Green(int SetG)
+    esp_err_t RGB_Control::SetRGB_Green(int SetG)
     {
-        SetDuty(SetG, Green, GreenChannel);
+       return SetDuty(SetG, Green, GreenChannel);
     }
 
     /**
@@ -170,9 +187,9 @@ extern "C"
      * input is a integer ranging from 0-100 with the name SetB (set blue). 
      * the function makes use of the SetDuty function
      */
-    void RGB_Control::SetRGB_Blue(int SetB)
+    esp_err_t RGB_Control::SetRGB_Blue(int SetB)
     {
-        SetDuty(SetB, Blue, BlueChannel);
+       return SetDuty(SetB, Blue, BlueChannel);
     }
 
     /**

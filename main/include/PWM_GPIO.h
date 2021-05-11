@@ -23,11 +23,11 @@ extern "C"
     public:
         PWM_GPIO(gpio_num_t);
         PWM_GPIO();
-        void PWM_Initialize(gpio_num_t);
-        void SetDuty(int, gpio_num_t, ledc_channel_t);
-        void SetFrequency(uint32_t, gpio_num_t);
-        void UpdateTimerConfig();
-        void UpdateChannelConfig();
+        esp_err_t PWM_Initialize(gpio_num_t);
+        esp_err_t SetDuty(int, gpio_num_t, ledc_channel_t);
+        esp_err_t SetFrequency(uint32_t, gpio_num_t);
+        esp_err_t UpdateTimerConfig();
+        esp_err_t UpdateChannelConfig();
 
     private:
         ledc_timer_config_t ledc_timer =

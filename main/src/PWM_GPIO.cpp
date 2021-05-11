@@ -46,10 +46,10 @@ extern "C"
      * 
      * @details function to set the pwm frequency on a given pin. The user can put in a pin that gets affected. 
      */
-    void PWM_GPIO::SetFrequency(uint32_t Frequency, gpio_num_t PIN)
+    esp_err_t PWM_GPIO::SetFrequency(uint32_t Frequency, gpio_num_t PIN)
     {
         ledc_timer.freq_hz = Frequency;
-        PWM_Initialize(PIN);
+        return PWM_Initialize(PIN);
     }
 
     /**
@@ -57,9 +57,9 @@ extern "C"
      * 
      * @details Function to update the configuration that is stored in ledc_channel variable inside the class. 
      */
-    void PWM_GPIO::UpdateChannelConfig()
+    esp_err_t PWM_GPIO::UpdateChannelConfig()
     {
-        ledc_channel_config(&ledc_channel);
+        return ledc_channel_config(&ledc_channel);
     }
 
     /**
@@ -67,9 +67,9 @@ extern "C"
      * 
      * @details Function to update the configuration that is stored in ledc_timer variable inside the class. 
      */
-    void PWM_GPIO::UpdateTimerConfig()
+    esp_err_t PWM_GPIO::UpdateTimerConfig()
     {
-        ledc_timer_config(&ledc_timer);
+        return ledc_timer_config(&ledc_timer);
     }
 
     /**
@@ -81,12 +81,12 @@ extern "C"
      * 
      * @details Function to set the duty cycle on a pwm output signal. This function takes a int from 0-100 and sets the duty cycle accordingly.
      */
-    void PWM_GPIO::SetDuty(int duty, gpio_num_t PIN, ledc_channel_t Channel)
+    esp_err_t PWM_GPIO::SetDuty(int duty, gpio_num_t PIN, ledc_channel_t Channel)
     {
         duty = duty * 8191 / 100;
         ledc_channel.channel = Channel;
         ledc_channel.duty = duty;
-        PWM_Initialize(PIN);
+        return PWM_Initialize(PIN);
     }
 
     /**
@@ -96,10 +96,12 @@ extern "C"
      * 
      * @details This function takes a pin in as input and configures it to output a pwm signal. The duty cycle will be at default 0 
      */
-    void PWM_GPIO::PWM_Initialize(gpio_num_t PIN)
+    esp_err_t PWM_GPIO::PWM_Initialize(gpio_num_t PIN)
     {
+        esp_err_t Error = ESP_OK; 
         ledc_channel.gpio_num = PIN;
-        ledc_timer_config(&ledc_timer);
-        ledc_channel_config(&ledc_channel);
+        Error |= ledc_timer_config(&ledc_timer);
+        Error |= ledc_channel_config(&ledc_channel);
+        return Error; 
     }
 }
