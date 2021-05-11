@@ -57,9 +57,12 @@ extern "C"
         void LCD_Write_Char(char Data);
         void LCD_Initialize();
 
-        void LCD_InitializeEightBitMode();
-        void LCD_InitializeFourBitMode();
-        void LCD_InitializeI2CMode();
+        esp_err_t LCD_InitializeEightBitMode();
+        esp_err_t LCD_InitializeFourBitMode();
+        esp_err_t LCD_InitializeI2CMode();
+        esp_err_t LCD_Init_Sequence_4_Bit();
+        esp_err_t LCD_Init_Sequence_8_Bit();
+
 
         void LCD_Write_Command(int Command);
         void LCD_Write_String(std::string Data_String_);

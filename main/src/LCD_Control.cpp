@@ -95,18 +95,21 @@ extern "C"
      * 
      * @details function that gets called when the lcd is in four bit mode
      */
-    void LCD_Control::LCD_InitializeFourBitMode()
+    esp_err_t LCD_Control::LCD_InitializeFourBitMode()
     {
+        esp_err_t Error = ESP_OK; 
+       
+        Error |= InitializeGPIO(LCD_E);
+        Error |= SetLow(LCD_E);
+        Error |= InitializeGPIO(LCD_RS);
+        Error |= InitializeGPIO(LCD_D7);
+        Error |= InitializeGPIO(LCD_D6);
+        Error |= InitializeGPIO(LCD_D5);
+        Error |= InitializeGPIO(LCD_D4);
 
-        vTaskDelay(50 / portTICK_PERIOD_MS);
+        Error |= LCD_Init_Sequence_4_Bit();
 
-        InitializeGPIO(LCD_E);
-        SetLow(LCD_E);
-        InitializeGPIO(LCD_RS);
-        InitializeGPIO(LCD_D7);
-        InitializeGPIO(LCD_D6);
-        InitializeGPIO(LCD_D5);
-        InitializeGPIO(LCD_D4);
+        return Error; 
     }
 
     /**
@@ -114,24 +117,90 @@ extern "C"
      * 
      * @details function that gets called when the lcd is in eight bit mode
      */
-    void LCD_Control::LCD_InitializeEightBitMode()
+    esp_err_t LCD_Control::LCD_InitializeEightBitMode()
     {
+        esp_err_t Error = ESP_OK; 
+        
+        Error |= InitializeGPIO(LCD_E);
+        Error |= SetLow(LCD_E);
 
-        vTaskDelay(50 / portTICK_PERIOD_MS);
+        Error |= InitializeGPIO(LCD_RS);
+        Error |= InitializeGPIO(LCD_D7);
+        Error |= InitializeGPIO(LCD_D6);
+        Error |= InitializeGPIO(LCD_D5);
+        Error |= InitializeGPIO(LCD_D4);
+        Error |= InitializeGPIO(LCD_D3);
+        Error |= InitializeGPIO(LCD_D2);
+        Error |= InitializeGPIO(LCD_D1);
+        Error |= InitializeGPIO(LCD_D0);
 
-        InitializeGPIO(LCD_E);
-        SetLow(LCD_E);
+        Error |= LCD_Init_Sequence_8_Bit();
 
-        InitializeGPIO(LCD_RS);
-        InitializeGPIO(LCD_D7);
-        InitializeGPIO(LCD_D6);
-        InitializeGPIO(LCD_D5);
-        InitializeGPIO(LCD_D4);
-        InitializeGPIO(LCD_D3);
-        InitializeGPIO(LCD_D2);
-        InitializeGPIO(LCD_D1);
-        InitializeGPIO(LCD_D0);
+        return Error; 
     }
+
+
+    esp_err_t LCD_Control::LCD_Init_Sequence_4_Bit()
+    {   
+        esp_err_t Error = ESP_OK;
+
+        ets_delay_us(100000);
+        Error |= LCD_InitializeForSendingData(0);
+        Error |= LCD_SetDataFourBitModeFirstHalf("0011");
+        Error |= LCD_CycleDataTrough();
+
+        ets_delay_us(4500);
+        Error |= LCD_InitializeForSendingData(0);
+        Error |= LCD_SetDataFourBitModeFirstHalf("0011");
+        Error |= LCD_CycleDataTrough();
+
+        ets_delay_us(100);
+        Error |= LCD_InitializeForSendingData(0);
+        Error |= LCD_SetDataFourBitModeFirstHalf("0011");
+        Error |= LCD_CycleDataTrough();
+        
+        ets_delay_us(100);
+        Error |= LCD_InitializeForSendingData(0);
+        Error |= LCD_SetDataFourBitModeFirstHalf("0011");
+        Error |= LCD_CycleDataTrough();
+        ets_delay_us(100);
+
+        LCD_Write_Command(LCD_4_BIT_MODE); 
+
+        return Error; 
+
+    }
+
+    esp_err_t LCD_Control::LCD_Init_Sequence_8_Bit()
+    {   
+        esp_err_t Error = ESP_OK;
+
+        ets_delay_us(100000);
+        Error |= LCD_InitializeForSendingData(0);
+        Error |= LCD_SetDataEightBitMode("0011000");
+        Error |= LCD_CycleDataTrough();
+
+        ets_delay_us(4500);
+        Error |= LCD_InitializeForSendingData(0);
+        Error |= LCD_SetDataEightBitMode("0011000");
+        Error |= LCD_CycleDataTrough();
+
+        ets_delay_us(100);
+        Error |= LCD_InitializeForSendingData(0);
+        Error |= LCD_SetDataEightBitMode("0011000");
+        Error |= LCD_CycleDataTrough();
+        
+        ets_delay_us(100);
+        Error |= LCD_InitializeForSendingData(0);
+        Error |= LCD_SetDataEightBitMode("0011000");
+        Error |= LCD_CycleDataTrough();
+        ets_delay_us(100);
+
+        LCD_Write_Command(LCD_8_BIT_MODE);
+
+        return Error; 
+    }
+
 
     /**
      * @brief Function to write to the lcd.
@@ -193,45 +262,48 @@ extern "C"
      * 
      * @details Function that runs the special initialize sequence of the lcd so it can be used in 4 bit mode with I2C module. 
      */
-    void LCD_Control::LCD_InitializeI2CMode()
+    esp_err_t LCD_Control::LCD_InitializeI2CMode()
     {
         //                    0b7654xEWS
         //uint8_t WriteData = 0b00000000;
+        esp_err_t Error = ESP_OK;
 
         ets_delay_us(100000);
         uint8_t EnableHigh = 0b00111100;
-        LCD_Private_I2C_Send(EnableHigh);
+        Error |= LCD_Private_I2C_Send(EnableHigh);
 
         ets_delay_us(300);
         uint8_t enablelowpulse = 0b00111000;
-        LCD_Private_I2C_Send(enablelowpulse);
+        Error |= LCD_Private_I2C_Send(enablelowpulse);
 
         ets_delay_us(4500);
         EnableHigh |= 0b00111100;
-        LCD_Private_I2C_Send(EnableHigh);
+        Error |= LCD_Private_I2C_Send(EnableHigh);
 
         ets_delay_us(300);
         enablelowpulse = 0b00111000;
-        LCD_Private_I2C_Send(enablelowpulse);
+        Error |= LCD_Private_I2C_Send(enablelowpulse);
 
         ets_delay_us(200);
         EnableHigh |= 0b00111100;
-        LCD_Private_I2C_Send(EnableHigh);
+        Error |= LCD_Private_I2C_Send(EnableHigh);
 
         ets_delay_us(300);
         enablelowpulse = 0b00111000;
-        LCD_Private_I2C_Send(enablelowpulse);
+        Error |= LCD_Private_I2C_Send(enablelowpulse);
 
         ets_delay_us(200);
         EnableHigh = 0b00101100;
-        LCD_Private_I2C_Send(EnableHigh);
+        Error |= LCD_Private_I2C_Send(EnableHigh);
 
         ets_delay_us(300);
         enablelowpulse = 0b00101000;
-        LCD_Private_I2C_Send(enablelowpulse);
+        Error |= LCD_Private_I2C_Send(enablelowpulse);
 
         ets_delay_us(200);
         LCD_Write_Command(LCD_4_BIT_MODE);
+
+        return Error; 
     }
 
     /**
