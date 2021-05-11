@@ -15,6 +15,7 @@
 #include <string>
 #include <iostream>
 
+extern"C"{
 /**
  * @brief Function to initialize the lcd.
  * 
@@ -83,4 +84,5 @@ HandleI2C::HandleI2C() {}
 HandleI2C::~HandleI2C()
 {
     i2c_driver_delete(I2C_Port);
+}
 }

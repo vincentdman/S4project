@@ -42,19 +42,6 @@ extern "C" void app_main(void)
 
     std::string datas = "11000011";
     
-   //  LCD.LCD_Write_Command(LCD_4_BIT_MODE);
-    //  LCD.LCD_Write_Command(LCD_4_BIT_MODE);
-    // // vTaskDelay(10 / portTICK_PERIOD_MS);
-    //  LCD.LCD_Write_Command(LCD_DISPLAY_ON_CURSOR_ON);
-    // // vTaskDelay(10 / portTICK_PERIOD_MS);
-    //  LCD.LCD_Write_Command(LCD_CLEAR);
-    // // vTaskDelay(10 / portTICK_PERIOD_MS);
-    //  LCD.LCD_Write_Command(LCD_HOME);
-    // // vTaskDelay(10 / portTICK_PERIOD_MS);
-    //  LCD.LCD_Write_Char('a');
-    // // vTaskDelay(10 / portTICK_PERIOD_MS);
-    // LCD.LCD_Write_String(" test");
-    //vTaskDelay(5000/portTICK_PERIOD_MS);
 
     
 
