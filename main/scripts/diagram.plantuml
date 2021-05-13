@@ -1,0 +1,9 @@
+@startuml S4_Diagram
+scale 2
+[*] --> Initialization : StartUp()
+Initialization : creation of rgb led object
+
+
+
+
+@enduml
