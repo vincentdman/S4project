@@ -63,21 +63,13 @@ extern "C" void app_main(void)
     LCD.LCD_Write_Command(LCD_HOME);
     std::string test = "Temperature:";
     LCD.LCD_Write_String(test);
-    float temperature = testt.GetTemperature();
-    
-    std::ostringstream ss;
-    ss << temperature;
-    std::string s(ss.str());
-    LCD.LCD_Write_String(s);
 
-    float pressure = testt.GetPressure();
-    std::ostringstream st;
-    st << pressure;
-    std::string pres(st.str());
+    LCD.LCD_Write_Float(testt.GetTemperature());
+   
     LCD.LCD_Write_Command(LCD_NEXT_LINE);
     test = "Pressure:";
     LCD.LCD_Write_String(test);
-    LCD.LCD_Write_String(pres);
+    LCD.LCD_Write_Float(testt.GetPressure());
 
 
     // std::cout<<"relative temperature: "<<temperature<<std::endl; 
