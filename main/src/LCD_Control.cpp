@@ -69,6 +69,13 @@ extern "C"
         LCD_Write(ToBin, RegisterSet);
     }
 
+    /**
+     * @brief Function to write a float value to the LCD.
+     * 
+     * @param FloatData The float that will be printed to the LCD.
+     * 
+     * @details Function to write a float to the LCD it also prints the (.) and uses write string. 
+     */
     void LCD_Control::LCD_Write_Float(const float FloatData)
     {
         std::ostringstream ss;

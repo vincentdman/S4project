@@ -56,9 +56,6 @@ extern "C" void app_main(void)
     LCD.LCD_Write_Command(LCD_DISPLAY_ON_CURSOR_OFF);
     
 
-
-
-
   while(1){
     LCD.LCD_Write_Command(LCD_HOME);
     std::string test = "Temperature:";
