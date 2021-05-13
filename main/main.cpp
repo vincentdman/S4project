@@ -64,10 +64,12 @@ extern "C" void app_main(void)
     std::string test = "Temperature:";
     LCD.LCD_Write_String(test);
     float temperature = testt.GetTemperature();
+    
     std::ostringstream ss;
     ss << temperature;
     std::string s(ss.str());
     LCD.LCD_Write_String(s);
+
     float pressure = testt.GetPressure();
     std::ostringstream st;
     st << pressure;

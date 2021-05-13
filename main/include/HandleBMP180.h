@@ -35,8 +35,8 @@ class HandleBMP180
     long BMP180_GetTrueTemperature(const uint16_t RawTemperature);
     long BMP180_GetTruePressure(const uint16_t RawPressure);
 
-    esp_err_t BMP180_Write_Byte(const uint8_t WriteAdress, const uint8_t Data);
-    uint16_t BMP180_Read_16Bit(const uint8_t DataAdress);
+    esp_err_t BMP180_Write_Byte(uint8_t WriteAdress, uint8_t Data);
+    uint16_t BMP180_Read_16Bit(uint8_t DataAdress);
 
     const uint8_t BMP180_I2C_ADRESS_Write = 0b11101110;
     const uint8_t BMP180_I2C_ADRESS_Read  = 0b11101111;

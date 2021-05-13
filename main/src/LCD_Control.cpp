@@ -19,6 +19,8 @@
 #include <iostream>
 #include <driver/i2c.h>
 #include "esp_log.h"
+#include <sstream>
+
 
 
 extern "C"
@@ -65,6 +67,14 @@ extern "C"
     {
         std::string ToBin = std::bitset<8>(Command).to_string();
         LCD_Write(ToBin, RegisterSet);
+    }
+
+    void LCD_Control::LCD_Write_Float(const float FloatData)
+    {
+        std::ostringstream ss;
+        ss << FloatData;
+        std::string s(ss.str());
+        LCD_Write_String(s);
     }
 
     /**

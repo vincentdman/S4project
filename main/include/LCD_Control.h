@@ -66,6 +66,7 @@ extern "C"
 
         void LCD_Write_Command(const int Command);
         void LCD_Write_String(const std::string Data_String_);
+        void LCD_Write_Float(const float FloatData);
         void LCD_Write(const std::string BinaryString, const int RS);
 
     private:
