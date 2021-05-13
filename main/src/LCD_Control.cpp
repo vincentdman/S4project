@@ -275,9 +275,7 @@ extern "C"
         }
         else
         {
-            ///make error
-            //todo
-            //esp error maybe :)
+            ESP_LOGE(TAG,"NO bitmode selected!\n");
         }
     }
 
