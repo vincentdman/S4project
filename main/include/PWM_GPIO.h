@@ -21,11 +21,11 @@ extern "C"
     class PWM_GPIO
     {
     public:
-        PWM_GPIO(gpio_num_t);
+        PWM_GPIO(const gpio_num_t PIN);
         PWM_GPIO();
-        esp_err_t PWM_Initialize(gpio_num_t);
-        esp_err_t SetDuty(int, gpio_num_t, ledc_channel_t);
-        esp_err_t SetFrequency(uint32_t, gpio_num_t);
+        esp_err_t PWM_Initialize(const gpio_num_t PIN);
+        esp_err_t SetDuty(int duty, const gpio_num_t PIN, const ledc_channel_t Channel);
+        esp_err_t SetFrequency(const uint32_t Frequency, const gpio_num_t PIN);
         esp_err_t UpdateTimerConfig();
         esp_err_t UpdateChannelConfig();
 

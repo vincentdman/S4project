@@ -26,7 +26,7 @@ extern "C"
      * @details Default constructor for a rgb led. It takes in the three pins connected to the led and initializes them with pull-down
      * resistor active and gpio mode output. 
      */
-    RGB_Control::RGB_Control(gpio_num_t _Red, gpio_num_t _Green, gpio_num_t _Blue)
+    RGB_Control::RGB_Control(const gpio_num_t _Red, const gpio_num_t _Green, const gpio_num_t _Blue)
         : Red(_Red), Green(_Green), Blue(_Blue)
     {
         InitializeGPIO(_Red);
@@ -226,7 +226,7 @@ extern "C"
      * There are 7 available channels to choose from. Default value channel 0
      * 
      */
-    void RGB_Control::ChangeChannelRed(ledc_channel_t Channel)
+    void RGB_Control::ChangeChannelRed(const ledc_channel_t Channel)
     {
         RedChannel = Channel;
     }
@@ -240,7 +240,7 @@ extern "C"
      * There are 7 available channels to choose from. Default value channel 1
      * 
      */
-    void RGB_Control::ChangeChannelBlue(ledc_channel_t Channel)
+    void RGB_Control::ChangeChannelBlue(const ledc_channel_t Channel)
     {
         BlueChannel = Channel;
     }
@@ -253,7 +253,7 @@ extern "C"
      * @details Function to change the pwm channel of the green led. the input type is ledc_channel_t.
      * There are 7 available channels to choose from. Default value channel 2
      */
-    void RGB_Control::ChangeChannelGreen(ledc_channel_t Channel)
+    void RGB_Control::ChangeChannelGreen(const ledc_channel_t Channel)
     {
         GreenChannel = Channel;
     }

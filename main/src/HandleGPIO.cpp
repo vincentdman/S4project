@@ -37,7 +37,7 @@ extern "C"
      * 
      * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
-    esp_err_t HandleGPIO::InitializeGPIO(gpio_num_t PIN)
+    esp_err_t HandleGPIO::InitializeGPIO(const gpio_num_t PIN)
     {
         esp_err_t Error = ESP_OK; 
         Error |= gpio_set_pull_mode(PIN, GPIO_PULLDOWN_ONLY);
@@ -55,7 +55,7 @@ extern "C"
      * 
      * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
-    esp_err_t HandleGPIO::SetHigh(gpio_num_t PIN)
+    esp_err_t HandleGPIO::SetHigh(const gpio_num_t PIN)
     {
         esp_err_t Error = ESP_OK; 
         Error |= gpio_set_level(PIN, 1);
@@ -72,7 +72,7 @@ extern "C"
      * 
      * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
-    esp_err_t HandleGPIO::SetLow(gpio_num_t PIN)
+    esp_err_t HandleGPIO::SetLow(const gpio_num_t PIN)
     {
         esp_err_t Error = ESP_OK; 
         Error |= gpio_set_level(PIN, 0);

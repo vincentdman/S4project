@@ -47,7 +47,7 @@ extern "C"
      * 
      * @details Constructor that installs the i2c driver with default settings so i2c can be used by other components. 
      */
-    HandleI2C::HandleI2C( bool __attribute__((unused)) IGNORE) 
+    HandleI2C::HandleI2C(const bool __attribute__((unused)) IGNORE) 
     {   
         i2c_config_t Configuration;
         Configuration.mode = I2C_MODE_MASTER;
@@ -72,7 +72,7 @@ extern "C"
      * 
      * @details Default constructor that takes in a user created structure with the I2C init data. 
      */
-    HandleI2C::HandleI2C(i2c_config_t &config)
+    HandleI2C::HandleI2C(const i2c_config_t &config)
     {
         i2c_param_config(I2C_Port, &config);
         i2c_driver_install(I2C_Port, config.mode, 0, 0, 0);
@@ -88,7 +88,7 @@ extern "C"
     * 
     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
     */
-    esp_err_t HandleI2C::I2C_Initialize(i2c_config_t &Configuration)
+    esp_err_t HandleI2C::I2C_Initialize(const i2c_config_t &Configuration)
     {
         esp_err_t Error = ESP_OK; 
         Error |= i2c_param_config(I2C_Port, &Configuration);
@@ -127,7 +127,7 @@ extern "C"
     * 
     * @details Function to read data from the slave device. 
     */
-    uint8_t HandleI2C::I2C_ReadByte(uint8_t slave_adress)
+    uint8_t HandleI2C::I2C_ReadByte(const uint8_t slave_adress)
     {
         uint8_t DataRead;
         i2c_cmd_handle_t link_cmd = i2c_cmd_link_create();

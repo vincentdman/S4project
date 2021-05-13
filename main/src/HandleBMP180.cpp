@@ -127,7 +127,7 @@ extern "C"
      * 
      * @details Private function to get the true temperature value from the Raw temperature. 
      */
-    long HandleBMP180::BMP180_GetTrueTemperature(uint16_t _RawTemperature)
+    long HandleBMP180::BMP180_GetTrueTemperature(const uint16_t _RawTemperature)
     {
         long RawTemperature = (long)_RawTemperature;
         long X1 = (RawTemperature - AC6) * AC5 / pow(2, 15);
@@ -158,7 +158,7 @@ extern "C"
      * 
      * @details Function to calculate the raw pressure to true pressure. Returns the pressure value in pa. 
      */
-    long HandleBMP180::BMP180_GetTruePressure(uint16_t _RawPressure)
+    long HandleBMP180::BMP180_GetTruePressure(const uint16_t _RawPressure)
     {
         long RawPressure = (long)_RawPressure;
         long pressure;
@@ -195,17 +195,20 @@ extern "C"
      * 
      * @details Function to write a byte of data to the BMP180 using I2c. 
      */
-    void HandleBMP180::BMP180_Write_Byte(uint8_t WriteAdress, uint8_t WriteData)
+    esp_err_t HandleBMP180::BMP180_Write_Byte(const uint8_t WriteAdress, const uint8_t WriteData)
     {
+        esp_err_t Error = ESP_OK;
         i2c_cmd_handle_t link_cmd = i2c_cmd_link_create();
-        i2c_master_start(link_cmd);
-        i2c_master_write_byte(link_cmd, BMP180_I2C_ADRESS_Write, true);
-        i2c_master_write(link_cmd, &WriteAdress, sizeof(WriteAdress), true);
+        Error |= i2c_master_start(link_cmd);
+        Error |= i2c_master_write_byte(link_cmd, BMP180_I2C_ADRESS_Write, true);
+        Error |= i2c_master_write(link_cmd, &WriteAdress, sizeof(WriteAdress), true);
 
-        i2c_master_write(link_cmd, &WriteData, sizeof(WriteData), true);
-        i2c_master_stop(link_cmd);
-        i2c_master_cmd_begin(I2C_Port, link_cmd, 1000 / portTICK_RATE_MS);
+        Error |= i2c_master_write(link_cmd, &WriteData, sizeof(WriteData), true);
+        Error |= i2c_master_stop(link_cmd);
+        Error |= i2c_master_cmd_begin(I2C_Port, link_cmd, 1000 / portTICK_RATE_MS);
         i2c_cmd_link_delete(link_cmd);
+
+        return Error;
     }
 
     /**
@@ -216,7 +219,7 @@ extern "C"
      * 
      * @details Function to read 16 bits from the BMP180 using I2C. 
      */
-    uint16_t HandleBMP180::BMP180_Read_16Bit(uint8_t DataAdress)
+    uint16_t HandleBMP180::BMP180_Read_16Bit(const uint8_t DataAdress)
     {
         i2c_cmd_handle_t link_cmd = i2c_cmd_link_create();
         i2c_master_start(link_cmd);

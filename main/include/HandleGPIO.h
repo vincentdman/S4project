@@ -23,10 +23,10 @@ extern "C"
   public:
     HandleGPIO();
 
-    esp_err_t SetHigh(gpio_num_t);
-    esp_err_t SetLow(gpio_num_t);
-    esp_err_t SetGPIO(gpio_num_t, int);
-    esp_err_t InitializeGPIO(gpio_num_t);
+    esp_err_t SetHigh(const gpio_num_t PIN);
+    esp_err_t SetLow(const gpio_num_t PIN);
+    esp_err_t SetGPIO(const gpio_num_t PIN, const int);
+    esp_err_t InitializeGPIO(const gpio_num_t PIN);
 
   private:
     constexpr static const char* TAG = "GPIO";

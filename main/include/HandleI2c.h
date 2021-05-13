@@ -24,16 +24,16 @@ class HandleI2C
 
 public:
     HandleI2C();
-    HandleI2C(bool);
-    HandleI2C(i2c_config_t &config);
+    HandleI2C(const bool);
+    HandleI2C(const i2c_config_t &config);
     ~HandleI2C();
     
-    esp_err_t I2C_WriteData(uint8_t Data_ToSend, uint8_t slave_adress);
-    uint8_t I2C_ReadByte(uint8_t slave_adress);
-    esp_err_t I2C_Initialize(i2c_config_t &Configuration);
+    esp_err_t I2C_WriteData(const uint8_t Data_ToSend, const uint8_t slave_adress);
+    uint8_t I2C_ReadByte(const uint8_t slave_adress);
+    esp_err_t I2C_Initialize(const i2c_config_t &Configuration);
 
 private:
-    i2c_port_t I2C_Port = I2C_NUM_1;
+    const i2c_port_t I2C_Port = I2C_NUM_1;
     constexpr static const char* TAG = "I2C";
 
 };

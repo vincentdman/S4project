@@ -30,7 +30,7 @@ extern "C"
      * 
      * @param LCD_Pinout_Configuration Structure that has all the used pins for the lcd in it. 
      */
-    LCD_Control::LCD_Control(LCD_Pinout_t &LCD_Pinout_Configuration)
+    LCD_Control::LCD_Control(const LCD_Pinout_t &LCD_Pinout_Configuration)
         : LCD_RS(LCD_Pinout_Configuration._RS), LCD_E(LCD_Pinout_Configuration._E),
           LCD_D0(LCD_Pinout_Configuration._D0), LCD_D1(LCD_Pinout_Configuration._D1), LCD_D2(LCD_Pinout_Configuration._D2), LCD_D3(LCD_Pinout_Configuration._D3),
           LCD_D4(LCD_Pinout_Configuration._D4), LCD_D5(LCD_Pinout_Configuration._D5), LCD_D6(LCD_Pinout_Configuration._D6), LCD_D7(LCD_Pinout_Configuration._D7),
@@ -61,7 +61,7 @@ extern "C"
      * 
      * @details The input is a int that gets casted to a std binary string. It then gets written to the lcd by the lcd_Write function
      */
-    void LCD_Control::LCD_Write_Command(int Command)
+    void LCD_Control::LCD_Write_Command(const int Command)
     {
         std::string ToBin = std::bitset<8>(Command).to_string();
         LCD_Write(ToBin, RegisterSet);
@@ -74,7 +74,7 @@ extern "C"
      * 
      * @details The lcd write function takes in a std string and then uses the function LCD_Write_Char to write the string on the lcd.
      */
-    void LCD_Control::LCD_Write_String(std::string Data_String_)
+    void LCD_Control::LCD_Write_String(const std::string Data_String_)
     {
         for (int i = 0; i < Data_String_.size(); i++)
         {
@@ -229,7 +229,7 @@ extern "C"
      * 
      * @details Function that swaps between write eight bits and write four bits.
      */
-    void LCD_Control::LCD_Write(std::string BinaryString, int RS)
+    void LCD_Control::LCD_Write(const std::string BinaryString, const int RS)
     {
         SwapWRITE(this, BinaryString, RS);
     }
@@ -343,7 +343,7 @@ extern "C"
      * 
      * @details Internal function to write data to the lcd in I2C mode. NOTE the I2C driver must be installed first. 
      */
-    void LCD_Control::LCD_WriteI2CMode(std::string BinaryString, int RS)
+    void LCD_Control::LCD_WriteI2CMode(const std::string BinaryString, const int RS)
     {
 
         //                    0b7654xEWS
@@ -405,7 +405,7 @@ extern "C"
      * 
      * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
-    esp_err_t LCD_Control::LCD_WriteFourBitMode(std::string BinaryString, int RS)
+    esp_err_t LCD_Control::LCD_WriteFourBitMode(const std::string BinaryString, const int RS)
     {
         esp_err_t Error = ESP_OK;
         Error |= LCD_InitializeForSendingData(RS);
@@ -426,7 +426,7 @@ extern "C"
      * 
      * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
-    esp_err_t LCD_Control::LCD_WriteEightBitMode(std::string BinaryString, int RS)
+    esp_err_t LCD_Control::LCD_WriteEightBitMode(const std::string BinaryString, const int RS)
     {
         esp_err_t Error = ESP_OK;
         Error |= LCD_InitializeForSendingData(RS);
@@ -444,7 +444,7 @@ extern "C"
      * 
      * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
-    esp_err_t LCD_Control::LCD_InitializeForSendingData(int RS)
+    esp_err_t LCD_Control::LCD_InitializeForSendingData(const int RS)
     {
         esp_err_t Error = ESP_OK;
         ets_delay_us(1000);
@@ -480,7 +480,7 @@ extern "C"
      * 
      * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
-    esp_err_t LCD_Control::LCD_SetDataEightBitMode(std::string BinaryString)
+    esp_err_t LCD_Control::LCD_SetDataEightBitMode(const std::string BinaryString)
     {
         esp_err_t Error = ESP_OK; 
         Error |= gpio_set_level(LCD_D0, BinaryString[7] - '0');
@@ -503,7 +503,7 @@ extern "C"
      * 
      * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
-    esp_err_t LCD_Control::LCD_SetDataFourBitModeFirstHalf(std::string BinaryString)
+    esp_err_t LCD_Control::LCD_SetDataFourBitModeFirstHalf(const std::string BinaryString)
     {
         esp_err_t Error = ESP_OK; 
         Error |= gpio_set_level(LCD_D4, BinaryString[3] - '0');
@@ -522,7 +522,7 @@ extern "C"
      * 
      * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
-    esp_err_t LCD_Control::LCD_SetDataFourBitModeSecondHalf(std::string BinaryString)
+    esp_err_t LCD_Control::LCD_SetDataFourBitModeSecondHalf(const std::string BinaryString)
     {
         esp_err_t Error = ESP_OK;
         Error |= SetHigh(LCD_E);

@@ -35,7 +35,7 @@ extern "C"
      * 
      * @details Constructor to also initialize the pin
      */
-    PWM_GPIO::PWM_GPIO(gpio_num_t PIN)
+    PWM_GPIO::PWM_GPIO(const gpio_num_t PIN)
     {
         PWM_Initialize(PIN);  
     }
@@ -50,7 +50,7 @@ extern "C"
      * 
      * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
-    esp_err_t PWM_GPIO::SetFrequency(uint32_t Frequency, gpio_num_t PIN)
+    esp_err_t PWM_GPIO::SetFrequency(const uint32_t Frequency, const gpio_num_t PIN)
     {
         ledc_timer.freq_hz = Frequency;
         return PWM_Initialize(PIN);
@@ -91,7 +91,7 @@ extern "C"
      * 
      * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
-    esp_err_t PWM_GPIO::SetDuty(int duty, gpio_num_t PIN, ledc_channel_t Channel)
+    esp_err_t PWM_GPIO::SetDuty(int duty, const gpio_num_t PIN, const ledc_channel_t Channel)
     {
         duty = duty * 8191 / 100;
         ledc_channel.channel = Channel;
@@ -109,7 +109,7 @@ extern "C"
      * 
      * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
-    esp_err_t PWM_GPIO::PWM_Initialize(gpio_num_t PIN)
+    esp_err_t PWM_GPIO::PWM_Initialize(const gpio_num_t PIN)
     {
         esp_err_t Error = ESP_OK; 
         ledc_channel.gpio_num = PIN;

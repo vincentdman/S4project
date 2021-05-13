@@ -18,7 +18,7 @@ extern "C"
     class RGB_Control : private HandleGPIO, private PWM_GPIO
     {
     public:
-        RGB_Control(gpio_num_t, gpio_num_t, gpio_num_t);
+        RGB_Control(const gpio_num_t _Red, const gpio_num_t _Green, const gpio_num_t _Blue);
         esp_err_t SetRed(void);
         esp_err_t SetGreen(void);
         esp_err_t SetBlue(void);
@@ -30,14 +30,14 @@ extern "C"
         esp_err_t SetRGB_Red(int);
         esp_err_t SetRGB_Green(int);
         esp_err_t SetRGB_Blue(int);
-        void ChangeChannelRed(ledc_channel_t);
-        void ChangeChannelGreen(ledc_channel_t);
-        void ChangeChannelBlue(ledc_channel_t);
+        void ChangeChannelRed(const ledc_channel_t);
+        void ChangeChannelGreen(const ledc_channel_t);
+        void ChangeChannelBlue(const ledc_channel_t);
 
     private:
-        gpio_num_t Red;
-        gpio_num_t Green;
-        gpio_num_t Blue;
+        const gpio_num_t Red;
+        const gpio_num_t Green;
+        const gpio_num_t Blue;
 
         ledc_channel_t RedChannel = LEDC_CHANNEL_0;
         ledc_channel_t GreenChannel = LEDC_CHANNEL_1;

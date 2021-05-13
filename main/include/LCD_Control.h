@@ -52,7 +52,7 @@ extern "C"
     public:
         const uint8_t LCD_Adress = 0x27;
 
-        LCD_Control(LCD_Pinout_t &LCD_Pinout_Configuration);
+        LCD_Control(const LCD_Pinout_t &LCD_Pinout_Configuration);
 
         void LCD_Write_Char(char Data);
         void LCD_Initialize();
@@ -64,22 +64,22 @@ extern "C"
         esp_err_t LCD_Init_Sequence_8_Bit();
 
 
-        void LCD_Write_Command(int Command);
-        void LCD_Write_String(std::string Data_String_);
-        void LCD_Write(std::string BinaryString, int RS);
+        void LCD_Write_Command(const int Command);
+        void LCD_Write_String(const std::string Data_String_);
+        void LCD_Write(const std::string BinaryString, const int RS);
 
     private:
-        esp_err_t LCD_WriteFourBitMode(std::string BinaryString, int RS);
-        esp_err_t LCD_WriteEightBitMode(std::string BinaryString, int RS);
-        void LCD_WriteI2CMode(std::string BinaryString, int RS);
+        esp_err_t LCD_WriteFourBitMode(const std::string BinaryString, const int RS);
+        esp_err_t LCD_WriteEightBitMode(const std::string BinaryString, const int RS);
+        void LCD_WriteI2CMode(const std::string BinaryString, const int RS);
 
         esp_err_t LCD_Private_I2C_Send(uint8_t DataToSend);
-        esp_err_t LCD_InitializeForSendingData(int RS);
+        esp_err_t LCD_InitializeForSendingData(const int RS);
         esp_err_t LCD_CycleDataTrough(void);
 
-        esp_err_t LCD_SetDataEightBitMode(std::string BinaryString);
-        esp_err_t LCD_SetDataFourBitModeFirstHalf(std::string BinaryString);
-        esp_err_t LCD_SetDataFourBitModeSecondHalf(std::string BinaryString);
+        esp_err_t LCD_SetDataEightBitMode(const std::string BinaryString);
+        esp_err_t LCD_SetDataFourBitModeFirstHalf(const std::string BinaryString);
+        esp_err_t LCD_SetDataFourBitModeSecondHalf(const std::string BinaryString);
 
         void SetBitMode();
 
@@ -92,22 +92,22 @@ extern "C"
             WriteAction
         };
 
-        gpio_num_t LCD_RS = GPIO_NUM_NC;
-        gpio_num_t LCD_E = GPIO_NUM_NC;
+        const gpio_num_t LCD_RS = GPIO_NUM_NC;
+        const gpio_num_t LCD_E = GPIO_NUM_NC;
 
-        gpio_num_t LCD_D0 = GPIO_NUM_NC;
-        gpio_num_t LCD_D1 = GPIO_NUM_NC;
-        gpio_num_t LCD_D2 = GPIO_NUM_NC;
-        gpio_num_t LCD_D3 = GPIO_NUM_NC;
-        gpio_num_t LCD_D4 = GPIO_NUM_NC;
-        gpio_num_t LCD_D5 = GPIO_NUM_NC;
-        gpio_num_t LCD_D6 = GPIO_NUM_NC;
-        gpio_num_t LCD_D7 = GPIO_NUM_NC;
+        const gpio_num_t LCD_D0 = GPIO_NUM_NC;
+        const gpio_num_t LCD_D1 = GPIO_NUM_NC;
+        const gpio_num_t LCD_D2 = GPIO_NUM_NC;
+        const gpio_num_t LCD_D3 = GPIO_NUM_NC;
+        const gpio_num_t LCD_D4 = GPIO_NUM_NC;
+        const gpio_num_t LCD_D5 = GPIO_NUM_NC;
+        const gpio_num_t LCD_D6 = GPIO_NUM_NC;
+        const gpio_num_t LCD_D7 = GPIO_NUM_NC;
 
-        gpio_num_t LCD_SCL = GPIO_NUM_NC;
-        gpio_num_t LCD_SDA = GPIO_NUM_NC;
+        const gpio_num_t LCD_SCL = GPIO_NUM_NC;
+        const gpio_num_t LCD_SDA = GPIO_NUM_NC;
 
-        BitMode_t BitMode;
+        const BitMode_t BitMode;
 
         i2c_port_t I2C_Port = I2C_NUM_1;
 
