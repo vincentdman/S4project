@@ -29,9 +29,9 @@ extern "C"
     RGB_Control::RGB_Control(const gpio_num_t _Red, const gpio_num_t _Green, const gpio_num_t _Blue)
         : Red(_Red), Green(_Green), Blue(_Blue)
     {
-        InitializeGPIO(_Red);
-        InitializeGPIO(_Green);
-        InitializeGPIO(_Blue);
+        InitializeGPIO_Output(_Red);
+        InitializeGPIO_Output(_Green);
+        InitializeGPIO_Output(_Blue);
     }
 
     /**
