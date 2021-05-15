@@ -120,14 +120,13 @@ extern "C"
     {
         esp_err_t Error = ESP_OK; 
        
-        Error |= InitializeGPIO(LCD_E);
+        Error |= InitializeGPIO_Output(LCD_E);
         Error |= SetLow(LCD_E);
-        Error |= InitializeGPIO(LCD_RS);
-        Error |= InitializeGPIO(LCD_D7);
-        Error |= InitializeGPIO(LCD_D6);
-        Error |= InitializeGPIO(LCD_D5);
-        Error |= InitializeGPIO(LCD_D4);
-
+        Error |= InitializeGPIO_Output(LCD_RS);
+        Error |= InitializeGPIO_Output(LCD_D7);
+        Error |= InitializeGPIO_Output(LCD_D6);
+        Error |= InitializeGPIO_Output(LCD_D5);
+        Error |= InitializeGPIO_Output(LCD_D4);
         Error |= LCD_Init_Sequence_4_Bit();
 
         return Error; 
@@ -144,18 +143,18 @@ extern "C"
     {
         esp_err_t Error = ESP_OK; 
         
-        Error |= InitializeGPIO(LCD_E);
+        Error |= InitializeGPIO_Output(LCD_E);
         Error |= SetLow(LCD_E);
 
-        Error |= InitializeGPIO(LCD_RS);
-        Error |= InitializeGPIO(LCD_D7);
-        Error |= InitializeGPIO(LCD_D6);
-        Error |= InitializeGPIO(LCD_D5);
-        Error |= InitializeGPIO(LCD_D4);
-        Error |= InitializeGPIO(LCD_D3);
-        Error |= InitializeGPIO(LCD_D2);
-        Error |= InitializeGPIO(LCD_D1);
-        Error |= InitializeGPIO(LCD_D0);
+        Error |= InitializeGPIO_Output(LCD_RS);
+        Error |= InitializeGPIO_Output(LCD_D7);
+        Error |= InitializeGPIO_Output(LCD_D6);
+        Error |= InitializeGPIO_Output(LCD_D5);
+        Error |= InitializeGPIO_Output(LCD_D4);
+        Error |= InitializeGPIO_Output(LCD_D3);
+        Error |= InitializeGPIO_Output(LCD_D2);
+        Error |= InitializeGPIO_Output(LCD_D1);
+        Error |= InitializeGPIO_Output(LCD_D0);
 
         Error |= LCD_Init_Sequence_8_Bit();
 

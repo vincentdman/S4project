@@ -28,58 +28,62 @@
 #include <bitset>
 #include <sstream>
 #include "esp_log.h"
+#include "HandleADC.h"
+#include "driver/adc.h"
 
 #define Build_Version 3.0
 
-
-static const char* TAG = "main";
-
+static const char *TAG = "main";
 
 extern "C" void app_main(void)
 {
+  ESP_LOGI(TAG, "\n\nBuild version: %.2f\n", Build_Version);
+  ESP_LOGI(TAG, "Created by Vincent de Man\n");
 
-    ESP_LOGI(TAG,"\n\nBuild version: %.2f\n",Build_Version);
-    ESP_LOGI(TAG,"Created by Vincent de Man\n");
+  HandleI2C I2c(true);
+  HandleBMP180 testt;
 
-    HandleI2C I2c(true);
-    HandleBMP180 testt;
-   
-    
-    LCD_Pinout_t Configs;
-    Configs._BitMode = I2CMode;
-    Configs._SDA = GPIO_NUM_21;
-    Configs._SCL = GPIO_NUM_22;
-    LCD_Control LCD(Configs);
+  HandleADC ADc(ADC1_CHANNEL_7,ADC_WIDTH_BIT_12,ADC_ATTEN_DB_11);
 
+  LCD_Pinout_t Configs;
+  Configs._BitMode = I2CMode;
+  Configs._SDA = GPIO_NUM_21;
+  Configs._SCL = GPIO_NUM_22;
+  LCD_Control LCD(Configs);
 
+  LCD.LCD_Write_Command(LCD_DISPLAY_ON_CURSOR_OFF);
+  LCD.LCD_Write_Command(LCD_CLEAR);
 
-    LCD.LCD_Write_Command(LCD_DISPLAY_ON_CURSOR_OFF);
-    
-
-  while(1){
+  while (1)
+  {
+    LCD.LCD_Write_Command(LCD_CLEAR);
     LCD.LCD_Write_Command(LCD_HOME);
     std::string test = "Temperature:";
     LCD.LCD_Write_String(test);
 
     LCD.LCD_Write_Float(testt.GetTemperature());
-   
+
     LCD.LCD_Write_Command(LCD_NEXT_LINE);
-    test = "Pressure:";
-    LCD.LCD_Write_String(test);
-    LCD.LCD_Write_Float(testt.GetPressure());
-
-
-    // std::cout<<"relative temperature: "<<temperature<<std::endl; 
-    // std::cout<<"relative pressure: "<<pressure<<std::endl; 
-    // std::cout<<"relative altitude: "<<testt.GetAltitude()<<std::endl; 
-  
+    //test = "Pressure:";
+    //LCD.LCD_Write_String(test);
+    //LCD.LCD_Write_Float(testt.GetPressure());
+    LCD.LCD_Write_Float(ADc.GetVoltage());
     vTaskDelay(1000 / portTICK_PERIOD_MS);
   }
 
-   
 
+  //TODO adc implementatio
+  //TODO more work gpio base class
+  //TODO more unit tests
+  //TODO private stuff should have underscores
+  //TODO default pointer p_pointer
+  //TODO Handle ADC constructor with only the gpio_num maybe sounds great to make 
+  //TODO Handle ADC multi sampling
 
-
+  //TODO constexpr
+  //TODO rule of three / five
+  //TODO static functions
+  //TODO enum class strongly typed
 }
 
 
@@ -88,27 +92,15 @@ extern "C" void app_main(void)
 
 
 // HandleBMP180 test;
-  
-  // while (1)
-  // {
-  //   std::cout<<"temperature: "<<test.GetTemperature()<<std::endl; 
-  //   std::cout<<"pressure: "<<test.GetPressure()<<std::endl; 
-  //   std::cout<<"altitude: "<<test.GetAltitude()<<std::endl; 
-  //   std::cout<<"succes?"<<std::endl;
-  //   vTaskDelay(1000 / portTICK_PERIOD_MS);
-  // }
 
-
-
-
-
-
-
-
-
-
-
-
+// while (1)
+// {
+//   std::cout<<"temperature: "<<test.GetTemperature()<<std::endl;
+//   std::cout<<"pressure: "<<test.GetPressure()<<std::endl;
+//   std::cout<<"altitude: "<<test.GetAltitude()<<std::endl;
+//   std::cout<<"succes?"<<std::endl;
+//   vTaskDelay(1000 / portTICK_PERIOD_MS);
+// }
 
 // LCD_Control UnitTestLCD(GPIO_NUM_2, GPIO_NUM_21, GPIO_NUM_25, GPIO_NUM_26, GPIO_NUM_19, GPIO_NUM_27);
 

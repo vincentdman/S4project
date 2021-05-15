@@ -37,12 +37,29 @@ extern "C"
      * 
      * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
      */
-    esp_err_t HandleGPIO::InitializeGPIO(const gpio_num_t PIN)
+    esp_err_t HandleGPIO::InitializeGPIO_Output(const gpio_num_t PIN)
     {
         esp_err_t Error = ESP_OK; 
         Error |= gpio_set_pull_mode(PIN, GPIO_PULLDOWN_ONLY);
         Error |= gpio_set_direction(PIN, GPIO_MODE_OUTPUT);  
         ESP_LOGD(TAG,"Initialize PIN%d as output and pulldown enabled.\n",PIN);   
+        return Error;
+    }
+
+    /**
+     * @brief Function to initialize gpio for input. 
+     * 
+     * @param PIN The PIN that will be affected. 
+     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value. 
+     * 
+     * @details Function to initialize gpio for input and gpio_pulldown
+     */
+    esp_err_t HandleGPIO::InitializeGPIO_Input(const gpio_num_t PIN)
+    {
+        esp_err_t Error = ESP_OK; 
+        Error |= gpio_set_pull_mode(PIN, GPIO_PULLDOWN_ONLY);
+        Error |= gpio_set_direction(PIN, GPIO_MODE_INPUT);  
+        ESP_LOGD(TAG,"Initialize PIN%d as input and pulldown enabled.\n",PIN);   
         return Error;
     }
 
@@ -78,5 +95,18 @@ extern "C"
         Error |= gpio_set_level(PIN, 0);
         ESP_LOGD(TAG,"Set PIN%d low.\n",PIN);
         return Error;     
+    }
+
+    /**
+     * @brief Function to get the level of a gpio pin. 
+     * 
+     * @param PIN The slected pin. 
+     * @return int return 0 is low return 1 is high.
+     * 
+     * @details Function to get the level of a gpio pin. When it is not a input it will give 0 back. 
+     */
+    int HandleGPIO::GetLevel(const gpio_num_t PIN)
+    {
+        return gpio_get_level(PIN);
     }
 }

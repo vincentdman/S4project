@@ -4,7 +4,7 @@
  * @brief Header file for GPIO handler (.h)
  * @version 1.2
  * @date 2021-03-24
- * @details Header file for gpio handler class. Includes functions SetHigh SetLow SetGPIO InitializeGPIO.
+ * @details Header file for gpio handler class. Includes functions SetHigh SetLow SetGPIO InitializeGPIO_Output.
  * @copyright Copyright (cpp) 2021
  * 
  */
@@ -26,7 +26,9 @@ extern "C"
     esp_err_t SetHigh(const gpio_num_t PIN);
     esp_err_t SetLow(const gpio_num_t PIN);
     esp_err_t SetGPIO(const gpio_num_t PIN, const int);
-    esp_err_t InitializeGPIO(const gpio_num_t PIN);
+    esp_err_t InitializeGPIO_Output(const gpio_num_t PIN);
+    esp_err_t InitializeGPIO_Input(const gpio_num_t PIN); 
+    int GetLevel(const gpio_num_t PIN);
 
   private:
     constexpr static const char* TAG = "GPIO";
