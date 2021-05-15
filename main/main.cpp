@@ -30,10 +30,17 @@
 #include "esp_log.h"
 #include "HandleADC.h"
 #include "driver/adc.h"
+#include "HandlePIN.h"
 
 #define Build_Version 3.0
 
 static const char *TAG = "main";
+
+
+static void  gpio_isr_handler(void* arg){
+  std::cout<<"test"<<std::endl;
+}
+
 
 extern "C" void app_main(void)
 {
@@ -53,6 +60,11 @@ extern "C" void app_main(void)
 
   LCD.LCD_Write_Command(LCD_DISPLAY_ON_CURSOR_OFF);
   LCD.LCD_Write_Command(LCD_CLEAR);
+
+  HandlePIN led(GPIO_NUM_2);
+  
+  led.PIN_EasyINTR(gpio_isr_handler);
+
 
   while (1)
   {
