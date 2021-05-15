@@ -17,6 +17,15 @@ extern "C"{
     HandlePIN::HandlePIN(const gpio_num_t PIN, gpio_mode_t MODE, gpio_pull_mode_t PULL)
         :_PIN(PIN),_MODE(MODE),_PULL(PULL)
     {
+       if(!GPIO_IS_VALID_GPIO(_PIN))
+       {
+           ESP_LOGE(TAG,"ERROR pin isn't correct\n");
+       } 
+    }
+    HandlePIN::~HandlePIN()
+    {
+        gpio_uninstall_isr_service();
+        gpio_isr_handler_remove(_PIN);
 
     }
      esp_err_t HandlePIN::PIN_Initialize()
@@ -61,7 +70,7 @@ extern "C"{
         _INTR = INTR; 
     }
 
-    gpio_num_t HandlePIN::PIN_GetNum()
+    gpio_num_t HandlePIN::PIN_GetNum() const
     {
         return _PIN;
     }
@@ -81,4 +90,53 @@ extern "C"{
         return _INTR; 
     }
 
+    esp_err_t HandlePIN::PIN_Reset()
+    {
+        return gpio_reset_pin(_PIN);
+    }
+
+    esp_err_t HandlePIN::PIN_SetINTR()
+    {
+        return gpio_set_intr_type(_PIN,_INTR);
+    }
+
+    esp_err_t HandlePIN::PIN_EnableINTR()
+    {
+        return gpio_intr_enable(_PIN);
+    }
+
+    esp_err_t HandlePIN::PIN_DisableINTR()
+    {
+        return gpio_intr_disable(_PIN);
+    }
+
+    esp_err_t HandlePIN::PIN_InstallISR(int flags)
+    {
+        return gpio_install_isr_service(flags);
+    }
+
+    void HandlePIN::PIN_UninstallISR()
+    {
+        gpio_uninstall_isr_service();
+    }
+
+    esp_err_t HandlePIN::PIN_AddHandlerISR(gpio_isr_t isr_handl)
+    {
+        return gpio_isr_handler_add(_PIN,isr_handl,nullptr);
+    }
+
+    esp_err_t HandlePIN::PIN_SetOutputPower(gpio_drive_cap_t strength)
+    {
+        return gpio_set_drive_capability(_PIN,strength);
+    }
+
+    esp_err_t HandlePIN::PIN_EasyINTR(gpio_isr_t isr_func)
+    {
+        esp_err_t Error = ESP_OK;
+        Error |= gpio_set_intr_type(_PIN,GPIO_INTR_ANYEDGE);
+        Error |= gpio_intr_enable(_PIN);
+        Error |= gpio_install_isr_service(ESP_INTR_FLAG_LEVEL1);
+        Error |= gpio_isr_handler_add(_PIN, isr_func, nullptr);
+        return Error; 
+    }
 }
