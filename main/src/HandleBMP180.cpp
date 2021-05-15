@@ -195,7 +195,7 @@ extern "C"
      * 
      * @details Function to write a byte of data to the BMP180 using I2c. 
      */
-    esp_err_t HandleBMP180::BMP180_Write_Byte(uint8_t WriteAdress,  uint8_t WriteData)
+    esp_err_t HandleBMP180::BMP180_Write_Byte(uint8_t WriteAdress, uint8_t WriteData)
     {
         esp_err_t Error = ESP_OK;
         i2c_cmd_handle_t link_cmd = i2c_cmd_link_create();

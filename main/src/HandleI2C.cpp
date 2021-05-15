@@ -49,14 +49,12 @@ extern "C"
      */
     HandleI2C::HandleI2C(const bool __attribute__((unused)) IGNORE) 
     {   
-        i2c_config_t Configuration;
         Configuration.mode = I2C_MODE_MASTER;
         Configuration.sda_io_num = 21;
         Configuration.scl_io_num = 22;
         Configuration.sda_pullup_en = GPIO_PULLUP_ENABLE;
         Configuration.scl_pullup_en = GPIO_PULLUP_ENABLE;
         Configuration.master.clk_speed = 100000;
-
         i2c_param_config(I2C_Port, &Configuration);
         i2c_driver_install(I2C_Port, Configuration.mode, 0, 0, 0);
 
