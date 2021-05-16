@@ -25,7 +25,7 @@ extern "C"{
             HandleADC(gpio_num_t PIN, adc_bits_width_t Resolution = ADC_WIDTH_BIT_12, adc_atten_t attentuation = ADC_ATTEN_DB_11);
             HandleADC(adc1_channel_t channel, adc_bits_width_t Resolution, adc_atten_t attentuation); 
             HandleADC(adc2_channel_t channel, adc_bits_width_t Resolution, adc_atten_t attentuation); 
-            esp_err_t ADC_Initialize();
+
             int ADC_GetRawConversion();
             float GetVoltage();
             float MultiSampleVoltage(int NumOfSamples);
@@ -36,6 +36,7 @@ extern "C"{
             std::function<int(HandleADC *)> SwapGetResolution;
             std::function<float(HandleADC *)> SwapGetAttentuation;
 
+            esp_err_t ADC_Initialize();
             esp_err_t ADC_InitChannel1();
             esp_err_t ADC_InitChannel2();
             int ADC_GetConversion1();

@@ -30,14 +30,12 @@ public:
     
     esp_err_t I2C_WriteData(const uint8_t Data_ToSend, const uint8_t slave_adress);
     uint8_t I2C_ReadByte(const uint8_t slave_adress);
-    esp_err_t I2C_Initialize(const i2c_config_t &Configuration);
 
 private:
+    esp_err_t I2C_Initialize(const i2c_config_t &Configuration);
     const i2c_port_t I2C_Port = I2C_NUM_1;
     constexpr static const char* TAG = "I2C";
-
     i2c_config_t Configuration;
-
 
 };
 }
