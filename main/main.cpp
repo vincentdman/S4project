@@ -37,9 +37,9 @@
 static const char *TAG = "main";
 
 
-static void  gpio_isr_handler(void* arg){
-  ets_printf("interrupt called!!");
-}
+// static void  gpio_isr_handler(void* arg){
+//   ets_printf("interrupt called!!");
+// }
 
 
 extern "C" void app_main(void)
@@ -62,10 +62,10 @@ extern "C" void app_main(void)
   LCD.LCD_Write_Command(LCD_CLEAR);
 
 
-  HandlePIN led(GPIO_NUM_15,GPIO_MODE_INPUT);
+  // HandlePIN led(GPIO_NUM_15,GPIO_MODE_INPUT);
   
-  led.PIN_Initialize();
-  led.PIN_EasyINTR(gpio_isr_handler);
+  // led.PIN_Initialize();
+  // led.PIN_EasyINTR(gpio_isr_handler);
 
 
   while (1)
@@ -90,6 +90,7 @@ extern "C" void app_main(void)
   //TODO more unit tests
   //TODO private stuff should have underscores
   //TODO default pointer p_pointer
+  //TODO hal sensor adc class
 
   //TODO things to learn:
   //TODO constexpr

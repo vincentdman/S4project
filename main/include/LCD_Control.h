@@ -50,12 +50,18 @@ extern "C"
     class LCD_Control : private HandleGPIO
     {
     public:
-        const uint8_t LCD_Adress = 0x27;
-
         LCD_Control(const LCD_Pinout_t &LCD_Pinout_Configuration);
 
         void LCD_Write_Char(char Data);
+        void LCD_Write_Command(const int Command);
+        void LCD_Write_String(const std::string Data_String_);
+        void LCD_Write_Float(const float FloatData);
+        
+
+    private:  
+        constexpr static const uint8_t LCD_Adress = 0x27;  
         void LCD_Initialize();
+        void LCD_Write(const std::string BinaryString, const int RS);
 
         esp_err_t LCD_InitializeEightBitMode();
         esp_err_t LCD_InitializeFourBitMode();
@@ -63,13 +69,6 @@ extern "C"
         esp_err_t LCD_Init_Sequence_4_Bit();
         esp_err_t LCD_Init_Sequence_8_Bit();
 
-
-        void LCD_Write_Command(const int Command);
-        void LCD_Write_String(const std::string Data_String_);
-        void LCD_Write_Float(const float FloatData);
-        void LCD_Write(const std::string BinaryString, const int RS);
-
-    private:
         esp_err_t LCD_WriteFourBitMode(const std::string BinaryString, const int RS);
         esp_err_t LCD_WriteEightBitMode(const std::string BinaryString, const int RS);
         void LCD_WriteI2CMode(const std::string BinaryString, const int RS);
