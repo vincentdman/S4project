@@ -14,7 +14,122 @@
 #include "esp_err.h"
 
 extern "C"
-{
+{   
+
+    /**
+     * @brief Construct a new HandleADC::HandleADC object.
+     * 
+     * @param PIN The pin number for adc.
+     * @param Resolution The sampling resolution.
+     * @param attentuation The attentuation of the adc.
+     * 
+     * @details Function that converts the given adc pin to the correct adc channel so it is easier to use for the user. 
+     */
+    HandleADC::HandleADC(gpio_num_t PIN, adc_bits_width_t Resolution, adc_atten_t attentuation)
+        : _resolution(Resolution), _attentuation(attentuation)
+    {
+        switch (PIN)
+        {
+        case GPIO_NUM_0:
+            _channel2 = ADC2_CHANNEL_1;
+            SwapInitialize = &HandleADC::ADC_InitChannel2;
+            SwapGetResolution = &HandleADC::ADC_GetConversion2;
+            break; 
+         case GPIO_NUM_2:
+            _channel2 = ADC2_CHANNEL_2;
+            SwapInitialize = &HandleADC::ADC_InitChannel2;
+            SwapGetResolution = &HandleADC::ADC_GetConversion2;
+            break; 
+         case GPIO_NUM_4:
+            _channel2 = ADC2_CHANNEL_0;
+            SwapInitialize = &HandleADC::ADC_InitChannel2;
+            SwapGetResolution = &HandleADC::ADC_GetConversion2;
+            break; 
+        case GPIO_NUM_12:
+            _channel2 = ADC2_CHANNEL_5;
+            SwapInitialize = &HandleADC::ADC_InitChannel2;
+            SwapGetResolution = &HandleADC::ADC_GetConversion2;
+            break;  
+        case GPIO_NUM_13:
+            _channel2 = ADC2_CHANNEL_4;
+            SwapInitialize = &HandleADC::ADC_InitChannel2;
+            SwapGetResolution = &HandleADC::ADC_GetConversion2;
+            break; 
+        case GPIO_NUM_14:
+            _channel2 = ADC2_CHANNEL_6;
+            SwapInitialize = &HandleADC::ADC_InitChannel2;
+            SwapGetResolution = &HandleADC::ADC_GetConversion2;
+            break;             
+        case GPIO_NUM_15:
+            _channel2 = ADC2_CHANNEL_3;
+            SwapInitialize = &HandleADC::ADC_InitChannel2;
+            SwapGetResolution = &HandleADC::ADC_GetConversion2;
+            break;  
+        case GPIO_NUM_25:
+            _channel2 = ADC2_CHANNEL_8;
+            SwapInitialize = &HandleADC::ADC_InitChannel2;
+            SwapGetResolution = &HandleADC::ADC_GetConversion2;
+            break;
+        case GPIO_NUM_26:
+            _channel2 = ADC2_CHANNEL_9;
+            SwapInitialize = &HandleADC::ADC_InitChannel2;
+            SwapGetResolution = &HandleADC::ADC_GetConversion2;
+            break; 
+        case GPIO_NUM_27:
+            _channel2 = ADC2_CHANNEL_7;
+            SwapInitialize = &HandleADC::ADC_InitChannel2;
+            SwapGetResolution = &HandleADC::ADC_GetConversion2;
+            break; 
+        case GPIO_NUM_32:
+            _channel1 = ADC1_CHANNEL_4;
+            SwapInitialize = &HandleADC::ADC_InitChannel1;
+            SwapGetResolution = &HandleADC::ADC_GetConversion1;
+            break;
+        case GPIO_NUM_33:
+            _channel1 = ADC1_CHANNEL_5;
+            SwapInitialize = &HandleADC::ADC_InitChannel1;
+            SwapGetResolution = &HandleADC::ADC_GetConversion1;
+            break;
+        case GPIO_NUM_34:
+            _channel1 = ADC1_CHANNEL_6;
+            SwapInitialize = &HandleADC::ADC_InitChannel1;
+            SwapGetResolution = &HandleADC::ADC_GetConversion1;
+            break;
+        case GPIO_NUM_35:
+            _channel1 = ADC1_CHANNEL_7;
+            SwapInitialize = &HandleADC::ADC_InitChannel1;
+            SwapGetResolution = &HandleADC::ADC_GetConversion1;
+            break;
+        case GPIO_NUM_36:
+            _channel1 = ADC1_CHANNEL_0;
+            SwapInitialize = &HandleADC::ADC_InitChannel1;
+            SwapGetResolution = &HandleADC::ADC_GetConversion1;
+            break;
+        case GPIO_NUM_37:
+            _channel1 = ADC1_CHANNEL_1;
+            SwapInitialize = &HandleADC::ADC_InitChannel1;
+            SwapGetResolution = &HandleADC::ADC_GetConversion1;
+            break;
+        case GPIO_NUM_38:
+            _channel1 = ADC1_CHANNEL_2;
+            SwapInitialize = &HandleADC::ADC_InitChannel1;
+            SwapGetResolution = &HandleADC::ADC_GetConversion1;
+            break;
+        case GPIO_NUM_39:
+            _channel1 = ADC1_CHANNEL_3;
+            SwapInitialize = &HandleADC::ADC_InitChannel1;
+            SwapGetResolution = &HandleADC::ADC_GetConversion1;
+            break;   
+        
+        default:
+        ESP_LOGE(TAG,"BIG ERROR No valid ADC pin");
+        abort();
+            break;
+        }
+
+        SetAttentuation();
+        ADC_Initialize();
+    }
 
     /**
      * @brief Construct a new HandleADC::HandleADC object
@@ -83,6 +198,7 @@ extern "C"
         else
         {
             ESP_LOGE(TAG, "no valid attentuation! \n");
+            abort();
         }
     }
 
@@ -229,7 +345,29 @@ extern "C"
     int HandleADC::ADC_GetConversion2()
     {
         int val;
-        adc2_get_raw(_channel2, _resolution, &val);
+        if(ESP_OK != adc2_get_raw(_channel2, _resolution, &val))
+        {
+            ESP_LOGE(TAG,"This ADC channel is probaly used by wifi :( \n");
+        }
         return val;
     }
+
+    /**
+     * @brief Function to multi sample the adc.
+     * 
+     * @param NumOfSamples The number of samples to take.
+     * @return float The returned voltage in volt.
+     * 
+     * @details Function to multi sample the adc by taking loads of samples and returning the average. 
+     */
+    float HandleADC::MultiSampleVoltage(int NumOfSamples)
+    {
+        float Result = 0.0; 
+        for (int i =0; i < NumOfSamples; ++i)
+        {
+            Result += GetVoltage(); 
+        }
+        return (Result / NumOfSamples);
+    }
+
 }

@@ -84,13 +84,10 @@ extern "C" void app_main(void)
   }
 
 
-  //TODO adc implementatio
-  //TODO more work gpio base class
   //TODO more unit tests
   //TODO private stuff should have underscores
   //TODO default pointer p_pointer
   //TODO Handle ADC constructor with only the gpio_num maybe sounds great to make 
-  //TODO Handle ADC multi sampling
 
   //TODO constexpr
   //TODO rule of three / five

@@ -22,11 +22,13 @@ extern "C"{
 
     class HandleADC{
         public:
+            HandleADC(gpio_num_t PIN, adc_bits_width_t Resolution = ADC_WIDTH_BIT_12, adc_atten_t attentuation = ADC_ATTEN_DB_11);
             HandleADC(adc1_channel_t channel, adc_bits_width_t Resolution, adc_atten_t attentuation); 
             HandleADC(adc2_channel_t channel, adc_bits_width_t Resolution, adc_atten_t attentuation); 
             esp_err_t ADC_Initialize();
             int ADC_GetRawConversion();
             float GetVoltage();
+            float MultiSampleVoltage(int NumOfSamples);
            
 
         private:
