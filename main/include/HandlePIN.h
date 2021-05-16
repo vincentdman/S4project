@@ -23,8 +23,8 @@ extern "C"
     {
     public:
         
-        HandlePIN(const gpio_num_t PIN, gpio_mode_t MODE = GPIO_MODE_OUTPUT, gpio_pull_mode_t PULL = GPIO_PULLDOWN_ONLY);
-        ~HandlePIN();
+        HandlePIN(const gpio_num_t PIN, gpio_mode_t MODE = GPIO_MODE_OUTPUT, gpio_pull_mode_t PULL = GPIO_PULLUP_ONLY);
+        ~HandlePIN(); 
         [[nodiscard]] esp_err_t PIN_Initialize();
         [[nodiscard]] int PIN_GetLevel();
         esp_err_t PIN_High();

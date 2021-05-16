@@ -38,7 +38,7 @@ static const char *TAG = "main";
 
 
 static void  gpio_isr_handler(void* arg){
-  std::cout<<"test"<<std::endl;
+  ets_printf("interrupt called!!");
 }
 
 
@@ -61,8 +61,10 @@ extern "C" void app_main(void)
   LCD.LCD_Write_Command(LCD_DISPLAY_ON_CURSOR_OFF);
   LCD.LCD_Write_Command(LCD_CLEAR);
 
-  HandlePIN led(GPIO_NUM_2);
+
+  HandlePIN led(GPIO_NUM_15,GPIO_MODE_INPUT);
   
+  led.PIN_Initialize();
   led.PIN_EasyINTR(gpio_isr_handler);
 
 
@@ -84,11 +86,12 @@ extern "C" void app_main(void)
   }
 
 
+  //TODO things to implement:
   //TODO more unit tests
   //TODO private stuff should have underscores
   //TODO default pointer p_pointer
-  //TODO Handle ADC constructor with only the gpio_num maybe sounds great to make 
 
+  //TODO things to learn:
   //TODO constexpr
   //TODO rule of three / five
   //TODO static functions

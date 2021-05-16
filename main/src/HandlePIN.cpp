@@ -289,10 +289,15 @@ extern "C"
     esp_err_t HandlePIN::PIN_EasyINTR(gpio_isr_t isr_func)
     {
         esp_err_t Error = ESP_OK;
+        
+        if(_MODE != GPIO_MODE_INPUT){
+            ESP_LOGE(TAG,"Please make sure PIN is selected as input");
+            return ESP_FAIL;
+        }
+        Error |= gpio_install_isr_service(ESP_INTR_FLAG_EDGE);
+        Error |= gpio_isr_handler_add(_PIN, isr_func, nullptr);
         Error |= gpio_set_intr_type(_PIN, GPIO_INTR_ANYEDGE);
         Error |= gpio_intr_enable(_PIN);
-        Error |= gpio_install_isr_service(ESP_INTR_FLAG_LEVEL1);
-        Error |= gpio_isr_handler_add(_PIN, isr_func, nullptr);
         return Error;
     }
 }
