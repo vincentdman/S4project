@@ -36,12 +36,43 @@
 
 static const char *TAG = "main";
 
+extern "C" void app_main(void)
+{
+  ESP_LOGI(TAG, "\n\nBuild version: %.2f\n", Build_Version);
+  ESP_LOGI(TAG, "Created by Vincent de Man\n");
+
+  HandleI2C I2c(true);
+
+  LCD_Pinout_t Configs;
+  Configs._BitMode = I2CMode;
+  Configs._SDA = GPIO_NUM_21;
+  Configs._SCL = GPIO_NUM_22;
+  LCD_Control LCD(Configs);
+
+  LCD.LCD_Write_Command(LCD_DISPLAY_ON_CURSOR_OFF);
+  LCD.LCD_Write_Command(LCD_CLEAR);
+
+
+  while (1)
+  {
+    LCD.LCD_Write_Command(LCD_HOME);
+    LCD.LCD_Write_String("Hello world");
+    LCD.LCD_Write_Char('!');
+    LCD.LCD_Write_Command(LCD_NEXT_LINE);
+    LCD.LCD_Write_Float(2.21);
+    vTaskDelay(1000 / portTICK_PERIOD_MS);
+  }
+}
+
+
+
+
 
 // static void  gpio_isr_handler(void* arg){
 //   ets_printf("interrupt called!!");
 // }
 
-
+/*
 extern "C" void app_main(void)
 {
   ESP_LOGI(TAG, "\n\nBuild version: %.2f\n", Build_Version);
@@ -84,20 +115,24 @@ extern "C" void app_main(void)
     LCD.LCD_Write_Float(ADc.GetVoltage());
     vTaskDelay(1000 / portTICK_PERIOD_MS);
   }
+  */
 
 
   //TODO things to implement:
-  //TODO more unit tests
+  //TODO Guideline: Don’t copy your function arguments. Instead, pass them by value and let the compiler do the copying.
   //TODO private stuff should have underscores
   //TODO default pointer p_pointer
   //TODO hal sensor adc class
+  //TODO lcd class lcd_commands.h update
 
   //TODO things to learn:
   //TODO constexpr
   //TODO rule of three / five
   //TODO static functions
   //TODO enum class strongly typed
-}
+  //TODO move semantics
+  //TODO perfect forwarding and reference collapsing
+//}
 
 
 

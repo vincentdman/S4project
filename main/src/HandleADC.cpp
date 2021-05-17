@@ -250,7 +250,7 @@ extern "C"
      * 
      * @details Function to get the raw conversion result. 
      */
-    int HandleADC::ADC_GetRawConversion()
+    int HandleADC::ADC_GetRawConversion() 
     {
         return SwapGetResolution(this);
     }
@@ -262,7 +262,7 @@ extern "C"
      * 
      * @details Function to directely get the measured voltage on the adc pin. 
      */
-    float HandleADC::GetVoltage()
+    float HandleADC::GetVoltage() 
     {
         return SwapGetAttentuation(this);
     }
@@ -330,7 +330,7 @@ extern "C"
      * 
      * @details Function to get the raw measurment for adc1.
      */
-    int HandleADC::ADC_GetConversion1()
+    int HandleADC::ADC_GetConversion1() 
     {
         return adc1_get_raw(_channel1);
     }
@@ -342,7 +342,7 @@ extern "C"
      * 
      * @details Function to get the raw measurment for adc2.
      */
-    int HandleADC::ADC_GetConversion2()
+    int HandleADC::ADC_GetConversion2() 
     {
         int val;
         if(ESP_OK != adc2_get_raw(_channel2, _resolution, &val))
@@ -360,7 +360,7 @@ extern "C"
      * 
      * @details Function to multi sample the adc by taking loads of samples and returning the average. 
      */
-    float HandleADC::MultiSampleVoltage(int NumOfSamples)
+    float HandleADC::MultiSampleVoltage(const int NumOfSamples) 
     {
         float Result = 0.0; 
         for (int i =0; i < NumOfSamples; ++i)
