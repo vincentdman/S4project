@@ -93,9 +93,9 @@ extern "C"
      */
     esp_err_t PWM_GPIO::SetDuty(int duty, const gpio_num_t PIN, const ledc_channel_t Channel)
     {
-        duty = duty * 8191 / 100;
+        int dutycycle = duty * 8191 / 100;
         ledc_channel.channel = Channel;
-        ledc_channel.duty = duty;
+        ledc_channel.duty = dutycycle;
         ESP_LOGD(TAG,"Set the duty for PIN%d to %d%% pwm output.\n",PIN,duty);   
         return PWM_Initialize(PIN);
     }
