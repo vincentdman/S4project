@@ -23,7 +23,7 @@ extern "C"
      * 
      * @details Constructor to create a new handlePIN object to handle single pins.
      */
-    HandlePIN::HandlePIN(const gpio_num_t PIN, gpio_mode_t MODE, gpio_pull_mode_t PULL)
+    HandlePIN::HandlePIN(const gpio_num_t PIN, const gpio_mode_t MODE, const gpio_pull_mode_t PULL)
         : _PIN(PIN), _MODE(MODE), _PULL(PULL)
     {
         if (!GPIO_IS_VALID_GPIO(_PIN))
@@ -152,7 +152,7 @@ extern "C"
      * 
      * @details Function to get the current pinmode.
      */
-    gpio_mode_t HandlePIN::PIN_GetMode()
+    gpio_mode_t HandlePIN::PIN_GetMode() const
     {
         return _MODE;
     }
@@ -164,7 +164,7 @@ extern "C"
      * 
      * @details Function to get the currently used gpio pullmode.
      */
-    gpio_pull_mode_t HandlePIN::PIN_GetPull()
+    gpio_pull_mode_t HandlePIN::PIN_GetPull() const
     {
         return _PULL;
     }
@@ -176,7 +176,7 @@ extern "C"
      * 
      * @details Function that returns the currently used interrupt type.
      */
-    gpio_int_type_t HandlePIN::PIN_GetIntr()
+    gpio_int_type_t HandlePIN::PIN_GetIntr() const
     {
         return _INTR;
     }
@@ -260,7 +260,7 @@ extern "C"
      * 
      * @details Function to add a user function to handle the interrupt.
      */
-    esp_err_t HandlePIN::PIN_AddHandlerISR(gpio_isr_t isr_handl)
+    esp_err_t HandlePIN::PIN_AddHandlerISR(const gpio_isr_t isr_handl)
     {
         return gpio_isr_handler_add(_PIN, isr_handl, nullptr);
     }
@@ -273,7 +273,7 @@ extern "C"
      * 
      * @details Function to set the output power of the pin. 
      */
-    esp_err_t HandlePIN::PIN_SetOutputPower(gpio_drive_cap_t strength)
+    esp_err_t HandlePIN::PIN_SetOutputPower(const gpio_drive_cap_t strength)
     {
         return gpio_set_drive_capability(_PIN, strength);
     }
@@ -286,7 +286,7 @@ extern "C"
      * 
      * @details Function to easily init the interrupt on the pin with default settings.
      */
-    esp_err_t HandlePIN::PIN_EasyINTR(gpio_isr_t isr_func)
+    esp_err_t HandlePIN::PIN_EasyINTR(const gpio_isr_t isr_func)
     {
         esp_err_t Error = ESP_OK;
         

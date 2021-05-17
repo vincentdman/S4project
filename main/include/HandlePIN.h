@@ -23,7 +23,7 @@ extern "C"
     {
     public:
         
-        HandlePIN(const gpio_num_t PIN, gpio_mode_t MODE = GPIO_MODE_OUTPUT, gpio_pull_mode_t PULL = GPIO_PULLUP_ONLY);
+        HandlePIN(const gpio_num_t PIN, const gpio_mode_t MODE = GPIO_MODE_OUTPUT, const gpio_pull_mode_t PULL = GPIO_PULLUP_ONLY);
         ~HandlePIN(); 
         [[nodiscard]] esp_err_t PIN_Initialize();
         [[nodiscard]] int PIN_GetLevel();
@@ -34,18 +34,18 @@ extern "C"
         inline void PIN_ChangePullMode(const gpio_pull_mode_t PULL);
         inline void PIN_ChangeInt(const gpio_int_type_t INTR);
         inline gpio_num_t PIN_GetNum() const;
-        inline gpio_mode_t PIN_GetMode();
-        inline gpio_pull_mode_t PIN_GetPull();
-        inline gpio_int_type_t PIN_GetIntr();
+        inline gpio_mode_t PIN_GetMode() const;
+        inline gpio_pull_mode_t PIN_GetPull() const;
+        inline gpio_int_type_t PIN_GetIntr() const;
         esp_err_t PIN_Reset();
         esp_err_t PIN_SetINTR();
         esp_err_t PIN_EnableINTR();
         esp_err_t PIN_DisableINTR();
-        esp_err_t PIN_InstallISR(int flags = ESP_INTR_FLAG_LEVEL1);
+        esp_err_t PIN_InstallISR(const int flags = ESP_INTR_FLAG_LEVEL1);
         void PIN_UninstallISR();
-        esp_err_t PIN_AddHandlerISR(gpio_isr_t isr_handl);
-        esp_err_t PIN_SetOutputPower(gpio_drive_cap_t strength);
-        esp_err_t PIN_EasyINTR(gpio_isr_t isr_func);
+        esp_err_t PIN_AddHandlerISR(const gpio_isr_t isr_handl);
+        esp_err_t PIN_SetOutputPower(const gpio_drive_cap_t strength);
+        esp_err_t PIN_EasyINTR(const gpio_isr_t isr_func);
         
 
     private : 
