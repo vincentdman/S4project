@@ -83,6 +83,21 @@ extern "C"
     }
 
     /**
+     * @brief Function to turn the led off.
+     * 
+     * @return esp_err_t value is ESP_OK when there is no error and when there is a error it has the corresponding error as value.
+     * 
+     * @details Function to turn the led comletely off. 
+     */
+    esp_err_t RGB_Control::SetOff()
+    {
+        esp_err_t Error = ESP_OK; 
+        Error |= SetLow(Red);
+        Error |= SetLow(Green);
+        Error |= SetLow(Blue);
+        return Error;        
+    }
+    /**
      * @brief SetPurple function to make the rgb led shine purple   
      * 
      * @details Set the rgb led to display the colour purple. (red on, green off, blue on)

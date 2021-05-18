@@ -20,6 +20,7 @@ extern "C"
     public:
         RGB_Control(const gpio_num_t _Red, const gpio_num_t _Green, const gpio_num_t _Blue);
         esp_err_t SetRed(void);
+        esp_err_t SetOff(void);
         esp_err_t SetGreen(void);
         esp_err_t SetBlue(void);
         esp_err_t SetPurple(void);
