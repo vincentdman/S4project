@@ -17,6 +17,8 @@
 #include "esp_log.h"
 #include <iostream>
 #include <cmath>
+#include "driver/gpio.h"
+#include "driver/adc.h"
 
 extern "C"{
 

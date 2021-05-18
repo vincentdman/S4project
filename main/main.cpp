@@ -7,123 +7,21 @@
  * @copyright Copyright (cpp) 2021
  * @details main.cpp main code for project S4  
  */
-#include <stdio.h>
-#include <iostream>
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
-#include "esp_system.h"
-#include "esp_spi_flash.h"
-#include <driver/gpio.h>
-#include <driver/adc.h>
-#include <esp_wifi.h>
-#include "HandleGPIO.h"
-#include "RGB_Control.h"
-#include "PWM_GPIO.h"
-#include "LCD_Commands.h"
-#include "LCD_Control.h"
-#include "driver/i2c.h"
-#include "HandleI2C.h"
-#include <string>
-#include "HandleBMP180.h"
-#include <bitset>
-#include <sstream>
-#include "esp_log.h"
-#include "HandleADC.h"
-#include "driver/adc.h"
-#include "HandlePIN.h"
-#include "cstdlib"
-
-#define Build_Version 3.0
-
-static const char *TAG = "main";
-
-extern "C" void app_main(void)
-{
-  ESP_LOGI(TAG, "\n\nBuild version: %.2f\n", Build_Version);
-  ESP_LOGI(TAG, "Created by Vincent de Man\n");
-
-  LCD_Pinout_t Configs;
-  Configs._BitMode = I2CMode;
-  Configs._SDA = GPIO_NUM_21;
-  Configs._SCL = GPIO_NUM_22;
-  
-
-  HandleI2C I2c(true);
-  LCD_Control LCD(Configs);
-  RGB_Control LED(GPIO_NUM_23,GPIO_NUM_19,GPIO_NUM_4);
-  HandleBMP180 BMP;
-
-  LCD.LCD_Write_Command(LCD_DISPLAY_ON_CURSOR_OFF);
-  LCD.LCD_Write_Command(LCD_CLEAR);
+#include "main.h"
 
 
-  while (1)
-  {
-    LCD.LCD_Write_Command(LCD_HOME);
-    LCD.LCD_Write_String("Temperature:");
-    LCD.LCD_Write_Float(BMP.GetTemperature());
-    LCD.LCD_Write_Command(LCD_NEXT_LINE);
-    
-    LCD.LCD_Write_String("Pressure: ");
-    LCD.LCD_Write_Float(BMP.GetPressure());
-    
-    LED.SetRGB(rand()%100,rand()%100,rand()%100);
-    vTaskDelay(1000 / portTICK_PERIOD_MS);
-  }
-}
+ extern "C" void app_main(void)
+ {
+
+
+   while(1){
+
+   }
+
+ }
 
 
 
-
-
-// static void  gpio_isr_handler(void* arg){
-//   ets_printf("interrupt called!!");
-// }
-
-/*
-extern "C" void app_main(void)
-{
-  ESP_LOGI(TAG, "\n\nBuild version: %.2f\n", Build_Version);
-  ESP_LOGI(TAG, "Created by Vincent de Man\n");
-
-  HandleI2C I2c(true);
-  HandleBMP180 testt;
-
-  HandleADC ADc(ADC1_CHANNEL_7,ADC_WIDTH_BIT_12,ADC_ATTEN_DB_11);
-
-  LCD_Pinout_t Configs;
-  Configs._BitMode = I2CMode;
-  Configs._SDA = GPIO_NUM_21;
-  Configs._SCL = GPIO_NUM_22;
-  LCD_Control LCD(Configs);
-
-  LCD.LCD_Write_Command(LCD_DISPLAY_ON_CURSOR_OFF);
-  LCD.LCD_Write_Command(LCD_CLEAR);
-
-
-  // HandlePIN led(GPIO_NUM_15,GPIO_MODE_INPUT);
-  
-  // led.PIN_Initialize();
-  // led.PIN_EasyINTR(gpio_isr_handler);
-
-
-  while (1)
-  {
-    LCD.LCD_Write_Command(LCD_CLEAR);
-    LCD.LCD_Write_Command(LCD_HOME);
-    std::string test = "Temperature:";
-    LCD.LCD_Write_String(test);
-
-    LCD.LCD_Write_Float(testt.GetTemperature());
-
-    LCD.LCD_Write_Command(LCD_NEXT_LINE);
-    //test = "Pressure:";
-    //LCD.LCD_Write_String(test);
-    //LCD.LCD_Write_Float(testt.GetPressure());
-    LCD.LCD_Write_Float(ADc.GetVoltage());
-    vTaskDelay(1000 / portTICK_PERIOD_MS);
-  }
-  */
 
 
   //TODO things to implement:
@@ -133,6 +31,7 @@ extern "C" void app_main(void)
   //TODO hal sensor adc class
   //TODO lcd class lcd_commands.h update
   //TODO lcd class pinout_t remove i2c ports
+  //TODO header files uit implementatie halen
 
   //TODO things to learn:
   //TODO constexpr
@@ -148,121 +47,37 @@ extern "C" void app_main(void)
 
 
 
-// HandleBMP180 test;
-
-// while (1)
+//extern "C" void app_main(void)
 // {
-//   std::cout<<"temperature: "<<test.GetTemperature()<<std::endl;
-//   std::cout<<"pressure: "<<test.GetPressure()<<std::endl;
-//   std::cout<<"altitude: "<<test.GetAltitude()<<std::endl;
-//   std::cout<<"succes?"<<std::endl;
-//   vTaskDelay(1000 / portTICK_PERIOD_MS);
-// }
+//   ESP_LOGI(TAG, "\n\nBuild version: %.2f\n", Build_Version);
+//   ESP_LOGI(TAG, "Created by Vincent de Man\n");
 
-// LCD_Control UnitTestLCD(GPIO_NUM_2, GPIO_NUM_21, GPIO_NUM_25, GPIO_NUM_26, GPIO_NUM_19, GPIO_NUM_27);
+//   LCD_Pinout_t Configs;
+//   Configs._BitMode = I2CMode;
+//   Configs._SDA = GPIO_NUM_21;
+//   Configs._SCL = GPIO_NUM_22;
+  
 
-// UnitTestLCD.LCD_Write_Command(LCD_CLELCD_4_BIT_MODEAR);
-// UnitTestLCD.LCD_Write_Command();
-// UnitTestLCD.LCD_Write_Command(LCD_DISPLAY_ON_CURSOR_OFF);
-// UnitTestLCD.LCD_Write_Command(LCD_CLEAR);
-// UnitTestLCD.LCD_Write_Command(LCD_HOME);
+//   HandleI2C I2c(true);
+//   LCD_Control LCD(Configs);
+//   RGB_Control LED(GPIO_NUM_23,GPIO_NUM_19,GPIO_NUM_4);
+//   HandleBMP180 BMP;
 
-// UnitTestLCD.LCD_Write_Char('a');
-// UnitTestLCD.LCD_Write_Char('B');
-// UnitTestLCD.LCD_Write_Char('c');
+//   LCD.LCD_Write_Command(LCD_DISPLAY_ON_CURSOR_OFF);
+//   LCD.LCD_Write_Command(LCD_CLEAR);
 
-// UnitTestLCD.LCD_Write_Command(LCD_NEXT_LINE);
 
-// std::string hello = "hello world!";
-// UnitTestLCD.LCD_Write_String(hello);
-
-// std::cout<<"Hello world!"<<std::endl;
-
-//PWM_GPIO a;
-// working gpio
-//LCD_Control a(GPIO_NUM_2,GPIO_NUM_15,GPIO_NUM_33,GPIO_NUM_25,GPIO_NUM_26,GPIO_NUM_4,GPIO_NUM_19,GPIO_NUM_21,GPIO_NUM_5,GPIO_NUM_27);
-
-//  std::string commands = "00000010";
-//  a.LCD_Write(commands,0);
-
-//  commands = "00101000";
-//  a.LCD_Write(commands,0);
-
-//  commands = "00001100";
-//  a.LCD_Write(commands,0);
-
-//  commands = "00000010";
-//  a.LCD_Write(commands,0);
-
-//  commands = "00000110";
-//  a.LCD_Write(commands,0);
-
-//  commands = "00000001";
-//  a.LCD_Write(commands,0);
-
-//  commands = "10000000";
-//  a.LCD_Write(commands,0);
-
-//a.LCD_Write_Command(LCD_4_BIT_MODE);
-//a.LCD_Write_Char('a');
-//a.LCD_Write_Char('b');
-//a.LCD_Write_Char('c');
-//a.LCD_Write_Char('d');
-
-// commands = "00000000";
-// a.LCD_Write(commands,0);
-// commands = "00001110";
-// a.LCD_Write(commands,0);
-// commands = "10000000";
-// a.LCD_Write("01000001",1);
-
-//std::cout<<"constructor"<<std::endl;
-
-//std::cout<<"put string"<<std::endl;
-//a.LCD_Write_Char('a');
-//a.LCD_Write_Char('B');
-//a.LCD_Write_Char('c');
-//std::cout<<"put a"<<std::endl;
-
-//a.SetDuty(40);
-// a.PWM_Initialize(GPIO_NUM_26);
-// a.PWM_Initialize(GPIO_NUM_25);
-//a.PWM_Initialize(GPIO_NUM_27);
-
-//while (1)
-// {
-//a.SetDuty(0,GPIO_NUM_25);
-//a.SetDuty(34,GPIO_NUM_27);
-// for (int i=0; i < 100; i += 10)
-// {
-// a.SetDuty(i,GPIO_NUM_26);
-
-//  a.UpdateTimerConfig();
-//  vTaskDelay(1000 / portTICK_PERIOD_MS);
-// }
-// }
-//HandleGPIO a;
-//a.SetHigh(GPIO_NUM_4);
-
-//RGB LED
-// RGB_Control RGB_LED(GPIO_NUM_25, GPIO_NUM_26, GPIO_NUM_27);
-
-// RGB_LED.SetRGB(100, 50, 0);
-
-// while (1)
-// {
-//    RGB_LED.SetRed();
-//    vTaskDelay(1000 / portTICK_PERIOD_MS);
-//    RGB_LED.SetBlue();
-//    vTaskDelay(1000 / portTICK_PERIOD_MS);
-//    RGB_LED.SetGreen();
-//    vTaskDelay(1000 / portTICK_PERIOD_MS);
-//    RGB_LED.SetPurple();
-//    vTaskDelay(1000 / portTICK_PERIOD_MS);
-//    RGB_LED.SetCyan();
-//    vTaskDelay(1000 / portTICK_PERIOD_MS);
-//    RGB_LED.SetYellow();
-//    vTaskDelay(1000 / portTICK_PERIOD_MS);
-//    RGB_LED.SetWhite();
-//    vTaskDelay(1000 / portTICK_PERIOD_MS);
+//   while (1)
+//   {
+//     LCD.LCD_Write_Command(LCD_HOME);
+//     LCD.LCD_Write_String("Temperature:");
+//     LCD.LCD_Write_Float(BMP.GetTemperature());
+//     LCD.LCD_Write_Command(LCD_NEXT_LINE);
+    
+//     LCD.LCD_Write_String("Pressure: ");
+//     LCD.LCD_Write_Float(BMP.GetPressure());
+    
+//     LED.SetRGB(rand()%100,rand()%100,rand()%100);
+//     vTaskDelay(1000 / portTICK_PERIOD_MS);
+//   }
 // }
