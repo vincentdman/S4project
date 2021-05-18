@@ -19,6 +19,8 @@
 #include <cmath>
 #include "driver/gpio.h"
 #include "driver/adc.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
 
 extern "C"{
 

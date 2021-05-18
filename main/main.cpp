@@ -12,11 +12,12 @@
 
  extern "C" void app_main(void)
  {
-   HandleJOYstick JOY();
-
+   HandleJOYstick JOY(GPIO_NUM_15,GPIO_NUM_26,GPIO_NUM_4);
+    
    while(1)
    {
-
+     JOY.test();
+     vTaskDelay(1000/portTICK_PERIOD_MS);
    }
 
  }

@@ -123,6 +123,7 @@ extern "C"
         
         default:
         ESP_LOGE(TAG,"BIG ERROR No valid ADC pin");
+        vTaskDelay(10000/portTICK_PERIOD_MS);
         abort();
             break;
         }

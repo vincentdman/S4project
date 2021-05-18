@@ -18,4 +18,14 @@ HandleJOYstick::HandleJOYstick(const gpio_num_t VRX, const gpio_num_t VRY, const
           ESP_LOGE(TAG,"PIN Initialization error");
       }
     }
+
+void HandleJOYstick::test()
+{
+  ESP_LOGI(TAG,"VRX = %.2f",_VRX.GetVoltage());
+  ESP_LOGI(TAG,"VRY = %.2f",_VRY.GetVoltage());
+  ESP_LOGI(TAG,"SW = %d\n",_SW.PIN_GetLevel());
 }
+
+
+}
+
