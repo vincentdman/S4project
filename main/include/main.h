@@ -41,7 +41,7 @@
 
 #define Build_Version 3.0
 
-static const char *TAG = "main";
+__attribute((__unused__)) static const char *TAG = "main";
 
 
 

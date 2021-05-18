@@ -23,7 +23,7 @@ extern "C"{
         float VRX;
         float VRY;
         int SW;
-    }JOY_Data_t
+    }JOY_Data_t;
 class HandleJOYstick
 {
     public:
