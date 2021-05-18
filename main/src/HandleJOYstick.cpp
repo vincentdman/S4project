@@ -13,13 +13,14 @@ extern "C"{
 HandleJOYstick::HandleJOYstick(const gpio_num_t VRX, const gpio_num_t VRY, const gpio_num_t SW)
     : _VRX(VRX), _VRY(VRY), _SW(SW,GPIO_MODE_INPUT)
     {   
+      ESP_LOGI(TAG,"For better working of the HandleJoy stick class try using youre own zeroing values!");
       if(ESP_OK != _SW.PIN_Initialize())
       {
           ESP_LOGE(TAG,"PIN Initialization error");
       }
     }
 
-void HandleJOYstick::test()
+void HandleJOYstick::PrintValues()
 {
   ESP_LOGI(TAG,"VRX = %.2f",_VRX.GetVoltage());
   ESP_LOGI(TAG,"VRY = %.2f",_VRY.GetVoltage());

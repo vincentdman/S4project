@@ -16,7 +16,7 @@
     
    while(1)
    {
-     JOY.test();
+     JOY.PrintValues();
      vTaskDelay(1000/portTICK_PERIOD_MS);
    }
 

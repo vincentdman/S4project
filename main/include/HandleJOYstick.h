@@ -28,7 +28,7 @@ class HandleJOYstick
 {
     public:
     HandleJOYstick(const gpio_num_t VRX, const gpio_num_t VRY, const gpio_num_t SW);
-    void test();
+    void PrintValues();
     private:
 
     HandleADC _VRX;
