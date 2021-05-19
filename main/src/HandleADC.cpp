@@ -32,93 +32,75 @@ extern "C"
         {
         case GPIO_NUM_0:
             _channel2 = ADC2_CHANNEL_1;
-            SwapInitialize = &HandleADC::ADC_InitChannel2;
-            SwapGetResolution = &HandleADC::ADC_GetConversion2;
+            SetFunctionsToChannel2();
             break; 
          case GPIO_NUM_2:
             _channel2 = ADC2_CHANNEL_2;
-            SwapInitialize = &HandleADC::ADC_InitChannel2;
-            SwapGetResolution = &HandleADC::ADC_GetConversion2;
+            SetFunctionsToChannel2();
             break; 
          case GPIO_NUM_4:
             _channel2 = ADC2_CHANNEL_0;
-            SwapInitialize = &HandleADC::ADC_InitChannel2;
-            SwapGetResolution = &HandleADC::ADC_GetConversion2;
+            SetFunctionsToChannel2();
             break; 
         case GPIO_NUM_12:
             _channel2 = ADC2_CHANNEL_5;
-            SwapInitialize = &HandleADC::ADC_InitChannel2;
-            SwapGetResolution = &HandleADC::ADC_GetConversion2;
+            SetFunctionsToChannel2();
             break;  
         case GPIO_NUM_13:
             _channel2 = ADC2_CHANNEL_4;
-            SwapInitialize = &HandleADC::ADC_InitChannel2;
-            SwapGetResolution = &HandleADC::ADC_GetConversion2;
+            SetFunctionsToChannel2();
             break; 
         case GPIO_NUM_14:
             _channel2 = ADC2_CHANNEL_6;
-            SwapInitialize = &HandleADC::ADC_InitChannel2;
-            SwapGetResolution = &HandleADC::ADC_GetConversion2;
-            break;             
+            SetFunctionsToChannel2();
+            break;              
         case GPIO_NUM_15:
             _channel2 = ADC2_CHANNEL_3;
-            SwapInitialize = &HandleADC::ADC_InitChannel2;
-            SwapGetResolution = &HandleADC::ADC_GetConversion2;
+            SetFunctionsToChannel2();
             break;  
         case GPIO_NUM_25:
             _channel2 = ADC2_CHANNEL_8;
-            SwapInitialize = &HandleADC::ADC_InitChannel2;
-            SwapGetResolution = &HandleADC::ADC_GetConversion2;
+            SetFunctionsToChannel2();
             break;
         case GPIO_NUM_26:
             _channel2 = ADC2_CHANNEL_9;
-            SwapInitialize = &HandleADC::ADC_InitChannel2;
-            SwapGetResolution = &HandleADC::ADC_GetConversion2;
+            SetFunctionsToChannel2();
             break; 
         case GPIO_NUM_27:
             _channel2 = ADC2_CHANNEL_7;
-            SwapInitialize = &HandleADC::ADC_InitChannel2;
-            SwapGetResolution = &HandleADC::ADC_GetConversion2;
+            SetFunctionsToChannel2();
             break; 
         case GPIO_NUM_32:
             _channel1 = ADC1_CHANNEL_4;
-            SwapInitialize = &HandleADC::ADC_InitChannel1;
-            SwapGetResolution = &HandleADC::ADC_GetConversion1;
+            SetFunctionsToChannel1();
             break;
         case GPIO_NUM_33:
             _channel1 = ADC1_CHANNEL_5;
-            SwapInitialize = &HandleADC::ADC_InitChannel1;
-            SwapGetResolution = &HandleADC::ADC_GetConversion1;
+            SetFunctionsToChannel1();
             break;
         case GPIO_NUM_34:
             _channel1 = ADC1_CHANNEL_6;
-            SwapInitialize = &HandleADC::ADC_InitChannel1;
-            SwapGetResolution = &HandleADC::ADC_GetConversion1;
+            SetFunctionsToChannel1();
             break;
         case GPIO_NUM_35:
             _channel1 = ADC1_CHANNEL_7;
-            SwapInitialize = &HandleADC::ADC_InitChannel1;
-            SwapGetResolution = &HandleADC::ADC_GetConversion1;
+            SetFunctionsToChannel1();
             break;
         case GPIO_NUM_36:
             _channel1 = ADC1_CHANNEL_0;
-            SwapInitialize = &HandleADC::ADC_InitChannel1;
-            SwapGetResolution = &HandleADC::ADC_GetConversion1;
+            SetFunctionsToChannel1();
             break;
         case GPIO_NUM_37:
             _channel1 = ADC1_CHANNEL_1;
-            SwapInitialize = &HandleADC::ADC_InitChannel1;
-            SwapGetResolution = &HandleADC::ADC_GetConversion1;
+            SetFunctionsToChannel1();
             break;
         case GPIO_NUM_38:
             _channel1 = ADC1_CHANNEL_2;
-            SwapInitialize = &HandleADC::ADC_InitChannel1;
-            SwapGetResolution = &HandleADC::ADC_GetConversion1;
+            SetFunctionsToChannel1();
             break;
         case GPIO_NUM_39:
             _channel1 = ADC1_CHANNEL_3;
-            SwapInitialize = &HandleADC::ADC_InitChannel1;
-            SwapGetResolution = &HandleADC::ADC_GetConversion1;
+            SetFunctionsToChannel1();
             break;   
         
         default:
@@ -145,8 +127,7 @@ extern "C"
         : _channel1(channel), _resolution(Resolution), _attentuation(attentuation)
     {
 
-        SwapInitialize = &HandleADC::ADC_InitChannel1;
-        SwapGetResolution = &HandleADC::ADC_GetConversion1;
+        SetFunctionsToChannel1()
         SetAttentuation();
         ADC_Initialize();
     }
@@ -163,13 +144,21 @@ extern "C"
     HandleADC::HandleADC(adc2_channel_t channel, adc_bits_width_t Resolution, adc_atten_t attentuation)
         : _channel2(channel), _resolution(Resolution), _attentuation(attentuation)
     {
-
-        SwapInitialize = &HandleADC::ADC_InitChannel2;
-        SwapGetResolution = &HandleADC::ADC_GetConversion2;
+        SetFunctionsToChannel2();
         SetAttentuation();
         ADC_Initialize();
     }
 
+    void HandleADC::SetFunctionsToChannel1()
+    {
+        SwapInitialize = &HandleADC::ADC_InitChannel1;
+        SwapGetResolution = &HandleADC::ADC_GetConversion1;
+    }
+    void HandleADC::SetFunctionsToChannel2()
+    {
+        SwapInitialize = &HandleADC::ADC_InitChannel2;
+        SwapGetResolution = &HandleADC::ADC_GetConversion2;
+    }
     /**
      * @brief Function to initialize the object for the correct attentuation. 
      * 

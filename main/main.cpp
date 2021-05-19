@@ -13,10 +13,22 @@
  extern "C" void app_main(void)
  {
    HandleJOYstick JOY(GPIO_NUM_15,GPIO_NUM_26,GPIO_NUM_4);
-    
+   RGB_Control RGB(GPIO_NUM_23,GPIO_NUM_19,GPIO_NUM_25);  
+  
+    int SetR = 0;
+    int SetG = 0;
+    int SetB = 0; 
+   
    while(1)
    {
-     JOY.PrintValues();
+    //  JOY_Data_t t = JOY.GetConverted(); 
+     
+    //  SetR = t.VRX + 50; 
+    //  SetG = t.VRY + 50;
+    //  SetB = SetR * SetG / 100;
+    //  RGB.SetRGB(SetR,SetG,SetB);
+    ESP_LOGI(TAG,"test");
+
      vTaskDelay(1000/portTICK_PERIOD_MS);
    }
 

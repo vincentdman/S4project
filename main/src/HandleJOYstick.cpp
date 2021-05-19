@@ -26,7 +26,62 @@ void HandleJOYstick::PrintValues()
   ESP_LOGI(TAG,"VRY = %.2f",_VRY.GetVoltage());
   ESP_LOGI(TAG,"SW = %d\n",_SW.PIN_GetLevel());
 }
+    float HandleJOYstick::GetRawVRX()
+    {
+      return _VRX.GetVoltage();
+    }
+    
+    float HandleJOYstick::GetRawVRY()
+    {
+      return _VRY.GetVoltage();
+    }
+    
+    int HandleJOYstick::getSW()
+    {
+      return _SW.PIN_GetLevel(); 
+    }
+
+    JOY_Data_t HandleJOYstick::GetConverted()
+    {
+      JOY_Data_t JOYD;
+
+      float VRY = _VRY.GetVoltage();
+      float VRX = _VRX.GetVoltage();
+      JOYD.SW = !_SW.PIN_GetLevel(); 
+      
+      if(VRX >= (ZeroVRX))
+      {
+       VRX = (VRX - ZeroVRX) * (VR_Range)/(VR_MaxVoltage-ZeroVRX);
+      }
+      else
+      {
+       VRX = (VRX) * (VR_Range)/(ZeroVRX)-VR_Range;
+      }
+
+      if(VRY >= (ZeroVRY))
+      {
+       VRY = (VRY - ZeroVRY) * (VR_Range)/(VR_MaxVoltage-ZeroVRY);
+      }
+      else
+      {
+       VRY = (VRY) * (VR_Range)/(ZeroVRY)-VR_Range;
+      }
+      
+      if((VRX < VR_Hysteresisch)&&(VRX > -VR_Hysteresisch))
+      {
+        VRX = 0; 
+      }
+
+      if((VRY < VR_Hysteresisch)&&(VRY > -VR_Hysteresisch))
+      {
+        VRY = 0; 
+      }
+      JOYD.VRX = VRX;
+      JOYD.VRY = VRY;
 
 
+      return JOYD;
+    }
+    
 }
 

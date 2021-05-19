@@ -52,6 +52,9 @@ extern "C"{
 
             void SetAttentuation();
 
+            void SetFunctionsToChannel1();
+            void SetFunctionsToChannel2();
+
             adc1_channel_t _channel1;
             adc2_channel_t _channel2;
             const adc_bits_width_t _resolution;
