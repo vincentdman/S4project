@@ -359,5 +359,5 @@ extern "C"
         }
         return (Result / NumOfSamples);
     }
-
+    
 }
