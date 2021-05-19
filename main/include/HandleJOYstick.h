@@ -1,10 +1,10 @@
 /**
  * @file HandleJOYstick.h
- * @author your name (you@domain.com)
- * @brief 
+ * @author Vincent de Man
+ * @brief Header file for HandleJOYstick class (.h)
  * @version 0.1
  * @date 2021-05-18
- * 
+ * @details Header file for HandleJOYstick class (.h)
  * @copyright Copyright (c) 2021
  * 
  */
