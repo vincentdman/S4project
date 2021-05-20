@@ -41,11 +41,11 @@
   //TODO things to implement:
   //TODO Guideline: Don’t copy your function arguments. Instead, pass them by value and let the compiler do the copying.
   //TODO private stuff should have underscores
-  //TODO default pointer p_pointer
   //TODO hal sensor adc class
-  //TODO lcd class lcd_commands.h update
-  //TODO lcd class pinout_t remove i2c ports
-  //TODO header files uit implementatie halen
+  //TODO lcd class lcd_commands.h update (maybe flags)
+  //TODO lcd class pinout_t remove i2c ports (not necesarry )
+  //TODO header files uit implementatie halen (.cpp)
+  //TODO SD card library
 
   //TODO things to learn:
   //TODO constexpr
