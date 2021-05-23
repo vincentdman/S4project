@@ -9,12 +9,7 @@
  * @details Implementation of the pwm gpio class. It uses the inherited handle gpio functions. 
  *
  */
-#include "driver/ledc.h"
-#include "esp_err.h"
-#include "esp_system.h"
-#include <driver/gpio.h>
 #include "PWM_GPIO.h"
-#include "esp_log.h"
 
 
 extern "C"

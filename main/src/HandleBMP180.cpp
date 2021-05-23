@@ -11,12 +11,7 @@
  */
 
 #include "HandleBMP180.h"
-#include "driver/i2c.h"
-#include "HandleI2C.h"
-#include <bitset>
-#include <iostream>
-#include <cmath>
-#include "esp_log.h"
+
 
 
 

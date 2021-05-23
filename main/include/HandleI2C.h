@@ -12,10 +12,13 @@
 #ifndef HandleI2C_H
 #define HandleI2C_H
 
+#include <iostream>
+#include <string>
+
 #include "driver/i2c.h"
 #include "driver/gpio.h"
-#include <string>
 #include "esp_err.h"
+#include "esp_log.h"
 
 extern "C"{
 

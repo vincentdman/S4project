@@ -11,10 +11,12 @@
 #ifndef PWM_GPIO_h
 #define PWM_GPIO_h
 
+#include <driver/gpio.h>
+
 #include "esp_err.h"
 #include "esp_system.h"
-#include <driver/gpio.h>
 #include "driver/ledc.h"
+#include "esp_log.h"
 
 extern "C"
 {

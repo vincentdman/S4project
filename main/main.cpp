@@ -21,12 +21,12 @@
    
    while(1)
    {
-    //  JOY_Data_t t = JOY.GetConverted(); 
+     JOY_Data_t t = JOY.GetConverted(); 
      
-    //  SetR = t.VRX + 50; 
-    //  SetG = t.VRY + 50;
-    //  SetB = SetR * SetG / 100;
-    //  RGB.SetRGB(SetR,SetG,SetB);
+      SetR = t.VRX + 50; 
+      SetG = t.VRY + 50;
+      SetB = SetR * SetG / 100;
+     RGB.SetRGB(SetR,SetG,SetB);
     ESP_LOGI(TAG,"test");
 
      vTaskDelay(1000/portTICK_PERIOD_MS);

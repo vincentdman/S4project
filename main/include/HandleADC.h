@@ -12,15 +12,17 @@
 #ifndef HandleADC_h
 #define HandleADC_h
 
-#include "esp_err.h"
 #include <functional>
-#include "esp_log.h"
 #include <iostream>
 #include <cmath>
+
+#include "esp_err.h"
+#include "esp_log.h"
 #include "driver/gpio.h"
 #include "driver/adc.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+
 
 extern "C"{
 

@@ -8,10 +8,7 @@
  * @copyright Copyright (c) 2021
  * @details Handle adc class to utalize the adc of the esp32 easy
  */
-
-#include <driver/adc.h>
 #include "HandleADC.h"
-#include "esp_err.h"
 
 extern "C"
 {   
@@ -127,7 +124,7 @@ extern "C"
         : _channel1(channel), _resolution(Resolution), _attentuation(attentuation)
     {
 
-        SetFunctionsToChannel1()
+        SetFunctionsToChannel1();
         SetAttentuation();
         ADC_Initialize();
     }

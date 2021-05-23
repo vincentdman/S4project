@@ -12,9 +12,13 @@
 #ifndef HandleGPIO_h
 #define HandleGPIO_h
 
+#include <driver/gpio.h>
+#include <iostream>
+
 #include "esp_err.h"
 #include "esp_system.h"
-#include <driver/gpio.h>
+#include "assert.h"
+#include "esp_log.h"
 
 extern "C"
 {

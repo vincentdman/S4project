@@ -14,13 +14,17 @@
 
 #include <stdio.h>
 #include <iostream>
+#include <driver/gpio.h>
+#include <driver/adc.h>
+#include <esp_wifi.h>
+#include <bitset>
+#include <sstream>
+#include <string>
+
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "esp_system.h"
 #include "esp_spi_flash.h"
-#include <driver/gpio.h>
-#include <driver/adc.h>
-#include <esp_wifi.h>
 #include "HandleGPIO.h"
 #include "RGB_Control.h"
 #include "PWM_GPIO.h"
@@ -28,10 +32,7 @@
 #include "LCD_Control.h"
 #include "driver/i2c.h"
 #include "HandleI2C.h"
-#include <string>
 #include "HandleBMP180.h"
-#include <bitset>
-#include <sstream>
 #include "esp_log.h"
 #include "HandleADC.h"
 #include "driver/adc.h"

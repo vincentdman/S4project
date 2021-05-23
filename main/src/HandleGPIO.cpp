@@ -9,12 +9,7 @@
  * @details Implementation of the handle gpio functions. It makes use of the esp-idf framework. 
  */
 #include "HandleGPIO.h"
-#include <iostream>
-#include <driver/gpio.h>
-#include "esp_err.h"
-#include "esp_system.h"
-#include "assert.h"
-#include "esp_log.h"
+
 
 
 extern "C"

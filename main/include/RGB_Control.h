@@ -10,8 +10,13 @@
  */
 #ifndef RGB_CONTROL_h
 #define RGB_CONTROL_h
+
+#include <iostream>
+
 #include "HandleGPIO.h"
 #include "PWM_GPIO.h"
+#include "esp_log.h"
+
 
 extern "C"
 {

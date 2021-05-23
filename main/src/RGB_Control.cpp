@@ -8,11 +8,7 @@
  * @class RGB_Control class to create a rgb led object.
  * @details Implementation of the handle rgb class. It uses the inherited handle gpio and pwm gpio functions. 
  */
-#include <iostream>
 #include "RGB_Control.h"
-#include "HandleGPIO.h"
-#include "esp_log.h"
-
 
 extern "C"
 {

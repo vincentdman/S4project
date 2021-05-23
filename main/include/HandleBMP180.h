@@ -13,7 +13,14 @@
 #ifndef HandleBMP180_h
 #define HandleBMP180_h
 
+#include <bitset>
+#include <iostream>
+#include <cmath>
+
 #include "HandleI2C.h"
+#include "driver/i2c.h"
+#include "esp_log.h"
+
 extern "C"{
 class HandleBMP180  
 {

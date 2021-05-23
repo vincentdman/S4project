@@ -9,12 +9,8 @@
  * @copyright Copyright (c) 2021
  * 
  */
-
-#include "driver/i2c.h"
 #include "HandleI2C.h"
-#include <string>
-#include <iostream>
-#include "esp_log.h"
+
 
 extern "C"
 {

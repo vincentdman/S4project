@@ -11,13 +11,22 @@
 #ifndef LCD_Control_h
 #define LCD_Control_h
 
+#include <driver/gpio.h>
+#include <string>
+#include <functional>
+#include <bitset>
+#include <iostream>
+#include <sstream>
+
 #include "LCD_Commands.h"
 #include "HandleGPIO.h"
 #include "HandleI2C.h"
 #include "driver/i2c.h"
-#include <driver/gpio.h>
-#include <string>
-#include <functional>
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "esp_system.h"
+#include "esp_log.h"
+
 
 extern "C"
 {

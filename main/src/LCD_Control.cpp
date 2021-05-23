@@ -9,18 +9,6 @@
  * @details Implementation of the LCD_Control class. It uses the intherited handle gpio functions.
  */
 #include "LCD_Control.h"
-#include <driver/gpio.h>
-#include <string>
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
-#include "esp_system.h"
-#include "LCD_Commands.h"
-#include <bitset>
-#include <iostream>
-#include <driver/i2c.h>
-#include "esp_log.h"
-#include <sstream>
-
 
 
 extern "C"
