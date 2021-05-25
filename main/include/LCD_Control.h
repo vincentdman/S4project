@@ -51,15 +51,13 @@ extern "C"
         gpio_num_t _D5 = GPIO_NUM_NC;
         gpio_num_t _D6 = GPIO_NUM_NC;
         gpio_num_t _D7 = GPIO_NUM_NC;
-        gpio_num_t _SCL = GPIO_NUM_NC;
-        gpio_num_t _SDA = GPIO_NUM_NC;
-        BitMode_t _BitMode = NotSelected;
+        BitMode_t _BitMode = I2CMode;
     } LCD_Pinout_t;
 
     class LCD_Control : private HandleGPIO
     {
     public:
-        LCD_Control(const LCD_Pinout_t &LCD_Pinout_Configuration);
+        LCD_Control(const LCD_Pinout_t LCD_Pinout_Configuration);
 
         void LCD_Write_Char(char Data);
         void LCD_Write_Command(const int Command);
@@ -108,13 +106,11 @@ extern "C"
         const gpio_num_t LCD_D1 = GPIO_NUM_NC;
         const gpio_num_t LCD_D2 = GPIO_NUM_NC;
         const gpio_num_t LCD_D3 = GPIO_NUM_NC;
+
         const gpio_num_t LCD_D4 = GPIO_NUM_NC;
         const gpio_num_t LCD_D5 = GPIO_NUM_NC;
         const gpio_num_t LCD_D6 = GPIO_NUM_NC;
         const gpio_num_t LCD_D7 = GPIO_NUM_NC;
-
-        const gpio_num_t LCD_SCL = GPIO_NUM_NC;
-        const gpio_num_t LCD_SDA = GPIO_NUM_NC;
 
         const BitMode_t BitMode;
 

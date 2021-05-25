@@ -14,7 +14,12 @@
  {
    HandleJOYstick JOY(GPIO_NUM_15,GPIO_NUM_26,GPIO_NUM_4);
    RGB_Control RGB(GPIO_NUM_23,GPIO_NUM_19,GPIO_NUM_25);  
-  
+   LCD_Pinout_t empty;
+   empty._BitMode = I2CMode;
+   LCD_Control LCD(empty);
+   LCD.LCD_Write_Command(LCD_CURSOR_BLINK_OFF_CURSOR_OFF);
+   LCD.LCD_Write_Command(LCD_NEXT_LINE);
+
     int SetR = 0;
     int SetG = 0;
     int SetB = 0; 
@@ -39,12 +44,10 @@
 
 
   //TODO things to implement:
-  //TODO Guideline: Don’t copy your function arguments. Instead, pass them by value and let the compiler do the copying.
   //TODO private stuff should have underscores
   //TODO hal sensor adc class
   //TODO lcd class lcd_commands.h update (maybe flags)
   //TODO lcd class pinout_t remove i2c ports (not necesarry )
-  //TODO header files uit implementatie halen (.cpp)
   //TODO SD card library
 
   //TODO things to learn:
