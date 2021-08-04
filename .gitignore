@@ -1,0 +1,15 @@
+build/
+.vscode/
+sdkconfig
+sdkconfig.old
+testlogo.png
+html/
+ESP32.code-workspace
+debug.log
+old.txt
+out/
+main/documentation
+out/
+main/scripts
+doxy docs/ 
+doxy_docs/ 
