@@ -11,3 +11,4 @@ out/
 main/documentation
 out/
 main/scripts
+doxy docs/ 
