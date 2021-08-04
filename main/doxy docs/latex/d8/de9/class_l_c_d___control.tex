@@ -1,0 +1,1344 @@
+\hypertarget{class_l_c_d___control}{}\doxysection{LCD\+\_\+\+Control Class Reference}
+\label{class_l_c_d___control}\index{LCD\_Control@{LCD\_Control}}
+
+
+{\ttfamily \#include $<$LCD\+\_\+\+Control.\+h$>$}
+
+
+
+Inheritance diagram for LCD\+\_\+\+Control\+:
+% FIG 0
+
+
+Collaboration diagram for LCD\+\_\+\+Control\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_l_c_d___control_ad8513ede8648957c2cb5fa709fd5abc5}{LCD\+\_\+\+Control}} (const \mbox{\hyperlink{struct_l_c_d___pinout__t}{LCD\+\_\+\+Pinout\+\_\+t}} LCD\+\_\+\+Pinout\+\_\+\+Configuration)
+\begin{DoxyCompactList}\small\item\em Construct a new lcd control\+::lcd control object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_l_c_d___control_a53c2c4979924e3edbc3e078c11038c0d}{LCD\+\_\+\+Write\+\_\+\+Char}} (char Data)
+\begin{DoxyCompactList}\small\item\em function to write a char to the lcd. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_l_c_d___control_a0b51f52dac3b8f521842bf19d88ca0e1}{LCD\+\_\+\+Write\+\_\+\+Command}} (const int Command)
+\begin{DoxyCompactList}\small\item\em function to write the lcd commands to the lcd \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_l_c_d___control_ae790db4a7a04e11d7e9e7c568678fa7f}{LCD\+\_\+\+Write\+\_\+\+String}} (const std\+::string Data\+\_\+\+String\+\_\+)
+\begin{DoxyCompactList}\small\item\em Function to write a whole string to the lcd. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_l_c_d___control_ab7296c34110a689eb14085c16cc39eff}{LCD\+\_\+\+Write\+\_\+\+Float}} (const float Float\+Data)
+\begin{DoxyCompactList}\small\item\em Function to write a float value to the LCD. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \mbox{\hyperlink{class_l_c_d___control_a6a9f96c2e14e1814de143e5be7ae59f8a16ce5868a9b46bf69bdaf17cd0f796f0}{Register\+Set}} = 0
+, \mbox{\hyperlink{class_l_c_d___control_a6a9f96c2e14e1814de143e5be7ae59f8ae27a7fd936a056f5832c09091e94016f}{Write\+Action}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_l_c_d___control_a253a642812e3f932d4ad36cf905ea65c}{LCD\+\_\+\+Initialize}} ()
+\begin{DoxyCompactList}\small\item\em Function that swaps the initialize four bit and eight bit mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_l_c_d___control_a2715a83ccf38fc9a520390f43097ded6}{LCD\+\_\+\+Write}} (const std\+::string Binary\+String, const int RS)
+\begin{DoxyCompactList}\small\item\em Function to write to the lcd. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{class_l_c_d___control_adcf523092164a963a1130bf25dce7731}{LCD\+\_\+\+Initialize\+Eight\+Bit\+Mode}} ()
+\begin{DoxyCompactList}\small\item\em Initialize function for eight bit mode. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{class_l_c_d___control_a1c9461bd95ef892e8f22e8e3aca2335b}{LCD\+\_\+\+Initialize\+Four\+Bit\+Mode}} ()
+\begin{DoxyCompactList}\small\item\em Initialize function for four bit mode. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{class_l_c_d___control_a482f4abf5d5296c863138d46ec23f667}{LCD\+\_\+\+Initialize\+I2\+CMode}} ()
+\begin{DoxyCompactList}\small\item\em Function to initialize the LCD for use in I2C mode. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{class_l_c_d___control_a8fd76c7b0ca20ab5807b12a7b8368b04}{LCD\+\_\+\+Init\+\_\+\+Sequence\+\_\+4\+\_\+\+Bit}} ()
+\begin{DoxyCompactList}\small\item\em Starts the initialization sequence for 4 bit. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{class_l_c_d___control_aff3023fba7c461541d17f15e868deefd}{LCD\+\_\+\+Init\+\_\+\+Sequence\+\_\+8\+\_\+\+Bit}} ()
+\begin{DoxyCompactList}\small\item\em Function to start the initialization sequence for 8 bit. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{class_l_c_d___control_a6ce5334e41b0a61d6c0e0930690253d2}{LCD\+\_\+\+Write\+Four\+Bit\+Mode}} (const std\+::string Binary\+String, const int RS)
+\begin{DoxyCompactList}\small\item\em Function to write in four bit mode to the lcd. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{class_l_c_d___control_a7621a08ff74655f268ca1f7d60a5ef36}{LCD\+\_\+\+Write\+Eight\+Bit\+Mode}} (const std\+::string Binary\+String, const int RS)
+\begin{DoxyCompactList}\small\item\em Function to write in eight bit mode to the lcd. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_l_c_d___control_a28700fc5134efdbeea5d1ee60c4a4025}{LCD\+\_\+\+Write\+I2\+CMode}} (const std\+::string Binary\+String, const int RS)
+\begin{DoxyCompactList}\small\item\em Function to write a data string to the lcd. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{class_l_c_d___control_a2d559a71c5142f2565d9dccaf1ccd676}{LCD\+\_\+\+Private\+\_\+\+I2\+C\+\_\+\+Send}} (uint8\+\_\+t Data\+To\+Send)
+\begin{DoxyCompactList}\small\item\em Function to send lcd i2c commands to the LCD. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{class_l_c_d___control_a05afd100a939aed6cd9d6bd647c500c5}{LCD\+\_\+\+Initialize\+For\+Sending\+Data}} (const int RS)
+\begin{DoxyCompactList}\small\item\em Function to initialize the lcd for sending sending data. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{class_l_c_d___control_ae4cb4ff379a4014b717eb9e57613cc37}{LCD\+\_\+\+Cycle\+Data\+Trough}} (void)
+\begin{DoxyCompactList}\small\item\em Function to cycle the data trough to the lcd. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{class_l_c_d___control_adaf329ee6de546b40121e04c0af828ad}{LCD\+\_\+\+Set\+Data\+Eight\+Bit\+Mode}} (const std\+::string Binary\+String)
+\begin{DoxyCompactList}\small\item\em Function to set the lcd data ready on the lcd pins for eight bit mode. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{class_l_c_d___control_a5412c006faa617a09cb842f45abf54cf}{LCD\+\_\+\+Set\+Data\+Four\+Bit\+Mode\+First\+Half}} (const std\+::string Binary\+String)
+\begin{DoxyCompactList}\small\item\em Function to set the first half of the binary string on the lcd pins in four bit mode. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{class_l_c_d___control_a75545eab68dd95c13ec4b0f9af40afd2}{LCD\+\_\+\+Set\+Data\+Four\+Bit\+Mode\+Second\+Half}} (const std\+::string Binary\+String)
+\begin{DoxyCompactList}\small\item\em Function to set the second half to the lcd pins in four bit mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_l_c_d___control_a347ee11213ad1e39542e242f896b5cfc}{Set\+Bit\+Mode}} ()
+\begin{DoxyCompactList}\small\item\em Function to switch between the functions for four and eight bit. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{class_handle_g_p_i_o_a4c94cfb749b909ddde7f2098c3ab03e6}{Set\+High}} (const gpio\+\_\+num\+\_\+t PIN)
+\begin{DoxyCompactList}\small\item\em function to set the given pin high \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{class_handle_g_p_i_o_a9ac969c156f26e73afa2b0e51dfe1bc5}{Set\+Low}} (const gpio\+\_\+num\+\_\+t PIN)
+\begin{DoxyCompactList}\small\item\em function to set the given pin low \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{class_handle_g_p_i_o_a3905ade6fb7c9d69d0cab69abf062f79}{Set\+GPIO}} (const gpio\+\_\+num\+\_\+t PIN, const int)
+\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{class_handle_g_p_i_o_a163923e59037bafb792791a5bff6ada1}{Initialize\+GPIO\+\_\+\+Output}} (const gpio\+\_\+num\+\_\+t PIN)
+\begin{DoxyCompactList}\small\item\em Initialize a gpio pin for default settings. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{class_handle_g_p_i_o_aa3d4e813d350973f71271aa86ce33fcf}{Initialize\+GPIO\+\_\+\+Input}} (const gpio\+\_\+num\+\_\+t PIN)
+\begin{DoxyCompactList}\small\item\em Function to initialize gpio for input. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_handle_g_p_i_o_a600325dad75b86eba5647b74c89e4687}{Get\+Level}} (const gpio\+\_\+num\+\_\+t PIN)
+\begin{DoxyCompactList}\small\item\em Function to get the level of a gpio pin. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::function$<$ void(\mbox{\hyperlink{class_l_c_d___control}{LCD\+\_\+\+Control}} $\ast$, std\+::string Binary\+String, int RS)$>$ \mbox{\hyperlink{class_l_c_d___control_a11200412eebc1cd3e1caf2e8df213a49}{Swap\+WRITE}} = \&\mbox{\hyperlink{class_l_c_d___control_a7621a08ff74655f268ca1f7d60a5ef36}{LCD\+\_\+\+Control\+::\+LCD\+\_\+\+Write\+Eight\+Bit\+Mode}}
+\item 
+std\+::function$<$ void(\mbox{\hyperlink{class_l_c_d___control}{LCD\+\_\+\+Control}} $\ast$)$>$ \mbox{\hyperlink{class_l_c_d___control_aca89773fce04a35e44f64f7513cafa9e}{Swap\+Initialize}} = \&\mbox{\hyperlink{class_l_c_d___control_adcf523092164a963a1130bf25dce7731}{LCD\+\_\+\+Control\+::\+LCD\+\_\+\+Initialize\+Eight\+Bit\+Mode}}
+\item 
+const gpio\+\_\+num\+\_\+t \mbox{\hyperlink{class_l_c_d___control_abc6bb1e3b9741e1781b20f636629be22}{LCD\+\_\+\+RS}} = GPIO\+\_\+\+NUM\+\_\+\+NC
+\item 
+const gpio\+\_\+num\+\_\+t \mbox{\hyperlink{class_l_c_d___control_a86cf8315554fca673c665ce86fc9ad01}{LCD\+\_\+E}} = GPIO\+\_\+\+NUM\+\_\+\+NC
+\item 
+const gpio\+\_\+num\+\_\+t \mbox{\hyperlink{class_l_c_d___control_a7be2b2cd5953dc59305e621a6cffc564}{LCD\+\_\+\+D0}} = GPIO\+\_\+\+NUM\+\_\+\+NC
+\item 
+const gpio\+\_\+num\+\_\+t \mbox{\hyperlink{class_l_c_d___control_a7faf9d49b74aa060c7632755c5c88357}{LCD\+\_\+\+D1}} = GPIO\+\_\+\+NUM\+\_\+\+NC
+\item 
+const gpio\+\_\+num\+\_\+t \mbox{\hyperlink{class_l_c_d___control_a4ebb1e63bcfda280ca1c66696faa52ef}{LCD\+\_\+\+D2}} = GPIO\+\_\+\+NUM\+\_\+\+NC
+\item 
+const gpio\+\_\+num\+\_\+t \mbox{\hyperlink{class_l_c_d___control_af4469e5322e573ce6442d61cd02dca2e}{LCD\+\_\+\+D3}} = GPIO\+\_\+\+NUM\+\_\+\+NC
+\item 
+const gpio\+\_\+num\+\_\+t \mbox{\hyperlink{class_l_c_d___control_a43327ec782e1256c2ed3779d143d68da}{LCD\+\_\+\+D4}} = GPIO\+\_\+\+NUM\+\_\+\+NC
+\item 
+const gpio\+\_\+num\+\_\+t \mbox{\hyperlink{class_l_c_d___control_a8b80169cb0f06c5955bb85bba75ba6dd}{LCD\+\_\+\+D5}} = GPIO\+\_\+\+NUM\+\_\+\+NC
+\item 
+const gpio\+\_\+num\+\_\+t \mbox{\hyperlink{class_l_c_d___control_a030bff30fe293a811250c4181b55139f}{LCD\+\_\+\+D6}} = GPIO\+\_\+\+NUM\+\_\+\+NC
+\item 
+const gpio\+\_\+num\+\_\+t \mbox{\hyperlink{class_l_c_d___control_aea33ffdab3c458c267dfea0aad7e07f4}{LCD\+\_\+\+D7}} = GPIO\+\_\+\+NUM\+\_\+\+NC
+\item 
+const \mbox{\hyperlink{_l_c_d___control_8h_a0bebbcf8ef8bf74cb231ee2f9b38820f}{Bit\+Mode\+\_\+t}} \mbox{\hyperlink{class_l_c_d___control_abfd72ce48f9f50157cef088ed72add0c}{Bit\+Mode}}
+\item 
+i2c\+\_\+port\+\_\+t \mbox{\hyperlink{class_l_c_d___control_ad49584191f5622f8ba75c6bda4a128ae}{I2\+C\+\_\+\+Port}} = I2\+C\+\_\+\+NUM\+\_\+1
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+constexpr static const uint8\+\_\+t \mbox{\hyperlink{class_l_c_d___control_a3b3d035c8d71d4ab87d2fc8995d2693b}{LCD\+\_\+\+Adress}} = 0x27
+\item 
+constexpr static const char $\ast$ \mbox{\hyperlink{class_l_c_d___control_a81105f93e563293d499b86323524d5d2}{TAG}} = \char`\"{}LCD\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+use a lcd display easily. \begin{DoxyCopyright}{Copyright}
+Copyright (cpp) 2021
+\end{DoxyCopyright}
+Implementation of the \mbox{\hyperlink{class_l_c_d___control}{LCD\+\_\+\+Control}} class. It uses the intherited handle gpio functions. 
+
+Definition at line 57 of file LCD\+\_\+\+Control.\+h.
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_l_c_d___control_a6a9f96c2e14e1814de143e5be7ae59f8}\label{class_l_c_d___control_a6a9f96c2e14e1814de143e5be7ae59f8}} 
+\doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily anonymous enum\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RegisterSet@{RegisterSet}!LCD\_Control@{LCD\_Control}}\index{LCD\_Control@{LCD\_Control}!RegisterSet@{RegisterSet}}}\mbox{\Hypertarget{class_l_c_d___control_a6a9f96c2e14e1814de143e5be7ae59f8a16ce5868a9b46bf69bdaf17cd0f796f0}\label{class_l_c_d___control_a6a9f96c2e14e1814de143e5be7ae59f8a16ce5868a9b46bf69bdaf17cd0f796f0}} 
+Register\+Set&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WriteAction@{WriteAction}!LCD\_Control@{LCD\_Control}}\index{LCD\_Control@{LCD\_Control}!WriteAction@{WriteAction}}}\mbox{\Hypertarget{class_l_c_d___control_a6a9f96c2e14e1814de143e5be7ae59f8ae27a7fd936a056f5832c09091e94016f}\label{class_l_c_d___control_a6a9f96c2e14e1814de143e5be7ae59f8ae27a7fd936a056f5832c09091e94016f}} 
+Write\+Action&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 96 of file LCD\+\_\+\+Control.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{97         \{}
+\DoxyCodeLine{98             \mbox{\hyperlink{class_l_c_d___control_a6a9f96c2e14e1814de143e5be7ae59f8a16ce5868a9b46bf69bdaf17cd0f796f0}{RegisterSet}} = 0,}
+\DoxyCodeLine{99             \mbox{\hyperlink{class_l_c_d___control_a6a9f96c2e14e1814de143e5be7ae59f8ae27a7fd936a056f5832c09091e94016f}{WriteAction}}}
+\DoxyCodeLine{100         \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_l_c_d___control_ad8513ede8648957c2cb5fa709fd5abc5}\label{class_l_c_d___control_ad8513ede8648957c2cb5fa709fd5abc5}} 
+\index{LCD\_Control@{LCD\_Control}!LCD\_Control@{LCD\_Control}}
+\index{LCD\_Control@{LCD\_Control}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{LCD\_Control()}{LCD\_Control()}}
+{\footnotesize\ttfamily LCD\+\_\+\+Control\+::\+LCD\+\_\+\+Control (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_l_c_d___pinout__t}{LCD\+\_\+\+Pinout\+\_\+t}}}]{LCD\+\_\+\+Pinout\+\_\+\+Configuration }\end{DoxyParamCaption})}
+
+
+
+Construct a new lcd control\+::lcd control object. 
+
+Constructor takes in a \mbox{\hyperlink{struct_l_c_d___pinout__t}{LCD\+\_\+\+Pinout\+\_\+t}} constructor the user needs to initialize the used pins for the lcd in the structure
+
+
+\begin{DoxyParams}{Parameters}
+{\em LCD\+\_\+\+Pinout\+\_\+\+Configuration} & Structure that has all the used pins for the lcd in it. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 23 of file LCD\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24         : \mbox{\hyperlink{class_l_c_d___control_abc6bb1e3b9741e1781b20f636629be22}{LCD\_RS}}(LCD\_Pinout\_Configuration.\mbox{\hyperlink{struct_l_c_d___pinout__t_aff6d3e71cadcd58e59e95d86eb10bf36}{\_RS}}), \mbox{\hyperlink{class_l_c_d___control_a86cf8315554fca673c665ce86fc9ad01}{LCD\_E}}(LCD\_Pinout\_Configuration.\mbox{\hyperlink{struct_l_c_d___pinout__t_ad738c5eb73d5dfd629a6d17b2d945405}{\_E}}),}
+\DoxyCodeLine{25           \mbox{\hyperlink{class_l_c_d___control_a7be2b2cd5953dc59305e621a6cffc564}{LCD\_D0}}(LCD\_Pinout\_Configuration.\mbox{\hyperlink{struct_l_c_d___pinout__t_a85cf365cb93da7b1d7da72d3022e222d}{\_D0}}), \mbox{\hyperlink{class_l_c_d___control_a7faf9d49b74aa060c7632755c5c88357}{LCD\_D1}}(LCD\_Pinout\_Configuration.\mbox{\hyperlink{struct_l_c_d___pinout__t_a2d233161ea9e24a9a96b86ec844fed13}{\_D1}}), \mbox{\hyperlink{class_l_c_d___control_a4ebb1e63bcfda280ca1c66696faa52ef}{LCD\_D2}}(LCD\_Pinout\_Configuration.\mbox{\hyperlink{struct_l_c_d___pinout__t_a632aa04d844084e80aa912120a4b74ae}{\_D2}}), \mbox{\hyperlink{class_l_c_d___control_af4469e5322e573ce6442d61cd02dca2e}{LCD\_D3}}(LCD\_Pinout\_Configuration.\mbox{\hyperlink{struct_l_c_d___pinout__t_a97d154e1f93474253eec8cfcbbd725e8}{\_D3}}),}
+\DoxyCodeLine{26           \mbox{\hyperlink{class_l_c_d___control_a43327ec782e1256c2ed3779d143d68da}{LCD\_D4}}(LCD\_Pinout\_Configuration.\mbox{\hyperlink{struct_l_c_d___pinout__t_ad3bce842eb9ce7ab46dc87b1acbe19eb}{\_D4}}), \mbox{\hyperlink{class_l_c_d___control_a8b80169cb0f06c5955bb85bba75ba6dd}{LCD\_D5}}(LCD\_Pinout\_Configuration.\mbox{\hyperlink{struct_l_c_d___pinout__t_a2415cb45a06a99f9ca4b1699f088ccc5}{\_D5}}), \mbox{\hyperlink{class_l_c_d___control_a030bff30fe293a811250c4181b55139f}{LCD\_D6}}(LCD\_Pinout\_Configuration.\mbox{\hyperlink{struct_l_c_d___pinout__t_a600ce31877a73fae50a7bc044d45f186}{\_D6}}), \mbox{\hyperlink{class_l_c_d___control_aea33ffdab3c458c267dfea0aad7e07f4}{LCD\_D7}}(LCD\_Pinout\_Configuration.\mbox{\hyperlink{struct_l_c_d___pinout__t_a4726c773d6ab4788ec78c35692122ac0}{\_D7}}),}
+\DoxyCodeLine{27           \mbox{\hyperlink{class_l_c_d___control_abfd72ce48f9f50157cef088ed72add0c}{BitMode}}(LCD\_Pinout\_Configuration.\mbox{\hyperlink{struct_l_c_d___pinout__t_a8e149126b9c0d68b0c698a66a48ea6b7}{\_BitMode}})}
+\DoxyCodeLine{28     \{}
+\DoxyCodeLine{29         \mbox{\hyperlink{class_l_c_d___control_a347ee11213ad1e39542e242f896b5cfc}{SetBitMode}}();}
+\DoxyCodeLine{30         \mbox{\hyperlink{class_l_c_d___control_a253a642812e3f932d4ad36cf905ea65c}{LCD\_Initialize}}();}
+\DoxyCodeLine{31         ESP\_LOGI(\mbox{\hyperlink{class_l_c_d___control_a81105f93e563293d499b86323524d5d2}{TAG}},\textcolor{stringliteral}{"{}LCD has been initialized and ready for use!.\(\backslash\)n"{}});}
+\DoxyCodeLine{32     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_handle_g_p_i_o_a600325dad75b86eba5647b74c89e4687}\label{class_handle_g_p_i_o_a600325dad75b86eba5647b74c89e4687}} 
+\index{LCD\_Control@{LCD\_Control}!GetLevel@{GetLevel}}
+\index{GetLevel@{GetLevel}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{GetLevel()}{GetLevel()}}
+{\footnotesize\ttfamily int Handle\+GPIO\+::\+Get\+Level (\begin{DoxyParamCaption}\item[{const gpio\+\_\+num\+\_\+t}]{PIN }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Function to get the level of a gpio pin. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em PIN} & The slected pin. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int return 0 is low return 1 is high.
+\end{DoxyReturn}
+Function to get the level of a gpio pin. When it is not a input it will give 0 back. 
+
+Definition at line 103 of file Handle\+GPIO.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{104     \{}
+\DoxyCodeLine{105         \textcolor{keywordflow}{return} gpio\_get\_level(PIN);}
+\DoxyCodeLine{106     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_handle_g_p_i_o_aa3d4e813d350973f71271aa86ce33fcf}\label{class_handle_g_p_i_o_aa3d4e813d350973f71271aa86ce33fcf}} 
+\index{LCD\_Control@{LCD\_Control}!InitializeGPIO\_Input@{InitializeGPIO\_Input}}
+\index{InitializeGPIO\_Input@{InitializeGPIO\_Input}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{InitializeGPIO\_Input()}{InitializeGPIO\_Input()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t Handle\+GPIO\+::\+Initialize\+GPIO\+\_\+\+Input (\begin{DoxyParamCaption}\item[{const gpio\+\_\+num\+\_\+t}]{PIN }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Function to initialize gpio for input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em PIN} & The PIN that will be affected. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+esp\+\_\+err\+\_\+t value is ESP\+\_\+\+OK when there is no error and when there is a error it has the corresponding error as value.
+\end{DoxyReturn}
+Function to initialize gpio for input and gpio\+\_\+pulldown 
+
+Definition at line 52 of file Handle\+GPIO.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{53     \{}
+\DoxyCodeLine{54         esp\_err\_t Error = ESP\_OK; }
+\DoxyCodeLine{55         Error |= gpio\_set\_pull\_mode(PIN, GPIO\_PULLDOWN\_ONLY);}
+\DoxyCodeLine{56         Error |= gpio\_set\_direction(PIN, GPIO\_MODE\_INPUT);  }
+\DoxyCodeLine{57         ESP\_LOGD(\mbox{\hyperlink{class_handle_g_p_i_o_aa20b13c25dbc8fa81623af2e5fcef1e0}{TAG}},\textcolor{stringliteral}{"{}Initialize PIN\%d as input and pulldown enabled.\(\backslash\)n"{}},PIN);   }
+\DoxyCodeLine{58         \textcolor{keywordflow}{return} Error;}
+\DoxyCodeLine{59     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_handle_g_p_i_o_a163923e59037bafb792791a5bff6ada1}\label{class_handle_g_p_i_o_a163923e59037bafb792791a5bff6ada1}} 
+\index{LCD\_Control@{LCD\_Control}!InitializeGPIO\_Output@{InitializeGPIO\_Output}}
+\index{InitializeGPIO\_Output@{InitializeGPIO\_Output}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{InitializeGPIO\_Output()}{InitializeGPIO\_Output()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t Handle\+GPIO\+::\+Initialize\+GPIO\+\_\+\+Output (\begin{DoxyParamCaption}\item[{const gpio\+\_\+num\+\_\+t}]{PIN }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Initialize a gpio pin for default settings. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em PIN} & The pin that gets initialized type is gpio\+\_\+num\+\_\+t\\
+\hline
+\end{DoxyParams}
+function to initialize a gpio pin. Input is the gpio pint as type gpio\+\_\+num\+\_\+t. it sets the pulldown resistor as active and sets the GPIO mode as output.
+
+\begin{DoxyReturn}{Returns}
+esp\+\_\+err\+\_\+t value is ESP\+\_\+\+OK when there is no error and when there is a error it has the corresponding error as value. 
+\end{DoxyReturn}
+
+
+Definition at line 35 of file Handle\+GPIO.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{36     \{}
+\DoxyCodeLine{37         esp\_err\_t Error = ESP\_OK; }
+\DoxyCodeLine{38         Error |= gpio\_set\_pull\_mode(PIN, GPIO\_PULLDOWN\_ONLY);}
+\DoxyCodeLine{39         Error |= gpio\_set\_direction(PIN, GPIO\_MODE\_OUTPUT);  }
+\DoxyCodeLine{40         ESP\_LOGD(\mbox{\hyperlink{class_handle_g_p_i_o_aa20b13c25dbc8fa81623af2e5fcef1e0}{TAG}},\textcolor{stringliteral}{"{}Initialize PIN\%d as output and pulldown enabled.\(\backslash\)n"{}},PIN);   }
+\DoxyCodeLine{41         \textcolor{keywordflow}{return} Error;}
+\DoxyCodeLine{42     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_l_c_d___control_ae4cb4ff379a4014b717eb9e57613cc37}\label{class_l_c_d___control_ae4cb4ff379a4014b717eb9e57613cc37}} 
+\index{LCD\_Control@{LCD\_Control}!LCD\_CycleDataTrough@{LCD\_CycleDataTrough}}
+\index{LCD\_CycleDataTrough@{LCD\_CycleDataTrough}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{LCD\_CycleDataTrough()}{LCD\_CycleDataTrough()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t LCD\+\_\+\+Control\+::\+LCD\+\_\+\+Cycle\+Data\+Trough (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Function to cycle the data trough to the lcd. 
+
+Function to cycle the data trought to the lcd by making a falling edge on the enable pin.
+
+\begin{DoxyReturn}{Returns}
+esp\+\_\+err\+\_\+t value is ESP\+\_\+\+OK when there is no error and when there is a error it has the corresponding error as value. 
+\end{DoxyReturn}
+
+
+Definition at line 467 of file LCD\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{468     \{}
+\DoxyCodeLine{469         esp\_err\_t Error = ESP\_OK;}
+\DoxyCodeLine{470         ets\_delay\_us(300);}
+\DoxyCodeLine{471         Error |= \mbox{\hyperlink{class_handle_g_p_i_o_a9ac969c156f26e73afa2b0e51dfe1bc5}{SetLow}}(\mbox{\hyperlink{class_l_c_d___control_a86cf8315554fca673c665ce86fc9ad01}{LCD\_E}});}
+\DoxyCodeLine{472         ets\_delay\_us(1000);}
+\DoxyCodeLine{473         \textcolor{keywordflow}{return} Error; }
+\DoxyCodeLine{474     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_l_c_d___control_a8fd76c7b0ca20ab5807b12a7b8368b04}\label{class_l_c_d___control_a8fd76c7b0ca20ab5807b12a7b8368b04}} 
+\index{LCD\_Control@{LCD\_Control}!LCD\_Init\_Sequence\_4\_Bit@{LCD\_Init\_Sequence\_4\_Bit}}
+\index{LCD\_Init\_Sequence\_4\_Bit@{LCD\_Init\_Sequence\_4\_Bit}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{LCD\_Init\_Sequence\_4\_Bit()}{LCD\_Init\_Sequence\_4\_Bit()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t LCD\+\_\+\+Control\+::\+LCD\+\_\+\+Init\+\_\+\+Sequence\+\_\+4\+\_\+\+Bit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Starts the initialization sequence for 4 bit. 
+
+\begin{DoxyReturn}{Returns}
+esp\+\_\+err\+\_\+t value is ESP\+\_\+\+OK when there is no error and when there is a error it has the corresponding error as value.
+\end{DoxyReturn}
+Starts the special 4 bit initialization sequence. 
+
+Definition at line 159 of file LCD\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{160     \{   }
+\DoxyCodeLine{161         esp\_err\_t Error = ESP\_OK;}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163         ets\_delay\_us(100000);}
+\DoxyCodeLine{164         Error |= \mbox{\hyperlink{class_l_c_d___control_a05afd100a939aed6cd9d6bd647c500c5}{LCD\_InitializeForSendingData}}(0);}
+\DoxyCodeLine{165         Error |= \mbox{\hyperlink{class_l_c_d___control_a5412c006faa617a09cb842f45abf54cf}{LCD\_SetDataFourBitModeFirstHalf}}(\textcolor{stringliteral}{"{}0011"{}});}
+\DoxyCodeLine{166         Error |= \mbox{\hyperlink{class_l_c_d___control_ae4cb4ff379a4014b717eb9e57613cc37}{LCD\_CycleDataTrough}}();}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168         ets\_delay\_us(4500);}
+\DoxyCodeLine{169         Error |= \mbox{\hyperlink{class_l_c_d___control_a05afd100a939aed6cd9d6bd647c500c5}{LCD\_InitializeForSendingData}}(0);}
+\DoxyCodeLine{170         Error |= \mbox{\hyperlink{class_l_c_d___control_a5412c006faa617a09cb842f45abf54cf}{LCD\_SetDataFourBitModeFirstHalf}}(\textcolor{stringliteral}{"{}0011"{}});}
+\DoxyCodeLine{171         Error |= \mbox{\hyperlink{class_l_c_d___control_ae4cb4ff379a4014b717eb9e57613cc37}{LCD\_CycleDataTrough}}();}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{173         ets\_delay\_us(100);}
+\DoxyCodeLine{174         Error |= \mbox{\hyperlink{class_l_c_d___control_a05afd100a939aed6cd9d6bd647c500c5}{LCD\_InitializeForSendingData}}(0);}
+\DoxyCodeLine{175         Error |= \mbox{\hyperlink{class_l_c_d___control_a5412c006faa617a09cb842f45abf54cf}{LCD\_SetDataFourBitModeFirstHalf}}(\textcolor{stringliteral}{"{}0011"{}});}
+\DoxyCodeLine{176         Error |= \mbox{\hyperlink{class_l_c_d___control_ae4cb4ff379a4014b717eb9e57613cc37}{LCD\_CycleDataTrough}}();}
+\DoxyCodeLine{177         }
+\DoxyCodeLine{178         ets\_delay\_us(100);}
+\DoxyCodeLine{179         Error |= \mbox{\hyperlink{class_l_c_d___control_a05afd100a939aed6cd9d6bd647c500c5}{LCD\_InitializeForSendingData}}(0);}
+\DoxyCodeLine{180         Error |= \mbox{\hyperlink{class_l_c_d___control_a5412c006faa617a09cb842f45abf54cf}{LCD\_SetDataFourBitModeFirstHalf}}(\textcolor{stringliteral}{"{}0011"{}});}
+\DoxyCodeLine{181         Error |= \mbox{\hyperlink{class_l_c_d___control_ae4cb4ff379a4014b717eb9e57613cc37}{LCD\_CycleDataTrough}}();}
+\DoxyCodeLine{182         ets\_delay\_us(100);}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184         \mbox{\hyperlink{class_l_c_d___control_a0b51f52dac3b8f521842bf19d88ca0e1}{LCD\_Write\_Command}}(\mbox{\hyperlink{_l_c_d___commands_8h_a584e934cde9e215a2507fa0a3fd98c11}{LCD\_4\_BIT\_MODE}}); }
+\DoxyCodeLine{185 }
+\DoxyCodeLine{186         \textcolor{keywordflow}{return} Error; }
+\DoxyCodeLine{187 }
+\DoxyCodeLine{188     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_l_c_d___control_aff3023fba7c461541d17f15e868deefd}\label{class_l_c_d___control_aff3023fba7c461541d17f15e868deefd}} 
+\index{LCD\_Control@{LCD\_Control}!LCD\_Init\_Sequence\_8\_Bit@{LCD\_Init\_Sequence\_8\_Bit}}
+\index{LCD\_Init\_Sequence\_8\_Bit@{LCD\_Init\_Sequence\_8\_Bit}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{LCD\_Init\_Sequence\_8\_Bit()}{LCD\_Init\_Sequence\_8\_Bit()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t LCD\+\_\+\+Control\+::\+LCD\+\_\+\+Init\+\_\+\+Sequence\+\_\+8\+\_\+\+Bit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Function to start the initialization sequence for 8 bit. 
+
+\begin{DoxyReturn}{Returns}
+esp\+\_\+err\+\_\+t value is ESP\+\_\+\+OK when there is no error and when there is a error it has the corresponding error as value.
+\end{DoxyReturn}
+Function to start the special initialization sequence for 8 bit. 
+
+Definition at line 197 of file LCD\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{198     \{   }
+\DoxyCodeLine{199         esp\_err\_t Error = ESP\_OK;}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{201         ets\_delay\_us(100000);}
+\DoxyCodeLine{202         Error |= \mbox{\hyperlink{class_l_c_d___control_a05afd100a939aed6cd9d6bd647c500c5}{LCD\_InitializeForSendingData}}(0);}
+\DoxyCodeLine{203         Error |= \mbox{\hyperlink{class_l_c_d___control_adaf329ee6de546b40121e04c0af828ad}{LCD\_SetDataEightBitMode}}(\textcolor{stringliteral}{"{}0011000"{}});}
+\DoxyCodeLine{204         Error |= \mbox{\hyperlink{class_l_c_d___control_ae4cb4ff379a4014b717eb9e57613cc37}{LCD\_CycleDataTrough}}();}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{206         ets\_delay\_us(4500);}
+\DoxyCodeLine{207         Error |= \mbox{\hyperlink{class_l_c_d___control_a05afd100a939aed6cd9d6bd647c500c5}{LCD\_InitializeForSendingData}}(0);}
+\DoxyCodeLine{208         Error |= \mbox{\hyperlink{class_l_c_d___control_adaf329ee6de546b40121e04c0af828ad}{LCD\_SetDataEightBitMode}}(\textcolor{stringliteral}{"{}0011000"{}});}
+\DoxyCodeLine{209         Error |= \mbox{\hyperlink{class_l_c_d___control_ae4cb4ff379a4014b717eb9e57613cc37}{LCD\_CycleDataTrough}}();}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{211         ets\_delay\_us(100);}
+\DoxyCodeLine{212         Error |= \mbox{\hyperlink{class_l_c_d___control_a05afd100a939aed6cd9d6bd647c500c5}{LCD\_InitializeForSendingData}}(0);}
+\DoxyCodeLine{213         Error |= \mbox{\hyperlink{class_l_c_d___control_adaf329ee6de546b40121e04c0af828ad}{LCD\_SetDataEightBitMode}}(\textcolor{stringliteral}{"{}0011000"{}});}
+\DoxyCodeLine{214         Error |= \mbox{\hyperlink{class_l_c_d___control_ae4cb4ff379a4014b717eb9e57613cc37}{LCD\_CycleDataTrough}}();}
+\DoxyCodeLine{215         }
+\DoxyCodeLine{216         ets\_delay\_us(100);}
+\DoxyCodeLine{217         Error |= \mbox{\hyperlink{class_l_c_d___control_a05afd100a939aed6cd9d6bd647c500c5}{LCD\_InitializeForSendingData}}(0);}
+\DoxyCodeLine{218         Error |= \mbox{\hyperlink{class_l_c_d___control_adaf329ee6de546b40121e04c0af828ad}{LCD\_SetDataEightBitMode}}(\textcolor{stringliteral}{"{}0011000"{}});}
+\DoxyCodeLine{219         Error |= \mbox{\hyperlink{class_l_c_d___control_ae4cb4ff379a4014b717eb9e57613cc37}{LCD\_CycleDataTrough}}();}
+\DoxyCodeLine{220         ets\_delay\_us(100);}
+\DoxyCodeLine{221 }
+\DoxyCodeLine{222         \mbox{\hyperlink{class_l_c_d___control_a0b51f52dac3b8f521842bf19d88ca0e1}{LCD\_Write\_Command}}(\mbox{\hyperlink{_l_c_d___commands_8h_ae4e0f073de0b53752d59e4f7470ab04d}{LCD\_8\_BIT\_MODE}});}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224         \textcolor{keywordflow}{return} Error; }
+\DoxyCodeLine{225     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_l_c_d___control_a253a642812e3f932d4ad36cf905ea65c}\label{class_l_c_d___control_a253a642812e3f932d4ad36cf905ea65c}} 
+\index{LCD\_Control@{LCD\_Control}!LCD\_Initialize@{LCD\_Initialize}}
+\index{LCD\_Initialize@{LCD\_Initialize}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{LCD\_Initialize()}{LCD\_Initialize()}}
+{\footnotesize\ttfamily void LCD\+\_\+\+Control\+::\+LCD\+\_\+\+Initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Function that swaps the initialize four bit and eight bit mode. 
+
+Function that uses the std\+::function to switch between eight and four bit mode. 
+
+Definition at line 95 of file LCD\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{96     \{}
+\DoxyCodeLine{97         \mbox{\hyperlink{class_l_c_d___control_aca89773fce04a35e44f64f7513cafa9e}{SwapInitialize}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{98     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_l_c_d___control_adcf523092164a963a1130bf25dce7731}\label{class_l_c_d___control_adcf523092164a963a1130bf25dce7731}} 
+\index{LCD\_Control@{LCD\_Control}!LCD\_InitializeEightBitMode@{LCD\_InitializeEightBitMode}}
+\index{LCD\_InitializeEightBitMode@{LCD\_InitializeEightBitMode}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{LCD\_InitializeEightBitMode()}{LCD\_InitializeEightBitMode()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t LCD\+\_\+\+Control\+::\+LCD\+\_\+\+Initialize\+Eight\+Bit\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Initialize function for eight bit mode. 
+
+function that gets called when the lcd is in eight bit mode.
+
+\begin{DoxyReturn}{Returns}
+esp\+\_\+err\+\_\+t value is ESP\+\_\+\+OK when there is no error and when there is a error it has the corresponding error as value. 
+\end{DoxyReturn}
+
+
+Definition at line 130 of file LCD\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{131     \{}
+\DoxyCodeLine{132         esp\_err\_t Error = ESP\_OK; }
+\DoxyCodeLine{133         }
+\DoxyCodeLine{134         Error |= \mbox{\hyperlink{class_handle_g_p_i_o_a163923e59037bafb792791a5bff6ada1}{InitializeGPIO\_Output}}(\mbox{\hyperlink{class_l_c_d___control_a86cf8315554fca673c665ce86fc9ad01}{LCD\_E}});}
+\DoxyCodeLine{135         Error |= \mbox{\hyperlink{class_handle_g_p_i_o_a9ac969c156f26e73afa2b0e51dfe1bc5}{SetLow}}(\mbox{\hyperlink{class_l_c_d___control_a86cf8315554fca673c665ce86fc9ad01}{LCD\_E}});}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137         Error |= \mbox{\hyperlink{class_handle_g_p_i_o_a163923e59037bafb792791a5bff6ada1}{InitializeGPIO\_Output}}(\mbox{\hyperlink{class_l_c_d___control_abc6bb1e3b9741e1781b20f636629be22}{LCD\_RS}});}
+\DoxyCodeLine{138         Error |= \mbox{\hyperlink{class_handle_g_p_i_o_a163923e59037bafb792791a5bff6ada1}{InitializeGPIO\_Output}}(\mbox{\hyperlink{class_l_c_d___control_aea33ffdab3c458c267dfea0aad7e07f4}{LCD\_D7}});}
+\DoxyCodeLine{139         Error |= \mbox{\hyperlink{class_handle_g_p_i_o_a163923e59037bafb792791a5bff6ada1}{InitializeGPIO\_Output}}(\mbox{\hyperlink{class_l_c_d___control_a030bff30fe293a811250c4181b55139f}{LCD\_D6}});}
+\DoxyCodeLine{140         Error |= \mbox{\hyperlink{class_handle_g_p_i_o_a163923e59037bafb792791a5bff6ada1}{InitializeGPIO\_Output}}(\mbox{\hyperlink{class_l_c_d___control_a8b80169cb0f06c5955bb85bba75ba6dd}{LCD\_D5}});}
+\DoxyCodeLine{141         Error |= \mbox{\hyperlink{class_handle_g_p_i_o_a163923e59037bafb792791a5bff6ada1}{InitializeGPIO\_Output}}(\mbox{\hyperlink{class_l_c_d___control_a43327ec782e1256c2ed3779d143d68da}{LCD\_D4}});}
+\DoxyCodeLine{142         Error |= \mbox{\hyperlink{class_handle_g_p_i_o_a163923e59037bafb792791a5bff6ada1}{InitializeGPIO\_Output}}(\mbox{\hyperlink{class_l_c_d___control_af4469e5322e573ce6442d61cd02dca2e}{LCD\_D3}});}
+\DoxyCodeLine{143         Error |= \mbox{\hyperlink{class_handle_g_p_i_o_a163923e59037bafb792791a5bff6ada1}{InitializeGPIO\_Output}}(\mbox{\hyperlink{class_l_c_d___control_a4ebb1e63bcfda280ca1c66696faa52ef}{LCD\_D2}});}
+\DoxyCodeLine{144         Error |= \mbox{\hyperlink{class_handle_g_p_i_o_a163923e59037bafb792791a5bff6ada1}{InitializeGPIO\_Output}}(\mbox{\hyperlink{class_l_c_d___control_a7faf9d49b74aa060c7632755c5c88357}{LCD\_D1}});}
+\DoxyCodeLine{145         Error |= \mbox{\hyperlink{class_handle_g_p_i_o_a163923e59037bafb792791a5bff6ada1}{InitializeGPIO\_Output}}(\mbox{\hyperlink{class_l_c_d___control_a7be2b2cd5953dc59305e621a6cffc564}{LCD\_D0}});}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147         Error |= \mbox{\hyperlink{class_l_c_d___control_aff3023fba7c461541d17f15e868deefd}{LCD\_Init\_Sequence\_8\_Bit}}();}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149         \textcolor{keywordflow}{return} Error; }
+\DoxyCodeLine{150     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_l_c_d___control_a05afd100a939aed6cd9d6bd647c500c5}\label{class_l_c_d___control_a05afd100a939aed6cd9d6bd647c500c5}} 
+\index{LCD\_Control@{LCD\_Control}!LCD\_InitializeForSendingData@{LCD\_InitializeForSendingData}}
+\index{LCD\_InitializeForSendingData@{LCD\_InitializeForSendingData}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{LCD\_InitializeForSendingData()}{LCD\_InitializeForSendingData()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t LCD\+\_\+\+Control\+::\+LCD\+\_\+\+Initialize\+For\+Sending\+Data (\begin{DoxyParamCaption}\item[{const int}]{RS }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Function to initialize the lcd for sending sending data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em RS} & The mode the write action will be in (write to register or write to the lcd)\\
+\hline
+\end{DoxyParams}
+Function that makes the lcd ready for sending data. By setting enable high and setting the RS pin according to input parameter.
+
+\begin{DoxyReturn}{Returns}
+esp\+\_\+err\+\_\+t value is ESP\+\_\+\+OK when there is no error and when there is a error it has the corresponding error as value. 
+\end{DoxyReturn}
+
+
+Definition at line 449 of file LCD\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{450     \{}
+\DoxyCodeLine{451         esp\_err\_t Error = ESP\_OK;}
+\DoxyCodeLine{452         ets\_delay\_us(1000);}
+\DoxyCodeLine{453         Error |= gpio\_set\_level(\mbox{\hyperlink{class_l_c_d___control_abc6bb1e3b9741e1781b20f636629be22}{LCD\_RS}}, RS);}
+\DoxyCodeLine{454         ets\_delay\_us(270);}
+\DoxyCodeLine{455         Error |= \mbox{\hyperlink{class_handle_g_p_i_o_a4c94cfb749b909ddde7f2098c3ab03e6}{SetHigh}}(\mbox{\hyperlink{class_l_c_d___control_a86cf8315554fca673c665ce86fc9ad01}{LCD\_E}});}
+\DoxyCodeLine{456         ets\_delay\_us(240);}
+\DoxyCodeLine{457         \textcolor{keywordflow}{return} Error; }
+\DoxyCodeLine{458     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_l_c_d___control_a1c9461bd95ef892e8f22e8e3aca2335b}\label{class_l_c_d___control_a1c9461bd95ef892e8f22e8e3aca2335b}} 
+\index{LCD\_Control@{LCD\_Control}!LCD\_InitializeFourBitMode@{LCD\_InitializeFourBitMode}}
+\index{LCD\_InitializeFourBitMode@{LCD\_InitializeFourBitMode}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{LCD\_InitializeFourBitMode()}{LCD\_InitializeFourBitMode()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t LCD\+\_\+\+Control\+::\+LCD\+\_\+\+Initialize\+Four\+Bit\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Initialize function for four bit mode. 
+
+function that gets called when the lcd is in four bit mode
+
+\begin{DoxyReturn}{Returns}
+esp\+\_\+err\+\_\+t value is ESP\+\_\+\+OK when there is no error and when there is a error it has the corresponding error as value. 
+\end{DoxyReturn}
+
+
+Definition at line 107 of file LCD\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{108     \{}
+\DoxyCodeLine{109         esp\_err\_t Error = ESP\_OK; }
+\DoxyCodeLine{110        }
+\DoxyCodeLine{111         Error |= \mbox{\hyperlink{class_handle_g_p_i_o_a163923e59037bafb792791a5bff6ada1}{InitializeGPIO\_Output}}(\mbox{\hyperlink{class_l_c_d___control_a86cf8315554fca673c665ce86fc9ad01}{LCD\_E}});}
+\DoxyCodeLine{112         Error |= \mbox{\hyperlink{class_handle_g_p_i_o_a9ac969c156f26e73afa2b0e51dfe1bc5}{SetLow}}(\mbox{\hyperlink{class_l_c_d___control_a86cf8315554fca673c665ce86fc9ad01}{LCD\_E}});}
+\DoxyCodeLine{113         Error |= \mbox{\hyperlink{class_handle_g_p_i_o_a163923e59037bafb792791a5bff6ada1}{InitializeGPIO\_Output}}(\mbox{\hyperlink{class_l_c_d___control_abc6bb1e3b9741e1781b20f636629be22}{LCD\_RS}});}
+\DoxyCodeLine{114         Error |= \mbox{\hyperlink{class_handle_g_p_i_o_a163923e59037bafb792791a5bff6ada1}{InitializeGPIO\_Output}}(\mbox{\hyperlink{class_l_c_d___control_aea33ffdab3c458c267dfea0aad7e07f4}{LCD\_D7}});}
+\DoxyCodeLine{115         Error |= \mbox{\hyperlink{class_handle_g_p_i_o_a163923e59037bafb792791a5bff6ada1}{InitializeGPIO\_Output}}(\mbox{\hyperlink{class_l_c_d___control_a030bff30fe293a811250c4181b55139f}{LCD\_D6}});}
+\DoxyCodeLine{116         Error |= \mbox{\hyperlink{class_handle_g_p_i_o_a163923e59037bafb792791a5bff6ada1}{InitializeGPIO\_Output}}(\mbox{\hyperlink{class_l_c_d___control_a8b80169cb0f06c5955bb85bba75ba6dd}{LCD\_D5}});}
+\DoxyCodeLine{117         Error |= \mbox{\hyperlink{class_handle_g_p_i_o_a163923e59037bafb792791a5bff6ada1}{InitializeGPIO\_Output}}(\mbox{\hyperlink{class_l_c_d___control_a43327ec782e1256c2ed3779d143d68da}{LCD\_D4}});}
+\DoxyCodeLine{118         Error |= \mbox{\hyperlink{class_l_c_d___control_a8fd76c7b0ca20ab5807b12a7b8368b04}{LCD\_Init\_Sequence\_4\_Bit}}();}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120         \textcolor{keywordflow}{return} Error; }
+\DoxyCodeLine{121     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_l_c_d___control_a482f4abf5d5296c863138d46ec23f667}\label{class_l_c_d___control_a482f4abf5d5296c863138d46ec23f667}} 
+\index{LCD\_Control@{LCD\_Control}!LCD\_InitializeI2CMode@{LCD\_InitializeI2CMode}}
+\index{LCD\_InitializeI2CMode@{LCD\_InitializeI2CMode}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{LCD\_InitializeI2CMode()}{LCD\_InitializeI2CMode()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t LCD\+\_\+\+Control\+::\+LCD\+\_\+\+Initialize\+I2\+CMode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Function to initialize the LCD for use in I2C mode. 
+
+Function that runs the special initialize sequence of the lcd so it can be used in 4 bit mode with I2C module. 
+
+Definition at line 296 of file LCD\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{297     \{}
+\DoxyCodeLine{298         \textcolor{comment}{//                    0b7654xEWS}}
+\DoxyCodeLine{299         \textcolor{comment}{//uint8\_t WriteData = 0b00000000;}}
+\DoxyCodeLine{300         esp\_err\_t Error = ESP\_OK;}
+\DoxyCodeLine{301 }
+\DoxyCodeLine{302         ets\_delay\_us(100000);}
+\DoxyCodeLine{303         uint8\_t EnableHigh = 0b00111100;}
+\DoxyCodeLine{304         Error |= \mbox{\hyperlink{class_l_c_d___control_a2d559a71c5142f2565d9dccaf1ccd676}{LCD\_Private\_I2C\_Send}}(EnableHigh);}
+\DoxyCodeLine{305 }
+\DoxyCodeLine{306         ets\_delay\_us(300);}
+\DoxyCodeLine{307         uint8\_t enablelowpulse = 0b00111000;}
+\DoxyCodeLine{308         Error |= \mbox{\hyperlink{class_l_c_d___control_a2d559a71c5142f2565d9dccaf1ccd676}{LCD\_Private\_I2C\_Send}}(enablelowpulse);}
+\DoxyCodeLine{309 }
+\DoxyCodeLine{310         ets\_delay\_us(4500);}
+\DoxyCodeLine{311         EnableHigh |= 0b00111100;}
+\DoxyCodeLine{312         Error |= \mbox{\hyperlink{class_l_c_d___control_a2d559a71c5142f2565d9dccaf1ccd676}{LCD\_Private\_I2C\_Send}}(EnableHigh);}
+\DoxyCodeLine{313 }
+\DoxyCodeLine{314         ets\_delay\_us(300);}
+\DoxyCodeLine{315         enablelowpulse = 0b00111000;}
+\DoxyCodeLine{316         Error |= \mbox{\hyperlink{class_l_c_d___control_a2d559a71c5142f2565d9dccaf1ccd676}{LCD\_Private\_I2C\_Send}}(enablelowpulse);}
+\DoxyCodeLine{317 }
+\DoxyCodeLine{318         ets\_delay\_us(200);}
+\DoxyCodeLine{319         EnableHigh |= 0b00111100;}
+\DoxyCodeLine{320         Error |= \mbox{\hyperlink{class_l_c_d___control_a2d559a71c5142f2565d9dccaf1ccd676}{LCD\_Private\_I2C\_Send}}(EnableHigh);}
+\DoxyCodeLine{321 }
+\DoxyCodeLine{322         ets\_delay\_us(300);}
+\DoxyCodeLine{323         enablelowpulse = 0b00111000;}
+\DoxyCodeLine{324         Error |= \mbox{\hyperlink{class_l_c_d___control_a2d559a71c5142f2565d9dccaf1ccd676}{LCD\_Private\_I2C\_Send}}(enablelowpulse);}
+\DoxyCodeLine{325 }
+\DoxyCodeLine{326         ets\_delay\_us(200);}
+\DoxyCodeLine{327         EnableHigh = 0b00101100;}
+\DoxyCodeLine{328         Error |= \mbox{\hyperlink{class_l_c_d___control_a2d559a71c5142f2565d9dccaf1ccd676}{LCD\_Private\_I2C\_Send}}(EnableHigh);}
+\DoxyCodeLine{329 }
+\DoxyCodeLine{330         ets\_delay\_us(300);}
+\DoxyCodeLine{331         enablelowpulse = 0b00101000;}
+\DoxyCodeLine{332         Error |= \mbox{\hyperlink{class_l_c_d___control_a2d559a71c5142f2565d9dccaf1ccd676}{LCD\_Private\_I2C\_Send}}(enablelowpulse);}
+\DoxyCodeLine{333 }
+\DoxyCodeLine{334         ets\_delay\_us(200);}
+\DoxyCodeLine{335         \mbox{\hyperlink{class_l_c_d___control_a0b51f52dac3b8f521842bf19d88ca0e1}{LCD\_Write\_Command}}(\mbox{\hyperlink{_l_c_d___commands_8h_a584e934cde9e215a2507fa0a3fd98c11}{LCD\_4\_BIT\_MODE}});}
+\DoxyCodeLine{336 }
+\DoxyCodeLine{337         \textcolor{keywordflow}{return} Error; }
+\DoxyCodeLine{338     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_l_c_d___control_a2d559a71c5142f2565d9dccaf1ccd676}\label{class_l_c_d___control_a2d559a71c5142f2565d9dccaf1ccd676}} 
+\index{LCD\_Control@{LCD\_Control}!LCD\_Private\_I2C\_Send@{LCD\_Private\_I2C\_Send}}
+\index{LCD\_Private\_I2C\_Send@{LCD\_Private\_I2C\_Send}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{LCD\_Private\_I2C\_Send()}{LCD\_Private\_I2C\_Send()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t LCD\+\_\+\+Control\+::\+LCD\+\_\+\+Private\+\_\+\+I2\+C\+\_\+\+Send (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{Data\+To\+Send }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Function to send lcd i2c commands to the LCD. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Data\+To\+Send} & The data that will be send to the LCD.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+esp\+\_\+err\+\_\+t value is ESP\+\_\+\+OK when there is no error and when there is a error it has the corresponding error as value.
+\end{DoxyReturn}
+Private function to send lcd commands to the lcd. 
+
+Definition at line 278 of file LCD\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{279     \{}
+\DoxyCodeLine{280         esp\_err\_t Error = ESP\_OK; }
+\DoxyCodeLine{281         i2c\_cmd\_handle\_t link\_cmd = i2c\_cmd\_link\_create();}
+\DoxyCodeLine{282         Error |= i2c\_master\_start(link\_cmd);}
+\DoxyCodeLine{283         Error |= i2c\_master\_write\_byte(link\_cmd, (\mbox{\hyperlink{class_l_c_d___control_a3b3d035c8d71d4ab87d2fc8995d2693b}{LCD\_Adress}} << 1) | I2C\_MASTER\_WRITE, \textcolor{keyword}{true});}
+\DoxyCodeLine{284         Error |= i2c\_master\_write(link\_cmd, \&DataToSend, \textcolor{keyword}{sizeof}(DataToSend), \textcolor{keyword}{true});}
+\DoxyCodeLine{285         Error |= i2c\_master\_stop(link\_cmd);}
+\DoxyCodeLine{286         Error |= i2c\_master\_cmd\_begin(\mbox{\hyperlink{class_l_c_d___control_ad49584191f5622f8ba75c6bda4a128ae}{I2C\_Port}}, link\_cmd, 1000 / portTICK\_RATE\_MS);}
+\DoxyCodeLine{287                  i2c\_cmd\_link\_delete(link\_cmd);}
+\DoxyCodeLine{288         \textcolor{keywordflow}{return} Error;}
+\DoxyCodeLine{289     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_l_c_d___control_adaf329ee6de546b40121e04c0af828ad}\label{class_l_c_d___control_adaf329ee6de546b40121e04c0af828ad}} 
+\index{LCD\_Control@{LCD\_Control}!LCD\_SetDataEightBitMode@{LCD\_SetDataEightBitMode}}
+\index{LCD\_SetDataEightBitMode@{LCD\_SetDataEightBitMode}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{LCD\_SetDataEightBitMode()}{LCD\_SetDataEightBitMode()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t LCD\+\_\+\+Control\+::\+LCD\+\_\+\+Set\+Data\+Eight\+Bit\+Mode (\begin{DoxyParamCaption}\item[{const std\+::string}]{Binary\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Function to set the lcd data ready on the lcd pins for eight bit mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Binary\+String} & Data that gets put on the lcd pins.\\
+\hline
+\end{DoxyParams}
+Function that sets the lcd data ready on the pins by using gpio\+\_\+set\+\_\+level(). ~\newline
+
+
+\begin{DoxyReturn}{Returns}
+esp\+\_\+err\+\_\+t value is ESP\+\_\+\+OK when there is no error and when there is a error it has the corresponding error as value. 
+\end{DoxyReturn}
+
+
+Definition at line 485 of file LCD\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{486     \{}
+\DoxyCodeLine{487         esp\_err\_t Error = ESP\_OK; }
+\DoxyCodeLine{488         Error |= gpio\_set\_level(\mbox{\hyperlink{class_l_c_d___control_a7be2b2cd5953dc59305e621a6cffc564}{LCD\_D0}}, BinaryString[7] -\/ \textcolor{charliteral}{'0'});}
+\DoxyCodeLine{489         Error |= gpio\_set\_level(\mbox{\hyperlink{class_l_c_d___control_a7faf9d49b74aa060c7632755c5c88357}{LCD\_D1}}, BinaryString[6] -\/ \textcolor{charliteral}{'0'});}
+\DoxyCodeLine{490         Error |= gpio\_set\_level(\mbox{\hyperlink{class_l_c_d___control_a4ebb1e63bcfda280ca1c66696faa52ef}{LCD\_D2}}, BinaryString[5] -\/ \textcolor{charliteral}{'0'});}
+\DoxyCodeLine{491         Error |= gpio\_set\_level(\mbox{\hyperlink{class_l_c_d___control_af4469e5322e573ce6442d61cd02dca2e}{LCD\_D3}}, BinaryString[4] -\/ \textcolor{charliteral}{'0'});}
+\DoxyCodeLine{492         Error |= gpio\_set\_level(\mbox{\hyperlink{class_l_c_d___control_a43327ec782e1256c2ed3779d143d68da}{LCD\_D4}}, BinaryString[3] -\/ \textcolor{charliteral}{'0'});}
+\DoxyCodeLine{493         Error |= gpio\_set\_level(\mbox{\hyperlink{class_l_c_d___control_a8b80169cb0f06c5955bb85bba75ba6dd}{LCD\_D5}}, BinaryString[2] -\/ \textcolor{charliteral}{'0'});}
+\DoxyCodeLine{494         Error |= gpio\_set\_level(\mbox{\hyperlink{class_l_c_d___control_a030bff30fe293a811250c4181b55139f}{LCD\_D6}}, BinaryString[1] -\/ \textcolor{charliteral}{'0'});}
+\DoxyCodeLine{495         Error |= gpio\_set\_level(\mbox{\hyperlink{class_l_c_d___control_aea33ffdab3c458c267dfea0aad7e07f4}{LCD\_D7}}, BinaryString[0] -\/ \textcolor{charliteral}{'0'});}
+\DoxyCodeLine{496         \textcolor{keywordflow}{return} Error; }
+\DoxyCodeLine{497     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_l_c_d___control_a5412c006faa617a09cb842f45abf54cf}\label{class_l_c_d___control_a5412c006faa617a09cb842f45abf54cf}} 
+\index{LCD\_Control@{LCD\_Control}!LCD\_SetDataFourBitModeFirstHalf@{LCD\_SetDataFourBitModeFirstHalf}}
+\index{LCD\_SetDataFourBitModeFirstHalf@{LCD\_SetDataFourBitModeFirstHalf}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{LCD\_SetDataFourBitModeFirstHalf()}{LCD\_SetDataFourBitModeFirstHalf()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t LCD\+\_\+\+Control\+::\+LCD\+\_\+\+Set\+Data\+Four\+Bit\+Mode\+First\+Half (\begin{DoxyParamCaption}\item[{const std\+::string}]{Binary\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Function to set the first half of the binary string on the lcd pins in four bit mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Binary\+String} & The data in a bit string that gets set on the lcd.\\
+\hline
+\end{DoxyParams}
+Function to set the first half of the binary string on the lcd pins in four bit mode.
+
+\begin{DoxyReturn}{Returns}
+esp\+\_\+err\+\_\+t value is ESP\+\_\+\+OK when there is no error and when there is a error it has the corresponding error as value. 
+\end{DoxyReturn}
+
+
+Definition at line 508 of file LCD\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{509     \{}
+\DoxyCodeLine{510         esp\_err\_t Error = ESP\_OK; }
+\DoxyCodeLine{511         Error |= gpio\_set\_level(\mbox{\hyperlink{class_l_c_d___control_a43327ec782e1256c2ed3779d143d68da}{LCD\_D4}}, BinaryString[3] -\/ \textcolor{charliteral}{'0'});}
+\DoxyCodeLine{512         Error |= gpio\_set\_level(\mbox{\hyperlink{class_l_c_d___control_a8b80169cb0f06c5955bb85bba75ba6dd}{LCD\_D5}}, BinaryString[2] -\/ \textcolor{charliteral}{'0'});}
+\DoxyCodeLine{513         Error |= gpio\_set\_level(\mbox{\hyperlink{class_l_c_d___control_a030bff30fe293a811250c4181b55139f}{LCD\_D6}}, BinaryString[1] -\/ \textcolor{charliteral}{'0'});}
+\DoxyCodeLine{514         Error |= gpio\_set\_level(\mbox{\hyperlink{class_l_c_d___control_aea33ffdab3c458c267dfea0aad7e07f4}{LCD\_D7}}, BinaryString[0] -\/ \textcolor{charliteral}{'0'});}
+\DoxyCodeLine{515         \textcolor{keywordflow}{return} Error; }
+\DoxyCodeLine{516     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_l_c_d___control_a75545eab68dd95c13ec4b0f9af40afd2}\label{class_l_c_d___control_a75545eab68dd95c13ec4b0f9af40afd2}} 
+\index{LCD\_Control@{LCD\_Control}!LCD\_SetDataFourBitModeSecondHalf@{LCD\_SetDataFourBitModeSecondHalf}}
+\index{LCD\_SetDataFourBitModeSecondHalf@{LCD\_SetDataFourBitModeSecondHalf}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{LCD\_SetDataFourBitModeSecondHalf()}{LCD\_SetDataFourBitModeSecondHalf()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t LCD\+\_\+\+Control\+::\+LCD\+\_\+\+Set\+Data\+Four\+Bit\+Mode\+Second\+Half (\begin{DoxyParamCaption}\item[{const std\+::string}]{Binary\+String }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Function to set the second half to the lcd pins in four bit mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Binary\+String} & The data in a bit string that gets set on the lcd.\\
+\hline
+\end{DoxyParams}
+Function to set the second half to the lcd pins in four bit mode.
+
+\begin{DoxyReturn}{Returns}
+esp\+\_\+err\+\_\+t value is ESP\+\_\+\+OK when there is no error and when there is a error it has the corresponding error as value. 
+\end{DoxyReturn}
+
+
+Definition at line 527 of file LCD\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{528     \{}
+\DoxyCodeLine{529         esp\_err\_t Error = ESP\_OK;}
+\DoxyCodeLine{530         Error |= \mbox{\hyperlink{class_handle_g_p_i_o_a4c94cfb749b909ddde7f2098c3ab03e6}{SetHigh}}(\mbox{\hyperlink{class_l_c_d___control_a86cf8315554fca673c665ce86fc9ad01}{LCD\_E}});}
+\DoxyCodeLine{531         ets\_delay\_us(240);}
+\DoxyCodeLine{532         Error |= gpio\_set\_level(\mbox{\hyperlink{class_l_c_d___control_a43327ec782e1256c2ed3779d143d68da}{LCD\_D4}}, BinaryString[7] -\/ \textcolor{charliteral}{'0'});}
+\DoxyCodeLine{533         Error |= gpio\_set\_level(\mbox{\hyperlink{class_l_c_d___control_a8b80169cb0f06c5955bb85bba75ba6dd}{LCD\_D5}}, BinaryString[6] -\/ \textcolor{charliteral}{'0'});}
+\DoxyCodeLine{534         Error |= gpio\_set\_level(\mbox{\hyperlink{class_l_c_d___control_a030bff30fe293a811250c4181b55139f}{LCD\_D6}}, BinaryString[5] -\/ \textcolor{charliteral}{'0'});}
+\DoxyCodeLine{535         Error |= gpio\_set\_level(\mbox{\hyperlink{class_l_c_d___control_aea33ffdab3c458c267dfea0aad7e07f4}{LCD\_D7}}, BinaryString[4] -\/ \textcolor{charliteral}{'0'});}
+\DoxyCodeLine{536         \textcolor{keywordflow}{return} Error; }
+\DoxyCodeLine{537     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_l_c_d___control_a2715a83ccf38fc9a520390f43097ded6}\label{class_l_c_d___control_a2715a83ccf38fc9a520390f43097ded6}} 
+\index{LCD\_Control@{LCD\_Control}!LCD\_Write@{LCD\_Write}}
+\index{LCD\_Write@{LCD\_Write}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{LCD\_Write()}{LCD\_Write()}}
+{\footnotesize\ttfamily void LCD\+\_\+\+Control\+::\+LCD\+\_\+\+Write (\begin{DoxyParamCaption}\item[{const std\+::string}]{Binary\+String,  }\item[{const int}]{RS }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Function to write to the lcd. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Binary\+String} & The data in a binary string that gets put on the lcd. \\
+\hline
+{\em RS} & Choice between writing to the lcd and writing to the registers.\\
+\hline
+\end{DoxyParams}
+Function that swaps between write eight bits and write four bits. 
+
+Definition at line 236 of file LCD\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{237     \{}
+\DoxyCodeLine{238         \mbox{\hyperlink{class_l_c_d___control_a11200412eebc1cd3e1caf2e8df213a49}{SwapWRITE}}(\textcolor{keyword}{this}, BinaryString, RS);}
+\DoxyCodeLine{239     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_l_c_d___control_a53c2c4979924e3edbc3e078c11038c0d}\label{class_l_c_d___control_a53c2c4979924e3edbc3e078c11038c0d}} 
+\index{LCD\_Control@{LCD\_Control}!LCD\_Write\_Char@{LCD\_Write\_Char}}
+\index{LCD\_Write\_Char@{LCD\_Write\_Char}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{LCD\_Write\_Char()}{LCD\_Write\_Char()}}
+{\footnotesize\ttfamily void LCD\+\_\+\+Control\+::\+LCD\+\_\+\+Write\+\_\+\+Char (\begin{DoxyParamCaption}\item[{char}]{data }\end{DoxyParamCaption})}
+
+
+
+function to write a char to the lcd. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The char that will be written to the lcd\\
+\hline
+\end{DoxyParams}
+LCD\+\_\+\+Write\+\_\+\+Char function cast the input data to a std string as binary. It than uses the LCD\+\_\+\+Write function to display the character. 
+
+Definition at line 41 of file LCD\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{42     \{}
+\DoxyCodeLine{43         std::string binary = std::bitset<8>(data).to\_string();}
+\DoxyCodeLine{44         \mbox{\hyperlink{class_l_c_d___control_a2715a83ccf38fc9a520390f43097ded6}{LCD\_Write}}(binary, \mbox{\hyperlink{class_l_c_d___control_a6a9f96c2e14e1814de143e5be7ae59f8ae27a7fd936a056f5832c09091e94016f}{WriteAction}});}
+\DoxyCodeLine{45     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_l_c_d___control_a0b51f52dac3b8f521842bf19d88ca0e1}\label{class_l_c_d___control_a0b51f52dac3b8f521842bf19d88ca0e1}} 
+\index{LCD\_Control@{LCD\_Control}!LCD\_Write\_Command@{LCD\_Write\_Command}}
+\index{LCD\_Write\_Command@{LCD\_Write\_Command}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{LCD\_Write\_Command()}{LCD\_Write\_Command()}}
+{\footnotesize\ttfamily void LCD\+\_\+\+Control\+::\+LCD\+\_\+\+Write\+\_\+\+Command (\begin{DoxyParamCaption}\item[{const int}]{Command }\end{DoxyParamCaption})}
+
+
+
+function to write the lcd commands to the lcd 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Command} & The command that will be written\\
+\hline
+\end{DoxyParams}
+The input is a int that gets casted to a std binary string. It then gets written to the lcd by the lcd\+\_\+\+Write function 
+
+Definition at line 54 of file LCD\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{55     \{}
+\DoxyCodeLine{56         std::string ToBin = std::bitset<8>(Command).to\_string();}
+\DoxyCodeLine{57         \mbox{\hyperlink{class_l_c_d___control_a2715a83ccf38fc9a520390f43097ded6}{LCD\_Write}}(ToBin, \mbox{\hyperlink{class_l_c_d___control_a6a9f96c2e14e1814de143e5be7ae59f8a16ce5868a9b46bf69bdaf17cd0f796f0}{RegisterSet}});}
+\DoxyCodeLine{58     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_l_c_d___control_ab7296c34110a689eb14085c16cc39eff}\label{class_l_c_d___control_ab7296c34110a689eb14085c16cc39eff}} 
+\index{LCD\_Control@{LCD\_Control}!LCD\_Write\_Float@{LCD\_Write\_Float}}
+\index{LCD\_Write\_Float@{LCD\_Write\_Float}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{LCD\_Write\_Float()}{LCD\_Write\_Float()}}
+{\footnotesize\ttfamily void LCD\+\_\+\+Control\+::\+LCD\+\_\+\+Write\+\_\+\+Float (\begin{DoxyParamCaption}\item[{const float}]{Float\+Data }\end{DoxyParamCaption})}
+
+
+
+Function to write a float value to the LCD. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Float\+Data} & The float that will be printed to the LCD.\\
+\hline
+\end{DoxyParams}
+Function to write a float to the LCD it also prints the (.) and uses write string. 
+
+Definition at line 67 of file LCD\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{68     \{}
+\DoxyCodeLine{69         std::ostringstream ss;}
+\DoxyCodeLine{70         ss << FloatData;}
+\DoxyCodeLine{71         std::string s(ss.str());}
+\DoxyCodeLine{72         \mbox{\hyperlink{class_l_c_d___control_ae790db4a7a04e11d7e9e7c568678fa7f}{LCD\_Write\_String}}(s);}
+\DoxyCodeLine{73     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_l_c_d___control_ae790db4a7a04e11d7e9e7c568678fa7f}\label{class_l_c_d___control_ae790db4a7a04e11d7e9e7c568678fa7f}} 
+\index{LCD\_Control@{LCD\_Control}!LCD\_Write\_String@{LCD\_Write\_String}}
+\index{LCD\_Write\_String@{LCD\_Write\_String}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{LCD\_Write\_String()}{LCD\_Write\_String()}}
+{\footnotesize\ttfamily void LCD\+\_\+\+Control\+::\+LCD\+\_\+\+Write\+\_\+\+String (\begin{DoxyParamCaption}\item[{const std\+::string}]{Data\+\_\+\+String\+\_\+ }\end{DoxyParamCaption})}
+
+
+
+Function to write a whole string to the lcd. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Data\+\_\+\+String\+\_\+} & The string that will be written to the lcd.\\
+\hline
+\end{DoxyParams}
+The lcd write function takes in a std string and then uses the function LCD\+\_\+\+Write\+\_\+\+Char to write the string on the lcd. 
+
+Definition at line 82 of file LCD\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{83     \{}
+\DoxyCodeLine{84         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < Data\_String\_.size(); i++)}
+\DoxyCodeLine{85         \{}
+\DoxyCodeLine{86             \mbox{\hyperlink{class_l_c_d___control_a53c2c4979924e3edbc3e078c11038c0d}{LCD\_Write\_Char}}(Data\_String\_[i]);}
+\DoxyCodeLine{87         \}}
+\DoxyCodeLine{88     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_l_c_d___control_a7621a08ff74655f268ca1f7d60a5ef36}\label{class_l_c_d___control_a7621a08ff74655f268ca1f7d60a5ef36}} 
+\index{LCD\_Control@{LCD\_Control}!LCD\_WriteEightBitMode@{LCD\_WriteEightBitMode}}
+\index{LCD\_WriteEightBitMode@{LCD\_WriteEightBitMode}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{LCD\_WriteEightBitMode()}{LCD\_WriteEightBitMode()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t LCD\+\_\+\+Control\+::\+LCD\+\_\+\+Write\+Eight\+Bit\+Mode (\begin{DoxyParamCaption}\item[{const std\+::string}]{Binary\+String,  }\item[{const int}]{RS }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Function to write in eight bit mode to the lcd. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Binary\+String} & The bitstring that gets written to the lcd. \\
+\hline
+{\em RS} & The mode the write action will be in (write to register or write to the lcd)\\
+\hline
+\end{DoxyParams}
+Function to write to the lcd in eight bit mode.
+
+\begin{DoxyReturn}{Returns}
+esp\+\_\+err\+\_\+t value is ESP\+\_\+\+OK when there is no error and when there is a error it has the corresponding error as value. 
+\end{DoxyReturn}
+
+
+Definition at line 431 of file LCD\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{432     \{}
+\DoxyCodeLine{433         esp\_err\_t Error = ESP\_OK;}
+\DoxyCodeLine{434         Error |= \mbox{\hyperlink{class_l_c_d___control_a05afd100a939aed6cd9d6bd647c500c5}{LCD\_InitializeForSendingData}}(RS);}
+\DoxyCodeLine{435         Error |= \mbox{\hyperlink{class_l_c_d___control_adaf329ee6de546b40121e04c0af828ad}{LCD\_SetDataEightBitMode}}(BinaryString);}
+\DoxyCodeLine{436         Error |= \mbox{\hyperlink{class_l_c_d___control_ae4cb4ff379a4014b717eb9e57613cc37}{LCD\_CycleDataTrough}}();}
+\DoxyCodeLine{437         \textcolor{keywordflow}{return} Error; }
+\DoxyCodeLine{438     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_l_c_d___control_a6ce5334e41b0a61d6c0e0930690253d2}\label{class_l_c_d___control_a6ce5334e41b0a61d6c0e0930690253d2}} 
+\index{LCD\_Control@{LCD\_Control}!LCD\_WriteFourBitMode@{LCD\_WriteFourBitMode}}
+\index{LCD\_WriteFourBitMode@{LCD\_WriteFourBitMode}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{LCD\_WriteFourBitMode()}{LCD\_WriteFourBitMode()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t LCD\+\_\+\+Control\+::\+LCD\+\_\+\+Write\+Four\+Bit\+Mode (\begin{DoxyParamCaption}\item[{const std\+::string}]{Binary\+String,  }\item[{const int}]{RS }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Function to write in four bit mode to the lcd. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Binary\+String} & The bitstring that gets written to the lcd. \\
+\hline
+{\em RS} & The mode the write action will be in (write to register or write to the lcd)\\
+\hline
+\end{DoxyParams}
+Function to write to the lcd in four bit mode.
+
+\begin{DoxyReturn}{Returns}
+esp\+\_\+err\+\_\+t value is ESP\+\_\+\+OK when there is no error and when there is a error it has the corresponding error as value. 
+\end{DoxyReturn}
+
+
+Definition at line 410 of file LCD\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{411     \{}
+\DoxyCodeLine{412         esp\_err\_t Error = ESP\_OK;}
+\DoxyCodeLine{413         Error |= \mbox{\hyperlink{class_l_c_d___control_a05afd100a939aed6cd9d6bd647c500c5}{LCD\_InitializeForSendingData}}(RS);}
+\DoxyCodeLine{414         Error |= \mbox{\hyperlink{class_l_c_d___control_a5412c006faa617a09cb842f45abf54cf}{LCD\_SetDataFourBitModeFirstHalf}}(BinaryString);}
+\DoxyCodeLine{415         Error |= \mbox{\hyperlink{class_l_c_d___control_ae4cb4ff379a4014b717eb9e57613cc37}{LCD\_CycleDataTrough}}();}
+\DoxyCodeLine{416         Error |= \mbox{\hyperlink{class_l_c_d___control_a75545eab68dd95c13ec4b0f9af40afd2}{LCD\_SetDataFourBitModeSecondHalf}}(BinaryString);}
+\DoxyCodeLine{417         Error |= \mbox{\hyperlink{class_l_c_d___control_ae4cb4ff379a4014b717eb9e57613cc37}{LCD\_CycleDataTrough}}();}
+\DoxyCodeLine{418         \textcolor{keywordflow}{return} Error; }
+\DoxyCodeLine{419     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_l_c_d___control_a28700fc5134efdbeea5d1ee60c4a4025}\label{class_l_c_d___control_a28700fc5134efdbeea5d1ee60c4a4025}} 
+\index{LCD\_Control@{LCD\_Control}!LCD\_WriteI2CMode@{LCD\_WriteI2CMode}}
+\index{LCD\_WriteI2CMode@{LCD\_WriteI2CMode}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{LCD\_WriteI2CMode()}{LCD\_WriteI2CMode()}}
+{\footnotesize\ttfamily void LCD\+\_\+\+Control\+::\+LCD\+\_\+\+Write\+I2\+CMode (\begin{DoxyParamCaption}\item[{const std\+::string}]{Binary\+String,  }\item[{const int}]{RS }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Function to write a data string to the lcd. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Binary\+String} & The string of data that will be written to the LCD. \\
+\hline
+{\em RS} & The stat of the register select pin. ~\newline
+\\
+\hline
+\end{DoxyParams}
+Internal function to write data to the lcd in I2C mode. NOTE the I2C driver must be installed first. 
+
+Definition at line 348 of file LCD\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{349     \{}
+\DoxyCodeLine{350 }
+\DoxyCodeLine{351         \textcolor{comment}{//                    0b7654xEWS}}
+\DoxyCodeLine{352         \textcolor{comment}{//uint8\_t WriteData = 0b00000000;}}
+\DoxyCodeLine{353         uint8\_t WriteRS = RS;}
+\DoxyCodeLine{354 }
+\DoxyCodeLine{355         ets\_delay\_us(1000);}
+\DoxyCodeLine{356         \mbox{\hyperlink{class_l_c_d___control_a2d559a71c5142f2565d9dccaf1ccd676}{LCD\_Private\_I2C\_Send}}(WriteRS);}
+\DoxyCodeLine{357         ets\_delay\_us(270);}
+\DoxyCodeLine{358 }
+\DoxyCodeLine{359         uint8\_t EnableHigh = WriteRS;}
+\DoxyCodeLine{360         EnableHigh |= 0b00001100;}
+\DoxyCodeLine{361         \mbox{\hyperlink{class_l_c_d___control_a2d559a71c5142f2565d9dccaf1ccd676}{LCD\_Private\_I2C\_Send}}(EnableHigh);}
+\DoxyCodeLine{362         ets\_delay\_us(270);}
+\DoxyCodeLine{363 }
+\DoxyCodeLine{364         uint8\_t FirstHalf = EnableHigh;}
+\DoxyCodeLine{365         uint8\_t Data = ((BinaryString[0] -\/ \textcolor{charliteral}{'0'}) << 3);}
+\DoxyCodeLine{366         Data |= ((BinaryString[1] -\/ \textcolor{charliteral}{'0'}) << 2);}
+\DoxyCodeLine{367         Data |= ((BinaryString[2] -\/ \textcolor{charliteral}{'0'}) << 1);}
+\DoxyCodeLine{368         Data |= ((BinaryString[3] -\/ \textcolor{charliteral}{'0'}) << 0);}
+\DoxyCodeLine{369         Data = Data << 4;}
+\DoxyCodeLine{370         FirstHalf |= Data;}
+\DoxyCodeLine{371         \mbox{\hyperlink{class_l_c_d___control_a2d559a71c5142f2565d9dccaf1ccd676}{LCD\_Private\_I2C\_Send}}(FirstHalf);}
+\DoxyCodeLine{372         ets\_delay\_us(300);}
+\DoxyCodeLine{373 }
+\DoxyCodeLine{374         uint8\_t enablelowpulse = FirstHalf;}
+\DoxyCodeLine{375         enablelowpulse \&= \string~(0b00000100);}
+\DoxyCodeLine{376         \mbox{\hyperlink{class_l_c_d___control_a2d559a71c5142f2565d9dccaf1ccd676}{LCD\_Private\_I2C\_Send}}(enablelowpulse);}
+\DoxyCodeLine{377         ets\_delay\_us(300);}
+\DoxyCodeLine{378 }
+\DoxyCodeLine{379         uint8\_t enablehighpulse = EnableHigh;}
+\DoxyCodeLine{380         enablehighpulse |= Data;}
+\DoxyCodeLine{381         \mbox{\hyperlink{class_l_c_d___control_a2d559a71c5142f2565d9dccaf1ccd676}{LCD\_Private\_I2C\_Send}}(enablehighpulse);}
+\DoxyCodeLine{382         ets\_delay\_us(270);}
+\DoxyCodeLine{383 }
+\DoxyCodeLine{384         uint8\_t SecondHalf = EnableHigh;}
+\DoxyCodeLine{385         uint8\_t Data2 = ((BinaryString[4] -\/ \textcolor{charliteral}{'0'}) << 3);}
+\DoxyCodeLine{386         Data2 |= ((BinaryString[5] -\/ \textcolor{charliteral}{'0'}) << 2);}
+\DoxyCodeLine{387         Data2 |= ((BinaryString[6] -\/ \textcolor{charliteral}{'0'}) << 1);}
+\DoxyCodeLine{388         Data2 |= ((BinaryString[7] -\/ \textcolor{charliteral}{'0'}) << 0);}
+\DoxyCodeLine{389         Data2 = Data2 << 4;}
+\DoxyCodeLine{390         SecondHalf |= Data2;}
+\DoxyCodeLine{391         \mbox{\hyperlink{class_l_c_d___control_a2d559a71c5142f2565d9dccaf1ccd676}{LCD\_Private\_I2C\_Send}}(SecondHalf);}
+\DoxyCodeLine{392         ets\_delay\_us(300);}
+\DoxyCodeLine{393 }
+\DoxyCodeLine{394         uint8\_t enablelowpulse2 = SecondHalf;}
+\DoxyCodeLine{395         enablelowpulse2 \&= \string~(0b00000100);}
+\DoxyCodeLine{396         \mbox{\hyperlink{class_l_c_d___control_a2d559a71c5142f2565d9dccaf1ccd676}{LCD\_Private\_I2C\_Send}}(enablelowpulse2);}
+\DoxyCodeLine{397         ets\_delay\_us(1000);}
+\DoxyCodeLine{398     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_l_c_d___control_a347ee11213ad1e39542e242f896b5cfc}\label{class_l_c_d___control_a347ee11213ad1e39542e242f896b5cfc}} 
+\index{LCD\_Control@{LCD\_Control}!SetBitMode@{SetBitMode}}
+\index{SetBitMode@{SetBitMode}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{SetBitMode()}{SetBitMode()}}
+{\footnotesize\ttfamily void LCD\+\_\+\+Control\+::\+Set\+Bit\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Function to switch between the functions for four and eight bit. 
+
+Function that switches between the functions for four and eight bit mode. This gets called once when the constructor is called. 
+
+Definition at line 246 of file LCD\+\_\+\+Control.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{247     \{}
+\DoxyCodeLine{248         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_l_c_d___control_abfd72ce48f9f50157cef088ed72add0c}{BitMode}} == \mbox{\hyperlink{_l_c_d___control_8h_a0bebbcf8ef8bf74cb231ee2f9b38820fa320368a58f775cf4428c37c8fd69434e}{FourBitMode}})}
+\DoxyCodeLine{249         \{}
+\DoxyCodeLine{250             \mbox{\hyperlink{class_l_c_d___control_aca89773fce04a35e44f64f7513cafa9e}{SwapInitialize}} = \&\mbox{\hyperlink{class_l_c_d___control_a1c9461bd95ef892e8f22e8e3aca2335b}{LCD\_Control::LCD\_InitializeFourBitMode}};}
+\DoxyCodeLine{251             \mbox{\hyperlink{class_l_c_d___control_a11200412eebc1cd3e1caf2e8df213a49}{SwapWRITE}} = \&\mbox{\hyperlink{class_l_c_d___control_a6ce5334e41b0a61d6c0e0930690253d2}{LCD\_Control::LCD\_WriteFourBitMode}};}
+\DoxyCodeLine{252         \}}
+\DoxyCodeLine{253         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_l_c_d___control_abfd72ce48f9f50157cef088ed72add0c}{BitMode}} == \mbox{\hyperlink{_l_c_d___control_8h_a0bebbcf8ef8bf74cb231ee2f9b38820fa7d4cb53da3b6faf88239c9deae56bf16}{EightBitMode}})}
+\DoxyCodeLine{254         \{}
+\DoxyCodeLine{255             \mbox{\hyperlink{class_l_c_d___control_aca89773fce04a35e44f64f7513cafa9e}{SwapInitialize}} = \&\mbox{\hyperlink{class_l_c_d___control_adcf523092164a963a1130bf25dce7731}{LCD\_Control::LCD\_InitializeEightBitMode}};}
+\DoxyCodeLine{256             \mbox{\hyperlink{class_l_c_d___control_a11200412eebc1cd3e1caf2e8df213a49}{SwapWRITE}} = \&\mbox{\hyperlink{class_l_c_d___control_a7621a08ff74655f268ca1f7d60a5ef36}{LCD\_Control::LCD\_WriteEightBitMode}};}
+\DoxyCodeLine{257         \}}
+\DoxyCodeLine{258         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_l_c_d___control_abfd72ce48f9f50157cef088ed72add0c}{BitMode}} == \mbox{\hyperlink{_l_c_d___control_8h_a0bebbcf8ef8bf74cb231ee2f9b38820fa9074daca8d96d442962c4020604b27c4}{I2CMode}})}
+\DoxyCodeLine{259         \{}
+\DoxyCodeLine{260             \mbox{\hyperlink{class_l_c_d___control_aca89773fce04a35e44f64f7513cafa9e}{SwapInitialize}} = \&\mbox{\hyperlink{class_l_c_d___control_a482f4abf5d5296c863138d46ec23f667}{LCD\_Control::LCD\_InitializeI2CMode}};}
+\DoxyCodeLine{261             \mbox{\hyperlink{class_l_c_d___control_a11200412eebc1cd3e1caf2e8df213a49}{SwapWRITE}} = \&\mbox{\hyperlink{class_l_c_d___control_a28700fc5134efdbeea5d1ee60c4a4025}{LCD\_Control::LCD\_WriteI2CMode}};}
+\DoxyCodeLine{262         \}}
+\DoxyCodeLine{263         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{264         \{}
+\DoxyCodeLine{265             ESP\_LOGE(\mbox{\hyperlink{class_l_c_d___control_a81105f93e563293d499b86323524d5d2}{TAG}},\textcolor{stringliteral}{"{}NO bitmode selected!\(\backslash\)n"{}});}
+\DoxyCodeLine{266         \}}
+\DoxyCodeLine{267     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_handle_g_p_i_o_a3905ade6fb7c9d69d0cab69abf062f79}\label{class_handle_g_p_i_o_a3905ade6fb7c9d69d0cab69abf062f79}} 
+\index{LCD\_Control@{LCD\_Control}!SetGPIO@{SetGPIO}}
+\index{SetGPIO@{SetGPIO}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{SetGPIO()}{SetGPIO()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t Handle\+GPIO\+::\+Set\+GPIO (\begin{DoxyParamCaption}\item[{const gpio\+\_\+num\+\_\+t}]{PIN,  }\item[{const int}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+\mbox{\Hypertarget{class_handle_g_p_i_o_a4c94cfb749b909ddde7f2098c3ab03e6}\label{class_handle_g_p_i_o_a4c94cfb749b909ddde7f2098c3ab03e6}} 
+\index{LCD\_Control@{LCD\_Control}!SetHigh@{SetHigh}}
+\index{SetHigh@{SetHigh}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{SetHigh()}{SetHigh()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t Handle\+GPIO\+::\+Set\+High (\begin{DoxyParamCaption}\item[{const gpio\+\_\+num\+\_\+t}]{PIN }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+function to set the given pin high 
+
+
+\begin{DoxyParams}{Parameters}
+{\em PIN} & The pin that gets set to high type is gpio\+\_\+num\+\_\+t\\
+\hline
+\end{DoxyParams}
+Function to set the ouput of a pin to high. It utalizes the gpio\+\_\+set\+\_\+level function and takes in the pin parameter.
+
+\begin{DoxyReturn}{Returns}
+esp\+\_\+err\+\_\+t value is ESP\+\_\+\+OK when there is no error and when there is a error it has the corresponding error as value. 
+\end{DoxyReturn}
+
+
+Definition at line 70 of file Handle\+GPIO.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{71     \{}
+\DoxyCodeLine{72         esp\_err\_t Error = ESP\_OK; }
+\DoxyCodeLine{73         Error |= gpio\_set\_level(PIN, 1);}
+\DoxyCodeLine{74         ESP\_LOGD(\mbox{\hyperlink{class_handle_g_p_i_o_aa20b13c25dbc8fa81623af2e5fcef1e0}{TAG}},\textcolor{stringliteral}{"{}Set PIN\%d high.\(\backslash\)n"{}},PIN);}
+\DoxyCodeLine{75         \textcolor{keywordflow}{return} Error;     }
+\DoxyCodeLine{76     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_handle_g_p_i_o_a9ac969c156f26e73afa2b0e51dfe1bc5}\label{class_handle_g_p_i_o_a9ac969c156f26e73afa2b0e51dfe1bc5}} 
+\index{LCD\_Control@{LCD\_Control}!SetLow@{SetLow}}
+\index{SetLow@{SetLow}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{SetLow()}{SetLow()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t Handle\+GPIO\+::\+Set\+Low (\begin{DoxyParamCaption}\item[{const gpio\+\_\+num\+\_\+t}]{PIN }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+function to set the given pin low 
+
+
+\begin{DoxyParams}{Parameters}
+{\em PIN} & The pin that gets set to low type is gpio\+\_\+num\+\_\+t\\
+\hline
+\end{DoxyParams}
+Function to set the ouput of a pin to low. It utalizes the gpio\+\_\+set\+\_\+level function and takes in the pin parameter.
+
+\begin{DoxyReturn}{Returns}
+esp\+\_\+err\+\_\+t value is ESP\+\_\+\+OK when there is no error and when there is a error it has the corresponding error as value. 
+\end{DoxyReturn}
+
+
+Definition at line 87 of file Handle\+GPIO.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{88     \{}
+\DoxyCodeLine{89         esp\_err\_t Error = ESP\_OK; }
+\DoxyCodeLine{90         Error |= gpio\_set\_level(PIN, 0);}
+\DoxyCodeLine{91         ESP\_LOGD(\mbox{\hyperlink{class_handle_g_p_i_o_aa20b13c25dbc8fa81623af2e5fcef1e0}{TAG}},\textcolor{stringliteral}{"{}Set PIN\%d low.\(\backslash\)n"{}},PIN);}
+\DoxyCodeLine{92         \textcolor{keywordflow}{return} Error;     }
+\DoxyCodeLine{93     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_l_c_d___control_abfd72ce48f9f50157cef088ed72add0c}\label{class_l_c_d___control_abfd72ce48f9f50157cef088ed72add0c}} 
+\index{LCD\_Control@{LCD\_Control}!BitMode@{BitMode}}
+\index{BitMode@{BitMode}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{BitMode}{BitMode}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{_l_c_d___control_8h_a0bebbcf8ef8bf74cb231ee2f9b38820f}{Bit\+Mode\+\_\+t}} LCD\+\_\+\+Control\+::\+Bit\+Mode\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 115 of file LCD\+\_\+\+Control.\+h.
+
+\mbox{\Hypertarget{class_l_c_d___control_ad49584191f5622f8ba75c6bda4a128ae}\label{class_l_c_d___control_ad49584191f5622f8ba75c6bda4a128ae}} 
+\index{LCD\_Control@{LCD\_Control}!I2C\_Port@{I2C\_Port}}
+\index{I2C\_Port@{I2C\_Port}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{I2C\_Port}{I2C\_Port}}
+{\footnotesize\ttfamily i2c\+\_\+port\+\_\+t LCD\+\_\+\+Control\+::\+I2\+C\+\_\+\+Port = I2\+C\+\_\+\+NUM\+\_\+1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 117 of file LCD\+\_\+\+Control.\+h.
+
+\mbox{\Hypertarget{class_l_c_d___control_a3b3d035c8d71d4ab87d2fc8995d2693b}\label{class_l_c_d___control_a3b3d035c8d71d4ab87d2fc8995d2693b}} 
+\index{LCD\_Control@{LCD\_Control}!LCD\_Adress@{LCD\_Adress}}
+\index{LCD\_Adress@{LCD\_Adress}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{LCD\_Adress}{LCD\_Adress}}
+{\footnotesize\ttfamily constexpr static const uint8\+\_\+t LCD\+\_\+\+Control\+::\+LCD\+\_\+\+Adress = 0x27\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Definition at line 69 of file LCD\+\_\+\+Control.\+h.
+
+\mbox{\Hypertarget{class_l_c_d___control_a7be2b2cd5953dc59305e621a6cffc564}\label{class_l_c_d___control_a7be2b2cd5953dc59305e621a6cffc564}} 
+\index{LCD\_Control@{LCD\_Control}!LCD\_D0@{LCD\_D0}}
+\index{LCD\_D0@{LCD\_D0}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{LCD\_D0}{LCD\_D0}}
+{\footnotesize\ttfamily const gpio\+\_\+num\+\_\+t LCD\+\_\+\+Control\+::\+LCD\+\_\+\+D0 = GPIO\+\_\+\+NUM\+\_\+\+NC\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 105 of file LCD\+\_\+\+Control.\+h.
+
+\mbox{\Hypertarget{class_l_c_d___control_a7faf9d49b74aa060c7632755c5c88357}\label{class_l_c_d___control_a7faf9d49b74aa060c7632755c5c88357}} 
+\index{LCD\_Control@{LCD\_Control}!LCD\_D1@{LCD\_D1}}
+\index{LCD\_D1@{LCD\_D1}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{LCD\_D1}{LCD\_D1}}
+{\footnotesize\ttfamily const gpio\+\_\+num\+\_\+t LCD\+\_\+\+Control\+::\+LCD\+\_\+\+D1 = GPIO\+\_\+\+NUM\+\_\+\+NC\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 106 of file LCD\+\_\+\+Control.\+h.
+
+\mbox{\Hypertarget{class_l_c_d___control_a4ebb1e63bcfda280ca1c66696faa52ef}\label{class_l_c_d___control_a4ebb1e63bcfda280ca1c66696faa52ef}} 
+\index{LCD\_Control@{LCD\_Control}!LCD\_D2@{LCD\_D2}}
+\index{LCD\_D2@{LCD\_D2}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{LCD\_D2}{LCD\_D2}}
+{\footnotesize\ttfamily const gpio\+\_\+num\+\_\+t LCD\+\_\+\+Control\+::\+LCD\+\_\+\+D2 = GPIO\+\_\+\+NUM\+\_\+\+NC\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 107 of file LCD\+\_\+\+Control.\+h.
+
+\mbox{\Hypertarget{class_l_c_d___control_af4469e5322e573ce6442d61cd02dca2e}\label{class_l_c_d___control_af4469e5322e573ce6442d61cd02dca2e}} 
+\index{LCD\_Control@{LCD\_Control}!LCD\_D3@{LCD\_D3}}
+\index{LCD\_D3@{LCD\_D3}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{LCD\_D3}{LCD\_D3}}
+{\footnotesize\ttfamily const gpio\+\_\+num\+\_\+t LCD\+\_\+\+Control\+::\+LCD\+\_\+\+D3 = GPIO\+\_\+\+NUM\+\_\+\+NC\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 108 of file LCD\+\_\+\+Control.\+h.
+
+\mbox{\Hypertarget{class_l_c_d___control_a43327ec782e1256c2ed3779d143d68da}\label{class_l_c_d___control_a43327ec782e1256c2ed3779d143d68da}} 
+\index{LCD\_Control@{LCD\_Control}!LCD\_D4@{LCD\_D4}}
+\index{LCD\_D4@{LCD\_D4}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{LCD\_D4}{LCD\_D4}}
+{\footnotesize\ttfamily const gpio\+\_\+num\+\_\+t LCD\+\_\+\+Control\+::\+LCD\+\_\+\+D4 = GPIO\+\_\+\+NUM\+\_\+\+NC\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 110 of file LCD\+\_\+\+Control.\+h.
+
+\mbox{\Hypertarget{class_l_c_d___control_a8b80169cb0f06c5955bb85bba75ba6dd}\label{class_l_c_d___control_a8b80169cb0f06c5955bb85bba75ba6dd}} 
+\index{LCD\_Control@{LCD\_Control}!LCD\_D5@{LCD\_D5}}
+\index{LCD\_D5@{LCD\_D5}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{LCD\_D5}{LCD\_D5}}
+{\footnotesize\ttfamily const gpio\+\_\+num\+\_\+t LCD\+\_\+\+Control\+::\+LCD\+\_\+\+D5 = GPIO\+\_\+\+NUM\+\_\+\+NC\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 111 of file LCD\+\_\+\+Control.\+h.
+
+\mbox{\Hypertarget{class_l_c_d___control_a030bff30fe293a811250c4181b55139f}\label{class_l_c_d___control_a030bff30fe293a811250c4181b55139f}} 
+\index{LCD\_Control@{LCD\_Control}!LCD\_D6@{LCD\_D6}}
+\index{LCD\_D6@{LCD\_D6}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{LCD\_D6}{LCD\_D6}}
+{\footnotesize\ttfamily const gpio\+\_\+num\+\_\+t LCD\+\_\+\+Control\+::\+LCD\+\_\+\+D6 = GPIO\+\_\+\+NUM\+\_\+\+NC\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 112 of file LCD\+\_\+\+Control.\+h.
+
+\mbox{\Hypertarget{class_l_c_d___control_aea33ffdab3c458c267dfea0aad7e07f4}\label{class_l_c_d___control_aea33ffdab3c458c267dfea0aad7e07f4}} 
+\index{LCD\_Control@{LCD\_Control}!LCD\_D7@{LCD\_D7}}
+\index{LCD\_D7@{LCD\_D7}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{LCD\_D7}{LCD\_D7}}
+{\footnotesize\ttfamily const gpio\+\_\+num\+\_\+t LCD\+\_\+\+Control\+::\+LCD\+\_\+\+D7 = GPIO\+\_\+\+NUM\+\_\+\+NC\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 113 of file LCD\+\_\+\+Control.\+h.
+
+\mbox{\Hypertarget{class_l_c_d___control_a86cf8315554fca673c665ce86fc9ad01}\label{class_l_c_d___control_a86cf8315554fca673c665ce86fc9ad01}} 
+\index{LCD\_Control@{LCD\_Control}!LCD\_E@{LCD\_E}}
+\index{LCD\_E@{LCD\_E}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{LCD\_E}{LCD\_E}}
+{\footnotesize\ttfamily const gpio\+\_\+num\+\_\+t LCD\+\_\+\+Control\+::\+LCD\+\_\+E = GPIO\+\_\+\+NUM\+\_\+\+NC\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 103 of file LCD\+\_\+\+Control.\+h.
+
+\mbox{\Hypertarget{class_l_c_d___control_abc6bb1e3b9741e1781b20f636629be22}\label{class_l_c_d___control_abc6bb1e3b9741e1781b20f636629be22}} 
+\index{LCD\_Control@{LCD\_Control}!LCD\_RS@{LCD\_RS}}
+\index{LCD\_RS@{LCD\_RS}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{LCD\_RS}{LCD\_RS}}
+{\footnotesize\ttfamily const gpio\+\_\+num\+\_\+t LCD\+\_\+\+Control\+::\+LCD\+\_\+\+RS = GPIO\+\_\+\+NUM\+\_\+\+NC\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 102 of file LCD\+\_\+\+Control.\+h.
+
+\mbox{\Hypertarget{class_l_c_d___control_aca89773fce04a35e44f64f7513cafa9e}\label{class_l_c_d___control_aca89773fce04a35e44f64f7513cafa9e}} 
+\index{LCD\_Control@{LCD\_Control}!SwapInitialize@{SwapInitialize}}
+\index{SwapInitialize@{SwapInitialize}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{SwapInitialize}{SwapInitialize}}
+{\footnotesize\ttfamily std\+::function$<$void(\mbox{\hyperlink{class_l_c_d___control}{LCD\+\_\+\+Control}} $\ast$)$>$ LCD\+\_\+\+Control\+::\+Swap\+Initialize = \&\mbox{\hyperlink{class_l_c_d___control_adcf523092164a963a1130bf25dce7731}{LCD\+\_\+\+Control\+::\+LCD\+\_\+\+Initialize\+Eight\+Bit\+Mode}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 94 of file LCD\+\_\+\+Control.\+h.
+
+\mbox{\Hypertarget{class_l_c_d___control_a11200412eebc1cd3e1caf2e8df213a49}\label{class_l_c_d___control_a11200412eebc1cd3e1caf2e8df213a49}} 
+\index{LCD\_Control@{LCD\_Control}!SwapWRITE@{SwapWRITE}}
+\index{SwapWRITE@{SwapWRITE}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{SwapWRITE}{SwapWRITE}}
+{\footnotesize\ttfamily std\+::function$<$void(\mbox{\hyperlink{class_l_c_d___control}{LCD\+\_\+\+Control}} $\ast$, std\+::string Binary\+String, int RS)$>$ LCD\+\_\+\+Control\+::\+Swap\+WRITE = \&\mbox{\hyperlink{class_l_c_d___control_a7621a08ff74655f268ca1f7d60a5ef36}{LCD\+\_\+\+Control\+::\+LCD\+\_\+\+Write\+Eight\+Bit\+Mode}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 93 of file LCD\+\_\+\+Control.\+h.
+
+\mbox{\Hypertarget{class_l_c_d___control_a81105f93e563293d499b86323524d5d2}\label{class_l_c_d___control_a81105f93e563293d499b86323524d5d2}} 
+\index{LCD\_Control@{LCD\_Control}!TAG@{TAG}}
+\index{TAG@{TAG}!LCD\_Control@{LCD\_Control}}
+\doxysubsubsection{\texorpdfstring{TAG}{TAG}}
+{\footnotesize\ttfamily constexpr static const char$\ast$ LCD\+\_\+\+Control\+::\+TAG = \char`\"{}LCD\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Definition at line 119 of file LCD\+\_\+\+Control.\+h.
+

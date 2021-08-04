@@ -1,0 +1,100 @@
+\hypertarget{_l_c_d___control_8h}{}\doxysection{C\+:/esp/\+Projects/\+RGB/template-\/app/main/include/\+LCD\+\_\+\+Control.h File Reference}
+\label{_l_c_d___control_8h}\index{C:/esp/Projects/RGB/template-\/app/main/include/LCD\_Control.h@{C:/esp/Projects/RGB/template-\/app/main/include/LCD\_Control.h}}
+
+
+Header file for the \mbox{\hyperlink{class_l_c_d___control}{LCD\+\_\+\+Control}} Class (.h).  
+
+
+{\ttfamily \#include $<$driver/gpio.\+h$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$bitset$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include \char`\"{}LCD\+\_\+\+Commands.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Handle\+GPIO.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Handle\+I2\+C.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}driver/i2c.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}freertos/\+Free\+RTOS.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}freertos/task.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}esp\+\_\+system.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}esp\+\_\+log.\+h\char`\"{}}\newline
+Include dependency graph for LCD\+\_\+\+Control.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_l_c_d___pinout__t}{LCD\+\_\+\+Pinout\+\_\+t}}
+\item 
+class \mbox{\hyperlink{class_l_c_d___control}{LCD\+\_\+\+Control}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_l_c_d___control_8h_a0bebbcf8ef8bf74cb231ee2f9b38820f}{Bit\+Mode\+\_\+t}} \{ \mbox{\hyperlink{_l_c_d___control_8h_a0bebbcf8ef8bf74cb231ee2f9b38820faee314fb5a7ffb692ad469aa72e5c4f3b}{Not\+Selected}} = -\/1
+, \mbox{\hyperlink{_l_c_d___control_8h_a0bebbcf8ef8bf74cb231ee2f9b38820fa320368a58f775cf4428c37c8fd69434e}{Four\+Bit\+Mode}} = 0
+, \mbox{\hyperlink{_l_c_d___control_8h_a0bebbcf8ef8bf74cb231ee2f9b38820fa7d4cb53da3b6faf88239c9deae56bf16}{Eight\+Bit\+Mode}} = 1
+, \mbox{\hyperlink{_l_c_d___control_8h_a0bebbcf8ef8bf74cb231ee2f9b38820fa9074daca8d96d442962c4020604b27c4}{I2\+CMode}} = 2
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for the \mbox{\hyperlink{class_l_c_d___control}{LCD\+\_\+\+Control}} Class (.h). 
+
+\begin{DoxyAuthor}{Author}
+Vincent de Man 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2021-\/03-\/29
+\end{DoxyDate}
+\mbox{\hyperlink{class_l_c_d___control}{LCD\+\_\+\+Control}} header for the use of the lcd class. Includes all of the most important functions \begin{DoxyCopyright}{Copyright}
+Copyright (cpp) 2021 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{_l_c_d___control_8h_a0bebbcf8ef8bf74cb231ee2f9b38820f}\label{_l_c_d___control_8h_a0bebbcf8ef8bf74cb231ee2f9b38820f}} 
+\index{LCD\_Control.h@{LCD\_Control.h}!BitMode\_t@{BitMode\_t}}
+\index{BitMode\_t@{BitMode\_t}!LCD\_Control.h@{LCD\_Control.h}}
+\doxysubsubsection{\texorpdfstring{BitMode\_t}{BitMode\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_l_c_d___control_8h_a0bebbcf8ef8bf74cb231ee2f9b38820f}{Bit\+Mode\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NotSelected@{NotSelected}!LCD\_Control.h@{LCD\_Control.h}}\index{LCD\_Control.h@{LCD\_Control.h}!NotSelected@{NotSelected}}}\mbox{\Hypertarget{_l_c_d___control_8h_a0bebbcf8ef8bf74cb231ee2f9b38820faee314fb5a7ffb692ad469aa72e5c4f3b}\label{_l_c_d___control_8h_a0bebbcf8ef8bf74cb231ee2f9b38820faee314fb5a7ffb692ad469aa72e5c4f3b}} 
+Not\+Selected&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FourBitMode@{FourBitMode}!LCD\_Control.h@{LCD\_Control.h}}\index{LCD\_Control.h@{LCD\_Control.h}!FourBitMode@{FourBitMode}}}\mbox{\Hypertarget{_l_c_d___control_8h_a0bebbcf8ef8bf74cb231ee2f9b38820fa320368a58f775cf4428c37c8fd69434e}\label{_l_c_d___control_8h_a0bebbcf8ef8bf74cb231ee2f9b38820fa320368a58f775cf4428c37c8fd69434e}} 
+Four\+Bit\+Mode&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EightBitMode@{EightBitMode}!LCD\_Control.h@{LCD\_Control.h}}\index{LCD\_Control.h@{LCD\_Control.h}!EightBitMode@{EightBitMode}}}\mbox{\Hypertarget{_l_c_d___control_8h_a0bebbcf8ef8bf74cb231ee2f9b38820fa7d4cb53da3b6faf88239c9deae56bf16}\label{_l_c_d___control_8h_a0bebbcf8ef8bf74cb231ee2f9b38820fa7d4cb53da3b6faf88239c9deae56bf16}} 
+Eight\+Bit\+Mode&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2CMode@{I2CMode}!LCD\_Control.h@{LCD\_Control.h}}\index{LCD\_Control.h@{LCD\_Control.h}!I2CMode@{I2CMode}}}\mbox{\Hypertarget{_l_c_d___control_8h_a0bebbcf8ef8bf74cb231ee2f9b38820fa9074daca8d96d442962c4020604b27c4}\label{_l_c_d___control_8h_a0bebbcf8ef8bf74cb231ee2f9b38820fa9074daca8d96d442962c4020604b27c4}} 
+I2\+CMode&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 33 of file LCD\+\_\+\+Control.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{34     \{}
+\DoxyCodeLine{35         \mbox{\hyperlink{_l_c_d___control_8h_a0bebbcf8ef8bf74cb231ee2f9b38820faee314fb5a7ffb692ad469aa72e5c4f3b}{NotSelected}} = -\/1,}
+\DoxyCodeLine{36         \mbox{\hyperlink{_l_c_d___control_8h_a0bebbcf8ef8bf74cb231ee2f9b38820fa320368a58f775cf4428c37c8fd69434e}{FourBitMode}} = 0,}
+\DoxyCodeLine{37         \mbox{\hyperlink{_l_c_d___control_8h_a0bebbcf8ef8bf74cb231ee2f9b38820fa7d4cb53da3b6faf88239c9deae56bf16}{EightBitMode}} = 1,}
+\DoxyCodeLine{38         \mbox{\hyperlink{_l_c_d___control_8h_a0bebbcf8ef8bf74cb231ee2f9b38820fa9074daca8d96d442962c4020604b27c4}{I2CMode}} = 2,}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \} \mbox{\hyperlink{_l_c_d___control_8h_a0bebbcf8ef8bf74cb231ee2f9b38820f}{BitMode\_t}};}
+
+\end{DoxyCode}

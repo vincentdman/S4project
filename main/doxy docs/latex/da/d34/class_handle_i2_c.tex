@@ -1,0 +1,273 @@
+\hypertarget{class_handle_i2_c}{}\doxysection{Handle\+I2C Class Reference}
+\label{class_handle_i2_c}\index{HandleI2C@{HandleI2C}}
+
+
+{\ttfamily \#include $<$Handle\+I2\+C.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_handle_i2_c_a12742bbd4061266e1cd8be1eb2c5bfd3}{Handle\+I2C}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new Handle I2C object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_handle_i2_c_aedc687c60299a88988e2f00afa3658c3}{Handle\+I2C}} (const bool)
+\item 
+\mbox{\hyperlink{class_handle_i2_c_a1d91df140575b5c50e2cf7b8bdf373b2}{Handle\+I2C}} (const i2c\+\_\+config\+\_\+t \&config)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_handle_i2_c_a12742bbd4061266e1cd8be1eb2c5bfd3}{Handle\+I2\+C\+::\+Handle\+I2C}} object and initializes. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_handle_i2_c_af2a17a8295225f26828758ea0d79c012}{$\sim$\+Handle\+I2C}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the Handle I2C object. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{class_handle_i2_c_a504845b2c935d95e317f30dc0def9bd1}{I2\+C\+\_\+\+Write\+Data}} (const uint8\+\_\+t Data\+\_\+\+To\+Send, const uint8\+\_\+t slave\+\_\+adress)
+\begin{DoxyCompactList}\small\item\em Function to write data as a master to slave. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_handle_i2_c_a60b8cf898dd94436ccbb7634079e99e2}{I2\+C\+\_\+\+Read\+Byte}} (const uint8\+\_\+t slave\+\_\+adress)
+\begin{DoxyCompactList}\small\item\em Function to read data from the slave device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{class_handle_i2_c_aafa472ac7abac7d5115917cbe2c454ad}{I2\+C\+\_\+\+Initialize}} (const i2c\+\_\+config\+\_\+t \&\mbox{\hyperlink{class_handle_i2_c_ac4a2f52e86872f3f07f0b4df168602f9}{Configuration}})
+\begin{DoxyCompactList}\small\item\em Function to initialize the lcd. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const i2c\+\_\+port\+\_\+t \mbox{\hyperlink{class_handle_i2_c_ac3d97cb2bd9e4fc65a8ca84664a38d45}{I2\+C\+\_\+\+Port}} = I2\+C\+\_\+\+NUM\+\_\+1
+\item 
+i2c\+\_\+config\+\_\+t \mbox{\hyperlink{class_handle_i2_c_ac4a2f52e86872f3f07f0b4df168602f9}{Configuration}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+constexpr static const char $\ast$ \mbox{\hyperlink{class_handle_i2_c_a5ea86476b27f54bdb25e845120ce8ab1}{TAG}} = \char`\"{}I2C\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 25 of file Handle\+I2\+C.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_handle_i2_c_a12742bbd4061266e1cd8be1eb2c5bfd3}\label{class_handle_i2_c_a12742bbd4061266e1cd8be1eb2c5bfd3}} 
+\index{HandleI2C@{HandleI2C}!HandleI2C@{HandleI2C}}
+\index{HandleI2C@{HandleI2C}!HandleI2C@{HandleI2C}}
+\doxysubsubsection{\texorpdfstring{HandleI2C()}{HandleI2C()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Handle\+I2\+C\+::\+Handle\+I2C (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new Handle I2C object. 
+
+Default constructor does nothing 
+
+Definition at line 23 of file Handle\+I2\+C.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24     \{   }
+\DoxyCodeLine{25          }
+\DoxyCodeLine{26     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_handle_i2_c_aedc687c60299a88988e2f00afa3658c3}\label{class_handle_i2_c_aedc687c60299a88988e2f00afa3658c3}} 
+\index{HandleI2C@{HandleI2C}!HandleI2C@{HandleI2C}}
+\index{HandleI2C@{HandleI2C}!HandleI2C@{HandleI2C}}
+\doxysubsubsection{\texorpdfstring{HandleI2C()}{HandleI2C()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Handle\+I2\+C\+::\+Handle\+I2C (\begin{DoxyParamCaption}\item[{const bool}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_handle_i2_c_a1d91df140575b5c50e2cf7b8bdf373b2}\label{class_handle_i2_c_a1d91df140575b5c50e2cf7b8bdf373b2}} 
+\index{HandleI2C@{HandleI2C}!HandleI2C@{HandleI2C}}
+\index{HandleI2C@{HandleI2C}!HandleI2C@{HandleI2C}}
+\doxysubsubsection{\texorpdfstring{HandleI2C()}{HandleI2C()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Handle\+I2\+C\+::\+Handle\+I2C (\begin{DoxyParamCaption}\item[{const i2c\+\_\+config\+\_\+t \&}]{config }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_handle_i2_c_a12742bbd4061266e1cd8be1eb2c5bfd3}{Handle\+I2\+C\+::\+Handle\+I2C}} object and initializes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em config} & i2c\+\_\+config\+\_\+t configuration struct.\\
+\hline
+\end{DoxyParams}
+Default constructor that takes in a user created structure with the I2C init data. 
+
+Definition at line 69 of file Handle\+I2\+C.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{70     \{}
+\DoxyCodeLine{71         i2c\_param\_config(\mbox{\hyperlink{class_handle_i2_c_ac3d97cb2bd9e4fc65a8ca84664a38d45}{I2C\_Port}}, \&config);}
+\DoxyCodeLine{72         i2c\_driver\_install(\mbox{\hyperlink{class_handle_i2_c_ac3d97cb2bd9e4fc65a8ca84664a38d45}{I2C\_Port}}, config.mode, 0, 0, 0);}
+\DoxyCodeLine{73         ESP\_LOGI(\mbox{\hyperlink{class_handle_i2_c_a5ea86476b27f54bdb25e845120ce8ab1}{TAG}},\textcolor{stringliteral}{"{}Started I2C with user configuration settings.\(\backslash\)n"{}});     }
+\DoxyCodeLine{74     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_handle_i2_c_af2a17a8295225f26828758ea0d79c012}\label{class_handle_i2_c_af2a17a8295225f26828758ea0d79c012}} 
+\index{HandleI2C@{HandleI2C}!````~HandleI2C@{$\sim$HandleI2C}}
+\index{````~HandleI2C@{$\sim$HandleI2C}!HandleI2C@{HandleI2C}}
+\doxysubsubsection{\texorpdfstring{$\sim$HandleI2C()}{~HandleI2C()}}
+{\footnotesize\ttfamily Handle\+I2\+C\+::$\sim$\+Handle\+I2C (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the Handle I2C object. 
+
+Deletes the driver so it sets system resources free. 
+
+Definition at line 33 of file Handle\+I2\+C.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{34     \{}
+\DoxyCodeLine{35         i2c\_driver\_delete(\mbox{\hyperlink{class_handle_i2_c_ac3d97cb2bd9e4fc65a8ca84664a38d45}{I2C\_Port}});}
+\DoxyCodeLine{36         ESP\_LOGI(\mbox{\hyperlink{class_handle_i2_c_a5ea86476b27f54bdb25e845120ce8ab1}{TAG}},\textcolor{stringliteral}{"{}Driver for I2C has been deleted.\(\backslash\)n"{}});     }
+\DoxyCodeLine{37     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_handle_i2_c_aafa472ac7abac7d5115917cbe2c454ad}\label{class_handle_i2_c_aafa472ac7abac7d5115917cbe2c454ad}} 
+\index{HandleI2C@{HandleI2C}!I2C\_Initialize@{I2C\_Initialize}}
+\index{I2C\_Initialize@{I2C\_Initialize}!HandleI2C@{HandleI2C}}
+\doxysubsubsection{\texorpdfstring{I2C\_Initialize()}{I2C\_Initialize()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t Handle\+I2\+C\+::\+I2\+C\+\_\+\+Initialize (\begin{DoxyParamCaption}\item[{const i2c\+\_\+config\+\_\+t \&}]{Configuration }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Function to initialize the lcd. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Configuration} & the configuration struct\\
+\hline
+\end{DoxyParams}
+Function to initialize the lcd by taking in the i2c\+\_\+config\+\_\+t struct.
+
+\begin{DoxyReturn}{Returns}
+esp\+\_\+err\+\_\+t value is ESP\+\_\+\+OK when there is no error and when there is a error it has the corresponding error as value. 
+\end{DoxyReturn}
+
+
+Definition at line 85 of file Handle\+I2\+C.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{86     \{}
+\DoxyCodeLine{87         esp\_err\_t Error = ESP\_OK; }
+\DoxyCodeLine{88         Error |= i2c\_param\_config(\mbox{\hyperlink{class_handle_i2_c_ac3d97cb2bd9e4fc65a8ca84664a38d45}{I2C\_Port}}, \&\mbox{\hyperlink{class_handle_i2_c_ac4a2f52e86872f3f07f0b4df168602f9}{Configuration}});}
+\DoxyCodeLine{89         Error |= i2c\_driver\_install(\mbox{\hyperlink{class_handle_i2_c_ac3d97cb2bd9e4fc65a8ca84664a38d45}{I2C\_Port}}, \mbox{\hyperlink{class_handle_i2_c_ac4a2f52e86872f3f07f0b4df168602f9}{Configuration}}.mode, 0, 0, 0);}
+\DoxyCodeLine{90         \textcolor{keywordflow}{return} Error;}
+\DoxyCodeLine{91     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_handle_i2_c_a60b8cf898dd94436ccbb7634079e99e2}\label{class_handle_i2_c_a60b8cf898dd94436ccbb7634079e99e2}} 
+\index{HandleI2C@{HandleI2C}!I2C\_ReadByte@{I2C\_ReadByte}}
+\index{I2C\_ReadByte@{I2C\_ReadByte}!HandleI2C@{HandleI2C}}
+\doxysubsubsection{\texorpdfstring{I2C\_ReadByte()}{I2C\_ReadByte()}}
+{\footnotesize\ttfamily uint8\+\_\+t Handle\+I2\+C\+::\+I2\+C\+\_\+\+Read\+Byte (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{slave\+\_\+adress }\end{DoxyParamCaption})}
+
+
+
+Function to read data from the slave device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em slave\+\_\+adress} & The adress of the slave \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t Data\+Read that gets returned to caller of the function.
+\end{DoxyReturn}
+Function to read data from the slave device. 
+
+Definition at line 124 of file Handle\+I2\+C.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{125     \{}
+\DoxyCodeLine{126         uint8\_t DataRead;}
+\DoxyCodeLine{127         i2c\_cmd\_handle\_t link\_cmd = i2c\_cmd\_link\_create();}
+\DoxyCodeLine{128         i2c\_master\_start(link\_cmd);}
+\DoxyCodeLine{129         i2c\_master\_write\_byte(link\_cmd, (slave\_adress << 1) | I2C\_MASTER\_READ, \textcolor{keyword}{true});}
+\DoxyCodeLine{130         i2c\_master\_read\_byte(link\_cmd, \&DataRead, I2C\_MASTER\_ACK);}
+\DoxyCodeLine{131         i2c\_master\_stop(link\_cmd);}
+\DoxyCodeLine{132         i2c\_master\_cmd\_begin(\mbox{\hyperlink{class_handle_i2_c_ac3d97cb2bd9e4fc65a8ca84664a38d45}{I2C\_Port}}, link\_cmd, 1000 / portTICK\_RATE\_MS);}
+\DoxyCodeLine{133         i2c\_cmd\_link\_delete(link\_cmd);}
+\DoxyCodeLine{134         \textcolor{keywordflow}{return} DataRead;}
+\DoxyCodeLine{135     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_handle_i2_c_a504845b2c935d95e317f30dc0def9bd1}\label{class_handle_i2_c_a504845b2c935d95e317f30dc0def9bd1}} 
+\index{HandleI2C@{HandleI2C}!I2C\_WriteData@{I2C\_WriteData}}
+\index{I2C\_WriteData@{I2C\_WriteData}!HandleI2C@{HandleI2C}}
+\doxysubsubsection{\texorpdfstring{I2C\_WriteData()}{I2C\_WriteData()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t Handle\+I2\+C\+::\+I2\+C\+\_\+\+Write\+Data (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{Data\+\_\+\+To\+Send,  }\item[{const uint8\+\_\+t}]{slave\+\_\+adress }\end{DoxyParamCaption})}
+
+
+
+Function to write data as a master to slave. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Data\+\_\+\+To\+Send} & The data that gets send to the slave. \\
+\hline
+{\em slave\+\_\+adress} & The adress of the slave device.\\
+\hline
+\end{DoxyParams}
+Function to send data to the slave. input is the data to send as uint8\+\_\+t and the slave adress.
+
+\begin{DoxyReturn}{Returns}
+esp\+\_\+err\+\_\+t value is ESP\+\_\+\+OK when there is no error and when there is a error it has the corresponding error as value. 
+\end{DoxyReturn}
+
+
+Definition at line 103 of file Handle\+I2\+C.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{104     \{}
+\DoxyCodeLine{105         esp\_err\_t Error = ESP\_OK; }
+\DoxyCodeLine{106         i2c\_cmd\_handle\_t link\_cmd = i2c\_cmd\_link\_create();}
+\DoxyCodeLine{107         Error |= i2c\_master\_start(link\_cmd);}
+\DoxyCodeLine{108         Error |= i2c\_master\_write\_byte(link\_cmd, (slave\_adress << 1) | I2C\_MASTER\_WRITE, \textcolor{keyword}{true});}
+\DoxyCodeLine{109         Error |= i2c\_master\_write(link\_cmd, \&Data\_ToSend, \textcolor{keyword}{sizeof}(Data\_ToSend) / \textcolor{keyword}{sizeof}(uint8\_t), \textcolor{keyword}{true});}
+\DoxyCodeLine{110         Error |= i2c\_master\_stop(link\_cmd);}
+\DoxyCodeLine{111         Error |= i2c\_master\_cmd\_begin(\mbox{\hyperlink{class_handle_i2_c_ac3d97cb2bd9e4fc65a8ca84664a38d45}{I2C\_Port}}, link\_cmd, 1000 / portTICK\_RATE\_MS);}
+\DoxyCodeLine{112                  i2c\_cmd\_link\_delete(link\_cmd);}
+\DoxyCodeLine{113         \textcolor{keywordflow}{return} Error;}
+\DoxyCodeLine{114     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_handle_i2_c_ac4a2f52e86872f3f07f0b4df168602f9}\label{class_handle_i2_c_ac4a2f52e86872f3f07f0b4df168602f9}} 
+\index{HandleI2C@{HandleI2C}!Configuration@{Configuration}}
+\index{Configuration@{Configuration}!HandleI2C@{HandleI2C}}
+\doxysubsubsection{\texorpdfstring{Configuration}{Configuration}}
+{\footnotesize\ttfamily i2c\+\_\+config\+\_\+t Handle\+I2\+C\+::\+Configuration\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 41 of file Handle\+I2\+C.\+h.
+
+\mbox{\Hypertarget{class_handle_i2_c_ac3d97cb2bd9e4fc65a8ca84664a38d45}\label{class_handle_i2_c_ac3d97cb2bd9e4fc65a8ca84664a38d45}} 
+\index{HandleI2C@{HandleI2C}!I2C\_Port@{I2C\_Port}}
+\index{I2C\_Port@{I2C\_Port}!HandleI2C@{HandleI2C}}
+\doxysubsubsection{\texorpdfstring{I2C\_Port}{I2C\_Port}}
+{\footnotesize\ttfamily const i2c\+\_\+port\+\_\+t Handle\+I2\+C\+::\+I2\+C\+\_\+\+Port = I2\+C\+\_\+\+NUM\+\_\+1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 39 of file Handle\+I2\+C.\+h.
+
+\mbox{\Hypertarget{class_handle_i2_c_a5ea86476b27f54bdb25e845120ce8ab1}\label{class_handle_i2_c_a5ea86476b27f54bdb25e845120ce8ab1}} 
+\index{HandleI2C@{HandleI2C}!TAG@{TAG}}
+\index{TAG@{TAG}!HandleI2C@{HandleI2C}}
+\doxysubsubsection{\texorpdfstring{TAG}{TAG}}
+{\footnotesize\ttfamily constexpr static const char$\ast$ Handle\+I2\+C\+::\+TAG = \char`\"{}I2C\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Definition at line 40 of file Handle\+I2\+C.\+h.
+

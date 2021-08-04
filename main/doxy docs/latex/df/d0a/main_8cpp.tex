@@ -1,0 +1,77 @@
+\hypertarget{main_8cpp}{}\doxysection{C\+:/esp/\+Projects/\+RGB/template-\/app/main/main.cpp File Reference}
+\label{main_8cpp}\index{C:/esp/Projects/RGB/template-\/app/main/main.cpp@{C:/esp/Projects/RGB/template-\/app/main/main.cpp}}
+
+
+Main application for S4 Project (.cpp)  
+
+
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+Include dependency graph for main.\+cpp\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8cpp_a630544a7f0a2cc40d8a7fefab7e2fe70}{app\+\_\+main}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main application for S4 Project (.cpp) 
+
+\begin{DoxyAuthor}{Author}
+Vincent de Man 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2021-\/03-\/24 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (cpp) 2021
+\end{DoxyCopyright}
+\mbox{\hyperlink{main_8cpp}{main.\+cpp}} main code for project S4 ~\newline
+ 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_a630544a7f0a2cc40d8a7fefab7e2fe70}\label{main_8cpp_a630544a7f0a2cc40d8a7fefab7e2fe70}} 
+\index{main.cpp@{main.cpp}!app\_main@{app\_main}}
+\index{app\_main@{app\_main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{app\_main()}{app\_main()}}
+{\footnotesize\ttfamily void app\+\_\+main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 13 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{14  \{}
+\DoxyCodeLine{15    \mbox{\hyperlink{class_handle_j_o_ystick}{HandleJOYstick}} JOY(GPIO\_NUM\_15,GPIO\_NUM\_26,GPIO\_NUM\_4);}
+\DoxyCodeLine{16    \mbox{\hyperlink{class_r_g_b___control}{RGB\_Control}} RGB(GPIO\_NUM\_23,GPIO\_NUM\_19,GPIO\_NUM\_25);  }
+\DoxyCodeLine{17    \mbox{\hyperlink{struct_l_c_d___pinout__t}{LCD\_Pinout\_t}} empty;}
+\DoxyCodeLine{18    empty.\mbox{\hyperlink{struct_l_c_d___pinout__t_a8e149126b9c0d68b0c698a66a48ea6b7}{\_BitMode}} = \mbox{\hyperlink{_l_c_d___control_8h_a0bebbcf8ef8bf74cb231ee2f9b38820fa9074daca8d96d442962c4020604b27c4}{I2CMode}};}
+\DoxyCodeLine{19    \mbox{\hyperlink{class_l_c_d___control}{LCD\_Control}} LCD(empty);}
+\DoxyCodeLine{20    LCD.LCD\_Write\_Command(\mbox{\hyperlink{_l_c_d___commands_8h_a3591afc9ae8b926d6df0e52395b9bc7a}{LCD\_CURSOR\_BLINK\_OFF\_CURSOR\_OFF}});}
+\DoxyCodeLine{21    LCD.LCD\_Write\_Command(\mbox{\hyperlink{_l_c_d___commands_8h_a833491baf43e3791d3badbf4433d88f5}{LCD\_NEXT\_LINE}});}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keywordtype}{int} SetR = 0;}
+\DoxyCodeLine{24     \textcolor{keywordtype}{int} SetG = 0;}
+\DoxyCodeLine{25     \textcolor{keywordtype}{int} SetB = 0; }
+\DoxyCodeLine{26    }
+\DoxyCodeLine{27    \textcolor{keywordflow}{while}(1)}
+\DoxyCodeLine{28    \{}
+\DoxyCodeLine{29      \mbox{\hyperlink{struct_j_o_y___data__t}{JOY\_Data\_t}} t = JOY.GetConverted(); }
+\DoxyCodeLine{30      }
+\DoxyCodeLine{31       SetR = t.\mbox{\hyperlink{struct_j_o_y___data__t_aa975b2d7d64f26074910d0424e8424d9}{VRX}} + 50; }
+\DoxyCodeLine{32       SetG = t.\mbox{\hyperlink{struct_j_o_y___data__t_ae6c2acfdd85bbb0fa46b37ef28496ce7}{VRY}} + 50;}
+\DoxyCodeLine{33       SetB = SetR * SetG / 100;}
+\DoxyCodeLine{34      RGB.SetRGB(SetR,SetG,SetB);}
+\DoxyCodeLine{35     ESP\_LOGI(TAG,\textcolor{stringliteral}{"{}test"{}});}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37      vTaskDelay(1000/portTICK\_PERIOD\_MS);}
+\DoxyCodeLine{38    \}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40  \}}
+
+\end{DoxyCode}

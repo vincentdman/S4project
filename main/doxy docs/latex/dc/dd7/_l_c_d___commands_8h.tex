@@ -1,0 +1,260 @@
+\hypertarget{_l_c_d___commands_8h}{}\doxysection{C\+:/esp/\+Projects/\+RGB/template-\/app/main/include/\+LCD\+\_\+\+Commands.h File Reference}
+\label{_l_c_d___commands_8h}\index{C:/esp/Projects/RGB/template-\/app/main/include/LCD\_Commands.h@{C:/esp/Projects/RGB/template-\/app/main/include/LCD\_Commands.h}}
+
+
+Display commands for 16x2 display.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+% FIG 0
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_l_c_d___commands_8h_a6aa8aa2057294b7d06088e834299b369}{LCD\+\_\+\+CLEAR}}~0b00000001
+\item 
+\#define \mbox{\hyperlink{_l_c_d___commands_8h_ae0e309ccad89222eb3457f2da9f2bb8d}{LCD\+\_\+\+HOME}}~0b00000010
+\item 
+\#define \mbox{\hyperlink{_l_c_d___commands_8h_aeac8c7920050a495a7a1c5523899d676}{LCD\+\_\+\+CURSOR\+\_\+\+DIRECTION\+\_\+\+LEFT}}~0b00000110
+\item 
+\#define \mbox{\hyperlink{_l_c_d___commands_8h_a934d75db21420dcd3db66361bba14d11}{LCD\+\_\+\+CURSOR\+\_\+\+DIRECTION\+\_\+\+RIGHT}}~0b00000100
+\item 
+\#define \mbox{\hyperlink{_l_c_d___commands_8h_aec24e77bac6b8fc3e371024cdf7d1c5c}{LCD\+\_\+\+SHIFT\+\_\+\+ENTIRE\+\_\+\+DISPLAY\+\_\+\+RIGHT}}~0b00000101
+\item 
+\#define \mbox{\hyperlink{_l_c_d___commands_8h_a6ed13bca14792fb9d049289813c2c264}{LCD\+\_\+\+SHIFT\+\_\+\+ENTIRE\+\_\+\+DISPLAY\+\_\+\+LEFT}}~0b00000111
+\item 
+\#define \mbox{\hyperlink{_l_c_d___commands_8h_a846dac5d1bb72bef7a76ee110c0445b6}{LCD\+\_\+\+DISPLAY\+\_\+\+ON}}~0b00001100
+\item 
+\#define \mbox{\hyperlink{_l_c_d___commands_8h_a5c0196a658f993ca1338431758798b76}{l\+CD\+\_\+\+DISPLAY\+\_\+\+OFF}}~0b00001000
+\item 
+\#define \mbox{\hyperlink{_l_c_d___commands_8h_a9d678e913563423bd83ef7524cb8fb09}{LCD\+\_\+\+DISPLAY\+\_\+\+ON\+\_\+\+CURSOR\+\_\+\+ON}}~0b00001110
+\item 
+\#define \mbox{\hyperlink{_l_c_d___commands_8h_a0eff70791626f0ef239234ae8abbce54}{LCD\+\_\+\+DISPLAY\+\_\+\+ON\+\_\+\+CURSOR\+\_\+\+OFF}}~0b00001100
+\item 
+\#define \mbox{\hyperlink{_l_c_d___commands_8h_a6183d767cdfeea498175e2456dc7e81d}{LCD\+\_\+\+DISPLAY\+\_\+\+OFF\+\_\+\+CURSOR\+\_\+\+ON}}~0b00001010
+\item 
+\#define \mbox{\hyperlink{_l_c_d___commands_8h_a8789821a140b1b8d4d74b3584f0fbb74}{LCD\+\_\+\+DISPLAY\+\_\+\+OFF\+\_\+\+CURSOR\+\_\+\+FF}}~0b00001000
+\item 
+\#define \mbox{\hyperlink{_l_c_d___commands_8h_a13dcfaaae83008ec53d2546036a3449a}{LCD\+\_\+\+CURSOR\+\_\+\+BLINK\+\_\+\+OFF}}~0b00001110
+\item 
+\#define \mbox{\hyperlink{_l_c_d___commands_8h_a09beec671588295ca5ebab73d4c4dab2}{LCD\+\_\+\+CURSOR\+\_\+\+BLINK\+\_\+\+ON}}~0b00001111
+\item 
+\#define \mbox{\hyperlink{_l_c_d___commands_8h_a83f5d2f61f30de510be24aa8898bd76f}{LCD\+\_\+\+CURSOR\+\_\+\+BLINK\+\_\+\+ON\+\_\+\+CRUSOR\+\_\+\+OFF}}~0b00001101
+\item 
+\#define \mbox{\hyperlink{_l_c_d___commands_8h_a3591afc9ae8b926d6df0e52395b9bc7a}{LCD\+\_\+\+CURSOR\+\_\+\+BLINK\+\_\+\+OFF\+\_\+\+CURSOR\+\_\+\+OFF}}~0b00001100
+\item 
+\#define \mbox{\hyperlink{_l_c_d___commands_8h_a584e934cde9e215a2507fa0a3fd98c11}{LCD\+\_\+4\+\_\+\+BIT\+\_\+\+MODE}}~0b00101000
+\item 
+\#define \mbox{\hyperlink{_l_c_d___commands_8h_ae4e0f073de0b53752d59e4f7470ab04d}{LCD\+\_\+8\+\_\+\+BIT\+\_\+\+MODE}}~0b00111000
+\item 
+\#define \mbox{\hyperlink{_l_c_d___commands_8h_a833491baf43e3791d3badbf4433d88f5}{LCD\+\_\+\+NEXT\+\_\+\+LINE}}~0b11000000
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Display commands for 16x2 display. 
+
+\begin{DoxyAuthor}{Author}
+Vincent de Man 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2021-\/04-\/01
+\end{DoxyDate}
+Includes most of the lcd function commands to send to the lcd. Data type is binary. \begin{DoxyCopyright}{Copyright}
+Copyright (cpp) 2021 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_l_c_d___commands_8h_a584e934cde9e215a2507fa0a3fd98c11}\label{_l_c_d___commands_8h_a584e934cde9e215a2507fa0a3fd98c11}} 
+\index{LCD\_Commands.h@{LCD\_Commands.h}!LCD\_4\_BIT\_MODE@{LCD\_4\_BIT\_MODE}}
+\index{LCD\_4\_BIT\_MODE@{LCD\_4\_BIT\_MODE}!LCD\_Commands.h@{LCD\_Commands.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_4\_BIT\_MODE}{LCD\_4\_BIT\_MODE}}
+{\footnotesize\ttfamily \#define LCD\+\_\+4\+\_\+\+BIT\+\_\+\+MODE~0b00101000}
+
+
+
+Definition at line 31 of file LCD\+\_\+\+Commands.\+h.
+
+\mbox{\Hypertarget{_l_c_d___commands_8h_ae4e0f073de0b53752d59e4f7470ab04d}\label{_l_c_d___commands_8h_ae4e0f073de0b53752d59e4f7470ab04d}} 
+\index{LCD\_Commands.h@{LCD\_Commands.h}!LCD\_8\_BIT\_MODE@{LCD\_8\_BIT\_MODE}}
+\index{LCD\_8\_BIT\_MODE@{LCD\_8\_BIT\_MODE}!LCD\_Commands.h@{LCD\_Commands.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_8\_BIT\_MODE}{LCD\_8\_BIT\_MODE}}
+{\footnotesize\ttfamily \#define LCD\+\_\+8\+\_\+\+BIT\+\_\+\+MODE~0b00111000}
+
+
+
+Definition at line 32 of file LCD\+\_\+\+Commands.\+h.
+
+\mbox{\Hypertarget{_l_c_d___commands_8h_a6aa8aa2057294b7d06088e834299b369}\label{_l_c_d___commands_8h_a6aa8aa2057294b7d06088e834299b369}} 
+\index{LCD\_Commands.h@{LCD\_Commands.h}!LCD\_CLEAR@{LCD\_CLEAR}}
+\index{LCD\_CLEAR@{LCD\_CLEAR}!LCD\_Commands.h@{LCD\_Commands.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_CLEAR}{LCD\_CLEAR}}
+{\footnotesize\ttfamily \#define LCD\+\_\+\+CLEAR~0b00000001}
+
+
+
+Definition at line 15 of file LCD\+\_\+\+Commands.\+h.
+
+\mbox{\Hypertarget{_l_c_d___commands_8h_a13dcfaaae83008ec53d2546036a3449a}\label{_l_c_d___commands_8h_a13dcfaaae83008ec53d2546036a3449a}} 
+\index{LCD\_Commands.h@{LCD\_Commands.h}!LCD\_CURSOR\_BLINK\_OFF@{LCD\_CURSOR\_BLINK\_OFF}}
+\index{LCD\_CURSOR\_BLINK\_OFF@{LCD\_CURSOR\_BLINK\_OFF}!LCD\_Commands.h@{LCD\_Commands.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_CURSOR\_BLINK\_OFF}{LCD\_CURSOR\_BLINK\_OFF}}
+{\footnotesize\ttfamily \#define LCD\+\_\+\+CURSOR\+\_\+\+BLINK\+\_\+\+OFF~0b00001110}
+
+
+
+Definition at line 27 of file LCD\+\_\+\+Commands.\+h.
+
+\mbox{\Hypertarget{_l_c_d___commands_8h_a3591afc9ae8b926d6df0e52395b9bc7a}\label{_l_c_d___commands_8h_a3591afc9ae8b926d6df0e52395b9bc7a}} 
+\index{LCD\_Commands.h@{LCD\_Commands.h}!LCD\_CURSOR\_BLINK\_OFF\_CURSOR\_OFF@{LCD\_CURSOR\_BLINK\_OFF\_CURSOR\_OFF}}
+\index{LCD\_CURSOR\_BLINK\_OFF\_CURSOR\_OFF@{LCD\_CURSOR\_BLINK\_OFF\_CURSOR\_OFF}!LCD\_Commands.h@{LCD\_Commands.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_CURSOR\_BLINK\_OFF\_CURSOR\_OFF}{LCD\_CURSOR\_BLINK\_OFF\_CURSOR\_OFF}}
+{\footnotesize\ttfamily \#define LCD\+\_\+\+CURSOR\+\_\+\+BLINK\+\_\+\+OFF\+\_\+\+CURSOR\+\_\+\+OFF~0b00001100}
+
+
+
+Definition at line 30 of file LCD\+\_\+\+Commands.\+h.
+
+\mbox{\Hypertarget{_l_c_d___commands_8h_a09beec671588295ca5ebab73d4c4dab2}\label{_l_c_d___commands_8h_a09beec671588295ca5ebab73d4c4dab2}} 
+\index{LCD\_Commands.h@{LCD\_Commands.h}!LCD\_CURSOR\_BLINK\_ON@{LCD\_CURSOR\_BLINK\_ON}}
+\index{LCD\_CURSOR\_BLINK\_ON@{LCD\_CURSOR\_BLINK\_ON}!LCD\_Commands.h@{LCD\_Commands.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_CURSOR\_BLINK\_ON}{LCD\_CURSOR\_BLINK\_ON}}
+{\footnotesize\ttfamily \#define LCD\+\_\+\+CURSOR\+\_\+\+BLINK\+\_\+\+ON~0b00001111}
+
+
+
+Definition at line 28 of file LCD\+\_\+\+Commands.\+h.
+
+\mbox{\Hypertarget{_l_c_d___commands_8h_a83f5d2f61f30de510be24aa8898bd76f}\label{_l_c_d___commands_8h_a83f5d2f61f30de510be24aa8898bd76f}} 
+\index{LCD\_Commands.h@{LCD\_Commands.h}!LCD\_CURSOR\_BLINK\_ON\_CRUSOR\_OFF@{LCD\_CURSOR\_BLINK\_ON\_CRUSOR\_OFF}}
+\index{LCD\_CURSOR\_BLINK\_ON\_CRUSOR\_OFF@{LCD\_CURSOR\_BLINK\_ON\_CRUSOR\_OFF}!LCD\_Commands.h@{LCD\_Commands.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_CURSOR\_BLINK\_ON\_CRUSOR\_OFF}{LCD\_CURSOR\_BLINK\_ON\_CRUSOR\_OFF}}
+{\footnotesize\ttfamily \#define LCD\+\_\+\+CURSOR\+\_\+\+BLINK\+\_\+\+ON\+\_\+\+CRUSOR\+\_\+\+OFF~0b00001101}
+
+
+
+Definition at line 29 of file LCD\+\_\+\+Commands.\+h.
+
+\mbox{\Hypertarget{_l_c_d___commands_8h_aeac8c7920050a495a7a1c5523899d676}\label{_l_c_d___commands_8h_aeac8c7920050a495a7a1c5523899d676}} 
+\index{LCD\_Commands.h@{LCD\_Commands.h}!LCD\_CURSOR\_DIRECTION\_LEFT@{LCD\_CURSOR\_DIRECTION\_LEFT}}
+\index{LCD\_CURSOR\_DIRECTION\_LEFT@{LCD\_CURSOR\_DIRECTION\_LEFT}!LCD\_Commands.h@{LCD\_Commands.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_CURSOR\_DIRECTION\_LEFT}{LCD\_CURSOR\_DIRECTION\_LEFT}}
+{\footnotesize\ttfamily \#define LCD\+\_\+\+CURSOR\+\_\+\+DIRECTION\+\_\+\+LEFT~0b00000110}
+
+
+
+Definition at line 17 of file LCD\+\_\+\+Commands.\+h.
+
+\mbox{\Hypertarget{_l_c_d___commands_8h_a934d75db21420dcd3db66361bba14d11}\label{_l_c_d___commands_8h_a934d75db21420dcd3db66361bba14d11}} 
+\index{LCD\_Commands.h@{LCD\_Commands.h}!LCD\_CURSOR\_DIRECTION\_RIGHT@{LCD\_CURSOR\_DIRECTION\_RIGHT}}
+\index{LCD\_CURSOR\_DIRECTION\_RIGHT@{LCD\_CURSOR\_DIRECTION\_RIGHT}!LCD\_Commands.h@{LCD\_Commands.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_CURSOR\_DIRECTION\_RIGHT}{LCD\_CURSOR\_DIRECTION\_RIGHT}}
+{\footnotesize\ttfamily \#define LCD\+\_\+\+CURSOR\+\_\+\+DIRECTION\+\_\+\+RIGHT~0b00000100}
+
+
+
+Definition at line 18 of file LCD\+\_\+\+Commands.\+h.
+
+\mbox{\Hypertarget{_l_c_d___commands_8h_a5c0196a658f993ca1338431758798b76}\label{_l_c_d___commands_8h_a5c0196a658f993ca1338431758798b76}} 
+\index{LCD\_Commands.h@{LCD\_Commands.h}!lCD\_DISPLAY\_OFF@{lCD\_DISPLAY\_OFF}}
+\index{lCD\_DISPLAY\_OFF@{lCD\_DISPLAY\_OFF}!LCD\_Commands.h@{LCD\_Commands.h}}
+\doxysubsubsection{\texorpdfstring{lCD\_DISPLAY\_OFF}{lCD\_DISPLAY\_OFF}}
+{\footnotesize\ttfamily \#define l\+CD\+\_\+\+DISPLAY\+\_\+\+OFF~0b00001000}
+
+
+
+Definition at line 22 of file LCD\+\_\+\+Commands.\+h.
+
+\mbox{\Hypertarget{_l_c_d___commands_8h_a8789821a140b1b8d4d74b3584f0fbb74}\label{_l_c_d___commands_8h_a8789821a140b1b8d4d74b3584f0fbb74}} 
+\index{LCD\_Commands.h@{LCD\_Commands.h}!LCD\_DISPLAY\_OFF\_CURSOR\_FF@{LCD\_DISPLAY\_OFF\_CURSOR\_FF}}
+\index{LCD\_DISPLAY\_OFF\_CURSOR\_FF@{LCD\_DISPLAY\_OFF\_CURSOR\_FF}!LCD\_Commands.h@{LCD\_Commands.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_DISPLAY\_OFF\_CURSOR\_FF}{LCD\_DISPLAY\_OFF\_CURSOR\_FF}}
+{\footnotesize\ttfamily \#define LCD\+\_\+\+DISPLAY\+\_\+\+OFF\+\_\+\+CURSOR\+\_\+\+FF~0b00001000}
+
+
+
+Definition at line 26 of file LCD\+\_\+\+Commands.\+h.
+
+\mbox{\Hypertarget{_l_c_d___commands_8h_a6183d767cdfeea498175e2456dc7e81d}\label{_l_c_d___commands_8h_a6183d767cdfeea498175e2456dc7e81d}} 
+\index{LCD\_Commands.h@{LCD\_Commands.h}!LCD\_DISPLAY\_OFF\_CURSOR\_ON@{LCD\_DISPLAY\_OFF\_CURSOR\_ON}}
+\index{LCD\_DISPLAY\_OFF\_CURSOR\_ON@{LCD\_DISPLAY\_OFF\_CURSOR\_ON}!LCD\_Commands.h@{LCD\_Commands.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_DISPLAY\_OFF\_CURSOR\_ON}{LCD\_DISPLAY\_OFF\_CURSOR\_ON}}
+{\footnotesize\ttfamily \#define LCD\+\_\+\+DISPLAY\+\_\+\+OFF\+\_\+\+CURSOR\+\_\+\+ON~0b00001010}
+
+
+
+Definition at line 25 of file LCD\+\_\+\+Commands.\+h.
+
+\mbox{\Hypertarget{_l_c_d___commands_8h_a846dac5d1bb72bef7a76ee110c0445b6}\label{_l_c_d___commands_8h_a846dac5d1bb72bef7a76ee110c0445b6}} 
+\index{LCD\_Commands.h@{LCD\_Commands.h}!LCD\_DISPLAY\_ON@{LCD\_DISPLAY\_ON}}
+\index{LCD\_DISPLAY\_ON@{LCD\_DISPLAY\_ON}!LCD\_Commands.h@{LCD\_Commands.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_DISPLAY\_ON}{LCD\_DISPLAY\_ON}}
+{\footnotesize\ttfamily \#define LCD\+\_\+\+DISPLAY\+\_\+\+ON~0b00001100}
+
+
+
+Definition at line 21 of file LCD\+\_\+\+Commands.\+h.
+
+\mbox{\Hypertarget{_l_c_d___commands_8h_a0eff70791626f0ef239234ae8abbce54}\label{_l_c_d___commands_8h_a0eff70791626f0ef239234ae8abbce54}} 
+\index{LCD\_Commands.h@{LCD\_Commands.h}!LCD\_DISPLAY\_ON\_CURSOR\_OFF@{LCD\_DISPLAY\_ON\_CURSOR\_OFF}}
+\index{LCD\_DISPLAY\_ON\_CURSOR\_OFF@{LCD\_DISPLAY\_ON\_CURSOR\_OFF}!LCD\_Commands.h@{LCD\_Commands.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_DISPLAY\_ON\_CURSOR\_OFF}{LCD\_DISPLAY\_ON\_CURSOR\_OFF}}
+{\footnotesize\ttfamily \#define LCD\+\_\+\+DISPLAY\+\_\+\+ON\+\_\+\+CURSOR\+\_\+\+OFF~0b00001100}
+
+
+
+Definition at line 24 of file LCD\+\_\+\+Commands.\+h.
+
+\mbox{\Hypertarget{_l_c_d___commands_8h_a9d678e913563423bd83ef7524cb8fb09}\label{_l_c_d___commands_8h_a9d678e913563423bd83ef7524cb8fb09}} 
+\index{LCD\_Commands.h@{LCD\_Commands.h}!LCD\_DISPLAY\_ON\_CURSOR\_ON@{LCD\_DISPLAY\_ON\_CURSOR\_ON}}
+\index{LCD\_DISPLAY\_ON\_CURSOR\_ON@{LCD\_DISPLAY\_ON\_CURSOR\_ON}!LCD\_Commands.h@{LCD\_Commands.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_DISPLAY\_ON\_CURSOR\_ON}{LCD\_DISPLAY\_ON\_CURSOR\_ON}}
+{\footnotesize\ttfamily \#define LCD\+\_\+\+DISPLAY\+\_\+\+ON\+\_\+\+CURSOR\+\_\+\+ON~0b00001110}
+
+
+
+Definition at line 23 of file LCD\+\_\+\+Commands.\+h.
+
+\mbox{\Hypertarget{_l_c_d___commands_8h_ae0e309ccad89222eb3457f2da9f2bb8d}\label{_l_c_d___commands_8h_ae0e309ccad89222eb3457f2da9f2bb8d}} 
+\index{LCD\_Commands.h@{LCD\_Commands.h}!LCD\_HOME@{LCD\_HOME}}
+\index{LCD\_HOME@{LCD\_HOME}!LCD\_Commands.h@{LCD\_Commands.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_HOME}{LCD\_HOME}}
+{\footnotesize\ttfamily \#define LCD\+\_\+\+HOME~0b00000010}
+
+
+
+Definition at line 16 of file LCD\+\_\+\+Commands.\+h.
+
+\mbox{\Hypertarget{_l_c_d___commands_8h_a833491baf43e3791d3badbf4433d88f5}\label{_l_c_d___commands_8h_a833491baf43e3791d3badbf4433d88f5}} 
+\index{LCD\_Commands.h@{LCD\_Commands.h}!LCD\_NEXT\_LINE@{LCD\_NEXT\_LINE}}
+\index{LCD\_NEXT\_LINE@{LCD\_NEXT\_LINE}!LCD\_Commands.h@{LCD\_Commands.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_NEXT\_LINE}{LCD\_NEXT\_LINE}}
+{\footnotesize\ttfamily \#define LCD\+\_\+\+NEXT\+\_\+\+LINE~0b11000000}
+
+
+
+Definition at line 33 of file LCD\+\_\+\+Commands.\+h.
+
+\mbox{\Hypertarget{_l_c_d___commands_8h_a6ed13bca14792fb9d049289813c2c264}\label{_l_c_d___commands_8h_a6ed13bca14792fb9d049289813c2c264}} 
+\index{LCD\_Commands.h@{LCD\_Commands.h}!LCD\_SHIFT\_ENTIRE\_DISPLAY\_LEFT@{LCD\_SHIFT\_ENTIRE\_DISPLAY\_LEFT}}
+\index{LCD\_SHIFT\_ENTIRE\_DISPLAY\_LEFT@{LCD\_SHIFT\_ENTIRE\_DISPLAY\_LEFT}!LCD\_Commands.h@{LCD\_Commands.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_SHIFT\_ENTIRE\_DISPLAY\_LEFT}{LCD\_SHIFT\_ENTIRE\_DISPLAY\_LEFT}}
+{\footnotesize\ttfamily \#define LCD\+\_\+\+SHIFT\+\_\+\+ENTIRE\+\_\+\+DISPLAY\+\_\+\+LEFT~0b00000111}
+
+
+
+Definition at line 20 of file LCD\+\_\+\+Commands.\+h.
+
+\mbox{\Hypertarget{_l_c_d___commands_8h_aec24e77bac6b8fc3e371024cdf7d1c5c}\label{_l_c_d___commands_8h_aec24e77bac6b8fc3e371024cdf7d1c5c}} 
+\index{LCD\_Commands.h@{LCD\_Commands.h}!LCD\_SHIFT\_ENTIRE\_DISPLAY\_RIGHT@{LCD\_SHIFT\_ENTIRE\_DISPLAY\_RIGHT}}
+\index{LCD\_SHIFT\_ENTIRE\_DISPLAY\_RIGHT@{LCD\_SHIFT\_ENTIRE\_DISPLAY\_RIGHT}!LCD\_Commands.h@{LCD\_Commands.h}}
+\doxysubsubsection{\texorpdfstring{LCD\_SHIFT\_ENTIRE\_DISPLAY\_RIGHT}{LCD\_SHIFT\_ENTIRE\_DISPLAY\_RIGHT}}
+{\footnotesize\ttfamily \#define LCD\+\_\+\+SHIFT\+\_\+\+ENTIRE\+\_\+\+DISPLAY\+\_\+\+RIGHT~0b00000101}
+
+
+
+Definition at line 19 of file LCD\+\_\+\+Commands.\+h.
+

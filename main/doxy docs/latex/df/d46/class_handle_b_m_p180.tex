@@ -1,0 +1,634 @@
+\hypertarget{class_handle_b_m_p180}{}\doxysection{Handle\+BMP180 Class Reference}
+\label{class_handle_b_m_p180}\index{HandleBMP180@{HandleBMP180}}
+
+
+{\ttfamily \#include $<$Handle\+BMP180.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_handle_b_m_p180_a25bd74534a6c7f4353ccb78ce581a176}{Handle\+BMP180}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new Handle\+BMP180\+::\+Handle\+BMP180object,. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_handle_b_m_p180_a5c3077fb4d8beffafd7a499d67aaa4b7}{$\sim$\+Handle\+BMP180}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{class_handle_b_m_p180_a25bd74534a6c7f4353ccb78ce581a176}{Handle\+BMP180\+::\+Handle\+BMP180}} object. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_handle_b_m_p180_abcd9611b7da032055a83b30da33a92f7}{Get\+Pressure}} ()
+\begin{DoxyCompactList}\small\item\em Function to get the measured pressure. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_handle_b_m_p180_af7a943b876d5a26f6369070f1a2dc793}{Get\+Temperature}} ()
+\begin{DoxyCompactList}\small\item\em Function to get the Temperature. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_handle_b_m_p180_a7c5ada7aa4afb913733afd7af49f6489}{Get\+Altitude}} ()
+\begin{DoxyCompactList}\small\item\em Function to get the relative altitude. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_handle_b_m_p180_afe52bfae4f2e435b79ee47a1a25cf24e}{BMP180\+\_\+\+Set\+Calibration\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Function to set the calibration data. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{class_handle_b_m_p180_ad2082ce3923f5dd78f54c418defecc4a}{BMP180\+\_\+\+Get\+Raw\+Temperature}} ()
+\begin{DoxyCompactList}\small\item\em Function to get the Raw temperature data from the BMP180. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{class_handle_b_m_p180_a88ab2fb9ac045ac674a38f05b207bed1}{BMP180\+\_\+\+Get\+Raw\+Pressure}} ()
+\begin{DoxyCompactList}\small\item\em Function to get the raw pressure from the BMP180. \end{DoxyCompactList}\item 
+long \mbox{\hyperlink{class_handle_b_m_p180_a20325c364361fefde03bbb629ae7003b}{BMP180\+\_\+\+Get\+True\+Temperature}} (const uint16\+\_\+t Raw\+Temperature)
+\begin{DoxyCompactList}\small\item\em Function to get the true temperature from the raw temperature. \end{DoxyCompactList}\item 
+long \mbox{\hyperlink{class_handle_b_m_p180_a1a118138c007237c0a94e1b00620e767}{BMP180\+\_\+\+Get\+True\+Pressure}} (const uint16\+\_\+t Raw\+Pressure)
+\begin{DoxyCompactList}\small\item\em Function to go from raw pressure to true pressure. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{class_handle_b_m_p180_aefe0bcfd65010dcdf836d0a1a62510d9}{BMP180\+\_\+\+Write\+\_\+\+Byte}} (uint8\+\_\+t Write\+Adress, uint8\+\_\+t Data)
+\begin{DoxyCompactList}\small\item\em Function to write a byte to the BMP180. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{class_handle_b_m_p180_ada5a67535f46e8823dec217ce2629b6c}{BMP180\+\_\+\+Read\+\_\+16\+Bit}} (uint8\+\_\+t Data\+Adress)
+\begin{DoxyCompactList}\small\item\em Function to read two bytes from the BMP180. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{class_handle_b_m_p180_a1c4c9d82aabca904128424f62210a1e8}{BMP180\+\_\+\+I2\+C\+\_\+\+ADRESS\+\_\+\+Write}} = 0b11101110
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{class_handle_b_m_p180_a02dcc1d66921f2ff44aa44f8adf6d77c}{BMP180\+\_\+\+I2\+C\+\_\+\+ADRESS\+\_\+\+Read}} = 0b11101111
+\item 
+const i2c\+\_\+port\+\_\+t \mbox{\hyperlink{class_handle_b_m_p180_a8c60fac30402d82d0a670376859eee19}{I2\+C\+\_\+\+Port}} = I2\+C\+\_\+\+NUM\+\_\+1
+\item 
+short \mbox{\hyperlink{class_handle_b_m_p180_ac2e00f6a1ab047df7103649b26b146e8}{AC1}}
+\item 
+short \mbox{\hyperlink{class_handle_b_m_p180_addb2c9dfa6421eb5f871bc3f827f9e10}{AC2}}
+\item 
+short \mbox{\hyperlink{class_handle_b_m_p180_a71e6c71ec86cb1368dfe587eb4014747}{AC3}}
+\item 
+unsigned short \mbox{\hyperlink{class_handle_b_m_p180_a1514e8b639d6da9f07004d9321e2f57f}{AC4}}
+\item 
+unsigned short \mbox{\hyperlink{class_handle_b_m_p180_aa7899362a22a518fbdd6f28df19a285e}{AC5}}
+\item 
+unsigned short \mbox{\hyperlink{class_handle_b_m_p180_aab8f7144aaa81480a37e6863ed913ed0}{AC6}}
+\item 
+short \mbox{\hyperlink{class_handle_b_m_p180_a4d2330b60875ec5a64905f4db40f77b8}{B1}}
+\item 
+short \mbox{\hyperlink{class_handle_b_m_p180_aeac3f09213d68bfad45757f4f0630a29}{B2}}
+\item 
+short \mbox{\hyperlink{class_handle_b_m_p180_abd70a677fd19bd2d1ab108115f76c809}{MB}}
+\item 
+short \mbox{\hyperlink{class_handle_b_m_p180_a6b77dc9fece58546cc9e9f102bbef26c}{MC}}
+\item 
+short \mbox{\hyperlink{class_handle_b_m_p180_a017dd771fa381aa7f031a74d22b8d144}{MD}}
+\item 
+long \mbox{\hyperlink{class_handle_b_m_p180_a3311bf08cdc5a9e507d2b7dbcda56bb3}{B5}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+constexpr static const char $\ast$ \mbox{\hyperlink{class_handle_b_m_p180_a3020e573a19f109447926d0a32d9b829}{TAG}} = \char`\"{}BMP180\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+to get data from the sensor. \begin{DoxyCopyright}{Copyright}
+Copyright (c) 2021
+\end{DoxyCopyright}
+Implementation of the handle BMP180 class. It uses calculations to convert data from the sensor to true data. 
+
+Definition at line 25 of file Handle\+BMP180.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_handle_b_m_p180_a25bd74534a6c7f4353ccb78ce581a176}\label{class_handle_b_m_p180_a25bd74534a6c7f4353ccb78ce581a176}} 
+\index{HandleBMP180@{HandleBMP180}!HandleBMP180@{HandleBMP180}}
+\index{HandleBMP180@{HandleBMP180}!HandleBMP180@{HandleBMP180}}
+\doxysubsubsection{\texorpdfstring{HandleBMP180()}{HandleBMP180()}}
+{\footnotesize\ttfamily Handle\+BMP180\+::\+Handle\+BMP180 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new Handle\+BMP180\+::\+Handle\+BMP180object,. 
+
+Sets up a default I2C connection. And asks the BMP180 for the calibration coeficients. ~\newline
+ 
+
+Definition at line 25 of file Handle\+BMP180.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{26     \{}
+\DoxyCodeLine{27         ESP\_LOGI(\mbox{\hyperlink{class_handle_b_m_p180_a3020e573a19f109447926d0a32d9b829}{TAG}},\textcolor{stringliteral}{"{}Constructor BMP180 called.\(\backslash\)n"{}});}
+\DoxyCodeLine{28         \mbox{\hyperlink{class_handle_b_m_p180_afe52bfae4f2e435b79ee47a1a25cf24e}{BMP180\_SetCalibrationData}}();}
+\DoxyCodeLine{29     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_handle_b_m_p180_a5c3077fb4d8beffafd7a499d67aaa4b7}\label{class_handle_b_m_p180_a5c3077fb4d8beffafd7a499d67aaa4b7}} 
+\index{HandleBMP180@{HandleBMP180}!````~HandleBMP180@{$\sim$HandleBMP180}}
+\index{````~HandleBMP180@{$\sim$HandleBMP180}!HandleBMP180@{HandleBMP180}}
+\doxysubsubsection{\texorpdfstring{$\sim$HandleBMP180()}{~HandleBMP180()}}
+{\footnotesize\ttfamily Handle\+BMP180\+::$\sim$\+Handle\+BMP180 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the \mbox{\hyperlink{class_handle_b_m_p180_a25bd74534a6c7f4353ccb78ce581a176}{Handle\+BMP180\+::\+Handle\+BMP180}} object. 
+
+Destroys the \mbox{\hyperlink{class_handle_b_m_p180}{Handle\+BMP180}} object. 
+
+Definition at line 36 of file Handle\+BMP180.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{37     \{}
+\DoxyCodeLine{38        ESP\_LOGI(\mbox{\hyperlink{class_handle_b_m_p180_a3020e573a19f109447926d0a32d9b829}{TAG}},\textcolor{stringliteral}{"{}Destructor BMP180 called.\(\backslash\)n"{}}); }
+\DoxyCodeLine{39     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_handle_b_m_p180_a88ab2fb9ac045ac674a38f05b207bed1}\label{class_handle_b_m_p180_a88ab2fb9ac045ac674a38f05b207bed1}} 
+\index{HandleBMP180@{HandleBMP180}!BMP180\_GetRawPressure@{BMP180\_GetRawPressure}}
+\index{BMP180\_GetRawPressure@{BMP180\_GetRawPressure}!HandleBMP180@{HandleBMP180}}
+\doxysubsubsection{\texorpdfstring{BMP180\_GetRawPressure()}{BMP180\_GetRawPressure()}}
+{\footnotesize\ttfamily uint16\+\_\+t Handle\+BMP180\+::\+BMP180\+\_\+\+Get\+Raw\+Pressure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Function to get the raw pressure from the BMP180. 
+
+\begin{DoxyReturn}{Returns}
+uint16\+\_\+t The Raw adc pressure value.
+\end{DoxyReturn}
+Private function to get the Raw pressure value from the BMP180. 
+
+Definition at line 141 of file Handle\+BMP180.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{142     \{}
+\DoxyCodeLine{143         \mbox{\hyperlink{class_handle_b_m_p180_aefe0bcfd65010dcdf836d0a1a62510d9}{BMP180\_Write\_Byte}}(0xF4, 0x34);}
+\DoxyCodeLine{144         ets\_delay\_us(4500);}
+\DoxyCodeLine{145         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_handle_b_m_p180_ada5a67535f46e8823dec217ce2629b6c}{BMP180\_Read\_16Bit}}(0xF6);}
+\DoxyCodeLine{146     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_handle_b_m_p180_ad2082ce3923f5dd78f54c418defecc4a}\label{class_handle_b_m_p180_ad2082ce3923f5dd78f54c418defecc4a}} 
+\index{HandleBMP180@{HandleBMP180}!BMP180\_GetRawTemperature@{BMP180\_GetRawTemperature}}
+\index{BMP180\_GetRawTemperature@{BMP180\_GetRawTemperature}!HandleBMP180@{HandleBMP180}}
+\doxysubsubsection{\texorpdfstring{BMP180\_GetRawTemperature()}{BMP180\_GetRawTemperature()}}
+{\footnotesize\ttfamily uint16\+\_\+t Handle\+BMP180\+::\+BMP180\+\_\+\+Get\+Raw\+Temperature (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Function to get the Raw temperature data from the BMP180. 
+
+\begin{DoxyReturn}{Returns}
+uint16\+\_\+t The returned two bytes.
+\end{DoxyReturn}
+Function to get the Raw adc temperature measurments from register 0x\+F6. 
+
+Definition at line 110 of file Handle\+BMP180.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{111     \{}
+\DoxyCodeLine{112         \mbox{\hyperlink{class_handle_b_m_p180_aefe0bcfd65010dcdf836d0a1a62510d9}{BMP180\_Write\_Byte}}(0xF4, 0x2E);}
+\DoxyCodeLine{113         ets\_delay\_us(4500);}
+\DoxyCodeLine{114         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_handle_b_m_p180_ada5a67535f46e8823dec217ce2629b6c}{BMP180\_Read\_16Bit}}(0xF6);}
+\DoxyCodeLine{115     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_handle_b_m_p180_a1a118138c007237c0a94e1b00620e767}\label{class_handle_b_m_p180_a1a118138c007237c0a94e1b00620e767}} 
+\index{HandleBMP180@{HandleBMP180}!BMP180\_GetTruePressure@{BMP180\_GetTruePressure}}
+\index{BMP180\_GetTruePressure@{BMP180\_GetTruePressure}!HandleBMP180@{HandleBMP180}}
+\doxysubsubsection{\texorpdfstring{BMP180\_GetTruePressure()}{BMP180\_GetTruePressure()}}
+{\footnotesize\ttfamily long Handle\+BMP180\+::\+BMP180\+\_\+\+Get\+True\+Pressure (\begin{DoxyParamCaption}\item[{const uint16\+\_\+t}]{\+\_\+\+Raw\+Pressure }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Function to go from raw pressure to true pressure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+Raw\+Pressure} & The Raw Pressure from register 0x\+F6 of the BMP180 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+long The Pressure value in pa
+\end{DoxyReturn}
+Function to calculate the raw pressure to true pressure. Returns the pressure value in pa. 
+
+Definition at line 156 of file Handle\+BMP180.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{157     \{}
+\DoxyCodeLine{158         \textcolor{keywordtype}{long} RawPressure = (long)\_RawPressure;}
+\DoxyCodeLine{159         \textcolor{keywordtype}{long} pressure;}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161         \textcolor{keywordtype}{long} B6 = \mbox{\hyperlink{class_handle_b_m_p180_a3311bf08cdc5a9e507d2b7dbcda56bb3}{B5}} -\/ 4000;}
+\DoxyCodeLine{162         \textcolor{keywordtype}{long} X1 = (\mbox{\hyperlink{class_handle_b_m_p180_aeac3f09213d68bfad45757f4f0630a29}{B2}} * (B6 * B6 / pow(2, 12))) / pow(2, 11);}
+\DoxyCodeLine{163         \textcolor{keywordtype}{long} X2 = \mbox{\hyperlink{class_handle_b_m_p180_addb2c9dfa6421eb5f871bc3f827f9e10}{AC2}} * B6 / pow(2, 11);}
+\DoxyCodeLine{164         \textcolor{keywordtype}{long} X3 = X1 + X2;}
+\DoxyCodeLine{165         \textcolor{keywordtype}{long} B3 = (((long)\mbox{\hyperlink{class_handle_b_m_p180_ac2e00f6a1ab047df7103649b26b146e8}{AC1}} * 4 + X3) + 2) / 4;}
+\DoxyCodeLine{166         X1 = \mbox{\hyperlink{class_handle_b_m_p180_a71e6c71ec86cb1368dfe587eb4014747}{AC3}} * B6 / pow(2, 13);}
+\DoxyCodeLine{167         X2 = (\mbox{\hyperlink{class_handle_b_m_p180_a4d2330b60875ec5a64905f4db40f77b8}{B1}} * (B6 * B6 / pow(2, 12))) / pow(2, 16);}
+\DoxyCodeLine{168         X3 = ((X1 + X2) + 2) / pow(2, 2);}
+\DoxyCodeLine{169         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} B4 = \mbox{\hyperlink{class_handle_b_m_p180_a1514e8b639d6da9f07004d9321e2f57f}{AC4}} * (\textcolor{keywordtype}{unsigned} long)(X3 + 32768) / pow(2, 15);}
+\DoxyCodeLine{170         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} B7 = ((\textcolor{keywordtype}{unsigned} long)RawPressure -\/ B3) * (5000);}
+\DoxyCodeLine{171         \textcolor{keywordflow}{if} (B7 < 0x80000000)}
+\DoxyCodeLine{172         \{}
+\DoxyCodeLine{173             pressure = (B7 * 2) / B4;}
+\DoxyCodeLine{174         \}}
+\DoxyCodeLine{175         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{176         \{}
+\DoxyCodeLine{177             pressure = (B7 / B4) * 2;}
+\DoxyCodeLine{178         \}}
+\DoxyCodeLine{179         X1 = (pressure / pow(2, 8)) * (pressure / pow(2, 8));}
+\DoxyCodeLine{180         X1 = (X1 * 3038) / pow(2, 16);}
+\DoxyCodeLine{181         X2 = (-\/7357 * pressure) / pow(2, 16);}
+\DoxyCodeLine{182         \textcolor{keywordflow}{return} (pressure + (X1 + X2 + 3791) / pow(2, 4));}
+\DoxyCodeLine{183     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_handle_b_m_p180_a20325c364361fefde03bbb629ae7003b}\label{class_handle_b_m_p180_a20325c364361fefde03bbb629ae7003b}} 
+\index{HandleBMP180@{HandleBMP180}!BMP180\_GetTrueTemperature@{BMP180\_GetTrueTemperature}}
+\index{BMP180\_GetTrueTemperature@{BMP180\_GetTrueTemperature}!HandleBMP180@{HandleBMP180}}
+\doxysubsubsection{\texorpdfstring{BMP180\_GetTrueTemperature()}{BMP180\_GetTrueTemperature()}}
+{\footnotesize\ttfamily long Handle\+BMP180\+::\+BMP180\+\_\+\+Get\+True\+Temperature (\begin{DoxyParamCaption}\item[{const uint16\+\_\+t}]{\+\_\+\+Raw\+Temperature }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Function to get the true temperature from the raw temperature. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+Raw\+Temperature} & The Raw adc temperature value from register 0x\+F6. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+long the True temperature value in 0.\+1 degrees celcius.
+\end{DoxyReturn}
+Private function to get the true temperature value from the Raw temperature. 
+
+Definition at line 125 of file Handle\+BMP180.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{126     \{}
+\DoxyCodeLine{127         \textcolor{keywordtype}{long} RawTemperature = (long)\_RawTemperature;}
+\DoxyCodeLine{128         \textcolor{keywordtype}{long} X1 = (RawTemperature -\/ \mbox{\hyperlink{class_handle_b_m_p180_aab8f7144aaa81480a37e6863ed913ed0}{AC6}}) * \mbox{\hyperlink{class_handle_b_m_p180_aa7899362a22a518fbdd6f28df19a285e}{AC5}} / pow(2, 15);}
+\DoxyCodeLine{129         \textcolor{keywordtype}{long} X2 = \mbox{\hyperlink{class_handle_b_m_p180_a6b77dc9fece58546cc9e9f102bbef26c}{MC}} * pow(2, 11) / (X1 + \mbox{\hyperlink{class_handle_b_m_p180_a017dd771fa381aa7f031a74d22b8d144}{MD}});}
+\DoxyCodeLine{130         \mbox{\hyperlink{class_handle_b_m_p180_a3311bf08cdc5a9e507d2b7dbcda56bb3}{B5}} = X1 + X2;}
+\DoxyCodeLine{131         \textcolor{keywordflow}{return} ((\mbox{\hyperlink{class_handle_b_m_p180_a3311bf08cdc5a9e507d2b7dbcda56bb3}{B5}} + 8) / pow(2, 4));}
+\DoxyCodeLine{132     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_handle_b_m_p180_ada5a67535f46e8823dec217ce2629b6c}\label{class_handle_b_m_p180_ada5a67535f46e8823dec217ce2629b6c}} 
+\index{HandleBMP180@{HandleBMP180}!BMP180\_Read\_16Bit@{BMP180\_Read\_16Bit}}
+\index{BMP180\_Read\_16Bit@{BMP180\_Read\_16Bit}!HandleBMP180@{HandleBMP180}}
+\doxysubsubsection{\texorpdfstring{BMP180\_Read\_16Bit()}{BMP180\_Read\_16Bit()}}
+{\footnotesize\ttfamily uint16\+\_\+t Handle\+BMP180\+::\+BMP180\+\_\+\+Read\+\_\+16\+Bit (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{Data\+Adress }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Function to read two bytes from the BMP180. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Data\+Adress} & The adress where the reading will start. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint16\+\_\+t The data that has been read from the BMP180.
+\end{DoxyReturn}
+Function to read 16 bits from the BMP180 using I2C. 
+
+Definition at line 217 of file Handle\+BMP180.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{218     \{}
+\DoxyCodeLine{219         i2c\_cmd\_handle\_t link\_cmd = i2c\_cmd\_link\_create();}
+\DoxyCodeLine{220         i2c\_master\_start(link\_cmd);}
+\DoxyCodeLine{221         i2c\_master\_write\_byte(link\_cmd, \mbox{\hyperlink{class_handle_b_m_p180_a1c4c9d82aabca904128424f62210a1e8}{BMP180\_I2C\_ADRESS\_Write}}, \textcolor{keyword}{true});}
+\DoxyCodeLine{222         i2c\_master\_write(link\_cmd, \&DataAdress, \textcolor{keyword}{sizeof}(DataAdress), \textcolor{keyword}{true});}
+\DoxyCodeLine{223         i2c\_master\_stop(link\_cmd);}
+\DoxyCodeLine{224         i2c\_master\_cmd\_begin(\mbox{\hyperlink{class_handle_b_m_p180_a8c60fac30402d82d0a670376859eee19}{I2C\_Port}}, link\_cmd, 1000 / portTICK\_RATE\_MS);}
+\DoxyCodeLine{225         i2c\_cmd\_link\_delete(link\_cmd);}
+\DoxyCodeLine{226 }
+\DoxyCodeLine{227         uint8\_t most\_significant\_bit;}
+\DoxyCodeLine{228         uint8\_t least\_significant\_bit;}
+\DoxyCodeLine{229         uint16\_t Result;}
+\DoxyCodeLine{230         link\_cmd = i2c\_cmd\_link\_create();}
+\DoxyCodeLine{231         i2c\_master\_start(link\_cmd);}
+\DoxyCodeLine{232         i2c\_master\_write\_byte(link\_cmd, \mbox{\hyperlink{class_handle_b_m_p180_a02dcc1d66921f2ff44aa44f8adf6d77c}{BMP180\_I2C\_ADRESS\_Read}}, \textcolor{keyword}{true});}
+\DoxyCodeLine{233         i2c\_master\_read\_byte(link\_cmd, \&most\_significant\_bit, I2C\_MASTER\_ACK);}
+\DoxyCodeLine{234         i2c\_master\_read\_byte(link\_cmd, \&least\_significant\_bit, I2C\_MASTER\_LAST\_NACK);}
+\DoxyCodeLine{235         i2c\_master\_stop(link\_cmd);}
+\DoxyCodeLine{236         i2c\_master\_cmd\_begin(\mbox{\hyperlink{class_handle_b_m_p180_a8c60fac30402d82d0a670376859eee19}{I2C\_Port}}, link\_cmd, 1000 / portTICK\_RATE\_MS);}
+\DoxyCodeLine{237         i2c\_cmd\_link\_delete(link\_cmd);}
+\DoxyCodeLine{238 }
+\DoxyCodeLine{239         Result = ((uint16\_t)most\_significant\_bit << 8) | least\_significant\_bit;}
+\DoxyCodeLine{240 }
+\DoxyCodeLine{241         \textcolor{keywordflow}{return} Result;}
+\DoxyCodeLine{242     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_handle_b_m_p180_afe52bfae4f2e435b79ee47a1a25cf24e}\label{class_handle_b_m_p180_afe52bfae4f2e435b79ee47a1a25cf24e}} 
+\index{HandleBMP180@{HandleBMP180}!BMP180\_SetCalibrationData@{BMP180\_SetCalibrationData}}
+\index{BMP180\_SetCalibrationData@{BMP180\_SetCalibrationData}!HandleBMP180@{HandleBMP180}}
+\doxysubsubsection{\texorpdfstring{BMP180\_SetCalibrationData()}{BMP180\_SetCalibrationData()}}
+{\footnotesize\ttfamily void Handle\+BMP180\+::\+BMP180\+\_\+\+Set\+Calibration\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Function to set the calibration data. 
+
+Private function to get the device specific calibration data. This data will later be used in calculations. 
+
+Definition at line 86 of file Handle\+BMP180.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{87     \{}
+\DoxyCodeLine{88         \mbox{\hyperlink{class_handle_b_m_p180_ac2e00f6a1ab047df7103649b26b146e8}{AC1}} = \mbox{\hyperlink{class_handle_b_m_p180_ada5a67535f46e8823dec217ce2629b6c}{BMP180\_Read\_16Bit}}(0xAA);}
+\DoxyCodeLine{89         \mbox{\hyperlink{class_handle_b_m_p180_addb2c9dfa6421eb5f871bc3f827f9e10}{AC2}} = \mbox{\hyperlink{class_handle_b_m_p180_ada5a67535f46e8823dec217ce2629b6c}{BMP180\_Read\_16Bit}}(0xAC);}
+\DoxyCodeLine{90         \mbox{\hyperlink{class_handle_b_m_p180_a71e6c71ec86cb1368dfe587eb4014747}{AC3}} = \mbox{\hyperlink{class_handle_b_m_p180_ada5a67535f46e8823dec217ce2629b6c}{BMP180\_Read\_16Bit}}(0xAE);}
+\DoxyCodeLine{91         \mbox{\hyperlink{class_handle_b_m_p180_a1514e8b639d6da9f07004d9321e2f57f}{AC4}} = \mbox{\hyperlink{class_handle_b_m_p180_ada5a67535f46e8823dec217ce2629b6c}{BMP180\_Read\_16Bit}}(0xB0);}
+\DoxyCodeLine{92         \mbox{\hyperlink{class_handle_b_m_p180_aa7899362a22a518fbdd6f28df19a285e}{AC5}} = \mbox{\hyperlink{class_handle_b_m_p180_ada5a67535f46e8823dec217ce2629b6c}{BMP180\_Read\_16Bit}}(0xB2);}
+\DoxyCodeLine{93         \mbox{\hyperlink{class_handle_b_m_p180_aab8f7144aaa81480a37e6863ed913ed0}{AC6}} = \mbox{\hyperlink{class_handle_b_m_p180_ada5a67535f46e8823dec217ce2629b6c}{BMP180\_Read\_16Bit}}(0xB4);}
+\DoxyCodeLine{94         \mbox{\hyperlink{class_handle_b_m_p180_a4d2330b60875ec5a64905f4db40f77b8}{B1}}  = \mbox{\hyperlink{class_handle_b_m_p180_ada5a67535f46e8823dec217ce2629b6c}{BMP180\_Read\_16Bit}}(0xB6);}
+\DoxyCodeLine{95         \mbox{\hyperlink{class_handle_b_m_p180_aeac3f09213d68bfad45757f4f0630a29}{B2}}  = \mbox{\hyperlink{class_handle_b_m_p180_ada5a67535f46e8823dec217ce2629b6c}{BMP180\_Read\_16Bit}}(0xB8);}
+\DoxyCodeLine{96         \mbox{\hyperlink{class_handle_b_m_p180_abd70a677fd19bd2d1ab108115f76c809}{MB}}  = \mbox{\hyperlink{class_handle_b_m_p180_ada5a67535f46e8823dec217ce2629b6c}{BMP180\_Read\_16Bit}}(0xBA);}
+\DoxyCodeLine{97         \mbox{\hyperlink{class_handle_b_m_p180_a6b77dc9fece58546cc9e9f102bbef26c}{MC}}  = \mbox{\hyperlink{class_handle_b_m_p180_ada5a67535f46e8823dec217ce2629b6c}{BMP180\_Read\_16Bit}}(0xBC);}
+\DoxyCodeLine{98         \mbox{\hyperlink{class_handle_b_m_p180_a017dd771fa381aa7f031a74d22b8d144}{MD}}  = \mbox{\hyperlink{class_handle_b_m_p180_ada5a67535f46e8823dec217ce2629b6c}{BMP180\_Read\_16Bit}}(0xBE);}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100         ESP\_LOGD(\mbox{\hyperlink{class_handle_b_m_p180_a3020e573a19f109447926d0a32d9b829}{TAG}},\textcolor{stringliteral}{"{}Calibration Data: \%d, \%d, \%d, \%d, \%d, \%d, \%d, \%d, \%d, \%d, \%d\(\backslash\)n"{}},\mbox{\hyperlink{class_handle_b_m_p180_ac2e00f6a1ab047df7103649b26b146e8}{AC1}},\mbox{\hyperlink{class_handle_b_m_p180_addb2c9dfa6421eb5f871bc3f827f9e10}{AC2}},\mbox{\hyperlink{class_handle_b_m_p180_a71e6c71ec86cb1368dfe587eb4014747}{AC3}},\mbox{\hyperlink{class_handle_b_m_p180_a1514e8b639d6da9f07004d9321e2f57f}{AC4}},\mbox{\hyperlink{class_handle_b_m_p180_aa7899362a22a518fbdd6f28df19a285e}{AC5}},\mbox{\hyperlink{class_handle_b_m_p180_aab8f7144aaa81480a37e6863ed913ed0}{AC6}},\mbox{\hyperlink{class_handle_b_m_p180_a4d2330b60875ec5a64905f4db40f77b8}{B1}},\mbox{\hyperlink{class_handle_b_m_p180_aeac3f09213d68bfad45757f4f0630a29}{B2}},\mbox{\hyperlink{class_handle_b_m_p180_abd70a677fd19bd2d1ab108115f76c809}{MB}},\mbox{\hyperlink{class_handle_b_m_p180_a6b77dc9fece58546cc9e9f102bbef26c}{MC}},\mbox{\hyperlink{class_handle_b_m_p180_a017dd771fa381aa7f031a74d22b8d144}{MD}});}
+\DoxyCodeLine{101     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_handle_b_m_p180_aefe0bcfd65010dcdf836d0a1a62510d9}\label{class_handle_b_m_p180_aefe0bcfd65010dcdf836d0a1a62510d9}} 
+\index{HandleBMP180@{HandleBMP180}!BMP180\_Write\_Byte@{BMP180\_Write\_Byte}}
+\index{BMP180\_Write\_Byte@{BMP180\_Write\_Byte}!HandleBMP180@{HandleBMP180}}
+\doxysubsubsection{\texorpdfstring{BMP180\_Write\_Byte()}{BMP180\_Write\_Byte()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t Handle\+BMP180\+::\+BMP180\+\_\+\+Write\+\_\+\+Byte (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{Write\+Adress,  }\item[{uint8\+\_\+t}]{Write\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Function to write a byte to the BMP180. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Write\+Adress} & The adress where the data will be written to. \\
+\hline
+{\em Write\+Data} & The data that will be written to the BMP180.\\
+\hline
+\end{DoxyParams}
+Function to write a byte of data to the BMP180 using I2c. 
+
+Definition at line 193 of file Handle\+BMP180.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{194     \{}
+\DoxyCodeLine{195         esp\_err\_t Error = ESP\_OK;}
+\DoxyCodeLine{196         i2c\_cmd\_handle\_t link\_cmd = i2c\_cmd\_link\_create();}
+\DoxyCodeLine{197         Error |= i2c\_master\_start(link\_cmd);}
+\DoxyCodeLine{198         Error |= i2c\_master\_write\_byte(link\_cmd, \mbox{\hyperlink{class_handle_b_m_p180_a1c4c9d82aabca904128424f62210a1e8}{BMP180\_I2C\_ADRESS\_Write}}, \textcolor{keyword}{true});}
+\DoxyCodeLine{199         Error |= i2c\_master\_write(link\_cmd, \&WriteAdress, \textcolor{keyword}{sizeof}(WriteAdress), \textcolor{keyword}{true});}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{201         Error |= i2c\_master\_write(link\_cmd, \&WriteData, \textcolor{keyword}{sizeof}(WriteData), \textcolor{keyword}{true});}
+\DoxyCodeLine{202         Error |= i2c\_master\_stop(link\_cmd);}
+\DoxyCodeLine{203         Error |= i2c\_master\_cmd\_begin(\mbox{\hyperlink{class_handle_b_m_p180_a8c60fac30402d82d0a670376859eee19}{I2C\_Port}}, link\_cmd, 1000 / portTICK\_RATE\_MS);}
+\DoxyCodeLine{204         i2c\_cmd\_link\_delete(link\_cmd);}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{206         \textcolor{keywordflow}{return} Error;}
+\DoxyCodeLine{207     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_handle_b_m_p180_a7c5ada7aa4afb913733afd7af49f6489}\label{class_handle_b_m_p180_a7c5ada7aa4afb913733afd7af49f6489}} 
+\index{HandleBMP180@{HandleBMP180}!GetAltitude@{GetAltitude}}
+\index{GetAltitude@{GetAltitude}!HandleBMP180@{HandleBMP180}}
+\doxysubsubsection{\texorpdfstring{GetAltitude()}{GetAltitude()}}
+{\footnotesize\ttfamily float Handle\+BMP180\+::\+Get\+Altitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to get the relative altitude. 
+
+\begin{DoxyReturn}{Returns}
+float altitude value (Meter).
+\end{DoxyReturn}
+User function to easily get the relative altitude based on the measured pressure and the pressure at sea level. 
+
+Definition at line 61 of file Handle\+BMP180.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{62     \{}
+\DoxyCodeLine{63         \textcolor{keywordtype}{float} pressure = \mbox{\hyperlink{class_handle_b_m_p180_abcd9611b7da032055a83b30da33a92f7}{GetPressure}}();}
+\DoxyCodeLine{64         \textcolor{keywordtype}{float} altitude = 44330 * (1 -\/ pow((pressure / 1013.25), (1.0 / 5.255)));}
+\DoxyCodeLine{65         \textcolor{keywordflow}{return} altitude;}
+\DoxyCodeLine{66     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_handle_b_m_p180_abcd9611b7da032055a83b30da33a92f7}\label{class_handle_b_m_p180_abcd9611b7da032055a83b30da33a92f7}} 
+\index{HandleBMP180@{HandleBMP180}!GetPressure@{GetPressure}}
+\index{GetPressure@{GetPressure}!HandleBMP180@{HandleBMP180}}
+\doxysubsubsection{\texorpdfstring{GetPressure()}{GetPressure()}}
+{\footnotesize\ttfamily float Handle\+BMP180\+::\+Get\+Pressure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to get the measured pressure. 
+
+\begin{DoxyReturn}{Returns}
+float pressure value (Hpa).
+\end{DoxyReturn}
+User function to get the True pressure measured. 
+
+Definition at line 48 of file Handle\+BMP180.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{49     \{}
+\DoxyCodeLine{50         \mbox{\hyperlink{class_handle_b_m_p180_a20325c364361fefde03bbb629ae7003b}{BMP180\_GetTrueTemperature}}(\mbox{\hyperlink{class_handle_b_m_p180_ad2082ce3923f5dd78f54c418defecc4a}{BMP180\_GetRawTemperature}}()); \textcolor{comment}{//update values}}
+\DoxyCodeLine{51         \textcolor{keywordflow}{return} (((\textcolor{keywordtype}{float})\mbox{\hyperlink{class_handle_b_m_p180_a1a118138c007237c0a94e1b00620e767}{BMP180\_GetTruePressure}}(\mbox{\hyperlink{class_handle_b_m_p180_a88ab2fb9ac045ac674a38f05b207bed1}{BMP180\_GetRawPressure}}())) / 10);}
+\DoxyCodeLine{52     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_handle_b_m_p180_af7a943b876d5a26f6369070f1a2dc793}\label{class_handle_b_m_p180_af7a943b876d5a26f6369070f1a2dc793}} 
+\index{HandleBMP180@{HandleBMP180}!GetTemperature@{GetTemperature}}
+\index{GetTemperature@{GetTemperature}!HandleBMP180@{HandleBMP180}}
+\doxysubsubsection{\texorpdfstring{GetTemperature()}{GetTemperature()}}
+{\footnotesize\ttfamily float Handle\+BMP180\+::\+Get\+Temperature (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to get the Temperature. 
+
+\begin{DoxyReturn}{Returns}
+float Temperature in (celcius).
+\end{DoxyReturn}
+User function to get the true temperature. 
+
+Definition at line 75 of file Handle\+BMP180.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{76     \{}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78         \textcolor{keywordflow}{return} (((\textcolor{keywordtype}{float})\mbox{\hyperlink{class_handle_b_m_p180_a20325c364361fefde03bbb629ae7003b}{BMP180\_GetTrueTemperature}}(\mbox{\hyperlink{class_handle_b_m_p180_ad2082ce3923f5dd78f54c418defecc4a}{BMP180\_GetRawTemperature}}())) / 10);}
+\DoxyCodeLine{79     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_handle_b_m_p180_ac2e00f6a1ab047df7103649b26b146e8}\label{class_handle_b_m_p180_ac2e00f6a1ab047df7103649b26b146e8}} 
+\index{HandleBMP180@{HandleBMP180}!AC1@{AC1}}
+\index{AC1@{AC1}!HandleBMP180@{HandleBMP180}}
+\doxysubsubsection{\texorpdfstring{AC1}{AC1}}
+{\footnotesize\ttfamily short Handle\+BMP180\+::\+AC1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 53 of file Handle\+BMP180.\+h.
+
+\mbox{\Hypertarget{class_handle_b_m_p180_addb2c9dfa6421eb5f871bc3f827f9e10}\label{class_handle_b_m_p180_addb2c9dfa6421eb5f871bc3f827f9e10}} 
+\index{HandleBMP180@{HandleBMP180}!AC2@{AC2}}
+\index{AC2@{AC2}!HandleBMP180@{HandleBMP180}}
+\doxysubsubsection{\texorpdfstring{AC2}{AC2}}
+{\footnotesize\ttfamily short Handle\+BMP180\+::\+AC2\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 54 of file Handle\+BMP180.\+h.
+
+\mbox{\Hypertarget{class_handle_b_m_p180_a71e6c71ec86cb1368dfe587eb4014747}\label{class_handle_b_m_p180_a71e6c71ec86cb1368dfe587eb4014747}} 
+\index{HandleBMP180@{HandleBMP180}!AC3@{AC3}}
+\index{AC3@{AC3}!HandleBMP180@{HandleBMP180}}
+\doxysubsubsection{\texorpdfstring{AC3}{AC3}}
+{\footnotesize\ttfamily short Handle\+BMP180\+::\+AC3\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 55 of file Handle\+BMP180.\+h.
+
+\mbox{\Hypertarget{class_handle_b_m_p180_a1514e8b639d6da9f07004d9321e2f57f}\label{class_handle_b_m_p180_a1514e8b639d6da9f07004d9321e2f57f}} 
+\index{HandleBMP180@{HandleBMP180}!AC4@{AC4}}
+\index{AC4@{AC4}!HandleBMP180@{HandleBMP180}}
+\doxysubsubsection{\texorpdfstring{AC4}{AC4}}
+{\footnotesize\ttfamily unsigned short Handle\+BMP180\+::\+AC4\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 56 of file Handle\+BMP180.\+h.
+
+\mbox{\Hypertarget{class_handle_b_m_p180_aa7899362a22a518fbdd6f28df19a285e}\label{class_handle_b_m_p180_aa7899362a22a518fbdd6f28df19a285e}} 
+\index{HandleBMP180@{HandleBMP180}!AC5@{AC5}}
+\index{AC5@{AC5}!HandleBMP180@{HandleBMP180}}
+\doxysubsubsection{\texorpdfstring{AC5}{AC5}}
+{\footnotesize\ttfamily unsigned short Handle\+BMP180\+::\+AC5\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 57 of file Handle\+BMP180.\+h.
+
+\mbox{\Hypertarget{class_handle_b_m_p180_aab8f7144aaa81480a37e6863ed913ed0}\label{class_handle_b_m_p180_aab8f7144aaa81480a37e6863ed913ed0}} 
+\index{HandleBMP180@{HandleBMP180}!AC6@{AC6}}
+\index{AC6@{AC6}!HandleBMP180@{HandleBMP180}}
+\doxysubsubsection{\texorpdfstring{AC6}{AC6}}
+{\footnotesize\ttfamily unsigned short Handle\+BMP180\+::\+AC6\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 58 of file Handle\+BMP180.\+h.
+
+\mbox{\Hypertarget{class_handle_b_m_p180_a4d2330b60875ec5a64905f4db40f77b8}\label{class_handle_b_m_p180_a4d2330b60875ec5a64905f4db40f77b8}} 
+\index{HandleBMP180@{HandleBMP180}!B1@{B1}}
+\index{B1@{B1}!HandleBMP180@{HandleBMP180}}
+\doxysubsubsection{\texorpdfstring{B1}{B1}}
+{\footnotesize\ttfamily short Handle\+BMP180\+::\+B1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 59 of file Handle\+BMP180.\+h.
+
+\mbox{\Hypertarget{class_handle_b_m_p180_aeac3f09213d68bfad45757f4f0630a29}\label{class_handle_b_m_p180_aeac3f09213d68bfad45757f4f0630a29}} 
+\index{HandleBMP180@{HandleBMP180}!B2@{B2}}
+\index{B2@{B2}!HandleBMP180@{HandleBMP180}}
+\doxysubsubsection{\texorpdfstring{B2}{B2}}
+{\footnotesize\ttfamily short Handle\+BMP180\+::\+B2\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 60 of file Handle\+BMP180.\+h.
+
+\mbox{\Hypertarget{class_handle_b_m_p180_a3311bf08cdc5a9e507d2b7dbcda56bb3}\label{class_handle_b_m_p180_a3311bf08cdc5a9e507d2b7dbcda56bb3}} 
+\index{HandleBMP180@{HandleBMP180}!B5@{B5}}
+\index{B5@{B5}!HandleBMP180@{HandleBMP180}}
+\doxysubsubsection{\texorpdfstring{B5}{B5}}
+{\footnotesize\ttfamily long Handle\+BMP180\+::\+B5\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 65 of file Handle\+BMP180.\+h.
+
+\mbox{\Hypertarget{class_handle_b_m_p180_a02dcc1d66921f2ff44aa44f8adf6d77c}\label{class_handle_b_m_p180_a02dcc1d66921f2ff44aa44f8adf6d77c}} 
+\index{HandleBMP180@{HandleBMP180}!BMP180\_I2C\_ADRESS\_Read@{BMP180\_I2C\_ADRESS\_Read}}
+\index{BMP180\_I2C\_ADRESS\_Read@{BMP180\_I2C\_ADRESS\_Read}!HandleBMP180@{HandleBMP180}}
+\doxysubsubsection{\texorpdfstring{BMP180\_I2C\_ADRESS\_Read}{BMP180\_I2C\_ADRESS\_Read}}
+{\footnotesize\ttfamily const uint8\+\_\+t Handle\+BMP180\+::\+BMP180\+\_\+\+I2\+C\+\_\+\+ADRESS\+\_\+\+Read = 0b11101111\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 49 of file Handle\+BMP180.\+h.
+
+\mbox{\Hypertarget{class_handle_b_m_p180_a1c4c9d82aabca904128424f62210a1e8}\label{class_handle_b_m_p180_a1c4c9d82aabca904128424f62210a1e8}} 
+\index{HandleBMP180@{HandleBMP180}!BMP180\_I2C\_ADRESS\_Write@{BMP180\_I2C\_ADRESS\_Write}}
+\index{BMP180\_I2C\_ADRESS\_Write@{BMP180\_I2C\_ADRESS\_Write}!HandleBMP180@{HandleBMP180}}
+\doxysubsubsection{\texorpdfstring{BMP180\_I2C\_ADRESS\_Write}{BMP180\_I2C\_ADRESS\_Write}}
+{\footnotesize\ttfamily const uint8\+\_\+t Handle\+BMP180\+::\+BMP180\+\_\+\+I2\+C\+\_\+\+ADRESS\+\_\+\+Write = 0b11101110\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 48 of file Handle\+BMP180.\+h.
+
+\mbox{\Hypertarget{class_handle_b_m_p180_a8c60fac30402d82d0a670376859eee19}\label{class_handle_b_m_p180_a8c60fac30402d82d0a670376859eee19}} 
+\index{HandleBMP180@{HandleBMP180}!I2C\_Port@{I2C\_Port}}
+\index{I2C\_Port@{I2C\_Port}!HandleBMP180@{HandleBMP180}}
+\doxysubsubsection{\texorpdfstring{I2C\_Port}{I2C\_Port}}
+{\footnotesize\ttfamily const i2c\+\_\+port\+\_\+t Handle\+BMP180\+::\+I2\+C\+\_\+\+Port = I2\+C\+\_\+\+NUM\+\_\+1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 51 of file Handle\+BMP180.\+h.
+
+\mbox{\Hypertarget{class_handle_b_m_p180_abd70a677fd19bd2d1ab108115f76c809}\label{class_handle_b_m_p180_abd70a677fd19bd2d1ab108115f76c809}} 
+\index{HandleBMP180@{HandleBMP180}!MB@{MB}}
+\index{MB@{MB}!HandleBMP180@{HandleBMP180}}
+\doxysubsubsection{\texorpdfstring{MB}{MB}}
+{\footnotesize\ttfamily short Handle\+BMP180\+::\+MB\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 61 of file Handle\+BMP180.\+h.
+
+\mbox{\Hypertarget{class_handle_b_m_p180_a6b77dc9fece58546cc9e9f102bbef26c}\label{class_handle_b_m_p180_a6b77dc9fece58546cc9e9f102bbef26c}} 
+\index{HandleBMP180@{HandleBMP180}!MC@{MC}}
+\index{MC@{MC}!HandleBMP180@{HandleBMP180}}
+\doxysubsubsection{\texorpdfstring{MC}{MC}}
+{\footnotesize\ttfamily short Handle\+BMP180\+::\+MC\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 62 of file Handle\+BMP180.\+h.
+
+\mbox{\Hypertarget{class_handle_b_m_p180_a017dd771fa381aa7f031a74d22b8d144}\label{class_handle_b_m_p180_a017dd771fa381aa7f031a74d22b8d144}} 
+\index{HandleBMP180@{HandleBMP180}!MD@{MD}}
+\index{MD@{MD}!HandleBMP180@{HandleBMP180}}
+\doxysubsubsection{\texorpdfstring{MD}{MD}}
+{\footnotesize\ttfamily short Handle\+BMP180\+::\+MD\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 63 of file Handle\+BMP180.\+h.
+
+\mbox{\Hypertarget{class_handle_b_m_p180_a3020e573a19f109447926d0a32d9b829}\label{class_handle_b_m_p180_a3020e573a19f109447926d0a32d9b829}} 
+\index{HandleBMP180@{HandleBMP180}!TAG@{TAG}}
+\index{TAG@{TAG}!HandleBMP180@{HandleBMP180}}
+\doxysubsubsection{\texorpdfstring{TAG}{TAG}}
+{\footnotesize\ttfamily constexpr static const char$\ast$ Handle\+BMP180\+::\+TAG = \char`\"{}BMP180\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Definition at line 67 of file Handle\+BMP180.\+h.
+

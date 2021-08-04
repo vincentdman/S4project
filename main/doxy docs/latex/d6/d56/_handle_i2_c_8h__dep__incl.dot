@@ -1,0 +1,23 @@
+digraph "C:/esp/Projects/RGB/template-app/main/include/HandleI2C.h"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="C:/esp/Projects/RGB\l/template-app/main/include\l/HandleI2C.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Header file for HandleI2c (.h)"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="C:/esp/Projects/RGB\l/template-app/main/include\l/HandleBMP180.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$de/d64/_handle_b_m_p180_8h.html",tooltip="Handler of BMP180 sensor (.h)"];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="C:/esp/Projects/RGB\l/template-app/main/include\l/main.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d4/dbf/main_8h.html",tooltip=" "];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="C:/esp/Projects/RGB\l/template-app/main/main.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$df/d0a/main_8cpp.html",tooltip="Main application for S4 Project (.cpp)"];
+  Node2 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="C:/esp/Projects/RGB\l/template-app/main/src\l/HandleBMP180.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$de/d31/_handle_b_m_p180_8cpp.html",tooltip="Handler of BMP180 sensor (.cpp)"];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="C:/esp/Projects/RGB\l/template-app/main/include\l/LCD_Control.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d0/d0a/_l_c_d___control_8h.html",tooltip="Header file for the LCD_Control Class (.h)."];
+  Node6 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="C:/esp/Projects/RGB\l/template-app/main/src\l/LCD_Control.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d6/dfb/_l_c_d___control_8cpp.html",tooltip="Source file for LCD_Control class."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="C:/esp/Projects/RGB\l/template-app/main/src\l/HandleI2C.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d2/dca/_handle_i2_c_8cpp.html",tooltip="Source file for HandleI2c.cpp."];
+}
