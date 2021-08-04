@@ -11,20 +11,21 @@
 
  extern "C" void app_main(void)
  {
-   
+   HandleHID HID(GPIO_NUM_4);
    while(1)
    {
-
+     ESP_LOGI(TAG, "state : %d",HID.GetState());
+     vTaskDelay(100/portTICK_PERIOD_MS);
    }
 
  }
-/*
 
 
 
 
 
-*/ 
+
+ 
 
   //TODO things to implement:
   //TODO private stuff should have underscores

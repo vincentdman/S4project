@@ -10,6 +10,7 @@
  */
 #include <driver/gpio.h>
 
+#include "handlepin.h"
 #include "esp_log.h"
 #include "esp_err.h"
 
@@ -19,9 +20,11 @@ extern "C" {
     {
         public:
             HandleHID(const gpio_num_t Output);
-        
+            [[nodiscard]] int GetState(void);
         private: 
+            HandlePIN _OutputPin;
 
+            constexpr static const char* TAG = "HID";
     };
 
 
