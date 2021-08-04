@@ -12,3 +12,4 @@ main/documentation
 out/
 main/scripts
 doxy docs/ 
+doxy_docs/ 
