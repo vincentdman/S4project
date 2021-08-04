@@ -39,6 +39,7 @@
 #include "HandlePIN.h"
 #include "cstdlib"
 #include "HandleJOYstick.h"
+#include "HandleHID.h"
 
 #define Build_Version 3.0
 

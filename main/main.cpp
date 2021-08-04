@@ -9,39 +9,22 @@
  */
 #include "main.h"
 
-
  extern "C" void app_main(void)
  {
-   HandleJOYstick JOY(GPIO_NUM_15,GPIO_NUM_26,GPIO_NUM_4);
-   RGB_Control RGB(GPIO_NUM_23,GPIO_NUM_19,GPIO_NUM_25);  
-   LCD_Pinout_t empty;
-   empty._BitMode = I2CMode;
-   LCD_Control LCD(empty);
-   LCD.LCD_Write_Command(LCD_CURSOR_BLINK_OFF_CURSOR_OFF);
-   LCD.LCD_Write_Command(LCD_NEXT_LINE);
-
-    int SetR = 0;
-    int SetG = 0;
-    int SetB = 0; 
    
    while(1)
    {
-     JOY_Data_t t = JOY.GetConverted(); 
-     
-      SetR = t.VRX + 50; 
-      SetG = t.VRY + 50;
-      SetB = SetR * SetG / 100;
-     RGB.SetRGB(SetR,SetG,SetB);
-    ESP_LOGI(TAG,"test");
 
-     vTaskDelay(1000/portTICK_PERIOD_MS);
    }
 
  }
+/*
 
 
 
 
+
+*/ 
 
   //TODO things to implement:
   //TODO private stuff should have underscores
