@@ -15,7 +15,7 @@
 extern "C" {
 
     HandleHID::HandleHID(const gpio_num_t Output)
-        : _OutputPin(Output, GPIO_MODE_INPUT, GPIO_FLOATING)
+        : _OutputPin(Output, GPIO_MODE_INPUT, GPIO_PULLDOWN_ONLY)
     {
         ESP_LOGI(TAG,"Handle Class for the HID has been created\n");     
     }

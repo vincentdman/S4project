@@ -11,11 +11,16 @@
 
  extern "C" void app_main(void)
  {
-   HandleHID HID(GPIO_NUM_4);
+    
+    ESP_LOGI(TAG,"Started!\n");
    while(1)
    {
-     ESP_LOGI(TAG, "state : %d",HID.GetState());
-     vTaskDelay(100/portTICK_PERIOD_MS);
+    
+       
+     
+    
+     
+     vTaskDelay(10/portTICK_PERIOD_MS);
    }
 
  }

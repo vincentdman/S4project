@@ -40,6 +40,8 @@
 #include "cstdlib"
 #include "HandleJOYstick.h"
 #include "HandleHID.h"
+#include "esp_task_wdt.h"
+#include "HandleSPI.h"
 
 #define Build_Version 3.0
 
