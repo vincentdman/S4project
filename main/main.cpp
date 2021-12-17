@@ -8,7 +8,7 @@
  * @details main.cpp main code for project S4  
  */
 #include "main.h"
-
+//ESP_ERROR_CHECK(Error);
  extern "C" void app_main(void)
  {
     
