@@ -11,7 +11,7 @@
 //ESP_ERROR_CHECK(Error);
  extern "C" void app_main(void)
  {
-    
+    HandleSPI SPI();
     ESP_LOGI(TAG,"Started!\n");
    while(1)
    {

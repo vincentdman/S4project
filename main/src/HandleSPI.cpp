@@ -11,21 +11,28 @@
 
 #include "HandleSPI.h"
 
-extern"C"
+extern "C"
 {
 
-HandleSPI::HandleSPI(spi_host_device_t Host = SPI1_HOST)
-    : SPI_Host(Host)
-{
-    SPI_Initialize();
-}
-esp_err_t HandleSPI::SPI_Initialize()
-{
-    esp_err_t Error = ESP_OK;
-    Error = spi_bus_initialize(SPI_Host, &SPI_Config, SPI_DMA_CH_AUTO);
-    
-    return Error;
-}
+    HandleSPI::HandleSPI(spi_host_device_t Host = SPI1_HOST)
+        : SPI_Host(Host)
+    {
+        SPI_Initialize();
+        SPI_AddBus();
+    }
+    esp_err_t HandleSPI::SPI_Initialize()
+    {
+        ESP_LOGI(TAG, "Initialized SPI!");
+        return spi_bus_initialize(SPI_Host, &SPI_Config, SPI_DMA_CH_AUTO);
+    }
 
+    esp_err_t HandleSPI::SPI_AddBus()
+    {
+        return spi_bus_add_device(SPI_Host, &SPI_DeviceConfig, &SPI_DeviceHandle);
+    }
 
+    HandleSPI::~HandleSPI()
+    {
+        spi_bus_remove_device(SPI_DeviceHandle);
+    }
 }

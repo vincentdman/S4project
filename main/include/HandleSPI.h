@@ -16,6 +16,7 @@
 #include "driver/spi_master.h"
 #include "driver/gpio.h"
 #include "esp_err.h"
+#include "esp_log.h"
 
 
 extern "C"
@@ -24,11 +25,13 @@ extern "C"
     {
     public:
         HandleSPI(spi_host_device_t Host);
-
+        ~HandleSPI();
     private:
         esp_err_t SPI_Initialize();
+        esp_err_t SPI_AddBus();
 
         const spi_host_device_t SPI_Host;
+
         spi_bus_config_t SPI_Config =
         {
             .mosi_io_num = GPIO_NUM_12,
@@ -40,6 +43,7 @@ extern "C"
             .flags = SPICOMMON_BUSFLAG_MASTER | SPICOMMON_BUSFLAG_SCLK | SPICOMMON_BUSFLAG_MISO | SPICOMMON_BUSFLAG_MOSI,
             .intr_flags = ESP_INTR_FLAG_INTRDISABLED
         };
+        spi_device_handle_t SPI_DeviceHandle;
 
         spi_device_interface_config_t SPI_DeviceConfig = 
         {
@@ -49,6 +53,8 @@ extern "C"
         .queue_size=7,                          //We want to be able to queue 7 transactions at a time
         //.pre_cb=lcd_spi_pre_transfer_callback,  //Specify pre-transfer callback to handle D/C line
         };
+        constexpr static const char *TAG = "SPI";
+       
     };
 
 }
