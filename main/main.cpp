@@ -15,7 +15,11 @@
     ESP_LOGI(TAG,"Started!\n");
    while(1)
    {
-    
+    spi_transaction_t send = 
+    {
+      .flags = 0,
+
+    };
        
      
     

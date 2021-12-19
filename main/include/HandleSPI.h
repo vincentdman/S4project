@@ -26,6 +26,7 @@ extern "C"
     public:
         HandleSPI(spi_host_device_t Host);
         ~HandleSPI();
+        esp_err_t SPI_Send(spi_transaction_t *transaction);
     private:
         esp_err_t SPI_Initialize();
         esp_err_t SPI_AddBus();

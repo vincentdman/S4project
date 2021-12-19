@@ -35,4 +35,9 @@ extern "C"
     {
         spi_bus_remove_device(SPI_DeviceHandle);
     }
+
+    esp_err_t HandleSPI::SPI_Send(spi_transaction_t *transaction)
+    {
+        return spi_device_polling_transmit(SPI_DeviceHandle, transaction);
+    }
 }
