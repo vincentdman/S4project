@@ -14,6 +14,7 @@
 
 #include "driver/spi_common.h"
 #include "driver/spi_master.h"
+#include "C:/esp/idf/esp-idf/components/hal/include/hal/spi_types.h"
 #include "driver/gpio.h"
 #include "esp_err.h"
 #include "esp_log.h"
@@ -24,9 +25,10 @@ extern "C"
     class HandleSPI
     {
     public:
-        HandleSPI(spi_host_device_t Host);
+        HandleSPI(spi_host_device_t Host = SPI2_HOST);
         ~HandleSPI();
         esp_err_t SPI_Send(spi_transaction_t *transaction);
+        //esp_err_t SPI_Send(spi_transaction_t *transaction);
     private:
         esp_err_t SPI_Initialize();
         esp_err_t SPI_AddBus();
@@ -42,17 +44,20 @@ extern "C"
             .quadhd_io_num = -1,
             .max_transfer_sz = 0,
             .flags = SPICOMMON_BUSFLAG_MASTER | SPICOMMON_BUSFLAG_SCLK | SPICOMMON_BUSFLAG_MISO | SPICOMMON_BUSFLAG_MOSI,
-            .intr_flags = ESP_INTR_FLAG_INTRDISABLED
+            //.intr_flags = ESP_INTR_DISABLE
         };
         spi_device_handle_t SPI_DeviceHandle;
 
         spi_device_interface_config_t SPI_DeviceConfig = 
         {
-        .mode=0,      //SPI mode 0
-        .clock_speed_hz= 4000000u,                   //Clock out at 26 MHz                   
+        .command_bits=0,
+        .address_bits=8,
+        .dummy_bits=0, 
+        .mode= 0,      //SPI mode 0
+        .clock_speed_hz= 400000u,                   //Clock out at 26 MHz                   
         .spics_io_num = GPIO_NUM_4,               //CS pin
         .queue_size=7,                          //We want to be able to queue 7 transactions at a time
-        //.pre_cb=lcd_spi_pre_transfer_callback,  //Specify pre-transfer callback to handle D/C line
+      
         };
         constexpr static const char *TAG = "SPI";
        

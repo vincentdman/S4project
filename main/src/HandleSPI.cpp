@@ -14,16 +14,23 @@
 extern "C"
 {
 
-    HandleSPI::HandleSPI(spi_host_device_t Host = SPI1_HOST)
+    HandleSPI::HandleSPI(spi_host_device_t Host)
         : SPI_Host(Host)
     {
-        SPI_Initialize();
-        SPI_AddBus();
+        esp_err_t Error = ESP_OK;
+        Error |= SPI_Initialize();
+        ESP_ERROR_CHECK(Error);
+        Error |= SPI_AddBus();
+        ESP_ERROR_CHECK(Error);
+        if(Error != ESP_OK)
+        {
+            ESP_LOGE(TAG,"Error init");
+        }
     }
     esp_err_t HandleSPI::SPI_Initialize()
     {
         ESP_LOGI(TAG, "Initialized SPI!");
-        return spi_bus_initialize(SPI_Host, &SPI_Config, SPI_DMA_CH_AUTO);
+        return spi_bus_initialize(SPI_Host, &SPI_Config, 0 );//SPI_DMA_CH_AUTO);
     }
 
     esp_err_t HandleSPI::SPI_AddBus()
